@@ -1,0 +1,8 @@
+.env
+*.pth
+myenv/
+*.log
+exploits/
+backup_exploits/
+.idea/
+vulnerabilities*
