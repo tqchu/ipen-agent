@@ -29,7 +29,7 @@ class VulnerabilityScanner(BaseTool):
         # Use Nmap with vulners or vuln scripts to identify vulnerabilities on open ports
         args = "--script vulners -sV -T4 -Pn"
 
-        future_actions = []
+        # future_actions = []
 
         # Parse script output for vulnerabilities
         if self.use_cache_vulners:
@@ -57,7 +57,7 @@ class VulnerabilityScanner(BaseTool):
             for vuln in cves:
                 f.write(f"{vuln}\n")
 
-        for vuln in cves:
+        # for vuln in cves:
             # matching_auxiliary_modules = self.msf.get_auxiliary_for_cve(vuln)
 
             # for module_name in matching_auxiliary_modules:
@@ -85,33 +85,33 @@ class VulnerabilityScanner(BaseTool):
             #         future_actions.append(auxiliary_action)
             #         logging.info("Added auxiliary action: %s", auxiliary_action)
 
-            matching_exploit_modules = self.msf.get_exploit_for_cve(vuln)
-            for module_name in matching_exploit_modules:
-                # If module matches the vulnerability (or service name), add an exploit action
-                # Need to know port for the exploit - find from open_ports if matching service
-                target_port = None
-                service_desc_list = state.open_ports.get(host, [])
-                for (p, svc) in service_desc_list:
-                    if svc.lower() in module_name.lower():
-                        target_port = p
-                        break
-                # If not found by vuln name, we might match by service name substring
-                if target_port is None:
-                    # Try to infer from module path (e.g., module "unix/ftp/vsftpd_234_backdoor" -> port 21)
-                    if "vsftpd" in module_name:
-                        target_port = 21
-                    elif "smb" in module_name or "445" in module_name:
-                        target_port = 445
-                if target_port is None:
-                    continue
-
-                exploit_action = PentestAction(
-                    action_type="exploit", target=host, port=target_port, module=module_name, tool=Exploiter(),
-                    description=f"Exploit {module_name} against {host}"
-                )
-                if all(act.description != exploit_action.description for act in actions + future_actions):
-                    future_actions.append(exploit_action)
-                    logging.info("Added exploit action: %s", exploit_action)
+            # matching_exploit_modules = self.msf.get_exploit_for_cve(vuln)
+            # for module_name in matching_exploit_modules:
+            #     # If module matches the vulnerability (or service name), add an exploit action
+            #     # Need to know port for the exploit - find from open_ports if matching service
+            #     target_port = None
+            #     service_desc_list = state.open_ports.get(host, [])
+            #     for (p, svc) in service_desc_list:
+            #         if svc.lower() in module_name.lower():
+            #             target_port = p
+            #             break
+            #     # If not found by vuln name, we might match by service name substring
+            #     if target_port is None:
+            #         # Try to infer from module path (e.g., module "unix/ftp/vsftpd_234_backdoor" -> port 21)
+            #         if "vsftpd" in module_name:
+            #             target_port = 21
+            #         elif "smb" in module_name or "445" in module_name:
+            #             target_port = 445
+            #     if target_port is None:
+            #         continue
+            #
+            #     exploit_action = PentestAction(
+            #         action_type="exploit", target=host, port=target_port, module=module_name, tool=Exploiter(),
+            #         description=f"Exploit {module_name} against {host}"
+            #     )
+            #     if all(act.description != exploit_action.description for act in actions + future_actions):
+            #         future_actions.append(exploit_action)
+            #         logging.info("Added exploit action: %s", exploit_action)
 
             # matching_exploit_db_modules = self.exploit_db.get_exploit_paths_of_cve(vuln)
             # for exploit_module in matching_exploit_db_modules:
@@ -133,7 +133,7 @@ class VulnerabilityScanner(BaseTool):
 
         return Result(
             reward=reward,
-            future_actions=future_actions,
+            # future_actions=future_actions,
             vulners=vulnerabilities
         )
 

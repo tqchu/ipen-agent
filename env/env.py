@@ -5,7 +5,9 @@ from env.action import PentestAction
 from env.state import State
 from env.vmware import VmwareController
 from metasploit.msf_rpc import MsfRpcController
+from tools.exploit import Exploiter
 from tools.scanners import Scanner
+from tools.vulners import VulnerabilityScanner
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 
@@ -36,6 +38,7 @@ class PenTestEnvironment:
         # Store recommender and config
         self.recommender = recommender
         self.vmware = VmwareController()
+        self.executed_action = 0
         self.use_recommender = use_recommender
         # Max hosts for vector representation
         self.max_hosts = max_hosts
@@ -48,7 +51,8 @@ class PenTestEnvironment:
         # Initialize the action space (list of PentestAction objects)
         self.actions = []
         self._init_actions(target_network)
-        logging.info("Initial actions: %s", self.actions)
+        self.target_network = target_network
+        logging.info("Initial actions size: %s", len(self.actions))
         # Note: self.actions will be dynamically updated as state evolves (e.g., adding new exploit actions for discovered services)
 
         # Optional: track initial Metasploit exploit module list for reference
@@ -67,7 +71,7 @@ class PenTestEnvironment:
         self.actions = []
         # If target_network is specified, we can add a host discovery scan for that network
         if target_network:
-            # Action: Ping/host discovery scan on the network (using Nmap -sn)
+            # Add scan port action
             discover_action = PentestAction(
                 action_type="scan",
                 target=target_network,
@@ -75,6 +79,24 @@ class PenTestEnvironment:
                 description=f"Host discovery on {target_network}"
             )
             self.actions.append(discover_action)
+
+            # Add vulnerability scan action
+            vuln_scan_action = PentestAction(
+                action_type="vuln_scan", target=target_network, tool=VulnerabilityScanner(),
+                description=f"Vulnerability scan on {target_network}"
+            )
+            self.actions.append(vuln_scan_action)
+
+            # Add exploit actions
+            exploit_modules = self.msf.get_all_exploit()
+            for module in exploit_modules:
+                # Create an exploit action for each module
+                exploit_action = PentestAction(
+                    action_type="exploit", target=target_network, module=module, tool=Exploiter(),
+                    description=f"Exploit {module} against {target_network}"
+                )
+                self.actions.append(exploit_action)
+
         # If specific hosts are known upfront (target_network could be a single IP), we can also add port scan actions directly
         # (In many cases, target_network might be an IP or small range that we treat similarly.)
         # The environment can also be initialized with no targets, expecting the user/agent to supply scanning actions as needed.
@@ -95,17 +117,14 @@ class PenTestEnvironment:
         # We assume target_network is stored or passed again; for simplicity, not storing target_network, so user can set it again if needed.
         # If needed, we could store self.target_network in __init__ and use it here.
         # For now, we'll just clear actions and keep any initial ones that were set in __init__.
-        initial_actions = []
-        for act in self.actions:
-            # Keep only the initial reconnaissance actions (like network scan) which have no specific host yet discovered
-            if act.type == "scan":
-                initial_actions.append(act)
-        self.actions = initial_actions
-        logging.info("Actions after reset: %s", self.actions)
+        self.actions = []
+        self._init_actions(self.target_network)
+        # logging.info("Actions after reset: %s", self.actions)
         # Update vector state
         self._update_vector_state()
         # TODO: uncomment
         # self.vmware.reset()
+        self.executed_action = 0
         return self.vector_state
 
     def step(self, action):
@@ -114,6 +133,7 @@ class PenTestEnvironment:
         :param action: The action to perform. Can be either an index (int) referring to self.actions list, or a PentestAction object.
         :return: A tuple (next_state_vector, reward, done, info)
         """
+        self.executed_action += 1
         # Determine the actual action object
         if self.recommender and self.use_recommender:
             # If recommender is enabled, get the recommended action (override agent's choice for execution)

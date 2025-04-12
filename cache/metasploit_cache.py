@@ -19,18 +19,33 @@ class MetasploitCache:
     AUXILIARY_CACHE_FILE = "/home/truongchu/Academic/Graduation_Thesis/Project/AI/ipen-agent/cache/data/msf_auxiliary_module_cache.pkl"
 
     @classmethod
-    def get_instance(cls, msf, exploit_modules):
+    def get_instance(cls, msf, exploit_modules, should_use_small_set = True):
         """Singleton pattern to ensure cache is built only once."""
         if cls._instance is None:
-            cls._instance = cls(msf, exploit_modules)
+            cls._instance = cls(msf, exploit_modules, should_use_small_set)
         return cls._instance
 
-    def __init__(self, msf, exploit_modules):
+    def __init__(self, msf, exploit_modules, should_use_small_set = True):
         self.msf = msf
         self.exploit_modules = exploit_modules
         self.cve_to_exploit_module_map = {}
         self.cve_to_auxiliary_module_map = {}
         self._load_or_build_cache()
+        self.should_use_small_set = should_use_small_set
+        self.all_exploit_modules = self._init_all_exploits()
+
+    def _init_all_exploits(self):
+        all_exploits = []
+        for _, modules in self.cve_to_exploit_module_map.items():
+            for module in modules:
+                if self.should_use_small_set:
+                    if not (module.startswith(("linux", "unix"))) or any(
+                            keyword in module for keyword in ("http", "webapp", "local", "misc")):
+                        continue
+                if module not in all_exploits:
+                    all_exploits.append(module)
+
+        return all_exploits
 
     def _load_or_build_cache(self):
         """Load cache from file if it exists, otherwise build and save it."""
@@ -229,6 +244,10 @@ class MetasploitCache:
             logging.info("Cache saved successfully")
         except Exception as e:
             logging.error(f"Error saving cache file: {e}")
+
+    def get_all_exploit_modules(self):
+        """Get all exploit modules."""
+        return self.all_exploit_modules
 
     def get_exploit_for_cve(self, cve):
         """Get modules matching a CVE."""

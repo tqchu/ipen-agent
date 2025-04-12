@@ -75,11 +75,11 @@ class DQNAgent:
         else:
             state_tensor = torch.FloatTensor(state).unsqueeze(0)
             q_values = self.q_network(state_tensor)
-            masked_q_values = torch.full((self.action_size,), -float('inf'))
-            valid_indices = torch.tensor(list(range(len(actions))))
-            masked_q_values[valid_indices] = q_values[0, valid_indices]
+            # masked_q_values = torch.full((self.action_size,), -float('inf'))
+            # valid_indices = torch.tensor(list(range(len(actions))))
+            # masked_q_values[valid_indices] = q_values[0, valid_indices]
 
-            action_idx = torch.argmax(masked_q_values).item()
+            action_idx = torch.argmax(q_values).item()
             logging.info("Choose action from experience: %d", action_idx)
         return action_idx
 

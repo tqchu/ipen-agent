@@ -24,7 +24,7 @@ class Scanner(BaseTool):
         # Initialize result containers
         discovered_hosts = []
         open_ports = {}
-        future_actions = []
+        # future_actions = []
 
         if "/" in target or target.endswith(".0"):  # Network scan
             # Host discovery (ping scan)
@@ -45,16 +45,16 @@ class Scanner(BaseTool):
             reward = 0.5 * new_hosts_found
 
             # Generate port scan actions for newly discovered hosts
-            for h in discovered_hosts:
-                portscan_action = PentestAction(
-                    action_type="scan", target=h, tool=Scanner(),
-                    description=f"Port scan on {h}"
-                )
+            # for h in discovered_hosts:
+            #     portscan_action = PentestAction(
+            #         action_type="scan", target=h, tool=Scanner(),
+            #         description=f"Port scan on {h}"
+            #     )
                 # Add if not already in the action list
-                if all(act.description != portscan_action.description for act in actions):
-                    future_actions.append(portscan_action)
-
-                    logging.info(f"Added new port scan action for host: {h}")
+                # if all(act.description != portscan_action.description for act in actions):
+                #     future_actions.append(portscan_action)
+                #
+                #     logging.info(f"Added new port scan action for host: {h}")
 
         else:  # Single host port scan
             args = ""  # Default scan arguments
@@ -89,14 +89,14 @@ class Scanner(BaseTool):
                                     open_ports[host].append((port, service_desc))
                                     reward += 0.1
 
-                # Create vulnerability scan action
-                vuln_scan_action = PentestAction(
-                    action_type="vuln_scan", target=host, tool=VulnerabilityScanner(),
-                    description=f"Vulnerability scan on {host}"
-                )
-                if all(act.description != vuln_scan_action.description for act in actions):
-                    future_actions.append(vuln_scan_action)
-                    logging.info(f"Added vuln_scan_action for host: {host}")
+                # # Create vulnerability scan action
+                # vuln_scan_action = PentestAction(
+                #     action_type="vuln_scan", target=host, tool=VulnerabilityScanner(),
+                #     description=f"Vulnerability scan on {host}"
+                # )
+                # if all(act.description != vuln_scan_action.description for act in actions):
+                #     future_actions.append(vuln_scan_action)
+                #     logging.info(f"Added vuln_scan_action for host: {host}")
 
         # Return a proper ScanResult
         return Result(
@@ -105,5 +105,5 @@ class Scanner(BaseTool):
             open_ports=open_ports,
             status="success",
             details={"tool": "nmap", "target": target},
-            future_actions=future_actions,
+            # future_actions=future_actions,
         )

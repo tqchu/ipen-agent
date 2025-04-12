@@ -77,6 +77,9 @@ class MsfRpcController:
         """
         return self.client.modules.auxiliary
 
+    def get_all_exploit(self):
+        return self.cache.get_all_exploit_modules()
+
     def get_exploit_for_cve(self, cve):
         return self.cache.get_exploit_for_cve(cve)
 
@@ -100,41 +103,49 @@ class MsfRpcController:
             return result
 
         # Set target options
-        exploit['RHOSTS'] = target_ip
-        if 'RPORT' in exploit.options and target_port is not None:
-            exploit['RPORT'] = target_port
-
-        if 'USERPASS_FILE' in exploit.options:
-            exploit['USERPASS_FILE'] = self.user_pass_file
-
-        # If payload is specified, use it; otherwise use a default or first compatible payload
-        chosen_payload = payload
-        if not chosen_payload:
-            try:
-                # If exploit has a list of compatible payloads, pick the first one
-                payloads = exploit.targetpayloads()
-                if payloads:
-                    chosen_payload = PayloadModule(self.client, payloads[0])
-            except Exception:
-                chosen_payload = None
-        # Launch the exploit module. We'll use a console to capture output for monitoring.
-        console_id = self.client.consoles.console().cid  # create a new console
-        console = self.client.consoles.console(console_id)
         try:
-            # Run the exploit and capture output (this will execute and block until module finishes or timeout)
-            output = console.run_module_with_output(exploit, payload=chosen_payload)
-            result.output = output
+            exploit['RHOSTS'] = target_ip
+            exploit["VERBOSE"] = True
+            if 'RPORT' in exploit.options and target_port is not None:
+                exploit['RPORT'] = target_port
+
+            if 'USERPASS_FILE' in exploit.options:
+                exploit['USERPASS_FILE'] = self.user_pass_file
+            if 'ConnectTimeout' in exploit.options:
+                exploit['ConnectTimeout'] = 60
+            if 'WfsDelay' in exploit.options:
+                exploit['WfsDelay'] = 5
+
+            # If payload is specified, use it; otherwise use a default or first compatible payload
+            chosen_payload = payload
+            if not chosen_payload:
+                try:
+                    # If exploit has a list of compatible payloads, pick the first one
+                    payloads = exploit.targetpayloads()
+                    if payloads:
+                        chosen_payload = PayloadModule(self.client, payloads[0])
+                except Exception:
+                    chosen_payload = None
+            # Launch the exploit module. We'll use a console to capture output for monitoring.
+            console_id = self.client.consoles.console().cid  # create a new console
+            console = self.client.consoles.console(console_id)
+            try:
+                # Run the exploit and capture output (this will execute and block until module finishes or timeout)
+                output = console.run_module_with_output(exploit, payload=chosen_payload)
+                result.output = output
+            except Exception as e:
+                result.error = f"Error running exploit: {e}"
+            # Check if a new session opened
+            sessions = self.client.sessions.list
+            if sessions:
+                # If any session is present, assume success (for simplicity, we treat any session creation as success)
+                # In a real scenario, you might compare session list before and after, or track session IDs.
+                new_session_id = next(iter(sessions.keys()))
+                result.success = True
+                result.session_id = new_session_id
+                result.session_type = self.client.sessions.list[new_session_id]["type"]
         except Exception as e:
             result.error = f"Error running exploit: {e}"
-        # Check if a new session opened
-        sessions = self.client.sessions.list
-        if sessions:
-            # If any session is present, assume success (for simplicity, we treat any session creation as success)
-            # In a real scenario, you might compare session list before and after, or track session IDs.
-            new_session_id = next(iter(sessions.keys()))
-            result.success = True
-            result.session_id = new_session_id
-            result.session_type = self.client.sessions.list[new_session_id]["type"]
         return result
 
     def run_auxiliary(self, module_name: str, target_ip: str = None, target_port: int = None,
