@@ -35,17 +35,22 @@ class MetasploitCache:
         self.all_exploit_modules = self._init_all_exploits()
 
     def _init_all_exploits(self):
-        all_exploits = []
+        all_exploits = ['unix/ftp/vsftpd_234_backdoor']
+
         for _, modules in self.cve_to_exploit_module_map.items():
             for module in modules:
                 if self.should_use_small_set:
                     if not (module.startswith(("linux", "unix"))) or any(
                             keyword in module for keyword in ("http", "webapp", "local", "misc")):
                         continue
-                if module not in all_exploits:
+
+                if module not in all_exploits and module != 'unix/ftp/vsftpd_234_backdoor':
                     all_exploits.append(module)
 
-        return all_exploits
+                if len(all_exploits) == 3:
+                    return all_exploits
+
+
 
     def _load_or_build_cache(self):
         """Load cache from file if it exists, otherwise build and save it."""

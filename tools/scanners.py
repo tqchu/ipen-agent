@@ -1,9 +1,12 @@
-from env.action import PentestAction, Result
+from collections import defaultdict
+
+from env.v1.action import PentestAction, Result
 from tools.base_tool import BaseTool
 from nmap import PortScanner
 import logging
 
 from tools.vulners import VulnerabilityScanner
+from utils.rewards import REWARDS, RewardType
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 
@@ -23,7 +26,7 @@ class Scanner(BaseTool):
 
         # Initialize result containers
         discovered_hosts = []
-        open_ports = {}
+        open_ports = defaultdict(list)
         # future_actions = []
 
         if "/" in target or target.endswith(".0"):  # Network scan
@@ -34,7 +37,7 @@ class Scanner(BaseTool):
 
             for h in hosts_list:
                 if nm[h].state() == "up":
-                    if h not in state.discovered_hosts:
+                    if h not in state.hosts_ip:
                         discovered_hosts.append(h)
                         open_ports[h] = []
 
@@ -61,7 +64,7 @@ class Scanner(BaseTool):
             nm.scan(hosts=target, arguments=args)
             host = target
 
-            if host not in state.discovered_hosts:
+            if host not in state.hosts_ip:
                 discovered_hosts.append(host)
                 open_ports[host] = []
 
@@ -82,12 +85,11 @@ class Scanner(BaseTool):
                                     service_desc += f" ({service_info})"
 
                                 # Check if this is a new port
-                                known_ports = [p for (p, _) in state.open_ports.get(host, [])]
-                                if port not in known_ports:
-                                    if host not in open_ports:
-                                        open_ports[host] = []
+                                known_host =  state.get_host(host)
+
+                                if known_host is None or known_host.get_port(port) is None:
                                     open_ports[host].append((port, service_desc))
-                                    reward += 0.1
+                                    reward += REWARDS[RewardType.DISCOVERED_PORT]
 
                 # # Create vulnerability scan action
                 # vuln_scan_action = PentestAction(
