@@ -39,6 +39,18 @@ class PentestAction:
             else:
                 self.description = action_type
 
+    def from_repr(self, representation: str):
+        """
+        Initialize an action from a string representation.
+        :param representation: String representation of the action.
+        """
+        parts = representation.split(", ")
+        self.type = parts[0].split("=")[1]
+        self.target = parts[1].split("=")[1]
+        self.port = int(parts[2].split("=")[1])
+        self.module = parts[3].split("=")[1]
+        self.tool = parts[4].split("=")[1]
+
     def __repr__(self):
         return f"<Action type={self.type}, target={self.target}, port={self.port}, module={self.module}, tool={self.tool}>"
 

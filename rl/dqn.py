@@ -8,6 +8,7 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 
+from rl.duel_q import DuelingQNetwork
 from rl.replay_buffer import ReplayBuffer
 
 
@@ -52,8 +53,8 @@ class DQNAgent:
         self.memory = ReplayBuffer(capacity=kwargs.get("memory_capacity", 10000))
         self.step_count = 0
 
-        self.q_network = QNetwork(state_size, action_size)
-        self.target_network = QNetwork(state_size, action_size)
+        self.q_network = DuelingQNetwork(state_size, action_size)
+        self.target_network = DuelingQNetwork(state_size, action_size)
         self.optimizer = optim.Adam(self.q_network.parameters(), lr=self.learning_rate)
         self.recommender = recommender
 
