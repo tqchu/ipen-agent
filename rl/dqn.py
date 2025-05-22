@@ -94,12 +94,11 @@ class DQNAgent:
 
         s, a, r, s2, d = self.memory.sample(self.batch_size)
 
-        device = self.q_network.weight.device
-        s = torch.as_tensor(s, dtype=torch.float32, device=device)
-        a = torch.as_tensor(a, dtype=torch.long, device=device).unsqueeze(1)
-        r = torch.as_tensor(r, dtype=torch.float32, device=device)
-        s2 = torch.as_tensor(s2, dtype=torch.float32, device=device)
-        d = torch.as_tensor(d, dtype=torch.float32, device=device)
+        s = torch.FloatTensor(s)
+        a = torch.LongTensor(a)
+        r = torch.FloatTensor(r)
+        s2 = torch.FloatTensor(s2)
+        d = torch.FloatTensor(d)
 
         q = self.q_network(s).gather(1, a).squeeze(1)
 
