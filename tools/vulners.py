@@ -111,12 +111,14 @@ class VulnerabilityScanner(BaseTool):
 
                                 if vulner not in port_vulners and (know_port is None or vulner not in know_port.vulnerabilities):
                                     port_vulners.append(vulner)
-                                    reward += REWARDS[RewardType.VULNERABILITY]
                                     logging.info("Discovered vulnerability %s on host %s", vulner, host)
 
                 if len(port_vulners) > 0:
                     vulnerabilities[host].append((port, port_vulners))
 
+
+        if len(vulnerabilities) > 0:
+            reward += REWARDS[RewardType.VULNERABILITY]
 
         return Result(
             reward=reward,

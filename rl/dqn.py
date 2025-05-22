@@ -11,7 +11,7 @@ import torch.optim as optim
 from rl.duel_q import DuelingQNetwork
 from rl.replay_buffer import ReplayBuffer
 
-
+logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 class QNetwork(nn.Module):
     """Neural network for approximating Q-values."""
 
@@ -89,29 +89,72 @@ class DQNAgent:
         self.memory.add(state, action, reward, next_state, done)
 
     def train_step(self):
-        """Perform one training step: sample a batch from memory and update the Q-network."""
         if len(self.memory) < self.batch_size:
             return
 
-        states, actions, rewards, next_states, dones = self.memory.sample(self.batch_size)
-        states = torch.FloatTensor(states)
-        actions = torch.LongTensor(actions)
-        rewards = torch.FloatTensor(rewards)
-        next_states = torch.FloatTensor(next_states)
-        dones = torch.FloatTensor(dones)
+        s, a, r, s2, d = self.memory.sample(self.batch_size)
 
-        q_values = self.q_network(states).gather(1, actions.unsqueeze(1)).squeeze(1)
-        next_q_values = self.target_network(next_states).max(1)[0]
-        target_q_values = rewards + self.gamma * next_q_values * (1 - dones)
+        device = self.q_network.weight.device
+        s = torch.as_tensor(s, dtype=torch.float32, device=device)
+        a = torch.as_tensor(a, dtype=torch.long, device=device).unsqueeze(1)
+        r = torch.as_tensor(r, dtype=torch.float32, device=device)
+        s2 = torch.as_tensor(s2, dtype=torch.float32, device=device)
+        d = torch.as_tensor(d, dtype=torch.float32, device=device)
 
-        loss = nn.MSELoss()(q_values, target_q_values.detach())
+        q = self.q_network(s).gather(1, a).squeeze(1)
+
+        # Double-DQN target
+        with torch.no_grad():
+            online_next_a = self.q_network(s2).argmax(1, keepdim=True)
+            q2_target = self.target_network(s2).gather(1, online_next_a).squeeze(1)
+            y = r + self.gamma * q2_target * (1 - d)
+
+        criterion = torch.nn.SmoothL1Loss()  # Huber
+        loss = criterion(q, y)
+
         self.optimizer.zero_grad()
         loss.backward()
+        torch.nn.utils.clip_grad_norm_(self.q_network.parameters(), 10.0)
         self.optimizer.step()
 
-        self.step_count += 1
-        if self.step_count % self.update_target_freq == 0:
-            self.update_target_network()
+        # Soft target update
+        tau = 0.005
+        with torch.no_grad():
+            for tgt, src in zip(self.target_network.parameters(),
+                                self.q_network.parameters()):
+                tgt.data.mul_(1 - tau).add_(tau * src.data)
+
+    # def train_step(self):
+    #     """Perform one training step: sample a batch from memory and update the Q-network."""
+    #     if len(self.memory) < self.batch_size:
+    #         return
+    #
+    #     states, actions, rewards, next_states, dones = self.memory.sample(self.batch_size)
+    #     states = torch.FloatTensor(states)
+    #     actions = torch.LongTensor(actions)
+    #     rewards = torch.FloatTensor(rewards)
+    #     next_states = torch.FloatTensor(next_states)
+    #     dones = torch.FloatTensor(dones)
+    #
+    #     q_values = self.q_network(states).gather(1, actions.unsqueeze(1)).squeeze(1)
+    #     next_q_values = self.target_network(next_states).max(1)[0]
+    #     target_q_values = rewards + self.gamma * next_q_values * (1 - dones)
+    #
+    #     loss = nn.MSELoss()(q_values, target_q_values.detach())
+    #     self.optimizer.zero_grad()
+    #     loss.backward()
+    #
+    #     total_grad = 0.0
+    #     for p in self.q_network.parameters():
+    #         if p.grad is not None:
+    #             total_grad += p.grad.abs().sum().item()
+    #     logging.info(f"[step {self.step_count}] total |∇Q| = {total_grad:.6f}")
+    #
+    #     self.optimizer.step()
+    #
+    #     self.step_count += 1
+    #     if self.step_count % self.update_target_freq == 0:
+    #         self.update_target_network()
 
     def update_target_network(self):
         """Update the target network weights to match the primary Q-network."""
