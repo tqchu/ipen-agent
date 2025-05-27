@@ -50,9 +50,12 @@ class ModelManager:
 
 def initialize_model():
     """Initialize the model and tokenizer once to avoid reloading"""
-    tokenizer = AutoTokenizer.from_pretrained("deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B")
+    # tokenizer = AutoTokenizer.from_pretrained("deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B")
+    # model = AutoModelForCausalLM.from_pretrained(
+    #     "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
+    tokenizer = AutoTokenizer.from_pretrained("TinyLlama/TinyLlama-1.1B-Chat-v1.0")
     model = AutoModelForCausalLM.from_pretrained(
-        "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
+        "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
         torch_dtype="auto", device_map="auto")
     return tokenizer, model
 
@@ -82,7 +85,7 @@ def get_answer(
 
     streamer = TextStreamer(tokenizer) if stream else None
     cfg = GenerationConfig(
-        max_new_tokens=1024,
+        max_new_tokens=2048,
         temperature=0.7,
         top_p=0.8,
         return_dict_in_generate=True,  # ← required

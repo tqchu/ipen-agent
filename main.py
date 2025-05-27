@@ -40,28 +40,9 @@ def get_user_input() -> dict:
         except ValueError:
             print("Invalid IP address or CIDR notation. Please try again.")
 
-    # Get scan type
-    while True:
-        scan_type = input("\nSelect scan type (quick/comprehensive) [comprehensive]: ").strip().lower()
-        if not scan_type:
-            scan_type = "comprehensive"
-            break
-        if scan_type in ["quick", "comprehensive"]:
-            break
-        print("Invalid scan type. Please choose 'quick' or 'comprehensive'.")
-
-    # Get log level
-    log_options = ["DEBUG", "INFO", "WARNING", "ERROR"]
-    log_level = input("\nSelect log level (DEBUG/INFO/WARNING/ERROR) [INFO]: ").strip().upper() or "INFO"
-    if log_level not in log_options:
-        print(f"Invalid log level. Using default: INFO")
-        log_level = "INFO"
-
     # Confirm before proceeding
     print("\n=== Configuration Summary ===")
     print(f"Target: {target}")
-    print(f"Scan type: {scan_type}")
-    print(f"Log level: {log_level}")
 
     while True:
         confirm = input("\nStart penetration test with these settings? (y/n): ").strip().lower()
@@ -75,8 +56,6 @@ def get_user_input() -> dict:
 
     return {
         "target": target,
-        "scan_type": scan_type,
-        "log_level": log_level
     }
 
 
@@ -87,7 +66,7 @@ def main():
         args = get_user_input()
 
         # Set logging level
-        logging.getLogger().setLevel(getattr(logging, args["log_level"]))
+        logging.getLogger().setLevel(getattr(logging, "INFO"))
 
         # Log the target information
         logger.info(f"Starting penetration test against {args['target']}")

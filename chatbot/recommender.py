@@ -190,6 +190,107 @@ class QARecommender(Recommender):
         # Fall back to parent class implementation if model recommendation fails
         return None, 0
 
+    def report(self, state: PenTestState, actions_taken: List[PentestAction]) -> str:
+        """
+        Generate a comprehensive penetration test report based on the final state and actions taken.
+
+        Args:
+            state: Final state of the penetration test
+            actions_taken: List of actions that were executed during the test
+
+        Returns:
+            A string containing the formatted penetration test report
+        """
+        logger.debug(f"Generating penetration test report for {len(actions_taken)} actions taken")
+
+        # Get human-readable state information
+        state_info = state.get_readable_state()
+
+        # Construct the penetration test report context
+        context = "## Penetration Test Report\n\n"
+
+        # Add overview of the penetration test
+        context += "### Test Overview\n\n"
+        context += f"- Total actions executed: {len(actions_taken)}\n"
+        context += f"- Hosts discovered: {len(state.hosts_ip) if state.hosts_ip else 0}\n\n"
+
+        # Add list of actions taken
+        context += "### Actions Executed\n\n"
+        for i, action in enumerate(actions_taken):
+            context += f"{i + 1}. {action}\n"
+
+        context += "\n### Hosts and Vulnerabilities\n\n"
+
+        # Add information about discovered hosts
+        if not state_info:
+            context += "No hosts were discovered during the penetration test.\n\n"
+        else:
+            # Add details for each host
+            for host in state_info:
+                host_idx = host['host_index']
+                context += f"#### Host {state.hosts_ip[host_idx]}\n\n"
+                context += f"- Shell access level: {host['shell_level']}\n"
+                context += f"- Privilege level: {host['privilege_level']}\n"
+
+                # Add port and vulnerability information
+                if host['open_ports']:
+                    context += "\n**Open ports and vulnerabilities:**\n\n"
+                    for port_info in host['open_ports']:
+                        port = port_info['port']
+                        vulns = port_info['vulnerabilities']
+                        context += f"- Port {port}"
+                        if vulns:
+                            context += f": **{len(vulns)} vulnerabilities found**\n"
+                            for vuln in vulns:
+                                context += f"  - {vuln}\n"
+                        else:
+                            context += ": No vulnerabilities found\n"
+                else:
+                    context += "\nNo open ports were discovered on this host.\n"
+
+                # Add credential information
+                creds = host['credentials']
+                if creds['usernames'] or creds['credentials'] or creds['tokens']:
+                    context += "\n**Credentials discovered:**\n\n"
+                    if creds['usernames']:
+                        context += f"- Usernames: {', '.join(creds['usernames'])}\n"
+                    if creds['credentials']:
+                        formatted_creds = [f"{u}:{p}" for u, p in creds['credentials']]
+                        context += f"- User:Pass pairs: {', '.join(formatted_creds)}\n"
+                    if creds['tokens']:
+                        context += f"- Authentication tokens: {len(creds['tokens'])} found\n"
+
+                context += "\n"
+
+        # Request a comprehensive security report
+        prompt = f"""Based on the penetration test results provided, please generate a detailed security report that includes:
+
+    1. Executive Summary - A brief overview of the test and key findings (which hosts, which findings)
+    2. Vulnerability Assessment - List found vulnerabilities (CVEs), analysis of found vulnerabilities, their severity, and potential impact
+    3. Attack Path Analysis - Description of how the penetration was executed (which actions was executed to reach the goal)
+    4. Risk Assessment - Evaluation of the overall security posture
+    5. Recommendations - Specific security measures to address identified vulnerabilities
+
+    Test data:
+    {context}
+    """
+
+        # Get the report from the model
+        try:
+            logger.info("Generating comprehensive penetration test report")
+            report, conf = self.model_manager.get_answer(
+                prompt,
+                system_prompt="You are an expert penetration tester tasked with creating a professional penetration test report based on the provided test results. Provide a comprehensive security analysis that would be valuable to security teams."
+            )
+
+            logging.info(f"Generated context {context}")
+            logger.info(f"Generated report with confidence: {conf}")
+            return report
+
+        except Exception as e:
+            logger.error(f"Error generating penetration test report: {e}")
+            return f"Error generating report: {str(e)}"
+
 
 if __name__ == "__main__":
     # Example usage
