@@ -15,8 +15,8 @@ class MetasploitCache:
     _instance = None
 
     # EXPLOIT_CACHE_FILE = "/home/truongchu/Academic/Graduation_Thesis/Project/AI/ipen-agent/cache/data/msf_exploit_module_cache.pkl"
-    EXPLOIT_CACHE_FILE = "/home/truongchu/Academic/Graduation_Thesis/Project/AI/ipen-agent/cache/data/msf_all_exploit_module_cache.pkl"
-    AUXILIARY_CACHE_FILE = "/home/truongchu/Academic/Graduation_Thesis/Project/AI/ipen-agent/cache/data/msf_auxiliary_module_cache.pkl"
+    EXPLOIT_CACHE_FILE = "data/msf_all_exploit_module_cache.pkl"
+    AUXILIARY_CACHE_FILE = "data/msf_auxiliary_module_cache.pkl"
 
     @classmethod
     def get_instance(cls, msf, exploit_modules, should_use_small_set = True):
@@ -54,7 +54,8 @@ class MetasploitCache:
 
     def _load_or_build_cache(self):
         """Load cache from file if it exists, otherwise build and save it."""
-        if os.path.exists(self.EXPLOIT_CACHE_FILE):
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        if os.path.exists(os.path.join(current_dir, self.EXPLOIT_CACHE_FILE)):
             self._load_cache()
         else:
             self._build_ovsdb_cache()
@@ -62,13 +63,18 @@ class MetasploitCache:
 
     def _load_cache(self):
         """Load the cache from file."""
+
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        exploit_file = os.path.join(current_dir, self.EXPLOIT_CACHE_FILE)
+        auxiliary_file = os.path.join(current_dir, self.AUXILIARY_CACHE_FILE)
+
         try:
             logging.info(f"Loading module cache from {self.EXPLOIT_CACHE_FILE}...")
-            with open(self.EXPLOIT_CACHE_FILE, 'rb') as f:
+            with open(exploit_file, 'rb') as f:
                 self.cve_to_exploit_module_map = pickle.load(f)
             logging.info(f"Cache loaded with {len(self.cve_to_exploit_module_map)} CVE entries")
 
-            with open(self.AUXILIARY_CACHE_FILE, 'rb') as f:
+            with open(auxiliary_file, 'rb') as f:
                 self.cve_to_auxiliary_module_map = pickle.load(f)
             logging.info(f"Cache loaded with {len(self.cve_to_auxiliary_module_map)} CVE entries")
         except Exception as e:
@@ -233,10 +239,14 @@ class MetasploitCache:
         logging.info(f"Auxiliary cache built with {len(auxiliary_cache)} CVE entries")
 
     def _save_cache(self):
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        exploit_file = os.path.join(current_dir, self.EXPLOIT_CACHE_FILE)
+        auxiliary_file = os.path.join(current_dir, self.AUXILIARY_CACHE_FILE)
+
         """Save the cache to a file."""
         try:
             logging.info(f"Saving exploit module cache to {self.EXPLOIT_CACHE_FILE}...")
-            with open(self.EXPLOIT_CACHE_FILE, 'wb') as f:
+            with open(exploit_file, 'wb') as f:
                 pickle.dump(self.cve_to_exploit_module_map, f)
             logging.info("Cache saved successfully")
         except Exception as e:
@@ -244,7 +254,7 @@ class MetasploitCache:
 
         try:
             logging.info(f"Saving auxiliary module cache to {self.AUXILIARY_CACHE_FILE}...")
-            with open(self.AUXILIARY_CACHE_FILE, 'wb') as f:
+            with open(auxiliary_file, 'wb') as f:
                 pickle.dump(self.cve_to_auxiliary_module_map, f)
             logging.info("Cache saved successfully")
         except Exception as e:
