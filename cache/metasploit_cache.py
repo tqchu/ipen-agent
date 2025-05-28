@@ -47,7 +47,7 @@ class MetasploitCache:
                 if module not in all_exploits and module != 'unix/ftp/vsftpd_234_backdoor':
                     all_exploits.append(module)
 
-                if len(all_exploits) == 6:
+                if len(all_exploits) == 10:
                     return all_exploits
 
 

@@ -6,18 +6,18 @@ import torch
 from llm.tinyllama.core.model import TinyLlama
 from llm.tinyllama.io.hf_state import load_state
 from llm.tinyllama.io.tokenizer import Tok
-from llm.tinyllama.qa.q_a import answer
+from llm.tinyllama.qa.q_a import get_answer
 
 parser = argparse.ArgumentParser()
 parser.add_argument(
     "--ckpt",
-    default="/Users/chutruong/Academic/GraduationThesis/Projects/ipen-agent/llm/tinyllama/pretrained_1.1b",
+    default="/home/truongchu/Academic/Graduation_Thesis/Project/AI/ipen-agent/llm/tinyllama/pretrained_1.1b",
     help="Path to model dir (contains config.json & weights)"
 )
 
 parser.add_argument(
     "--tok",
-    default="/Users/chutruong/Academic/GraduationThesis/Projects/ipen-agent/llm/tinyllama/pretrained_1.1b/tokenizer.model",
+    default="/home/truongchu/Academic/Graduation_Thesis/Project/AI/ipen-agent/llm/tinyllama/pretrained_1.1b/tokenizer.model",
     help="Path to tokenizer.model"
 )
 # --steps and --topk are used by the `answer` function internally, so they are not directly used here
@@ -59,7 +59,7 @@ while True:
         continue
 
     start_time = time.time()
-    generated_answer, confidence = answer(sys_msg_input, usr_msg_input, model, tok)
+    generated_answer, confidence = get_answer(sys_msg_input, usr_msg_input, model, tok)
     end_time = time.time()
 
     print(f"\nAssistant: {generated_answer}")

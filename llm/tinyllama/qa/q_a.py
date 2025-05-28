@@ -6,7 +6,7 @@ from llm.tinyllama.core.model import TinyLlama
 from llm.tinyllama.io.tokenizer import format_chat_prompt, Tok
 
 
-def answer(system_prompt: str, question: str, model: TinyLlama, tokenizer: Tok) -> (str, float):
+def get_answer(system_prompt: str, question: str, model: TinyLlama, tokenizer: Tok, max_tokens) -> (str, float):
     """Get an answer from the model."""
     start = time.time()
 
@@ -30,7 +30,7 @@ def answer(system_prompt: str, question: str, model: TinyLlama, tokenizer: Tok) 
         logits = model(input_tensor)
         next_logits = logits[0, -1, :]
 
-        for _ in range(1024):
+        for _ in range(max_tokens):
             # top-k sampling
             probs = next_logits.softmax(-1)
             topk_probs, topk_idxs = torch.topk(probs, k=50)

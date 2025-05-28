@@ -135,7 +135,8 @@ class QARecommender(Recommender):
                 question,
                 system_prompt="You are an expert penetration tester. Your task is to recommend the next best action based on the current state."
                               "You should answer in the format of the json, the first field is reason, the second field is actions."
-                              "For 'reason' field, you should explain why you recommend these actions, for the actions, you should return a list of actions sorted by order of execution, each actions should contain its index in the list and its content, which is the same as the list of available actions I pass in."
+                              "For 'reason' field, you should explain why you recommend these actions, for the actions, you should return a list of actions sorted by order of execution, each actions should contain its index in the list and its content, which is the same as the list of available actions I pass in.",
+                max_tokens=512,
             )
 
             # Try to extract the recommended action index
@@ -280,7 +281,8 @@ class QARecommender(Recommender):
             logger.info("Generating comprehensive penetration test report")
             report, conf = self.model_manager.get_answer(
                 prompt,
-                system_prompt="You are an expert penetration tester tasked with creating a professional penetration test report based on the provided test results. Provide a comprehensive security analysis that would be valuable to security teams."
+                system_prompt="You are an expert penetration tester tasked with creating a professional penetration test report based on the provided test results. Provide a comprehensive security analysis that would be valuable to security teams.",
+                max_tokens=1024,
             )
 
             logging.info(f"Generated context {context}")

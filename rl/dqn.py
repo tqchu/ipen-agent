@@ -95,7 +95,7 @@ class DQNAgent:
         s, a, r, s2, d = self.memory.sample(self.batch_size)
 
         s = torch.FloatTensor(s)
-        a = torch.LongTensor(a)
+        a = torch.as_tensor(a,  dtype=torch.int64).unsqueeze(1)
         r = torch.FloatTensor(r)
         s2 = torch.FloatTensor(s2)
         d = torch.FloatTensor(d)

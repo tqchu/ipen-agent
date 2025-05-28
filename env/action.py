@@ -39,7 +39,7 @@ class PentestAction:
                 self.description = action_type
 
     def __repr__(self):
-        return f"<Action type={self.type}, target={self.target}, port={self.port}, module={self.module}, tool={self.tool}>"
+        return f"<Action type={self.type}, description ={self.description}, target={self.target}, port={self.port}, module={self.module}, tool={self.tool}>"
 
 
 class Result:

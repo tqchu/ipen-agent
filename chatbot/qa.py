@@ -6,6 +6,10 @@ from transformers import AutoTokenizer, AutoModelForCausalLM, TextStreamer
 from transformers import TextStreamer, GenerationConfig
 import torch, math, time
 
+from llm import tinyllama
+from llm.tinyllama import loader
+from llm.tinyllama.qa import q_a
+
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
@@ -21,27 +25,41 @@ class ModelManager:
     """Singleton class to manage the model and tokenizer instances."""
     _instance = None
 
-    def __new__(cls):
+    def __new__(cls, use_huggingface: bool = True):
         if cls._instance is None:
             logger.info("Initializing the AI model...")
             cls._instance = super(ModelManager, cls).__new__(cls)
-            cls._instance.tokenizer, cls._instance.model = initialize_model()
+            if use_huggingface:
+                cls._instance.tokenizer, cls._instance.model = initialize_model()
+            else:
+                cls._instance.tokenizer, cls._instance.model = loader.initialize_model()
             logger.info("AI model initialized successfully")
+            cls.use_huggingface = use_huggingface
         return cls._instance
 
     def get_answer(self, question: str, system_prompt=(
             "You are a helpful penetration-testing assistant.\n"
             "Respond **only with the final answer**, do not reveal your chain of thought."
-    )) -> (str, float):
+    ), max_tokens : int = 512) -> (str, float):
         start = time.time()
 
         """Get an answer from the model."""
-        answer, conf = get_answer(
-            question,
-            system_prompt=system_prompt,
-            tokenizer=self.tokenizer,
-            model=self.model
-        )
+        if self.use_huggingface:
+            answer, conf = get_answer(
+                question,
+                system_prompt=system_prompt,
+                tokenizer=self.tokenizer,
+                model=self.model,
+                max_tokens=max_tokens
+            )
+        else:
+            answer, conf = q_a.get_answer(
+                system_prompt=system_prompt,
+                question=question,
+                tokenizer=self.tokenizer,
+                model=self.model,
+                max_tokens=max_tokens
+            )
 
         logger.info(f"[Answering] Response time: {time.time() - start:.2f} seconds")
 
@@ -63,10 +81,11 @@ def initialize_model():
 def get_answer(
         question: str,
         system_prompt: str = "You are a helpful penetration-testing assistant.",
+        conf_tokens: int = 32,
+        max_tokens: int = 512,
         tokenizer=None,
         model=None,
         stream=False,
-        conf_tokens: int = 32,
         **gen_kwargs,
 ) -> (str, float):
     if tokenizer is None or model is None:
@@ -85,7 +104,7 @@ def get_answer(
 
     streamer = TextStreamer(tokenizer) if stream else None
     cfg = GenerationConfig(
-        max_new_tokens=2048,
+        max_new_tokens=max_tokens,
         temperature=0.7,
         top_p=0.8,
         return_dict_in_generate=True,  # ← required
@@ -120,7 +139,7 @@ def get_answer(
 
 if __name__ == "__main__":
     # Load model once
-    model_manager = ModelManager()
+    model_manager = ModelManager(use_huggingface=False)
 
     start = time.time()
     # Test with a sample question
