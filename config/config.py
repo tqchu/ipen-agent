@@ -29,7 +29,8 @@ class Config:
 
     def _load_from_env(self) -> None:
         """Load configuration from .env file."""
-        env_path = Path('/home/truongchu/Academic/Graduation_Thesis/Project/AI/ipen-agent/.env')
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        env_path = Path(os.path.join(current_dir, '../.env'))
         if not env_path.exists():
             self.logger.warning(f"Environment file not found: {env_path.absolute()}")
             return
