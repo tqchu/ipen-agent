@@ -1,4 +1,5 @@
 import argparse
+import os
 import time
 
 import torch
@@ -8,16 +9,20 @@ from llm.tinyllama.io.hf_state import load_state
 from llm.tinyllama.io.tokenizer import Tok
 from llm.tinyllama.qa.q_a import get_answer
 
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+pretrained_dir = os.path.join(current_dir, '../pretrained_1.1b')
+
 parser = argparse.ArgumentParser()
 parser.add_argument(
     "--ckpt",
-    default="/home/truongchu/Academic/Graduation_Thesis/Project/AI/ipen-agent/llm/tinyllama/pretrained_1.1b",
+    default=pretrained_dir,
     help="Path to model dir (contains config.json & weights)"
 )
 
 parser.add_argument(
     "--tok",
-    default="/home/truongchu/Academic/Graduation_Thesis/Project/AI/ipen-agent/llm/tinyllama/pretrained_1.1b/tokenizer.model",
+    default=f"{pretrained_dir}/tokenizer.model",
     help="Path to tokenizer.model"
 )
 # --steps and --topk are used by the `answer` function internally, so they are not directly used here
@@ -59,7 +64,7 @@ while True:
         continue
 
     start_time = time.time()
-    generated_answer, confidence = get_answer(sys_msg_input, usr_msg_input, model, tok)
+    generated_answer, confidence = get_answer(sys_msg_input, usr_msg_input, model, tok, 1024)
     end_time = time.time()
 
     print(f"\nAssistant: {generated_answer}")

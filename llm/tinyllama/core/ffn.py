@@ -3,6 +3,7 @@
 """
 import torch.nn as nn, torch.nn.functional as F
 from .config import Config
+# from config import Config
 
 class SwiGLU(nn.Module):
     def __init__(self, cfg: Config):
