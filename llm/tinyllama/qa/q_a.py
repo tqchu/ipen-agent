@@ -7,10 +7,8 @@ from llm.tinyllama.io.tokenizer import format_chat_prompt, Tok
 
 
 
-def get_answer(system_prompt: str, question: str, model, tokenizer, max_tokens) -> (str, float):
+def get_answer(system_prompt: str, question: str, model:TinyLlama, tokenizer, max_tokens, no_cache = False) -> (str, float):
     """Get an answer from the model."""
-    start = time.time()
-
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
     prompt = format_chat_prompt(
@@ -27,8 +25,6 @@ def get_answer(system_prompt: str, question: str, model, tokenizer, max_tokens) 
 
     model.eval()
     with torch.no_grad():
-        # logits_full: (1, prompt_len, vocab_size)
-        # kv_caches: list of length n_layers, each is a dict {"k":..., "v":...}
         logits_full, kv_caches = model(input_tensor, kv_caches=None)
 
         # Grab the last‐token logits from the prompt
@@ -49,14 +45,15 @@ def get_answer(system_prompt: str, question: str, model, tokenizer, max_tokens) 
 
             generated.append(token_id)
 
-            # 3b. Feed the single new token + existing caches into the model
-            new_input = torch.tensor([[token_id]], device=device)  # (1, 1)
-            # input_tensor = torch.cat([input_tensor, torch.tensor([[token_id]], device=device)], dim=1)
+            if no_cache:
+                input_tensor = torch.cat([input_tensor, torch.tensor([[token_id]], device=device)], dim=1)
+                with torch.no_grad():
+                    logits_step, kv_caches = model(input_tensor, kv_caches=None)
+            else:
+                new_input = torch.tensor([[token_id]], device=device)  # (1, 1)
+                with torch.no_grad():
+                    logits_step, kv_caches = model(new_input, kv_caches=kv_caches)
 
-            with torch.no_grad():
-                logits_step, kv_caches = model(new_input, kv_caches=kv_caches)
-                # logits_step, kv_caches = model(input_tensor, kv_caches=None)
-                # logits_step: (1, 1, vocab_size)
             next_logits = logits_step[0, -1, :]  # shape (vocab_size,)
 
     # 4. Decode the generated tokens (excluding the prompt)

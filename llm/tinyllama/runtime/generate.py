@@ -48,20 +48,71 @@ print("Tokenizer loaded.")
 print("\nTinyLlama Interactive Chat")
 print("Type 'exit' or 'quit' for the user question to end.")
 
-while True:
-    sys_msg_input = input("\nEnter system message (e.g., 'You are a helpful assistant.'): ")
-    if sys_msg_input.lower() in ['exit', 'quit']:
-        print("Exiting...")
-        break
+# while True:
+#     sys_msg_input = input("\nEnter system message (e.g., 'You are a helpful assistant.'): ")
+#     if sys_msg_input.lower() in ['exit', 'quit']:
+#         print("Exiting...")
+#         break
+#
+#     usr_msg_input = input("Enter user question: ")
+#     if usr_msg_input.lower() in ['exit', 'quit']:
+#         print("Exiting...")
+#         break
+#
+#     if not sys_msg_input.strip() or not usr_msg_input.strip():
+#         print("System message and user question cannot be empty. Please try again.")
+#         continue
+#
+#     start_time = time.time()
+#     generated_answer, confidence = get_answer(sys_msg_input, usr_msg_input, model, tok, 1024)
+#     end_time = time.time()
+#
+#     print(f"\nAssistant: {generated_answer}")
+#     print(f"(Confidence: {confidence:.2f}, Time: {end_time - start_time:.2f}s)")
 
-    usr_msg_input = input("Enter user question: ")
-    if usr_msg_input.lower() in ['exit', 'quit']:
-        print("Exiting...")
-        break
+
+pairs = [
+    {
+        "system": "You are a friendly travel advisor.",
+        "user": "What are the top three must-see attractions in Kyoto for first-time visitors?"
+    },
+    {
+        "system": "You are an expert in algorithms and data structures.",
+        "user": "Explain how Dijkstra’s algorithm works, step by step, on a small weighted graph."
+    },
+    {
+        "system": "You are a creative writing assistant.",
+        "user": "Write a 200-word opening scene for a sci-fi story set on Mars."
+    },
+    {
+        "system": "You are a financial analyst.",
+        "user": "Compare the historical performance of the S&P 500 and NASDAQ over the last decade."
+    },
+    {
+        "system": "You are a cooking tutor.",
+        "user": "How do I make a classic French omelette with a soft, custardy interior?"
+    }
+]
+
+durations_no_cache = []
+durations_with_cache = []
+
+for pair in pairs:
+    sys_msg_input = pair["system"]
+    usr_msg_input = pair["user"]
 
     if not sys_msg_input.strip() or not usr_msg_input.strip():
         print("System message and user question cannot be empty. Please try again.")
         continue
+
+    # start_time = time.time()
+    # generated_answer, confidence = get_answer(sys_msg_input, usr_msg_input, model, tok, 1024, no_cache=True)
+    # end_time = time.time()
+    #
+    # print(f"\nAssistant: {generated_answer}")
+    # print(f"(Confidence: {confidence:.2f}, Time: {end_time - start_time:.2f}s)")
+
+    # durations_no_cache.append(end_time - start_time)
 
     start_time = time.time()
     generated_answer, confidence = get_answer(sys_msg_input, usr_msg_input, model, tok, 1024)
@@ -69,6 +120,17 @@ while True:
 
     print(f"\nAssistant: {generated_answer}")
     print(f"(Confidence: {confidence:.2f}, Time: {end_time - start_time:.2f}s)")
+
+    durations_with_cache.append(end_time - start_time)
+
+print("\nSummary of durations:")
+print(f"Average duration without cache: {sum(durations_no_cache) / len(durations_no_cache):.2f} seconds")
+print(f"Average duration with cache: {sum(durations_with_cache) / len(durations_with_cache):.2f} seconds")
+
+print("Max duration without cache: {max(durations_no_cache):.2f} seconds")
+print(f"Max duration with cache: {max(durations_with_cache):.2f} seconds")
+
+print("\nThank you for using TinyLlama Interactive Chat!")
 
 print("Chat session ended.")
 # Print the final generated response
