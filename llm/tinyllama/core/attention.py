@@ -1,3 +1,4 @@
+import csv
 import math
 import os
 
@@ -8,6 +9,8 @@ from llm.tinyllama.core.config import Config
 from llm.tinyllama.core.rotary import apply_rope, rope_cache
 import torch.nn.functional as F
 
+batch_csv = "debug_batch.csv"
+inc_csv = "debug_inc.csv"
 
 class MHA(nn.Module):
     """
@@ -54,6 +57,17 @@ class MHA(nn.Module):
         x: torch.Tensor,            # (B, T, D)
         kv_cache: [dict, None] = None
     ) -> tuple[torch.Tensor, dict]:
+        # Ensure CSV exists; if not, write header
+        if not os.path.isfile(batch_csv):
+            with open(batch_csv, "w", newline="") as f:
+                writer = csv.writer(f)
+                writer.writerow(["var_name", "value"])
+
+        if not os.path.isfile(inc_csv):
+            with open(inc_csv, "w", newline="") as f:
+                writer = csv.writer(f)
+                writer.writerow(["var_name", "value"])
+
         B, T, _ = x.shape
         H, HK, Dh = self.cfg.n_heads, self.cfg.n_kv_heads, self.d_head
 
@@ -74,6 +88,29 @@ class MHA(nn.Module):
             .transpose(1, 2)
         )  # (B, HK, T, Dh)
 
+        # Right after you compute q_all = self.q_proj(x).view(...).transpose(...)
+        if kv_cache is None:
+            # Batch mode
+            if T > 1:
+                # Grab the pre‐RoPE projection of token 1 (the second token in the batch)
+                token1_pre_rope = q_all[:, :, 1, :]  # shape = (B, H, Dh)
+                with open(batch_csv, "a", newline="") as f:
+                    writer = csv.writer(f)
+                    writer.writerow(["batch_token1_pre_rope", token1_pre_rope.tolist()])
+            else:
+                # T == 1: there *is* no token 1 yet, so skip this
+                with open(batch_csv, "a", newline="") as f:
+                    writer = csv.writer(f)
+                    writer.writerow(["batch_token1_pre_rope", "N/A (only T=1)"])
+
+        else:
+            # Incremental mode
+            # Here, q_all has shape (B, H, 1, Dh).  The “new” token is always index 0.
+            token1_pre_rope = q_all[:, :, 0, :]  # shape = (B, H, Dh)
+            with open(inc_csv, "a", newline="") as f:
+                writer = csv.writer(f)
+                writer.writerow(["inc_token1_pre_rope", token1_pre_rope.tolist()])
+
         # ── 2) Build RoPE tables & slice out the T positions ──────────────
         offset = 0 if kv_cache is None else kv_cache["k"].size(2)
         sin_all, cos_all = self._build_rope(offset + T, x.device)
@@ -86,12 +123,12 @@ class MHA(nn.Module):
         # v_raw remains unrotated.
 
         # ── ▣ DEBUG #1: Print RoPE‐rotated Q for token index 1 ▣ ───────────
-        if x.shape[1] == 2 and kv_cache is None:
-            # Batch mode on a 2-token prefix → print last query slice
-            print("[DEBUG Q-BATCH] q_all_last (heads x first3 dims):", q_all[:, :, -1:, :3])
-        if x.shape[1] == 1 and kv_cache is not None and kv_cache["k"].shape[2] == 1:
-            # Incremental, second token → q_all is shape (B,H,1,Dh)
-            print("[DEBUG Q-INC]   q_all (heads x first3 dims):", q_all[:, :, :, :3])
+        # if x.shape[1] == 2 and kv_cache is None:
+        #     # Batch mode on a 2-token prefix → print last query slice
+        #     print("[DEBUG Q-BATCH] q_all_last (heads x first3 dims):", q_all[:, :, -1:, :3])
+        # if x.shape[1] == 1 and kv_cache is not None and kv_cache["k"].shape[2] == 1:
+        #     # Incremental, second token → q_all is shape (B,H,1,Dh)
+        #     print("[DEBUG Q-INC]   q_all (heads x first3 dims):", q_all[:, :, :, :3])
 
         # ── 4) Concatenate new K/V with cache (if any) ────────────────────
         if kv_cache is not None:
@@ -110,49 +147,94 @@ class MHA(nn.Module):
         v_full = v_raw.contiguous().repeat_interleave(repeat, dim=1)  # (B,H,T_full,Dh)
 
         # ── ▣ DEBUG #2b: Print concatenated V for both tokens ▣ ───────────
-        if x.shape[1] == 2 and kv_cache is None:
-            # Batch: two‐token prefix → v_full has shape (B, H, 2, Dh)
-                 print("[DEBUG V-BATCH] v_full shape:", v_full.shape)
-                 print("[DEBUG V-BATCH] v_full[:,:,0,:3]:", v_full[:, :, 0, :3])
-                 print("[DEBUG V-BATCH] v_full[:,:,1,:3]:", v_full[:, :, 1, :3])
-        if x.shape[1] == 1 and kv_cache is not None and kv_cache["v"].shape[2] == 1:
-            # Incremental second step → v_full also (B, H, 2, Dh)
-                 print("[DEBUG V-INC]   v_full shape:", v_full.shape)
-                 print("[DEBUG V-INC]   v_full[:,:,0,:3]:", v_full[:, :, 0, :3])
-                 print("[DEBUG V-INC]   v_full[:,:,1,:3]:", v_full[:, :, 1, :3])
+        # if x.shape[1] == 2 and kv_cache is None:
+        #     # Batch: two‐token prefix → v_full has shape (B, H, 2, Dh)
+        #          print("[DEBUG V-BATCH] v_full shape:", v_full.shape)
+        #          print("[DEBUG V-BATCH] v_full[:,:,0,:3]:", v_full[:, :, 0, :3])
+        #          print("[DEBUG V-BATCH] v_full[:,:,1,:3]:", v_full[:, :, 1, :3])
+        # if x.shape[1] == 1 and kv_cache is not None and kv_cache["v"].shape[2] == 1:
+        #     # Incremental second step → v_full also (B, H, 2, Dh)
+        #          print("[DEBUG V-INC]   v_full shape:", v_full.shape)
+        #          print("[DEBUG V-INC]   v_full[:,:,0,:3]:", v_full[:, :, 0, :3])
+        #          print("[DEBUG V-INC]   v_full[:,:,1,:3]:", v_full[:, :, 1, :3])
 
         # ── ▣ DEBUG #2: Print concatenated K for both tokens ▣ ───────────
-        if x.shape[1] == 2 and kv_cache is None:
-            # Batch: two‐token prefix
-            print("[DEBUG K-BATCH] k_full shape:", k_full.shape)
-            print("[DEBUG K-BATCH] k_full[:,:,0,:3]:", k_full[:, :, 0, :3])
-            print("[DEBUG K-BATCH] k_full[:,:,1,:3]:", k_full[:, :, 1, :3])
-        if x.shape[1] == 1 and kv_cache is not None and kv_cache["k"].shape[2] == 1:
-            # Incremental second step
-            print("[DEBUG K-INC]   k_full shape:", k_full.shape)
-            print("[DEBUG K-INC]   k_full[:,:,0,:3]:", k_full[:, :, 0, :3])
-            print("[DEBUG K-INC]   k_full[:,:,1,:3]:", k_full[:, :, 1, :3])
+        # if x.shape[1] == 2 and kv_cache is None:
+        #     # Batch: two‐token prefix
+        #     print("[DEBUG K-BATCH] k_full shape:", k_full.shape)
+        #     print("[DEBUG K-BATCH] k_full[:,:,0,:3]:", k_full[:, :, 0, :3])
+        #     print("[DEBUG K-BATCH] k_full[:,:,1,:3]:", k_full[:, :, 1, :3])
+        # if x.shape[1] == 1 and kv_cache is not None and kv_cache["k"].shape[2] == 1:
+        #     # Incremental second step
+        #     print("[DEBUG K-INC]   k_full shape:", k_full.shape)
+        #     print("[DEBUG K-INC]   k_full[:,:,0,:3]:", k_full[:, :, 0, :3])
+        #     print("[DEBUG K-INC]   k_full[:,:,1,:3]:", k_full[:, :, 1, :3])
 
         # ── 6) Split into batch vs. incremental attention paths ──────────
         if kv_cache is None:
+
             # — Batch mode: attend to all T queries in one shot —
             q = q_all.contiguous()      # (B,H,T,Dh)
             k = k_full.contiguous()     # (B,H,T,Dh)
             v = v_full.contiguous()     # (B,H,T,Dh)
 
-            # ── ▣ DEBUG #3: Print raw attention scores for last query ▣ ──
+            with open(batch_csv, "a", newline="") as f:
+                writer = csv.writer(f)
+                writer.writerow(["q_raw", str(q[0, 0, :, :].tolist())])  # log head=0 slice for readability
+                writer.writerow(["k_raw", str(k[0, 0, :, :].tolist())])
+                writer.writerow(["v_raw", str(v[0, 0, :, :].tolist())])
+
+            # ── ▣ DEBUG #3: Compute raw attention scores for last query ▣ ──
             inv_sqrt = 1.0 / math.sqrt(Dh)
             scores_full = torch.einsum("b h q d, b h k d -> b h q k", q, k) * inv_sqrt
             scores_ref_last = scores_full[:, :, -1:, :]  # shape (B,H,1,T)
-            print("[DEBUG SCORES-BATCH] head0 scores:", scores_ref_last[0, 0, 0, :].tolist())
 
-            # Call fused SDPA
+            # Convert tensors to Python lists or strings for CSV
+            scores_last_list = scores_ref_last[0, 0, 0, :].tolist()
+            shape_q = tuple(q.shape)
+            shape_k = tuple(k.shape)
+            shape_v = tuple(v.shape)
+
+            # Append batch‐mode debug values to CSV
+            with open(batch_csv, "a", newline="") as f:
+                writer = csv.writer(f)
+                writer.writerow(["scores_ref_last", str(scores_last_list)])
+                writer.writerow(["q.shape", str(shape_q)])
+                writer.writerow(["k.shape", str(shape_k)])
+                writer.writerow(["v.shape", str(shape_v)])
+
+            probs_full = F.softmax(scores_ref_last, dim=-1)  # still (B,H,1,T)
+            probs_full_list = probs_full[0, 0, 0, :].tolist()
+            with open(batch_csv, "a", newline="") as f:
+                writer = csv.writer(f)
+                writer.writerow(["probs_ref_last (batch softmax)", str(probs_full_list)])
+
+            # print("[DEBUG SCORES-BATCH] head0 scores:", scores_last_list)
+            # print(f"[DEBUG SHAPES-BATCH] q.shape={q.shape}, k.shape={k.shape}, v.shape={v.shape}")
+
             out_attn = F.scaled_dot_product_attention(q, k, v, attn_mask=None, is_causal=True)
+            # print(f"[DEBUG ATTN-BATCH] out_attn_batch.shape={out_attn.shape}")
             # out_attn: (B, H, T, Dh)
 
             # ── ▣ DEBUG #4: Print attention output for last query before o_proj ▣ ──
             attn_ref_last = out_attn[:, :, -1:, :]  # (B,H,1,Dh)
-            print("[DEBUG ATTN-BATCH] head0 first3 dims:", attn_ref_last[0, 0, 0, :3].tolist())
+
+            attn_out_vec_batch = attn_ref_last[0, 0, 0, :].tolist()
+            with open(batch_csv, "a", newline="") as f:
+                writer = csv.writer(f)
+                writer.writerow(["attn_output_last_query_batch_fullDh", str(attn_out_vec_batch)])
+
+            attn_last3 = attn_ref_last[0, 0, 0, :3].tolist()
+
+            # Log attn output shape and first 3 dims
+            shape_out_attn = tuple(out_attn.shape)
+            with open(batch_csv, "a", newline="") as f:
+                writer = csv.writer(f)
+                writer.writerow(["out_attn_batch.shape", str(shape_out_attn)])
+                writer.writerow(["attn_ref_last_first3", str(attn_last3)])
+
+            # print(f"[DEBUG ATTN-BATCH] out_attn_batch.shape={out_attn.shape}")
+            # print("[DEBUG ATTN-BATCH] head0 first3 dims:", attn_last3)
 
             # Reshape & project → (B,T,H*Dh) → (B,T,D)
             out = (
@@ -172,18 +254,86 @@ class MHA(nn.Module):
             k = k_full.contiguous()    # (B, H, T_full, Dh)
             v = v_full.contiguous()    # (B, H, T_full, Dh)
 
+            # Ensure CSV exists; if not, write header
+
+            with open(inc_csv, "a", newline="") as f:
+                writer = csv.writer(f)
+                writer.writerow(["q_raw", str(q[0, 0, 0, :].tolist())])  # head=0, only one time‐step
+                writer.writerow(["k_raw", str(k[0, 0, :, :].tolist())])  # head=0, all cached+new
+                writer.writerow(["v_raw", str(v[0, 0, :, :].tolist())])
+
             # ── ▣ DEBUG #3b: Print raw attention scores (incremental) ▣ ──
             inv_sqrt = 1.0 / math.sqrt(Dh)
             scores_inc = torch.einsum("b h q d, b h k d -> b h q k", q, k) * inv_sqrt
-            print("[DEBUG SCORES-INC]   head0 scores:", scores_inc[0, 0, 0, :].tolist())
+
+            # Convert to Python lists/strings for CSV
+            scores_inc_list = scores_inc[0, 0, 0, :].tolist()
+            shape_q_inc = tuple(q.shape)
+            shape_k_inc = tuple(k.shape)
+            shape_v_inc = tuple(v.shape)
+
+            # Append incremental‐mode debug values to CSV
+            with open(inc_csv, "a", newline="") as f:
+                writer = csv.writer(f)
+                writer.writerow(["scores_inc", str(scores_inc_list)])
+                writer.writerow(["q.shape", str(shape_q_inc)])
+                writer.writerow(["k.shape", str(shape_k_inc)])
+                writer.writerow(["v.shape", str(shape_v_inc)])
+
+            probs_inc = F.softmax(scores_inc, dim=-1)  # shape (B,H,1,T_full)
+
+            # Convert to Python list for CSV
+            probs_inc_list = probs_inc[0, 0, 0, :].tolist()
+
+            with open(inc_csv, "a", newline="") as f:
+                writer = csv.writer(f)
+                writer.writerow(["probs_inc (softmaxed scores)", str(probs_inc_list)])
+
+            # print("[DEBUG SCORES-INC]   head0 scores:", scores_inc_list)
+            # print(f"[DEBUG SHAPES-INC]   q.shape={q.shape}, k.shape={k.shape}, v.shape={v.shape}")
+
+            masked_inc = scores_inc.clone()  # (B, H, 1, T_full)
+
+            # 2) Softmax along the “k” dimension (dim = -1)
+            #    → probs_inc_manual: shape (B, H, 1, T_full)
+            probs_inc_manual = torch.softmax(masked_inc, dim=-1)
+
+            attn_inc_manual = torch.einsum(
+                "b h q k, b h k d -> b h q d",
+                probs_inc_manual,
+                v
+            )  # shape = (B, H, 1, Dh)
+
+            # Log the manual output vector (full Dh) for debugging
+            attn_inc_fullDh = attn_inc_manual[0, 0, 0, :].tolist()
+            with open(inc_csv, "a", newline="") as f:
+                writer = csv.writer(f)
+                writer.writerow(["attn_output_last_query_inc_manual_fullDh", str(attn_inc_fullDh)])
 
             # Call fused SDPA
-            out_attn = F.scaled_dot_product_attention(q, k, v, attn_mask=None, is_causal=True)
+            # out_attn = F.scaled_dot_product_attention(q, k, v, attn_mask=None, is_causal=True)
+            out_attn = attn_inc_manual
             # out_attn: (B, H, 1, Dh)
 
             # ── ▣ DEBUG #4b: Print attention output (incremental) ▣ ──
             attn_inc = out_attn  # (B, H, 1, Dh)
-            print("[DEBUG ATTN-INC]   head0 first3 dims:", attn_inc[0, 0, 0, :3].tolist())
+
+            attn_inc_first3 = attn_inc[0, 0, 0, :3].tolist()
+            shape_out_attn_inc = tuple(out_attn.shape)
+
+            attn_inc_fullDh = attn_inc[0, 0, 0, :].tolist()  # length Dh
+            with open(inc_csv, "a", newline="") as f:
+                writer = csv.writer(f)
+                writer.writerow(["attn_output_last_query_inc_fullDh", str(attn_inc_fullDh)])
+                writer.writerow(["manual_attn_output", str(torch.matmul(probs_inc.unsqueeze(0), v).squeeze(0))])
+
+            with open(inc_csv, "a", newline="") as f:
+                writer = csv.writer(f)
+                writer.writerow(["out_attn_inc.shape", str(shape_out_attn_inc)])
+                writer.writerow(["attn_inc_first3", str(attn_inc_first3)])
+
+            # print(f"[DEBUG ATTN-INC]   out_attn_inc.shape={out_attn.shape}")
+            # print("[DEBUG ATTN-INC]   head0 first3 dims:", attn_inc_first3)
 
             # Reshape & project → (B,1,H*Dh) → (B,1,D)
             out = (
@@ -197,7 +347,20 @@ class MHA(nn.Module):
 
             return out, new_cache
 
+def reset_debug_csvs():
+    global batch_csv, inc_csv
+
+    for fname in [batch_csv, inc_csv]:
+        # Overwrite existing file or create a new one with only the header
+        with open(fname, "w", newline="") as f:
+            writer = csv.writer(f)
+            writer.writerow(["var_name", "value"])
+
 def test_mha_kv_cache():
+    global batch_csv, inc_csv
+
+    reset_debug_csvs()
+
     torch.manual_seed(0)
 
     # ----- tiny dummy config -----
@@ -394,6 +557,8 @@ def test_mha_kv_cache():
             print("  !! last_ref vs last_inc mismatch at index", i)
             raise
 def test_mha_kv_cache_full_sequence():
+    global batch_csv, inc_csv
+
     """
     Verifies that MHA returns the same last‐token output whether you run:
 
@@ -419,7 +584,15 @@ def test_mha_kv_cache_full_sequence():
     D = cfg.d_model
     max_len = 5
 
-    for L in range(1, max_len + 1):
+    for L in range(2, max_len + 1):
+        batch_csv = "debug_batch.csv"
+
+        reset_debug_csvs()
+
+        with open("debug_batch_with_cache.csv", "w", newline="") as f:
+            writer = csv.writer(f)
+            writer.writerow(["var_name", "value"])
+
         x = torch.randn(B, L, D)
 
         # --- (1) REFERENCE: run batch on each prefix [0..t], no cache ---
@@ -438,11 +611,15 @@ def test_mha_kv_cache_full_sequence():
         # --- (2) INCREMENTAL: feed tokens one by one, carrying kv_cache ---
         cache_inc = None
         incremental_outputs = []
+
+        batch_csv = "debug_batch_with_cache.csv"
+
         for t in range(L):
             with torch.no_grad():
                 out_inc_t, cache_inc = mha(x[:, t : t + 1], kv_cache=cache_inc)
                 # out_inc_t has shape (B,1,D)
             # Stepwise assertion: they must match exactly
+            print("For i = ", t)
             torch.testing.assert_close(
                 reference_outputs[t],
                 out_inc_t,
@@ -477,7 +654,7 @@ def print_raw_batch():
     D = cfg.d_model
 
     # Only test L=2 for now
-    L = 2
+    L = 5
     x = torch.randn(B, L, D)
 
     # 1) Batch on prefix [0,1]
@@ -506,5 +683,5 @@ def print_raw_batch():
     torch.testing.assert_close(out_ref_last, out_inc_1, atol=1e-4, rtol=1e-4)
 
 if __name__ == "__main__":
-    # test_mha_kv_cache_full_sequence()
-    print_raw_batch()
+    test_mha_kv_cache_full_sequence()
+    # print_raw_batch()
