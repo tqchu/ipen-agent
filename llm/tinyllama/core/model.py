@@ -36,13 +36,13 @@ class TinyLlama(nn.Module):
 
     def forward(
         self,
-        idx: torch.Tensor,                  # (B, T) or (B, 1)
+        input_ids: torch.Tensor,                  # (B, T) or (B, 1)
         kv_caches: [list[dict] , None] = None  # either None or list of length n_layers
     ) -> tuple[torch.Tensor, list[dict]]:
-        B, T = idx.shape
+        B, T = input_ids.shape
 
         # 1) Token embedding
-        x = self.emb(idx)  # (B, T, D)
+        x = self.emb(input_ids)  # (B, T, D)
 
         new_caches = []
 
