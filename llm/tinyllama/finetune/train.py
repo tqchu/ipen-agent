@@ -1,3 +1,5 @@
+import os
+
 import torch
 from torch import nn
 from torch.optim import AdamW
@@ -18,12 +20,13 @@ num_epochs = 3
 gradient_accumulation_steps = 1  # or >1 if you want effective larger batch size
 save_every = 1000  # steps
 
+current_dir = os.path.dirname(os.path.abspath(__file__))
 
-train_dataset = QADataset("train_data.jsonl", tokenizer, max_length=512)
-val_dataset   = QADataset("val_data.jsonl", tokenizer, max_length=512)
+train_dataset = QADataset(os.path.join(current_dir, "train_data.jsonl"), tokenizer, max_length=512)
+val_dataset = QADataset(os.path.join(current_dir, "val_data.jsonl"), tokenizer, max_length=512)
 
 train_loader = DataLoader(train_dataset, batch_size=16, shuffle=True, )
-val_loader   = DataLoader(val_dataset, batch_size=16, shuffle=False, )
+val_loader = DataLoader(val_dataset, batch_size=16, shuffle=False, )
 
 vocab_size = model.cfg.vocab_size
 loss_fn = nn.CrossEntropyLoss(ignore_index=-100)
