@@ -23,7 +23,7 @@ class TinyLlama(nn.Module):
 
     def __init__(self, cfg: Config):
         super().__init__()
-        self.cfg = cfg
+        self.config = cfg
 
         self.emb = nn.Embedding(cfg.vocab_size, cfg.d_model)
         self.blocks = nn.ModuleList([Block(cfg) for _ in range(cfg.n_layers)])

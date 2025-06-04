@@ -54,7 +54,7 @@ val_dataset   = QADataset(os.path.join(current_dir, "val_data.jsonl"),   tokeniz
 train_loader = DataLoader(train_dataset, batch_size=per_device_batch_size, shuffle=True)
 val_loader   = DataLoader(val_dataset,   batch_size=per_device_batch_size, shuffle=False)
 
-vocab_size = model.cfg.vocab_size
+vocab_size = model.config.vocab_size
 loss_fn = nn.CrossEntropyLoss(ignore_index=-100)
 
 global_step = 0
