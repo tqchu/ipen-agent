@@ -1,0 +1,110 @@
+{
+  "Name": "Arkeia Backup Client Type 77 Overflow (Win32)",
+  "Description": "This module exploits a stack buffer overflow in the Arkeia backup client for the Windows platform. This vulnerability affects all versions up to and including 5.3.3.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/arkeia/type77.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "hdm <x@hdm.io>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2005-0491"
+    ],
+    [
+      "OSVDB",
+      "14011"
+    ],
+    [
+      "BID",
+      "12594"
+    ],
+    [
+      "URL",
+      "http://lists.netsys.com/pipermail/full-disclosure/2005-February/031831.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Arkeia 5.3.3 and 5.2.27 Windows (All)"
+    ],
+    [
+      1,
+      "Arkeia 5.2.27 and 5.1.19 Windows (All)"
+    ],
+    [
+      2,
+      "Arkeia 5.3.3 and 5.0.19 Windows (All)"
+    ],
+    [
+      3,
+      "Arkeia 5.1.19 and 5.0.19 Windows (All)"
+    ],
+    [
+      4,
+      "Arkeia 5.x Windows 2000 English"
+    ],
+    [
+      5,
+      "Arkeia 5.x Windows XP English SP0/SP1"
+    ],
+    [
+      6,
+      "Arkeia 5.x Windows NT 4.0 SP4/SP5/SP6"
+    ],
+    [
+      7,
+      "Arkeia 4.2 Windows 2000 English"
+    ],
+    [
+      8,
+      "Arkeia 4.2 Windows XP English SP0/SP1"
+    ],
+    [
+      9,
+      "Arkeia 4.2 Windows NT 4.0 SP4/SP5/SP6"
+    ],
+    [
+      10,
+      "Arkeia 4.2 Windows 2000 German"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

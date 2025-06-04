@@ -1,0 +1,63 @@
+{
+  "Name": "Irix LPD tagprinter Command Execution",
+  "Description": "This module exploits an arbitrary command execution flaw in the in.lpd service shipped with all versions of Irix.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/irix/lpd/tagprinter_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "optyx <optyx@no$email.com>",
+    "hdm <x@hdm.io>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2001-0800"
+    ],
+    [
+      "OSVDB",
+      "8573"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Irix",
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic Target"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

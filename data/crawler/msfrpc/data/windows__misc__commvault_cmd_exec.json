@@ -1,0 +1,75 @@
+{
+  "Name": "Commvault Communications Service (cvd) Command Injection",
+  "Description": "This module exploits a command injection vulnerability discovered in Commvault Service v11 SP5 and earlier versions (tested in v11 SP5 and v10). The vulnerability exists in the cvd.exe service and allows an attacker to execute arbitrary commands in the context of the service. By default, the Commvault Communications service installs and runs as SYSTEM in Windows and does not require authentication. This vulnerability was discovered in the Windows version. The Linux version wasn't tested.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/commvault_cmd_exec.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "b0yd"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2017-18044"
+    ],
+    [
+      "URL",
+      "https://www.securifera.com/advisories/sec-2017-0001/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Commvault Communications Service (cvd) / Microsoft Windows 7 and higher"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "Powershell::persist",
+    "Powershell::prepend_sleep",
+    "Powershell::prepend_protections_bypass",
+    "Powershell::strip_comments",
+    "Powershell::strip_whitespace",
+    "Powershell::sub_vars",
+    "Powershell::sub_funcs",
+    "Powershell::exec_in_place",
+    "Powershell::exec_rc4",
+    "Powershell::remove_comspec",
+    "Powershell::noninteractive",
+    "Powershell::encode_final_payload",
+    "Powershell::encode_inner_payload",
+    "Powershell::wrap_double_quotes",
+    "Powershell::no_equals",
+    "Powershell::method"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

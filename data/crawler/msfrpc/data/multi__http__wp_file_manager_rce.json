@@ -1,0 +1,104 @@
+{
+  "Name": "WordPress File Manager Unauthenticated Remote Code Execution",
+  "Description": "The File Manager (wp-file-manager) plugin from 6.0 to 6.8 for WordPress allows remote attackers to upload and execute arbitrary PHP code because it renames an unsafe example elFinder connector file to have the .php extension. This, for example, allows attackers to run the elFinder upload (or mkfile and put) command to write PHP code into the wp-content/plugins/wp-file-manager/lib/files/ directory.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/http/wp_file_manager_rce.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Alex Souza (w4fz5uck5)",
+    "Imran E. Dawoodjee <imran@threathounds.com>"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://github.com/w4fz5uck5/wp-file-manager-0day"
+    ],
+    [
+      "URL",
+      "https://www.tenable.com/cve/CVE-2020-25213"
+    ],
+    [
+      "CVE",
+      "2020-25213"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::PHP"
+  ],
+  "Arch": [
+    "php"
+  ],
+  "Targets": [
+    [
+      0,
+      "WordPress File Manager 6.0-6.8"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TARGETURI",
+    "WPCONTENTDIR",
+    "WPCHECK",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "COMMAND",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

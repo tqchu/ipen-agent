@@ -1,0 +1,67 @@
+{
+  "Name": "PostgreSQL for Microsoft Windows Payload Execution",
+  "Description": "On default Microsoft Windows installations of PostgreSQL the postgres service account may write to the current directory (which is usually \"C:\\Program Files\\PostgreSQL\\<version>\\data\" where <version> is the major.minor version of PostgreSQL). UDF DLL's may be sourced from there as well. This module uploads a Windows DLL file via the pg_largeobject method of binary injection and creates a UDF (user defined function) from that DLL. Because the payload is run from DllMain, it does not need to conform to specific Postgres API versions.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/postgres/postgres_payload.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Bernardo Damele A. G. <bernardo.damele@gmail.com>",
+    "todb <todb@metasploit.com>"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://web.archive.org/web/20100803002909/http://lab.lonerunners.net/blog/sqli-writing-files-to-disk-under-postgresql"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows x86"
+    ],
+    [
+      1,
+      "Windows x64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "DATABASE",
+    "USERNAME",
+    "PASSWORD",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "SESSION"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,101 @@
+{
+  "Name": "Firefox onreadystatechange Event DocumentViewerImpl Use After Free",
+  "Description": "This module exploits a vulnerability found on Firefox 17.0.6, specifically a use after free of a DocumentViewerImpl object, triggered via a specially crafted web page using onreadystatechange events and the window.stop() API, as exploited in the wild on 2013 August to target Tor Browser users.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/mozilla_firefox_onreadystatechange.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Nils",
+    "Unknown",
+    "w3bd3vil",
+    "sinn3r <sinn3r@metasploit.com>",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-1690"
+    ],
+    [
+      "OSVDB",
+      "94584"
+    ],
+    [
+      "BID",
+      "60778"
+    ],
+    [
+      "URL",
+      "https://www.mozilla.org/security/announce/2013/mfsa2013-53.html"
+    ],
+    [
+      "URL",
+      "https://lists.torproject.org/pipermail/tor-announce/2013-August/000089.html"
+    ],
+    [
+      "URL",
+      "https://bugzilla.mozilla.org/show_bug.cgi?id=901365"
+    ],
+    [
+      "URL",
+      "http://krash.in/ffn0day.txt"
+    ],
+    [
+      "URL",
+      "http://hg.mozilla.org/releases/mozilla-esr17/rev/2d5a85d7d3ae"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Firefox 17 & Firefox 21 / Windows XP SP3"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

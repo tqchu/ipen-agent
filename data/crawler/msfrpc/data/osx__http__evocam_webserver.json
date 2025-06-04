@@ -1,0 +1,68 @@
+{
+  "Name": "MacOS X EvoCam HTTP GET Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in the web server provided with the EvoCam program for Mac OS X. We use Dino Dai Zovi's exec-from-heap technique to copy the payload from the non-executable stack segment to heap memory. Vulnerable versions include 3.6.6, 3.6.7, and possibly earlier versions as well. EvoCam version 3.6.8 fixes the vulnerability.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/osx/http/evocam_webserver.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "Paul Harrington",
+    "dookie"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2010-2309"
+    ],
+    [
+      "OSVDB",
+      "65043"
+    ],
+    [
+      "EDB",
+      "12835"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::OSX"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Mac OS X 10.5.8 x86, EvoCam 3.6.6"
+    ],
+    [
+      1,
+      "Mac OS X 10.5.8 x86, EvoCam 3.6.7"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

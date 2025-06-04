@@ -1,0 +1,87 @@
+{
+  "Name": "Oracle 10gR2 TNS Listener AUTH_SESSKEY Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in Oracle. When sending a specially crafted packet containing a long AUTH_SESSKEY value to the TNS service, an attacker may be able to execute arbitrary code.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/oracle/tns_auth_sesskey.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2009-1979"
+    ],
+    [
+      "OSVDB",
+      "59110"
+    ],
+    [
+      "BID",
+      "36747"
+    ],
+    [
+      "URL",
+      "http://blogs.conus.info/node/28"
+    ],
+    [
+      "URL",
+      "http://blogs.conus.info/node/35"
+    ],
+    [
+      "URL",
+      "http://www.oracle.com/technology/deploy/security/critical-patch-updates/cpuoct2009.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "Oracle 10.2.0.1.0 Enterprise Edition"
+    ],
+    [
+      2,
+      "Oracle 10.2.0.4.0 Enterprise Edition"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "DynamicSehRecord",
+    "SID"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "seh"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

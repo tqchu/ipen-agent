@@ -1,0 +1,84 @@
+{
+  "Name": "MS08-078 Microsoft Internet Explorer Data Binding Memory Corruption",
+  "Description": "This module exploits a vulnerability in the data binding feature of Internet Explorer. In order to execute code reliably, this module uses the .NET DLL memory technique pioneered by Alexander Sotirov and Mark Dowd. This method is used to create a fake vtable at a known location with all methods pointing to our payload. Since the .text segment of the .NET DLL is non-writable, a prefixed code stub is used to copy the payload into a new memory segment and continue execution from there.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/ms08_078_xml_corruption.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "hdm <x@hdm.io>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2008-4844"
+    ],
+    [
+      "OSVDB",
+      "50622"
+    ],
+    [
+      "BID",
+      "32721"
+    ],
+    [
+      "MSB",
+      "MS08-078"
+    ],
+    [
+      "URL",
+      "https://web.archive.org/web/20080913064223/http://taossa.com/archive/bh08sotirovdowd.pdf"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

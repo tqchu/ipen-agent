@@ -1,0 +1,81 @@
+{
+  "Name": "JSON Swagger CodeGen Parameter Injector",
+  "Description": "This module generates an Open API Specification 2.0 (Swagger) compliant json document that includes payload insertion points in parameters. In order for the payload to be executed, an attacker must convince someone to generate code from a specially modified swagger.json file within a vulnerable swagger-codgen appliance/container/api/service, and then to execute that generated code (or include it into software which will later be executed by another victim). By doing so, an attacker can execute arbitrary code as the victim user. The same vulnerability exists in the YAML format.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/fileformat/swagger_param_inject.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "ethersnowman <scott_davis@rapid7.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2016-5641"
+    ],
+    [
+      "URL",
+      "http://github.com/swagger-api/swagger-codegen"
+    ],
+    [
+      "URL",
+      "https://www.rapid7.com/blog/post/2016/06/23/r7-2016-06-remote-code-execution-via-swagger-parameter-injection-cve-2016-5641"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::NodeJS",
+    "Msf::Module::Platform::PHP",
+    "Msf::Module::Platform::Java",
+    "Msf::Module::Platform::Ruby"
+  ],
+  "Arch": [
+    "nodejs",
+    "php",
+    "java",
+    "ruby"
+  ],
+  "Targets": [
+    [
+      0,
+      "NodeJS"
+    ],
+    [
+      1,
+      "PHP"
+    ],
+    [
+      2,
+      "Java JSP"
+    ],
+    [
+      3,
+      "Ruby"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "INFO_DESCRIPTION",
+    "INFO_VERSION",
+    "INFO_TITLE",
+    "SWAGGER_SCHEME",
+    "SWAGGER_HOST",
+    "BASE_PATH",
+    "PATH",
+    "PATH_DESCRIPTION",
+    "PATH_RESPONSE_DESCRIPTION",
+    "DEFINITION_DESCRIPTION"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

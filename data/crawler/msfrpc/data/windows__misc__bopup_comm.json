@@ -1,0 +1,69 @@
+{
+  "Name": "Bopup Communications Server Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in Bopup Communications Server 3.2.26.5460. By sending a specially crafted packet, an attacker may be able to execute arbitrary code.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/bopup_comm.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "MC <mc@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2009-2227"
+    ],
+    [
+      "OSVDB",
+      "55275"
+    ],
+    [
+      "URL",
+      "http://www.blabsoft.com/products/server"
+    ],
+    [
+      "EDB",
+      "9002"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Bopup Communications Server 3.2.26.5460"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,78 @@
+{
+  "Name": "Linux BSD-derived Telnet Service Encryption Key ID Buffer Overflow",
+  "Description": "This module exploits a buffer overflow in the encryption option handler of the Linux BSD-derived telnet service (inetutils or krb5-telnet). Most Linux distributions use NetKit-derived telnet daemons, so this flaw only applies to a small subset of Linux systems running telnetd.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/telnet/telnet_encrypt_keyid.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "Jaime Penalba Estebanez <jpenalbae@gmail.com>",
+    "Brandon Perry <bperry.volatile@gmail.com>",
+    "Dan Rosenberg",
+    "hdm <x@hdm.io>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2011-4862"
+    ],
+    [
+      "OSVDB",
+      "78020"
+    ],
+    [
+      "BID",
+      "51182"
+    ],
+    [
+      "EDB",
+      "18280"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "Red Hat Enterprise Linux 3 (krb5-telnet)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "USERNAME",
+    "PASSWORD",
+    "TelnetTimeout",
+    "TelnetBannerTimeout"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,127 @@
+{
+  "Name": "Redis Lua Sandbox Escape",
+  "Description": "This module exploits CVE-2022-0543, a Lua-based Redis sandbox escape. The vulnerability was introduced by Debian and Ubuntu Redis packages that insufficiently sanitized the Lua environment. The maintainers failed to disable the package interface, allowing attackers to load arbitrary libraries. On a typical `redis` deployment (not docker), this module achieves execution as the `redis` user. Debian/Ubuntu packages run Redis using systemd with the \"MemoryDenyWriteExecute\" permission, which limits some of what an attacker can do. For example, staged meterpreter will fail when attempting to use mprotect. As such, stageless meterpreter is the preferred payload. Redis can be configured with authentication or not. This module will work with either configuration (provided you provide the correct authentication details). This vulnerability could theoretically be exploited across a few architectures: i386, arm, ppc, etc. However, the module only supports x86_64, which is likely to be the most popular version.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/redis/redis_debian_sandbox_escape.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Reginaldo Silva",
+    "jbaines-r7"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2022-0543"
+    ],
+    [
+      "URL",
+      "https://www.lua.org/pil/8.2.html"
+    ],
+    [
+      "URL",
+      "https://www.ubercomp.com/posts/2022-01-20_redis_on_debian_rce"
+    ],
+    [
+      "URL",
+      "https://www.debian.org/security/2022/dsa-5081"
+    ],
+    [
+      "URL",
+      "https://ubuntu.com/security/CVE-2022-0543"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "cmd",
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Unix Command"
+    ],
+    [
+      1,
+      "Linux Dropper"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "RHOSTS",
+    "RPORT",
+    "SSLServerNameIndication",
+    "SSLVerifyMode",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "THREADS",
+    "ShowProgress",
+    "ShowProgressPercent",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "CMDSTAGER::FLAVOR",
+    "CMDSTAGER::DECODER",
+    "CMDSTAGER::TEMP",
+    "CMDSTAGER::URIPATH",
+    "CMDSTAGER::SSL",
+    "PASSWORD",
+    "READ_TIMEOUT",
+    "TARGETURI",
+    "LUA_LIB",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "MeterpreterTryToFork": true,
+    "RPORT": 6379
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

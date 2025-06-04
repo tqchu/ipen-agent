@@ -1,0 +1,82 @@
+{
+  "Name": "Windows Escalate UAC Protection Bypass (Via SilentCleanup)",
+  "Description": "There's a task in Windows Task Scheduler called \"SilentCleanup\" which, while it's executed as Users, automatically runs with elevated privileges. When it runs, it executes the file %windir%\\system32\\cleanmgr.exe. Since it runs as Users, and we can control user's environment variables, %windir% (normally pointing to C:\\Windows) can be changed to point to whatever we want, and it'll run as admin.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/bypassuac_silentcleanup.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "tyranid",
+    "enigma0x3",
+    "nyshone69",
+    "lokiuox",
+    "Carter Brainerd (cbrnrd)"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://tyranidslair.blogspot.com/2017/05/exploiting-environment-variables-in.html"
+    ],
+    [
+      "URL",
+      "https://enigma0x3.net/2016/07/22/bypassing-uac-on-windows-10-using-disk-cleanup/"
+    ],
+    [
+      "URL",
+      "https://www.reddit.com/r/hacking/comments/ajtrws/bypassing_highest_uac_level_windows_810/"
+    ],
+    [
+      "URL",
+      "https://forums.hak5.org/topic/45439-powershell-real-uac-bypass/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Microsoft Windows"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "Powershell::persist",
+    "Powershell::prepend_sleep",
+    "Powershell::prepend_protections_bypass",
+    "Powershell::strip_comments",
+    "Powershell::strip_whitespace",
+    "Powershell::sub_vars",
+    "Powershell::sub_funcs",
+    "Powershell::exec_in_place",
+    "Powershell::exec_rc4",
+    "Powershell::remove_comspec",
+    "Powershell::noninteractive",
+    "Powershell::encode_final_payload",
+    "Powershell::encode_inner_payload",
+    "Powershell::wrap_double_quotes",
+    "Powershell::no_equals",
+    "Powershell::method",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "SLEEPTIME",
+    "PSH_PATH"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

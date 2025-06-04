@@ -1,0 +1,67 @@
+{
+  "Name": "Adobe U3D CLODProgressiveMeshDeclaration Array Overrun",
+  "Description": "This module exploits an array overflow in Adobe Reader and Adobe Acrobat. Affected versions include < 7.1.4, < 8.1.7, and < 9.2. By creating a specially crafted pdf that a contains malformed U3D data, an attacker may be able to execute arbitrary code.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/fileformat/adobe_u3d_meshcont.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "Felipe Andres Manzano <felipe.andres.manzano@gmail.com>",
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2009-2990"
+    ],
+    [
+      "OSVDB",
+      "58920"
+    ],
+    [
+      "BID",
+      "36665"
+    ],
+    [
+      "URL",
+      "http://sites.google.com/site/felipeandresmanzano/"
+    ],
+    [
+      "URL",
+      "http://www.adobe.com/support/security/bulletins/apsb09-15.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows",
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Adobe Reader Windows Universal (JS Heap Spray)"
+    ],
+    [
+      1,
+      "Adobe Reader Linux Universal (JS Heap Spray)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

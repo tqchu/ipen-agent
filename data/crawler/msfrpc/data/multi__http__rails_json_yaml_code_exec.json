@@ -1,0 +1,97 @@
+{
+  "Name": "Ruby on Rails JSON Processor YAML Deserialization Code Execution",
+  "Description": "This module exploits a remote code execution vulnerability in the JSON request processor of the Ruby on Rails application framework. This vulnerability allows an attacker to instantiate a remote object, which in turn can be used to execute any ruby code remotely in the context of the application. This vulnerability is very similar to CVE-2013-0156. This module has been tested successfully on RoR 3.0.9, 3.0.19, and 2.3.15. The technique used by this module requires the target to be running a fairly recent version of Ruby 1.9 (since 2011 or so). Applications using Ruby 1.8 may still be exploitable using the init_with() method, but this has not been demonstrated.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/http/rails_json_yaml_code_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "jjarmoc",
+    "egypt <egypt@metasploit.com>",
+    "lian"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-0333"
+    ],
+    [
+      "OSVDB",
+      "89594"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Ruby"
+  ],
+  "Arch": [
+    "ruby"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TARGETURI",
+    "HTTP_METHOD"
+  ],
+  "DefaultOptions": {
+    "PrependFork": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

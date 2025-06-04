@@ -1,0 +1,70 @@
+{
+  "Name": "Eureka Email 2.2q ERR Remote Buffer Overflow",
+  "Description": "This module exploits a buffer overflow in the Eureka Email 2.2q client that is triggered through an excessively long ERR message. NOTE: this exploit isn't very reliable. Unfortunately reaching the vulnerable code can only be done when manually checking mail (Ctrl-M). Checking at startup will not reach the code targeted here.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/eureka_mail_err.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Francis Provencher (Protek Research Labs)",
+    "Dr_IDE",
+    "dookie",
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2009-3837"
+    ],
+    [
+      "OSVDB",
+      "59262"
+    ],
+    [
+      "EDB",
+      "10235"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Win XP SP3 English"
+    ],
+    [
+      1,
+      "Win XP SP2 English"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

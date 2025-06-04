@@ -1,0 +1,107 @@
+{
+  "Name": "MicroFocus Secure Messaging Gateway Remote Code Execution",
+  "Description": "This module exploits a SQL injection and command injection vulnerability in MicroFocus Secure Messaging Gateway. An unauthenticated user can execute a terminal command under the context of the web user. One of the user supplied parameters of API endpoint is used by the application without input validation and/or parameter binding, which leads to SQL injection vulnerability. Successfully exploiting this vulnerability gives a ability to add new user onto system. manage_domains_dkim_keygen_request.php endpoint is responsible for executing an operation system command. It's not possible to access this endpoint without having a valid session. Combining these vulnerabilities gives the opportunity execute operation system commands under the context of the web user.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/http/microfocus_secure_messaging_gateway.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Mehmet Ince <mehmet@mehmetince.net>"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://pentest.blog/unexpected-journey-6-all-ways-lead-to-rome-remote-code-execution-on-microfocus-secure-messaging-gateway/"
+    ],
+    [
+      "CVE",
+      "2018-12464"
+    ],
+    [
+      "CVE",
+      "2018-12465"
+    ],
+    [
+      "URL",
+      "https://support.microfocus.com/kb/doc.php?id=7023132"
+    ],
+    [
+      "URL",
+      "https://support.microfocus.com/kb/doc.php?id=7023133"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::PHP"
+  ],
+  "Arch": [
+    "php"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TARGETURI"
+  ],
+  "DefaultOptions": {
+    "Payload": "php/meterpreter/reverse_tcp",
+    "Encoder": "php/base64"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

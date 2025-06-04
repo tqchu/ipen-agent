@@ -1,0 +1,110 @@
+{
+  "Name": "Firefox 17.0.1 Flash Privileged Code Injection",
+  "Description": "This exploit gains remote code execution on Firefox 17 and 17.0.1, provided the user has installed Flash. No memory corruption is used. First, a Flash object is cloned into the anonymous content of the SVG \"use\" element in the <body> (CVE-2013-0758). From there, the Flash object can navigate a child frame to a URL in the chrome:// scheme. Then a separate exploit (CVE-2013-0757) is used to bypass the security wrapper around the child frame's window reference and inject code into the chrome:// context. Once we have injection into the chrome execution context, we can write the payload to disk, chmod it (if posix), and then execute. Note: Flash is used here to trigger the exploit but any Firefox plugin with script access should be able to trigger it.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/browser/firefox_svg_plugin.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Marius Mlynski",
+    "joev <joev@metasploit.com>",
+    "sinn3r <sinn3r@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-0758"
+    ],
+    [
+      "CVE",
+      "2013-0757"
+    ],
+    [
+      "OSVDB",
+      "89019"
+    ],
+    [
+      "OSVDB",
+      "89020"
+    ],
+    [
+      "URL",
+      "http://www.mozilla.org/security/announce/2013/mfsa2013-15.html"
+    ],
+    [
+      "URL",
+      "https://bugzilla.mozilla.org/show_bug.cgi?id=813906"
+    ]
+  ],
+  "Platform": [],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Universal (Javascript XPCOM Shell)"
+    ],
+    [
+      1,
+      "Native Payload"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "JsObfuscate",
+    "JsIdentifiers",
+    "Retries",
+    "CookieName",
+    "CookieExpiration",
+    "Custom404",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "CONTENT",
+    "DEBUG_JS"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

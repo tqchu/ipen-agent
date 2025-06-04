@@ -1,0 +1,75 @@
+{
+  "Name": "Novell ZENworks Configuration Management Preboot Service 0x4c Buffer Overflow",
+  "Description": "This module exploits a remote buffer overflow in the ZENworks Configuration Management. The vulnerability exists in the Preboot service and can be triggered by sending a specially crafted packet with the opcode 0x4c (PROXY_CMD_PREBOOT_TASK_INFO2) to port 998/TCP. The module has been successfully tested on Novell ZENworks Configuration Management 10 SP2 / SP3 and Windows Server 2003 SP2 (DEP bypass).",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/novell/zenworks_preboot_op4c_bof.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Luigi Auriemma",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2011-3176"
+    ],
+    [
+      "OSVDB",
+      "80231"
+    ],
+    [
+      "BID",
+      "52659"
+    ],
+    [
+      "URL",
+      "http://www.verisigninc.com/en_US/products-and-services/network-intelligence-availability/idefense/public-vulnerability-reports/articles/index.xhtml?id=974"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Novell ZENworks Configuration Management 10 SP3 / Windows 2003 SP2"
+    ],
+    [
+      1,
+      "Novell ZENworks Configuration Management 10 SP2 / Windows 2003 SP2"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

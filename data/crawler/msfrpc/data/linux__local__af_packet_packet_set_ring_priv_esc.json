@@ -1,0 +1,93 @@
+{
+  "Name": "AF_PACKET packet_set_ring Privilege Escalation",
+  "Description": "This module exploits a heap-out-of-bounds write in the packet_set_ring function in net/packet/af_packet.c (AF_PACKET) in the Linux kernel to execute code as root (CVE-2017-7308). The bug was initially introduced in 2011 and patched in version 4.10.6, potentially affecting a large number of kernels; however this exploit targets only systems using Ubuntu Xenial kernels 4.8.0 < 4.8.0-46, including Linux distros based on Ubuntu Xenial, such as Linux Mint. The target system must have unprivileged user namespaces enabled and two or more CPU cores. Bypasses for SMEP, SMAP and KASLR are included. Failed exploitation may crash the kernel. This module has been tested successfully on Linux Mint 18 (x86_64) with kernel versions: 4.8.0-34-generic; 4.8.0-36-generic; 4.8.0-39-generic; 4.8.0-41-generic; 4.8.0-42-generic; 4.8.0-44-generic; 4.8.0-45-generic.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/af_packet_packet_set_ring_priv_esc.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "Andrey Konovalov",
+    "bcoles <bcoles@gmail.com>"
+  ],
+  "References": [
+    [
+      "EDB",
+      "41994"
+    ],
+    [
+      "CVE",
+      "2017-7308"
+    ],
+    [
+      "BID",
+      "97234"
+    ],
+    [
+      "URL",
+      "https://googleprojectzero.blogspot.com/2017/05/exploiting-linux-kernel-via-packet.html"
+    ],
+    [
+      "URL",
+      "https://www.coresecurity.com/blog/solving-post-exploitation-issue-cve-2017-7308"
+    ],
+    [
+      "URL",
+      "https://people.canonical.com/~ubuntu-security/cve/2017/CVE-2017-7308.html"
+    ],
+    [
+      "URL",
+      "https://github.com/xairy/kernel-exploits/blob/master/CVE-2017-7308/poc.c"
+    ],
+    [
+      "URL",
+      "https://github.com/bcoles/kernel-exploits/blob/cve-2017-7308/CVE-2017-7308/poc.c"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Auto"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "COMPILE",
+    "WritableDir",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

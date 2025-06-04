@@ -1,0 +1,119 @@
+{
+  "Name": "Novell NetWare LSASS CIFS.NLM Driver Stack Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in the NetWare CIFS.NLM driver. Since the driver runs in the kernel space, a failed exploit attempt can cause the OS to reboot.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/netware/smb/lsass_cifs.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "toto"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2005-2852"
+    ],
+    [
+      "OSVDB",
+      "12790"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Netware"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "VMware"
+    ],
+    [
+      2,
+      "NetWare 6.5 SP2"
+    ],
+    [
+      3,
+      "NetWare 6.5 SP3"
+    ],
+    [
+      4,
+      "NetWare 6.5 SP4"
+    ],
+    [
+      5,
+      "NetWare 6.5 SP5"
+    ],
+    [
+      6,
+      "NetWare 6.5 SP6"
+    ],
+    [
+      7,
+      "NetWare 6.5 SP7"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "DCERPC::max_frag_size",
+    "DCERPC::fake_bind_multi",
+    "DCERPC::fake_bind_multi_prepend",
+    "DCERPC::fake_bind_multi_append",
+    "DCERPC::smb_pipeio",
+    "DCERPC::ReadTimeout",
+    "NTLM::UseNTLMv2",
+    "NTLM::UseNTLM2_session",
+    "NTLM::SendLM",
+    "NTLM::UseLMKey",
+    "NTLM::SendNTLM",
+    "NTLM::SendSPN",
+    "SMB::pipe_evasion",
+    "SMB::pipe_write_min_size",
+    "SMB::pipe_write_max_size",
+    "SMB::pipe_read_min_size",
+    "SMB::pipe_read_max_size",
+    "SMB::pad_data_level",
+    "SMB::pad_file_level",
+    "SMB::obscure_trans_pipe_level",
+    "SMBDirect",
+    "SMBUser",
+    "SMBPass",
+    "SMBDomain",
+    "SMBName",
+    "SMB::VerifySignature",
+    "SMB::ChunkSize",
+    "SMB::Native_OS",
+    "SMB::Native_LM",
+    "SMB::ProtocolVersion",
+    "SMB::AlwaysEncrypt",
+    "SMBPIPE"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,75 @@
+{
+  "Name": "DATAC RealWin SCADA Server 2 On_FC_CONNECT_FCS_a_FILE Buffer Overflow",
+  "Description": "This module exploits a vulnerability found in DATAC Control International RealWin SCADA Server 2.1 and below. By supplying a specially crafted On_FC_BINFILE_FCS_*FILE packet via port 910, RealWin will try to create a file (which would be saved to C:\\Program Files\\DATAC\\Real Win\\RW-version\\filename) by first copying the user- supplied filename with an inline memcpy routine without proper bounds checking, which results a stack-based buffer overflow, allowing arbitrary remote code execution. Tested version: 2.0 (Build 6.1.8.10)",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/scada/realwin_on_fc_binfile_a.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "Luigi Auriemma",
+    "MC <mc@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2011-1563"
+    ],
+    [
+      "OSVDB",
+      "72826"
+    ],
+    [
+      "BID",
+      "46937"
+    ],
+    [
+      "URL",
+      "http://aluigi.altervista.org/adv/realwin_5-adv.txt"
+    ],
+    [
+      "URL",
+      "https://www.cisa.gov/uscert/ics/advisories/ICSA-11-110-01"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

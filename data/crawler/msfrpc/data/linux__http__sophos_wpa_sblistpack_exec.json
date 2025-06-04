@@ -1,0 +1,106 @@
+{
+  "Name": "Sophos Web Protection Appliance sblistpack Arbitrary Command Execution",
+  "Description": "This module exploits a command injection vulnerability on Sophos Web Protection Appliance 3.7.9, 3.8.0 and 3.8.1. The vulnerability exists on the sblistpack component, reachable from the web interface without authentication. This module has been tested successfully on Sophos Virtual Web Appliance 3.7.0.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/http/sophos_wpa_sblistpack_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Francisco Falcon",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-4983"
+    ],
+    [
+      "OSVDB",
+      "97029"
+    ],
+    [
+      "BID",
+      "62263"
+    ],
+    [
+      "EDB",
+      "28175"
+    ],
+    [
+      "URL",
+      "http://www.coresecurity.com/advisories/sophos-web-protection-appliance-multiple-vulnerabilities"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Sophos Web Protection Appliance 3.7.0"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding"
+  ],
+  "DefaultOptions": {
+    "SSL": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

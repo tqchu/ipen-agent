@@ -1,0 +1,49 @@
+{
+  "Name": "CA eTrust PestPatrol ActiveX Control Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in CA eTrust PestPatrol. When sending an overly long string to the Initialize() property of ppctl.dll (5.6.7.9) an attacker may be able to execute arbitrary code.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/etrust_pestscan.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "MC <mc@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2009-4225"
+    ],
+    [
+      "OSVDB",
+      "60862"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows XP SP0-SP3 / Windows Vista / IE 6.0 SP0-SP2 / IE 7"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

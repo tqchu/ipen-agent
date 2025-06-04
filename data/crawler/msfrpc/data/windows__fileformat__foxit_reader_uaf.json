@@ -1,0 +1,72 @@
+{
+  "Name": "Foxit PDF Reader Pointer Overwrite UAF",
+  "Description": "Foxit PDF Reader v9.0.1.1049 has a Use-After-Free vulnerability in the Text Annotations component and the TypedArray's use uninitialized pointers. The vulnerabilities can be combined to leak a vtable memory address, which can be adjusted to point to the base address of the executable. A ROP chain can be constructed that will execute when Foxit Reader performs the UAF. This module has been tested on Windows 7 x64, Windows 10 Pro x64 Build 17134, and Windows 10 Enterprise x64. Windows 10 Enterprise must have insecure logons enabled for the exploit to work as expected.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/foxit_reader_uaf.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "mr_me",
+    "bit from meepwn",
+    "saelo",
+    "Jacob Robles"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2018-9948"
+    ],
+    [
+      "CVE",
+      "2018-9958"
+    ],
+    [
+      "ZDI",
+      "18-332"
+    ],
+    [
+      "ZDI",
+      "18-342"
+    ],
+    [
+      "URL",
+      "https://srcincite.io/blog/2018/06/22/foxes-among-us-foxit-reader-vulnerability-discovery-and-exploitation.html"
+    ],
+    [
+      "URL",
+      "https://srcincite.io/pocs/cve-2018-99{48,58}.pdf.txt"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows 10 Pro x64 Build 17134"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "EXENAME",
+    "SHARE"
+  ],
+  "DefaultOptions": {
+    "DisablePayloadHandler": true,
+    "FILENAME": "test.pdf",
+    "PAYLOAD": "windows/meterpreter/reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

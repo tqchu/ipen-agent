@@ -1,0 +1,56 @@
+{
+  "Name": "Ceragon FibeAir IP-10 SSH Private Key Exposure",
+  "Description": "Ceragon ships a public/private key pair on FibeAir IP-10 devices that allows passwordless authentication to any other IP-10 device. Since the key is easily retrievable, an attacker can use it to gain unauthorized remote access as the \"mateidu\" user.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/ssh/ceragon_fibeair_known_privkey.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "hdm <x@hdm.io>",
+    "todb <todb@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2015-0936"
+    ],
+    [
+      "URL",
+      "https://gist.github.com/todb-r7/5d86ecc8118f9eeecc15"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSH_IDENT",
+    "SSH_TIMEOUT",
+    "SSH_DEBUG"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "cmd/unix/interact"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

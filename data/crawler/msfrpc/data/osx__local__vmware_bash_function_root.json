@@ -1,0 +1,76 @@
+{
+  "Name": "OS X VMWare Fusion Privilege Escalation via Bash Environment Code Injection (Shellshock)",
+  "Description": "This module exploits the Shellshock vulnerability, a flaw in how the Bash shell handles external environment variables. This module targets the VMWare Fusion application, allowing an unprivileged local user to get root access.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/osx/local/vmware_bash_function_root.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Stephane Chazelas",
+    "juken",
+    "joev <joev@metasploit.com>",
+    "mubix <mubix@hak5.org>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2014-6271"
+    ],
+    [
+      "CWE",
+      "94"
+    ],
+    [
+      "OSVDB",
+      "112004"
+    ],
+    [
+      "EDB",
+      "34765"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::OSX"
+  ],
+  "Arch": [
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Mac OS X 10.9 Mavericks x64 (Native Payload)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "VMWARE_PATH",
+    "WritableDir"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

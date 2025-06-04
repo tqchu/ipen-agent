@@ -1,0 +1,84 @@
+{
+  "Name": "MS02-039 Microsoft SQL Server Resolution Overflow",
+  "Description": "This is an exploit for the SQL Server 2000 resolution service buffer overflow. This overflow is triggered by sending a udp packet to port 1434 which starts with 0x04 and is followed by long string terminating with a colon and a number. This module should work against any vulnerable SQL Server 2000 or MSDE install (pre-SP3).",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/mssql/ms02_039_slammer.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "hdm <x@hdm.io>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2002-0649"
+    ],
+    [
+      "OSVDB",
+      "4578"
+    ],
+    [
+      "BID",
+      "5310"
+    ],
+    [
+      "MSB",
+      "MS02-039"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "MSSQL 2000 / MSDE <= SP2"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "CPORT",
+    "CHOST",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "NTLM::UseNTLMv2",
+    "NTLM::UseNTLM2_session",
+    "NTLM::SendLM",
+    "NTLM::UseLMKey",
+    "NTLM::SendNTLM",
+    "NTLM::SendSPN",
+    "USERNAME",
+    "PASSWORD",
+    "USE_WINDOWS_AUTHENT",
+    "HEX2BINARY",
+    "DOMAIN",
+    "KrbCacheMode",
+    "Mssql::Auth",
+    "Mssql::Rhostname",
+    "DomainControllerRhost",
+    "Mssql::Krb5Ccname",
+    "Mssql::KrbOfferedEncryptionTypes"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

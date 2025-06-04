@@ -1,0 +1,76 @@
+{
+  "Name": "Yahoo! Messenger 8.1.0.249 ActiveX Control Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in the Yahoo! Webcam Upload ActiveX Control (ywcupl.dll) provided by Yahoo! Messenger version 8.1.0.249. By sending an overly long string to the \"Server()\" method, and then calling the \"Send()\" method, an attacker may be able to execute arbitrary code. Using the payloads \"windows/shell_bind_tcp\" and \"windows/shell_reverse_tcp\" yield for the best results.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/yahoomessenger_server.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "MC <mc@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2007-3147"
+    ],
+    [
+      "OSVDB",
+      "37082"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows XP SP0/SP1 Pro English"
+    ],
+    [
+      1,
+      "Windows 2000 Pro English All"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

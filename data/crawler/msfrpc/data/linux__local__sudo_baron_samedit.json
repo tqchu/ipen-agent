@@ -1,0 +1,164 @@
+{
+  "Name": "Sudo Heap-Based Buffer Overflow",
+  "Description": "A heap based buffer overflow exists in the sudo command line utility that can be exploited by a local attacker to gain elevated privileges. The vulnerability was introduced in July of 2011 and affects version 1.8.2 through 1.8.31p2 as well as 1.9.0 through 1.9.5p1 in their default configurations. The technique used by this implementation leverages the overflow to overwrite a service_user struct in memory to reference an attacker controlled library which results in it being loaded with the elevated privileges held by sudo.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/sudo_baron_samedit.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Qualys",
+    "Spencer McIntyre",
+    "bwatters-r7",
+    "smashery",
+    "blasty <blasty@fail0verflow.com>",
+    "worawit",
+    "Alexander Krog"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://blog.qualys.com/vulnerabilities-research/2021/01/26/cve-2021-3156-heap-based-buffer-overflow-in-sudo-baron-samedit"
+    ],
+    [
+      "URL",
+      "https://www.qualys.com/2021/01/26/cve-2021-3156/baron-samedit-heap-based-overflow-sudo.txt"
+    ],
+    [
+      "URL",
+      "https://www.kalmarunionen.dk/writeups/sudo/"
+    ],
+    [
+      "URL",
+      "https://github.com/blasty/CVE-2021-3156/blob/main/hax.c"
+    ],
+    [
+      "CVE",
+      "2021-3156"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "Ubuntu 20.04 x64 (sudo v1.8.31, libc v2.31)"
+    ],
+    [
+      2,
+      "Ubuntu 20.04 x64 (sudo v1.8.31, libc v2.31) - alternative"
+    ],
+    [
+      3,
+      "Ubuntu 19.04 x64 (sudo v1.8.27, libc v2.29)"
+    ],
+    [
+      4,
+      "Ubuntu 18.04 x64 (sudo v1.8.21, libc v2.27)"
+    ],
+    [
+      5,
+      "Ubuntu 18.04 x64 (sudo v1.8.21, libc v2.27) - alternative"
+    ],
+    [
+      6,
+      "Ubuntu 16.04 x64 (sudo v1.8.16, libc v2.23)"
+    ],
+    [
+      7,
+      "Ubuntu 14.04 x64 (sudo v1.8.9p5, libc v2.19)"
+    ],
+    [
+      8,
+      "Debian 10 x64 (sudo v1.8.27, libc v2.28)"
+    ],
+    [
+      9,
+      "Debian 10 x64 (sudo v1.8.27, libc v2.28) - alternative"
+    ],
+    [
+      10,
+      "CentOS 8 x64 (sudo v1.8.25p1, libc v2.28)"
+    ],
+    [
+      11,
+      "CentOS 7 x64 (sudo v1.8.23, libc v2.17)"
+    ],
+    [
+      12,
+      "CentOS 7 x64 (sudo v1.8.23, libc v2.17) - alternative"
+    ],
+    [
+      13,
+      "Fedora 27 x64 (sudo v1.8.21p2, libc v2.26)"
+    ],
+    [
+      14,
+      "Fedora 26 x64 (sudo v1.8.20p2, libc v2.25)"
+    ],
+    [
+      15,
+      "Fedora 25 x64 (sudo v1.8.18, libc v2.24)"
+    ],
+    [
+      16,
+      "Fedora 24 x64 (sudo v1.8.16, libc v2.23)"
+    ],
+    [
+      17,
+      "Fedora 23 x64 (sudo v1.8.14p3, libc v2.22)"
+    ],
+    [
+      18,
+      "Manual"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "WritableDir",
+    "Lengths",
+    "NewUser",
+    "NewPassword",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "PrependSetgid": true,
+    "PrependSetuid": true,
+    "WfsDelay": 10
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

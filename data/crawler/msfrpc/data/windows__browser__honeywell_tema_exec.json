@@ -1,0 +1,92 @@
+{
+  "Name": "Honeywell Tema Remote Installer ActiveX Remote Code Execution",
+  "Description": "This module exploits a vulnerability found in the Honeywell Tema ActiveX Remote Installer. This ActiveX control can be abused by using the DownloadFromURL() function to install an arbitrary MSI from a remote location without checking source authenticity or user notification. This module has been tested successfully with the Remote Installer ActiveX installed with Honeywell EBI R410.1 - TEMA 5.3.0 and Internet Explorer 6, 7 and 8 on Windows XP SP3.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/honeywell_tema_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Billy Rios",
+    "Terry McCorkle",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "76681"
+    ],
+    [
+      "BID",
+      "50078"
+    ],
+    [
+      "URL",
+      "https://www.cisa.gov/uscert/ics/advisories/ICSA-11-285-01"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "OBFUSCATE"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "none",
+    "InitialAutoRunScript": "migrate -k -f"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

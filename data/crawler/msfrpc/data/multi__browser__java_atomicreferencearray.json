@@ -1,0 +1,129 @@
+{
+  "Name": "Java AtomicReferenceArray Type Violation Vulnerability",
+  "Description": "This module exploits a vulnerability due to the fact that AtomicReferenceArray uses the Unsafe class to store a reference in an array directly, which may violate type safety if not used properly. This allows a way to escape the JRE sandbox, and load additional classes in order to perform malicious operations.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/browser/java_atomicreferencearray.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Jeroen Frijters",
+    "sinn3r <sinn3r@metasploit.com>",
+    "juan vazquez <juan.vazquez@metasploit.com>",
+    "egypt <egypt@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2012-0507"
+    ],
+    [
+      "OSVDB",
+      "80724"
+    ],
+    [
+      "BID",
+      "52161"
+    ],
+    [
+      "URL",
+      "http://weblog.ikvm.net/PermaLink.aspx?guid=cd48169a-9405-4f63-9087-798c4a1866d3"
+    ],
+    [
+      "URL",
+      "http://blogs.technet.com/b/mmpc/archive/2012/03/20/an-interesting-case-of-jre-sandbox-breach-cve-2012-0507.aspx"
+    ],
+    [
+      "URL",
+      "http://schierlm.users.sourceforge.net/TypeConfusion.html"
+    ],
+    [
+      "URL",
+      "https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2012-0507"
+    ],
+    [
+      "URL",
+      "https://www.rapid7.com/blog/post/2012/03/29/cve-2012-0507--java-strikes-again"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Java",
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::OSX",
+    "Msf::Module::Platform::Solaris",
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Generic (Java Payload)"
+    ],
+    [
+      1,
+      "Windows x86 (Native Payload)"
+    ],
+    [
+      2,
+      "Mac OS X PPC (Native Payload)"
+    ],
+    [
+      3,
+      "Mac OS X x86 (Native Payload)"
+    ],
+    [
+      4,
+      "Linux x86 (Native Payload)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

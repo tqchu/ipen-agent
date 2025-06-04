@@ -1,0 +1,111 @@
+{
+  "Name": "OpenMetadata authentication bypass and SpEL injection exploit chain",
+  "Description": "OpenMetadata is a unified platform for discovery, observability, and governance powered by a central metadata repository, in-depth lineage, and seamless team collaboration. This module chains two vulnerabilities that exist in the OpenMetadata aplication. The first vulnerability, CVE-2024-28255, bypasses the API authentication using JWT tokens. It misuses the `JwtFilter` that checks the path of the url endpoint against a list of excluded endpoints that does not require authentication. Unfortunately, an attacker may use Path Parameters to make any path contain any arbitrary strings that will match the excluded endpoint condition and therefore will be processed with no JWT validation allowing an attacker to bypass the authentication mechanism and reach any arbitrary endpoint. By chaining this vulnerability with CVE-2024-28254, that allows for arbitrary SpEL injection at endpoint `/api/v1/events/subscriptions/validation/condition/<expression>`, attackers are able to run arbitrary commands using Java classes such as `java.lang.Runtime` without any authentication. OpenMetadata versions `1.2.3` and below are vulnerable.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/http/openmetadata_auth_bypass_rce.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "h00die-gr3y <h00die.gr3y@gmail.com>",
+    "Alvaro Mu\u00f1oz alias pwntester (https://github.com/pwntester)"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2024-28255"
+    ],
+    [
+      "CVE",
+      "2024-28254"
+    ],
+    [
+      "URL",
+      "https://securitylab.github.com/advisories/GHSL-2023-235_GHSL-2023-237_Open_Metadata/"
+    ],
+    [
+      "URL",
+      "https://attackerkb.com/topics/f19fXpZn62/cve-2024-28255"
+    ],
+    [
+      "URL",
+      "https://ethicalhacking.uk/unmasking-cve-2024-28255-authentication-bypass-in-openmetadata/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TARGETURI",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "rport": 8585,
+    "FETCH_COMMAND": "WGET"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

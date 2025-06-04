@@ -1,0 +1,59 @@
+{
+  "Name": "Yokogawa CS3000 BKFSim_vhfd.exe Buffer Overflow",
+  "Description": "This module exploits a stack based buffer overflow on Yokogawa CS3000. The vulnerability exists in the service BKFSim_vhfd.exe when using malicious user-controlled data to create logs using functions like vsprintf and memcpy in an insecure way. This module has been tested successfully on Yokogawa Centum CS3000 R3.08.50 over Windows XP SP3.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/scada/yokogawa_bkfsim_vhfd.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Redsadic <julian.vilas@gmail.com>",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2014-3888"
+    ],
+    [
+      "URL",
+      "http://jvn.jp/vu/JVNVU95045914/index.html"
+    ],
+    [
+      "URL",
+      "http://www.yokogawa.com/dcs/security/ysar/YSAR-14-0002E.pdf"
+    ],
+    [
+      "URL",
+      "https://www.rapid7.com/blog/post/2014/07/07/r7-2014-06-disclosure-yokogawa-centum-cs-3000-bkfsimvhfdexe-buffer-overflow"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Yokogawa Centum CS3000 R3.08.50 / Windows XP SP3"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "CPORT",
+    "CHOST"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

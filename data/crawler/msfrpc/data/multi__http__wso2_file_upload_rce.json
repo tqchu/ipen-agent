@@ -1,0 +1,108 @@
+{
+  "Name": "WSO2 Arbitrary File Upload to RCE",
+  "Description": "This module abuses a vulnerability in certain WSO2 products that allow unrestricted file upload with resultant remote code execution. This affects WSO2 API Manager 2.2.0 and above through 4.0.0; WSO2 Identity Server 5.2.0 and above through 5.11.0; WSO2 Identity Server Analytics 5.4.0, 5.4.1, 5.5.0, and 5.6.0; WSO2 Identity Server as Key Manager 5.3.0 and above through 5.10.0; and WSO2 Enterprise Integrator 6.2.0 and above through 6.6.0.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/http/wso2_file_upload_rce.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Orange Tsai",
+    "hakivvi",
+    "wvu <wvu@metasploit.com>",
+    "Jack Heysel <jack_heysel@rapid7.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2022-29464"
+    ],
+    [
+      "URL",
+      "https://github.com/hakivvi/CVE-2022-29464"
+    ],
+    [
+      "URL",
+      "https://twitter.com/wvuuuuuuuuuuuuu/status/1517433974003576833"
+    ],
+    [
+      "URL",
+      "https://docs.wso2.com/display/Security/Security+Advisory+WSO2-2021-1738"
+    ]
+  ],
+  "Platform": [],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Java Dropper"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "WAR_DEPLOY_DELAY",
+    "TARGETURI",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "Payload": "java/meterpreter/reverse_tcp",
+    "SSL": true,
+    "RPORT": 9443
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

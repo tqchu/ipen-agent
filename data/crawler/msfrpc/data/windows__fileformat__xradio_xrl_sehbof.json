@@ -1,0 +1,55 @@
+{
+  "Name": "xRadio 0.95b Buffer Overflow",
+  "Description": "This module exploits a buffer overflow in xRadio 0.95b. Using the application to import a specially crafted xrl file, a buffer overflow occurs allowing arbitrary code execution.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/xradio_xrl_sehbof.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "b0telh0 <me@gotgeek.com.br>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2008-2789"
+    ],
+    [
+      "BID",
+      "46290"
+    ],
+    [
+      "EDB",
+      "16141"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "seh",
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

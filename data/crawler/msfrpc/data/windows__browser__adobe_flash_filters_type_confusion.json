@@ -1,0 +1,94 @@
+{
+  "Name": "Adobe Flash Player Type Confusion Remote Code Execution",
+  "Description": "This module exploits a type confusion vulnerability found in the ActiveX component of Adobe Flash Player. This vulnerability was found exploited in the wild in November 2013. This module has been tested successfully on IE 6 to IE 10 with Flash 11.7, 11.8 and 11.9 prior to 11.9.900.170 over Windows XP SP3 and Windows 7 SP1.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/adobe_flash_filters_type_confusion.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Unknown",
+    "bannedit <bannedit@metasploit.com>",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-5331"
+    ],
+    [
+      "OSVDB",
+      "100774"
+    ],
+    [
+      "BID",
+      "64199"
+    ],
+    [
+      "URL",
+      "http://helpx.adobe.com/security/products/flash-player/apsb13-28.html"
+    ],
+    [
+      "URL",
+      "http://blog.malwaretracker.com/2014/01/cve-2013-5331-evaded-av-by-using.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "JsObfuscate",
+    "JsIdentifiers",
+    "Retries",
+    "CookieName",
+    "CookieExpiration",
+    "Custom404"
+  ],
+  "DefaultOptions": {
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate",
+    "Retries": false,
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

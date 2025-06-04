@@ -1,0 +1,83 @@
+{
+  "Name": "SAP NetWeaver Dispatcher DiagTraceR3Info Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in the SAP NetWeaver Dispatcher service. The overflow occurs in the DiagTraceR3Info() function and allows a remote attacker to execute arbitrary code by supplying a special crafted Diag packet. The Dispatcher service is only vulnerable if the Developer Traces have been configured at levels 2 or 3. The module has been successfully tested on SAP Netweaver 7.0 EHP2 SP6 over Windows XP SP3 and Windows 2003 SP2 (DEP bypass).",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/sap_netweaver_dispatcher.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Martin Gallo",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "81759"
+    ],
+    [
+      "CVE",
+      "2012-2611"
+    ],
+    [
+      "BID",
+      "53424"
+    ],
+    [
+      "EDB",
+      "20705"
+    ],
+    [
+      "URL",
+      "http://www.coresecurity.com/content/sap-netweaver-dispatcher-multiple-vulnerabilities"
+    ],
+    [
+      "URL",
+      "http://corelabs.coresecurity.com/index.php?module=Wiki&action=view&type=publication&name=Uncovering_SAP_vulnerabilities_reversing_and_breaking_the_Diag_protocol"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "SAP Netweaver 7.0 EHP2 SP6 / Windows XP SP3"
+    ],
+    [
+      1,
+      "SAP Netweaver 7.0 EHP2 SP6 / Windows 2003 SP2"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": {
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate",
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

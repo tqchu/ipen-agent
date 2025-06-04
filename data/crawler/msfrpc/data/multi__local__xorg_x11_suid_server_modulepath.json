@@ -1,0 +1,99 @@
+{
+  "Name": "Xorg X11 Server SUID modulepath Privilege Escalation",
+  "Description": "This module attempts to gain root privileges with SUID Xorg X11 server versions 1.19.0 < 1.20.3. A permission check flaw exists for -modulepath and -logfile options when starting Xorg. This allows unprivileged users that can start the server the ability to elevate privileges and run arbitrary code under root privileges. This module has been tested with CentOS 7 (1708). CentOS default install will require console auth for the users session. Xorg must have SUID permissions and may not start if running. On successful exploitation artifacts will be created consistant with starting Xorg.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/local/xorg_x11_suid_server_modulepath.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "Narendra Shinde",
+    "Aaron Ringo"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2018-14665"
+    ],
+    [
+      "BID",
+      "105741"
+    ],
+    [
+      "EDB",
+      "45697"
+    ],
+    [
+      "EDB",
+      "45742"
+    ],
+    [
+      "EDB",
+      "45832"
+    ],
+    [
+      "URL",
+      "https://www.securepatterns.com/2018/10/cve-2018-14665-another-way-of.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::Solaris"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Linux x64"
+    ],
+    [
+      1,
+      "Linux x86"
+    ],
+    [
+      2,
+      "Solaris x86"
+    ],
+    [
+      3,
+      "Solaris x64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "WritableDir",
+    "Xdisplay",
+    "ConsoleLock",
+    "sofile"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

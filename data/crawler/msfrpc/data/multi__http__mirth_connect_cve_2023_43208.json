@@ -1,0 +1,117 @@
+{
+  "Name": "Mirth Connect Deserialization RCE",
+  "Description": "A vulnerability exists within Mirth Connect due to its mishandling of deserialized data. This vulnerability can be leveraged by an attacker using a crafted HTTP request to execute OS commands within the context of the target application. The original vulnerability was identified by IHTeam and assigned CVE-2023-37679. Later, researchers from Horizon3.ai determined the patch to be incomplete and published a gadget chain which bypassed the deny list that the original had implemented. This second vulnerability was assigned CVE-2023-43208 and was patched in Mirth Connect version 4.4.1. This module has been tested on versions 4.1.1, 4.3.0 and 4.4.0.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/http/mirth_connect_cve_2023_43208.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "r00t",
+    "Naveen Sunkavally",
+    "Spencer McIntyre"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2023-37679"
+    ],
+    [
+      "URL",
+      "https://www.ihteam.net/advisory/mirth-connect/"
+    ],
+    [
+      "CVE",
+      "2023-43208"
+    ],
+    [
+      "URL",
+      "https://www.horizon3.ai/nextgen-mirth-connect-remote-code-execution-vulnerability-cve-2023-43208/"
+    ],
+    [
+      "URL",
+      "https://www.horizon3.ai/writeup-for-cve-2023-43208-nextgen-mirth-connect-pre-auth-rce/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Unix Command"
+    ],
+    [
+      1,
+      "Windows Command"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TARGETURI",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "RPORT": 8443,
+    "SSL": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

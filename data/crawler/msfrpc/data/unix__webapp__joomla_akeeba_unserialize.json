@@ -1,0 +1,126 @@
+{
+  "Name": "Joomla Akeeba Kickstart Unserialize Remote Code Execution",
+  "Description": "This module exploits a vulnerability found in Joomla! through 2.5.25, 3.2.5 and earlier 3.x versions and 3.3.0 through 3.3.4 versions. The vulnerability affects the Akeeba component, which is responsible for Joomla! updates. Nevertheless it is worth to note that this vulnerability is only exploitable during the update of the Joomla! CMS.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/unix/webapp/joomla_akeeba_unserialize.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Johannes Dahse",
+    "us3r777 <us3r777@n0b0.so>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2014-7228"
+    ],
+    [
+      "URL",
+      "http://developer.joomla.org/security/595-20140903-core-remote-file-inclusion.html"
+    ],
+    [
+      "URL",
+      "https://www.akeebabackup.com/home/news/1605-security-update-sep-2014.html"
+    ],
+    [
+      "URL",
+      "http://websec.wordpress.com/2014/10/05/joomla-3-3-4-akeeba-kickstart-remote-code-execution-cve-2014-7228/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::PHP"
+  ],
+  "Arch": [
+    "php"
+  ],
+  "Targets": [
+    [
+      0,
+      "Joomla < 2.5.25 / Joomla 3.x < 3.2.5 / Joomla 3.3.0 < 3.3.4"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "TARGETURI",
+    "HTTPDELAY"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

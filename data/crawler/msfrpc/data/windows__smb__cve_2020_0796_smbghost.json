@@ -1,0 +1,87 @@
+{
+  "Name": "SMBv3 Compression Buffer Overflow",
+  "Description": "A vulnerability exists within the Microsoft Server Message Block 3.1.1 (SMBv3) protocol that can be leveraged to execute code on a vulnerable server. This remove exploit implementation leverages this flaw to execute code in the context of the kernel, finally yielding a session as NT AUTHORITY\\SYSTEM in spoolsv.exe. Exploitation can take a few minutes as the necessary data is gathered.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/smb/cve_2020_0796_smbghost.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "hugeh0ge",
+    "chompie1337",
+    "Spencer McIntyre"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2020-0796"
+    ],
+    [
+      "URL",
+      "https://ricercasecurity.blogspot.com/2020/04/ill-ask-your-body-smbghost-pre-auth-rce.html"
+    ],
+    [
+      "URL",
+      "https://github.com/chompie1337/SMBGhost_RCE_PoC"
+    ],
+    [
+      "URL",
+      "https://www.youtube.com/watch?v=RSV3f6aEJFY&t=1865s"
+    ],
+    [
+      "URL",
+      "https://www.coresecurity.com/core-labs/articles/getting-physical-extreme-abuse-of-intel-based-paging-systems"
+    ],
+    [
+      "URL",
+      "https://www.coresecurity.com/core-labs/articles/getting-physical-extreme-abuse-of-intel-based-paging-systems-part-2-windows"
+    ],
+    [
+      "URL",
+      "https://labs.bluefrostsecurity.de/blog/2017/05/11/windows-10-hals-heap-extinction-of-the-halpinterruptcontroller-table-exploitation-technique/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows 10 v1903-1909 x64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "DefangedMode",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread",
+    "WfsDelay": 10
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

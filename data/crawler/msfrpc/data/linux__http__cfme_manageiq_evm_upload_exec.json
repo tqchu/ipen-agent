@@ -1,0 +1,105 @@
+{
+  "Name": "Red Hat CloudForms Management Engine 5.1 agent/linuxpkgs Path Traversal",
+  "Description": "This module exploits a path traversal vulnerability in the \"linuxpkgs\" action of \"agent\" controller of the Red Hat CloudForms Management Engine 5.1 (ManageIQ Enterprise Virtualization Manager 5.0 and earlier). It uploads a fake controller to the controllers directory of the Rails application with the encoded payload as an action and sends a request to this action to execute the payload. Optionally, it can also upload a routing file containing a route to the action. (Which is not necessary, since the application already contains a general default route.)",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/http/cfme_manageiq_evm_upload_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Ramon de C Valle <rcvalle@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-2068"
+    ],
+    [
+      "CWE",
+      "22"
+    ],
+    [
+      "URL",
+      "https://bugzilla.redhat.com/show_bug.cgi?id=960422"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Ruby"
+  ],
+  "Arch": [
+    "ruby"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "CONTROLLER",
+    "ACTION",
+    "TARGETURI",
+    "HTTP_METHOD",
+    "ROUTES"
+  ],
+  "DefaultOptions": {
+    "PrependFork": true,
+    "SSL": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

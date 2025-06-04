@@ -1,0 +1,110 @@
+{
+  "Name": "FreeBSD Telnet Service Encryption Key ID Buffer Overflow",
+  "Description": "This module exploits a buffer overflow in the encryption option handler of the FreeBSD telnet service.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/freebsd/telnet/telnet_encrypt_keyid.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "Jaime Penalba Estebanez <jpenalbae@gmail.com>",
+    "Brandon Perry <bperry.volatile@gmail.com>",
+    "Dan Rosenberg",
+    "hdm <x@hdm.io>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2011-4862"
+    ],
+    [
+      "OSVDB",
+      "78020"
+    ],
+    [
+      "BID",
+      "51182"
+    ],
+    [
+      "EDB",
+      "18280"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::BSD"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "FreeBSD 8.2"
+    ],
+    [
+      2,
+      "FreeBSD 8.1"
+    ],
+    [
+      3,
+      "FreeBSD 8.0"
+    ],
+    [
+      4,
+      "FreeBSD 7.3/7.4"
+    ],
+    [
+      5,
+      "FreeBSD 7.0/7.1/7.2"
+    ],
+    [
+      6,
+      "FreeBSD 6.3/6.4"
+    ],
+    [
+      7,
+      "FreeBSD 6.0/6.1/6.2"
+    ],
+    [
+      8,
+      "FreeBSD 5.5"
+    ],
+    [
+      9,
+      "FreeBSD 5.3"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "USERNAME",
+    "PASSWORD",
+    "TelnetTimeout",
+    "TelnetBannerTimeout"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,74 @@
+{
+  "Name": "Distinct TFTP 3.10 Writable Directory Traversal Execution",
+  "Description": "This module exploits a directory traversal vulnerability in the TFTP Server component of Distinct Intranet Servers version 3.10 which allows a remote attacker to write arbitrary files to the server file system, resulting in code execution under the context of 'SYSTEM'. This module has been tested successfully on TFTP Server version 3.10 on Windows XP SP3 (EN).",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/tftp/distinct_tftp_traversal.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "modpr0be",
+    "sinn3r <sinn3r@metasploit.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "80984"
+    ],
+    [
+      "EDB",
+      "18718"
+    ],
+    [
+      "URL",
+      "http://www.spentera.com/advisories/2012/SPN-01-2012.pdf"
+    ],
+    [
+      "CVE",
+      "2012-6664"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "DEPTH",
+    "RHOST",
+    "RPORT"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

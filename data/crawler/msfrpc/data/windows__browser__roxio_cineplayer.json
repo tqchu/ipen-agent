@@ -1,0 +1,76 @@
+{
+  "Name": "Roxio CinePlayer ActiveX Control Buffer Overflow",
+  "Description": "This module exploits a stack-based buffer overflow in SonicPlayer ActiveX control (SonicMediaPlayer.dll) 3.0.0.1 installed by Roxio CinePlayer 3.2. By setting an overly long value to 'DiskType', an attacker can overrun a buffer and execute arbitrary code.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/roxio_cineplayer.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Trancer <mtrancer@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2007-1559"
+    ],
+    [
+      "OSVDB",
+      "34779"
+    ],
+    [
+      "BID",
+      "23412"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows XP SP0-SP3 / Windows Vista SP0-SP1 / IE 6.0 SP0-2 & IE 7.0"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

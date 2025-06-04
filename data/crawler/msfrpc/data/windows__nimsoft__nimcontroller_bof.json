@@ -1,0 +1,75 @@
+{
+  "Name": "CA Unified Infrastructure Management Nimsoft 7.80 - Remote Buffer Overflow",
+  "Description": "This module exploits a buffer overflow within the CA Unified Infrastructure Management nimcontroller. The vulnerability occurs in the robot (controller) component when sending a specially crafted directory_list probe. Technically speaking the target host must also be vulnerable to CVE-2020-8010 in order to reach the directory_list probe.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/nimsoft/nimcontroller_bof.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "wetw0rk"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2020-8010"
+    ],
+    [
+      "CVE",
+      "2020-8012"
+    ],
+    [
+      "URL",
+      "https://support.broadcom.com/external/content/release-announcements/CA20200205-01-Security-Notice-for-CA-Unified-Infrastructure-Management/7832"
+    ],
+    [
+      "PACKETSTORM",
+      "156577"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows Universal (x64) - v7.80.3132"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "DIRECTORY",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "AUTORUNSCRIPT": "post/windows/manage/migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

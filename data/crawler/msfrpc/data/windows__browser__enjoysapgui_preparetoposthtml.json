@@ -1,0 +1,80 @@
+{
+  "Name": "EnjoySAP SAP GUI ActiveX Control Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in SAP KWEdit ActiveX Control (kwedit.dll 6400.1.1.41) provided by EnjoySAP GUI. By sending an overly long string to the \"PrepareToPostHTML()\" method, an attacker may be able to execute arbitrary code.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/enjoysapgui_preparetoposthtml.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "MC <mc@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2007-3605"
+    ],
+    [
+      "OSVDB",
+      "37690"
+    ],
+    [
+      "BID",
+      "24772"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows XP Pro SP0/SP1 English"
+    ],
+    [
+      1,
+      "Windows 2000 Pro English All"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,79 @@
+{
+  "Name": "Windows Escalate Task Scheduler XML Privilege Escalation",
+  "Description": "This module exploits the Task Scheduler 2.0 XML 0day exploited by Stuxnet. When processing task files, the Windows Task Scheduler only uses a CRC32 checksum to validate that the file has not been tampered with. Also, In a default configuration, normal users can read and write the task files that they have created. By modifying the task file and creating a CRC32 collision, an attacker can execute arbitrary commands with SYSTEM privileges. NOTE: Thanks to webDEViL for the information about disable/enable.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/ms10_092_schelevator.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "68518"
+    ],
+    [
+      "CVE",
+      "2010-3338"
+    ],
+    [
+      "BID",
+      "44357"
+    ],
+    [
+      "MSB",
+      "MS10-092"
+    ],
+    [
+      "EDB",
+      "15589"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows Vista / 7 / 2008 (Dropper)"
+    ],
+    [
+      1,
+      "Windows Vista / 7 / 2008 (Command)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "ScheduleRunAs",
+    "TASKNAME",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

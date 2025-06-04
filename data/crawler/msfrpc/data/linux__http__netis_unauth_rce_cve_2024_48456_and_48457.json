@@ -1,0 +1,157 @@
+{
+  "Name": "Netis Router Exploit Chain Reactor (CVE-2024-48455, CVE-2024-48456 and CVE-2024-48457).",
+  "Description": "Several Netis Routers including rebranded routers from GLCtec and Stonet suffer from a command injection vulnerability at the change admin password page of the router web interface (see CVE-2024-48456 for more details). The vulnerability stems from improper handling of the 'password' and 'new password' parameter within the router's web interface. Attackers can inject a command in the 'password' or 'new password' parameter, encoded in base64, to exploit the command injection vulnerability. When exploited, this can lead to command execution, potentially allowing the attacker to take full control of the router. An attacker needs to be authenticated to initiate this RCE, however CVE-2024-48457 allows an unauthenticated attacker to reset the Wifi and router password, hence gaining full root access to the router to execute the RCE. Last but not least, CVE-2024-48455 allows for unauthenticated information disclosure revealing sensitive configuration information of the router which can be used by the attacker to determine if the router is running specific vulnerable firmware. The following router firmware versions are vulnerable: * netis_MW5360_V1.0.1.3031_fw.bin * Netis_MW5360-1.0.1.3442.bin * Netis_MW5360_RUSSIA_844.bin * netis_NC21_V3.0.0.3800.bin (https://www.netisru.com/support/downinfo.html?id=40) * netis_NC63_V3.0.0.3327.bin (https://www.netis-systems.com/support/downinfo.html?id=35) * netis_NC63_v4_Bangladesh-V3.0.0.3889.bin (https://www.netis-systems.com/support/downinfo.html?id=35) * Netis_NC63-V3.0.0.3833.bin (https://www.netisru.com/support/downinfo.html?id=35) * netis_app_BeeWiFi_NC63_v4_Bangladesh-V3.0.0.3503.bin * netis_NC65_V3.0.0.3749.bin * Netis_NC65_Bangladesh-V3.0.0.3508.bin (https://www.netis-systems.com/support/downinfo.html?id=34) * Netis_NC65v2-V3.0.0.3800.bin (https://www.netisru.com/support/downinfo.html?id=34) * netis_NX10_V2.0.1.3582_fw.bin * netis_NX10_V2.0.1.3643.bin * Netis_NX10_v1_Bangladesh-V3.0.0.4142.bin (https://www.netis-systems.com/support/downinfo.html?id=33) * netis_NX10-V3.0.1.4205.bin (https://www.netisru.com/support/downinfo.html?id=33) * netis_app_BeeWiFi_NC21_v4_Bangladesh-V3.0.0.3329.bin * netis_app_BeeWiFi_NC21_v4_Bangladesh-V3.0.0.3500.bin * Netis_NC21_v2_Bangladesh-V3.0.0.3854.bin (https://www.netis-systems.com/support/downinfo.html?id=40) * GLC_ALPHA_AC3-V3.0.2.115.bin (https://drive.google.com/drive/folders/1P69yUfzeZeR6oABmIdcJ6fG57-Xjrzx6) * potentially others...",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/http/netis_unauth_rce_cve_2024_48456_and_48457.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "h00die-gr3y <h00die.gr3y@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2024-48455"
+    ],
+    [
+      "CVE",
+      "2024-48456"
+    ],
+    [
+      "CVE",
+      "2024-48457"
+    ],
+    [
+      "URL",
+      "https://attackerkb.com/topics/L6qgmDIMa1/cve-2024-48455"
+    ],
+    [
+      "URL",
+      "https://attackerkb.com/topics/Urqj4ggP4j/cve-2024-48456"
+    ],
+    [
+      "URL",
+      "https://attackerkb.com/topics/ty1TOgc40f/cve-2024-48457"
+    ],
+    [
+      "URL",
+      "https://github.com/users/h00die-gr3y/projects/1"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "mipsle"
+  ],
+  "Targets": [
+    [
+      0,
+      "Linux Dropper"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "CMDSTAGER::FLAVOR",
+    "CMDSTAGER::DECODER",
+    "CMDSTAGER::TEMP",
+    "CMDSTAGER::URIPATH",
+    "CMDSTAGER::SSL",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "TARGETURI",
+    "CMD_DELAY",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "SSL": false,
+    "RPORT": 80,
+    "HttpClientTimeout": 60
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

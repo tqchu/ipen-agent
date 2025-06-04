@@ -1,0 +1,106 @@
+{
+  "Name": "ABB MicroSCADA wserver.exe Remote Code Execution",
+  "Description": "This module exploits a remote stack buffer overflow vulnerability in ABB MicroSCADA. The issue is due to the handling of unauthenticated EXECUTE operations on the wserver.exe component, which allows arbitrary commands. The component is disabled by default, but required when a project uses the SCIL function WORKSTATION_CALL. This module has been tested successfully on ABB MicroSCADA Pro SYS600 9.3 on Windows XP SP3 and Windows 7 SP1.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/scada/abb_wserver_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Brian Gorenc",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2019-5620"
+    ],
+    [
+      "OSVDB",
+      "100324"
+    ],
+    [
+      "ZDI",
+      "13-270"
+    ],
+    [
+      "URL",
+      "https://library.e.abb.com/public/41ccfa8ccd0431e6c1257c1200395574/ABB_SoftwareVulnerabilityHandlingAdvisory_ABB-VU-PSAC-1MRS235805.pdf"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "ABB MicroSCADA Pro SYS600 9.3"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSLCert",
+    "SSLCompression",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "CMDSTAGER::FLAVOR",
+    "CMDSTAGER::DECODER",
+    "CMDSTAGER::TEMP",
+    "CMDSTAGER::URIPATH",
+    "CMDSTAGER::SSL"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 5
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

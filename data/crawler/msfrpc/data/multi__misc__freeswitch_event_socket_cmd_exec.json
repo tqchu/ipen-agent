@@ -1,0 +1,137 @@
+{
+  "Name": "FreeSWITCH Event Socket Command Execution",
+  "Description": "This module uses the FreeSWITCH event socket interface to execute system commands using the `system` API command. The event socket service is enabled by default and listens on TCP port 8021 on the local network interface. This module has been tested successfully on FreeSWITCH versions: 1.6.10-17-726448d~44bit on FreeSWITCH-Deb8-TechPreview virtual machine; 1.8.4~64bit on Ubuntu 19.04 (x64); and 1.10.1~64bit on Windows 7 SP1 (EN) (x64).",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/misc/freeswitch_event_socket_cmd_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "bcoles <bcoles@gmail.com>"
+  ],
+  "References": [
+    [
+      "CWE",
+      "260"
+    ],
+    [
+      "URL",
+      "https://freeswitch.org/confluence/display/FREESWITCH/mod_event_socket"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows",
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::BSD"
+  ],
+  "Arch": [
+    "cmd",
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Unix (In-Memory)"
+    ],
+    [
+      1,
+      "Linux (Dropper)"
+    ],
+    [
+      2,
+      "PowerShell (In-Memory)"
+    ],
+    [
+      3,
+      "Windows (In-Memory)"
+    ],
+    [
+      4,
+      "Windows (Dropper)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "Powershell::persist",
+    "Powershell::prepend_sleep",
+    "Powershell::prepend_protections_bypass",
+    "Powershell::strip_comments",
+    "Powershell::strip_whitespace",
+    "Powershell::sub_vars",
+    "Powershell::sub_funcs",
+    "Powershell::exec_in_place",
+    "Powershell::exec_rc4",
+    "Powershell::remove_comspec",
+    "Powershell::noninteractive",
+    "Powershell::encode_final_payload",
+    "Powershell::encode_inner_payload",
+    "Powershell::wrap_double_quotes",
+    "Powershell::no_equals",
+    "Powershell::method",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSLCert",
+    "SSLCompression",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "CMDSTAGER::FLAVOR",
+    "CMDSTAGER::DECODER",
+    "CMDSTAGER::TEMP",
+    "CMDSTAGER::URIPATH",
+    "CMDSTAGER::SSL",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "PASSWORD"
+  ],
+  "DefaultOptions": {
+    "RPORT": 8021
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

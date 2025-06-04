@@ -1,0 +1,81 @@
+{
+  "Name": "Firefox PDF.js Privileged Javascript Injection",
+  "Description": "This module gains remote code execution on Firefox 35-36 by abusing a privilege escalation bug in resource:// URIs. PDF.js is used to exploit the bug. This exploit requires the user to click anywhere on the page to trigger the vulnerability.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/browser/firefox_pdfjs_privilege_escalation.rb",
+  "Version": "",
+  "Rank": "manual",
+  "Authors": [
+    "Unknown",
+    "Marius Mlynski",
+    "joev <joev@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2015-0816"
+    ],
+    [
+      "CVE",
+      "2015-0802"
+    ]
+  ],
+  "Platform": [],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Universal (Javascript XPCOM Shell)"
+    ],
+    [
+      1,
+      "Native Payload"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "JsObfuscate",
+    "JsIdentifiers",
+    "Retries",
+    "CookieName",
+    "CookieExpiration",
+    "Custom404",
+    "CONTENT"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,132 @@
+{
+  "Name": "Samba SetInformationPolicy AuditEventsInfo Heap Overflow",
+  "Description": "This module triggers a vulnerability in the LSA RPC service of the Samba daemon because of an error on the PIDL auto-generated code. Making a specially crafted call to SetInformationPolicy to set a PolicyAuditEventsInformation allows to trigger a heap overflow and finally execute arbitrary code with root privileges. The module uses brute force to guess the stackpivot/rop chain or the system() address and redirect flow there in order to bypass NX. The start and stop addresses for brute forcing have been calculated empirically. On the other hand the module provides the StartBrute and StopBrute which allow the user to configure his own addresses.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/samba/setinfopolicy_heap.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Unknown",
+    "blasty",
+    "mephos",
+    "sinn3r <sinn3r@metasploit.com>",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2012-1182"
+    ],
+    [
+      "OSVDB",
+      "81303"
+    ],
+    [
+      "BID",
+      "52973"
+    ],
+    [
+      "ZDI",
+      "12-069"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "2:3.5.11~dfsg-1ubuntu2 on Ubuntu Server 11.10"
+    ],
+    [
+      1,
+      "2:3.5.8~dfsg-1ubuntu2 on Ubuntu Server 11.10"
+    ],
+    [
+      2,
+      "2:3.5.8~dfsg-1ubuntu2 on Ubuntu Server 11.04"
+    ],
+    [
+      3,
+      "2:3.5.4~dfsg-1ubuntu8 on Ubuntu Server 10.10"
+    ],
+    [
+      4,
+      "2:3.5.6~dfsg-3squeeze6 on Debian Squeeze"
+    ],
+    [
+      5,
+      "3.5.10-0.107.el5 on CentOS 5"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "DCERPC::max_frag_size",
+    "DCERPC::fake_bind_multi",
+    "DCERPC::fake_bind_multi_prepend",
+    "DCERPC::fake_bind_multi_append",
+    "DCERPC::smb_pipeio",
+    "DCERPC::ReadTimeout",
+    "NTLM::UseNTLMv2",
+    "NTLM::UseNTLM2_session",
+    "NTLM::SendLM",
+    "NTLM::UseLMKey",
+    "NTLM::SendNTLM",
+    "NTLM::SendSPN",
+    "SMB::pipe_evasion",
+    "SMB::pipe_write_min_size",
+    "SMB::pipe_write_max_size",
+    "SMB::pipe_read_min_size",
+    "SMB::pipe_read_max_size",
+    "SMB::pad_data_level",
+    "SMB::pad_file_level",
+    "SMB::obscure_trans_pipe_level",
+    "SMBDirect",
+    "SMBUser",
+    "SMBPass",
+    "SMBDomain",
+    "SMBName",
+    "SMB::VerifySignature",
+    "SMB::ChunkSize",
+    "SMB::Native_OS",
+    "SMB::Native_LM",
+    "SMB::AlwaysEncrypt",
+    "BruteWait",
+    "BruteStep",
+    "StartBrute",
+    "StopBrute"
+  ],
+  "DefaultOptions": {
+    "PrependSetreuid": true,
+    "PrependSetregid": true,
+    "PrependFork": true,
+    "AppendExit": true,
+    "WfsDelay": 5
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

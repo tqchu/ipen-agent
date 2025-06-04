@@ -1,0 +1,50 @@
+{
+  "Name": "Achat Unicode SEH Buffer Overflow",
+  "Description": "This module exploits a Unicode SEH buffer overflow in Achat. By sending a crafted message to the default port 9256/UDP, it's possible to overwrite the SEH handler. Even when the exploit is reliable, it depends on timing since there are two threads overflowing the stack in the same time. This module has been tested on Achat v0.150 running on Windows XP SP3 and Windows 7.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/achat_bof.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Peter Kasza <peter.kasza@itinsight.hu>",
+    "Balazs Bucsay <balazs.bucsay@rycon.hu>"
+  ],
+  "References": [
+    [
+      "CWE",
+      "121"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Achat beta v0.150 / Windows XP SP3 / Windows 7 SP1"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "CPORT",
+    "CHOST",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

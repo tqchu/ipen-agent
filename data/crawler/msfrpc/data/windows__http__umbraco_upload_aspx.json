@@ -1,0 +1,111 @@
+{
+  "Name": "Umbraco CMS Remote Command Execution",
+  "Description": "This module can be used to execute a payload on Umbraco CMS 4.7.0.378. The payload is uploaded as an ASPX script by sending a specially crafted SOAP request to codeEditorSave.asmx, which permits unauthorized file upload via the SaveDLRScript operation. SaveDLRScript is also subject to a path traversal vulnerability, allowing code to be placed into the web-accessible /umbraco/ directory. The module writes, executes and then overwrites an ASPX script; note that though the script content is removed, the file remains on the target. Automatic cleanup of the file is intended if a meterpreter payload is used. This module has been tested successfully on Umbraco CMS 4.7.0.378 on a Windows 7 32-bit SP1. In this scenario, the \"IIS APPPOOL\\ASP.NET v4.0\" user must have write permissions on the Windows Temp folder.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/http/umbraco_upload_aspx.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Toby Clarke",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "83765"
+    ],
+    [
+      "EDB",
+      "19671"
+    ],
+    [
+      "URL",
+      "http://blog.gdssecurity.com/labs/2012/7/3/find-bugs-faster-with-a-webmatrix-local-reference-instance.html"
+    ],
+    [
+      "URL",
+      "http://umbraco.codeplex.com/workitem/18192"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Umbraco CMS 4.7.0.378 / Microsoft Windows 7 Professional 32-bit SP1"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "TARGETURI"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,80 @@
+{
+  "Name": "Siemens FactoryLink vrn.exe Opcode 9 Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in FactoryLink 7.5, 7.5 SP2, and 8.0.1.703. By sending a specially crafted packet, an attacker may be able to execute arbitrary code due to the improper use of a vsprintf() function while processing the user-supplied text field. Originally found and posted by Luigi Auriemma.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/scada/factorylink_vrn_09.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "Luigi Auriemma",
+    "hal",
+    "MC <mc@metasploit.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "72815"
+    ],
+    [
+      "URL",
+      "http://aluigi.altervista.org/adv/factorylink_4-adv.txt"
+    ],
+    [
+      "URL",
+      "https://www.cisa.gov/uscert/ics/advisories/ICSA-11-091-01"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "FactoryLink 7.5"
+    ],
+    [
+      2,
+      "FactoryLink 7.5 SP2"
+    ],
+    [
+      3,
+      "FactoryLink 8.0.1.703"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "seh"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

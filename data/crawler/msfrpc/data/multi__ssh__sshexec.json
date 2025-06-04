@@ -1,0 +1,148 @@
+{
+  "Name": "SSH User Code Execution",
+  "Description": "This module connects to the target system and executes the necessary commands to run the specified payload via SSH. If a native payload is specified, an appropriate stager will be used.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/ssh/sshexec.rb",
+  "Version": "",
+  "Rank": "manual",
+  "Authors": [
+    "Spencer McIntyre",
+    "Brandon Knight"
+  ],
+  "References": [
+    [
+      "CVE",
+      "1999-0502"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::OSX",
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::Python",
+    "Msf::Module::Platform::BSD"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Linux Command"
+    ],
+    [
+      1,
+      "Linux x86"
+    ],
+    [
+      2,
+      "Linux x64"
+    ],
+    [
+      3,
+      "Linux armle"
+    ],
+    [
+      4,
+      "Linux mipsle"
+    ],
+    [
+      5,
+      "Linux mipsbe"
+    ],
+    [
+      6,
+      "Linux aarch64"
+    ],
+    [
+      7,
+      "OSX x86"
+    ],
+    [
+      8,
+      "OSX x64"
+    ],
+    [
+      9,
+      "BSD x86"
+    ],
+    [
+      10,
+      "BSD x64"
+    ],
+    [
+      11,
+      "Python"
+    ],
+    [
+      12,
+      "Unix Cmd"
+    ],
+    [
+      13,
+      "Interactive SSH"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "CMDSTAGER::FLAVOR",
+    "CMDSTAGER::DECODER",
+    "CMDSTAGER::TEMP",
+    "CMDSTAGER::URIPATH",
+    "CMDSTAGER::SSL",
+    "RHOSTS",
+    "RPORT",
+    "SSH_IDENT",
+    "SSH_TIMEOUT",
+    "SSH_DEBUG",
+    "USERNAME",
+    "PASSWORD"
+  ],
+  "DefaultOptions": {
+    "PrependFork": "true",
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,74 @@
+{
+  "Name": "Siemens FactoryLink 8 CSService Logging Path Param Buffer Overflow",
+  "Description": "This module exploits a vulnerability found on Siemens FactoryLink 8. The vulnerability occurs when CSService.exe processes a CSMSG_ListFiles_REQ message, the user-supplied path first gets converted to ANSI format (CodePage 0), and then gets handled by a logging routine where proper bounds checking is not done, therefore causing a stack-based buffer overflow, and results arbitrary code execution.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/scada/factorylink_csservice.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Luigi Auriemma <aluigi@autistici.org>",
+    "sinn3r <sinn3r@metasploit.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "72812"
+    ],
+    [
+      "URL",
+      "http://aluigi.altervista.org/adv/factorylink_1-adv.txt"
+    ],
+    [
+      "URL",
+      "https://www.cisa.gov/uscert/ics/advisories/ICSA-11-091-01"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "Windows XP SP3"
+    ],
+    [
+      2,
+      "Windows Server 2003 SP0"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

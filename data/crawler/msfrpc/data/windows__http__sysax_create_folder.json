@@ -1,0 +1,115 @@
+{
+  "Name": "Sysax Multi Server 5.64 Create Folder Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in the create folder function in Sysax Multi Server 5.64. This issue was fixed in 5.66. In order to trigger the vulnerability valid credentials with the create folder permission must be provided. The HTTP option must be enabled on Sysax too. This module will log into the server, get a SID token, find the root folder, and then proceed to exploit the server. Successful exploits result in SYSTEM access. This exploit works on XP SP3, and Server 2003 SP1-SP2.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/http/sysax_create_folder.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Craig Freyman",
+    "Matt \"hostess\" Andreko"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2012-6530"
+    ],
+    [
+      "OSVDB",
+      "82329"
+    ],
+    [
+      "EDB",
+      "20676"
+    ],
+    [
+      "EDB",
+      "18420"
+    ],
+    [
+      "URL",
+      "http://www.pwnag3.com/2012/01/sysax-multi-server-550-exploit.html"
+    ],
+    [
+      "URL",
+      "http://www.mattandreko.com/2012/07/sysax-564-http-remote-buffer-overflow.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows XP SP3 / Sysax Multi Server 5.64"
+    ],
+    [
+      1,
+      "Windows 2003 SP1-SP2 / Sysax Multi Server 5.64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TARGETURI",
+    "SysaxUSER",
+    "SysaxPASS"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

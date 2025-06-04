@@ -1,0 +1,60 @@
+{
+  "Name": "IcoFX Stack Buffer Overflow",
+  "Description": "This module exploits a stack-based buffer overflow vulnerability in version 2.1 of IcoFX. The vulnerability exists while parsing .ICO files, where a specially crafted ICONDIR header providing an arbitrary long number of images in the file can be used to trigger the overflow when reading the ICONDIRENTRY structures.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/icofx_bof.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Marcos Accossatto",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-4988"
+    ],
+    [
+      "OSVDB",
+      "100826"
+    ],
+    [
+      "BID",
+      "64221"
+    ],
+    [
+      "EDB",
+      "30208"
+    ],
+    [
+      "URL",
+      "http://www.coresecurity.com/advisories/icofx-buffer-overflow-vulnerability"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "IcoFX 2.5 / Windows 7 SP1"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

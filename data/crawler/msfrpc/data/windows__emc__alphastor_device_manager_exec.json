@@ -1,0 +1,99 @@
+{
+  "Name": "EMC AlphaStor Device Manager Opcode 0x75 Command Injection",
+  "Description": "This module exploits a flaw within the Device Manager (rrobtd.exe). When parsing the 0x75 command, the process does not properly filter user supplied input allowing for arbitrary command injection. This module has been tested successfully on EMC AlphaStor 4.0 build 116 with Windows 2003 SP2 and Windows 2008 R2.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/emc/alphastor_device_manager_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Anyway <Aniway.Anyway@gmail.com>",
+    "Preston Thornburn <prestonthornburg@gmail.com>",
+    "Mohsan Farid <faridms@gmail.com>",
+    "Brent Morris <inkrypto@gmail.com>",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-0928"
+    ],
+    [
+      "ZDI",
+      "13-033"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "EMC AlphaStor 4.0 < build 800 / Windows Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSLCert",
+    "SSLCompression",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "CMDSTAGER::FLAVOR",
+    "CMDSTAGER::DECODER",
+    "CMDSTAGER::TEMP",
+    "CMDSTAGER::URIPATH",
+    "CMDSTAGER::SSL"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

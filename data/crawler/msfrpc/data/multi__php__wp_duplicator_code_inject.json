@@ -1,0 +1,100 @@
+{
+  "Name": "Snap Creek Duplicator WordPress plugin code injection",
+  "Description": "When the WordPress plugin Snap Creek Duplicator restores a backup, it leaves dangerous files in the filesystem such as installer.php and installer-backup.php. These files allow anyone to call a function that overwrite the wp-config.php file AND this function does not sanitize POST parameters before inserting them inside the wp-config.php file, leading to arbitrary PHP code execution. WARNING: This exploit WILL break the wp-config.php file. If possible try to restore backups of the configuration after the exploit to make the WordPress site work again.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/php/wp_duplicator_code_inject.rb",
+  "Version": "",
+  "Rank": "manual",
+  "Authors": [
+    "Julien Legras <julien.legras@synacktiv.com>",
+    "Thomas Chauchefoin <thomas.chauchefoin@synacktiv.com>"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://www.synacktiv.com/ressources/advisories/WordPress_Duplicator-1.2.40-RCE.pdf"
+    ],
+    [
+      "WPVDB",
+      "9123"
+    ],
+    [
+      "CVE",
+      "2018-17207"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::PHP"
+  ],
+  "Arch": [
+    "php"
+  ],
+  "Targets": [
+    [
+      0,
+      "WordPress Duplicator <= 1.2.40"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TARGETURI",
+    "TIMEOUT"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "php/meterpreter/reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

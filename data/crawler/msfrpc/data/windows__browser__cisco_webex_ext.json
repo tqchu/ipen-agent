@@ -1,0 +1,80 @@
+{
+  "Name": "Cisco WebEx Chrome Extension RCE (CVE-2017-3823)",
+  "Description": "This module exploits a vulnerability present in the Cisco WebEx Chrome Extension version 1.0.1 which allows an attacker to execute arbitrary commands on a system.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/cisco_webex_ext.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "Tavis Ormandy <taviso@google.com>",
+    "William Webb <william_webb@rapid7.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2017-3823"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "Cisco WebEx Extension 1.0.1"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC"
+  ],
+  "DefaultOptions": {
+    "SSL": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

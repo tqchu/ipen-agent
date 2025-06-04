@@ -1,0 +1,55 @@
+{
+  "Name": "GSM SIM Editor 5.15 Buffer Overflow",
+  "Description": "This module exploits a stack-based buffer overflow in GSM SIM Editor 5.15. When opening a specially crafted .sms file in GSM SIM Editor a stack-based buffer overflow occurs which allows an attacker to execute arbitrary code.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/gsm_sim.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Ruben Alejandro",
+    "chap0 <contact.chap0@gmail.com>",
+    "Lincoln <lincoln@corelan.be>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2015-1171"
+    ],
+    [
+      "OSVDB",
+      "81161"
+    ],
+    [
+      "EDB",
+      "14258"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows XP SP3"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

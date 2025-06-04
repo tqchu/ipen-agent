@@ -1,0 +1,69 @@
+{
+  "Name": "eZip Wizard 3.0 Stack Buffer Overflow",
+  "Description": "This module exploits a stack-based buffer overflow vulnerability in version 3.0 of ediSys Corp.'s eZip Wizard. In order for the command to be executed, an attacker must convince someone to open a specially crafted zip file with eZip Wizard, and access the specially file via double-clicking it. By doing so, an attacker can execute arbitrary code as the victim user.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/ezip_wizard_bof.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "fl0 fl0w",
+    "jduck <jduck@metasploit.com>",
+    "Lincoln"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2009-1028"
+    ],
+    [
+      "OSVDB",
+      "52815"
+    ],
+    [
+      "BID",
+      "34044"
+    ],
+    [
+      "URL",
+      "http://www.edisys.com/"
+    ],
+    [
+      "EDB",
+      "8180"
+    ],
+    [
+      "EDB",
+      "12059"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "DynamicSehRecord",
+    "USERNAME"
+  ],
+  "DefaultOptions": {
+    "AllowWin32SEH": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

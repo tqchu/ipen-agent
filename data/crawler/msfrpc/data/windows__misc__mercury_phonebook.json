@@ -1,0 +1,69 @@
+{
+  "Name": "Mercury/32 PH Server Module Buffer Overflow",
+  "Description": "This module exploits a stack-based buffer overflow in Mercury/32 <= v4.01b PH Server Module. This issue is due to a failure of the application to properly bounds check user-supplied data prior to copying it to a fixed size memory buffer.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/mercury_phonebook.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "MC <mc@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2005-4411"
+    ],
+    [
+      "OSVDB",
+      "22103"
+    ],
+    [
+      "BID",
+      "16396"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows XP Pro SP0/SP1 English"
+    ],
+    [
+      1,
+      "Windows 2000 Pro English ALL"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

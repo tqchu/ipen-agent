@@ -1,0 +1,65 @@
+{
+  "Name": "Saltstack Minion Payload Deployer",
+  "Description": "This exploit module uses saltstack salt to deploy a payload and run it on all targets which have been selected (default all). Currently only works against nix targets.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/saltstack_salt_minion_deployer.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "h00die",
+    "c2Vlcgo"
+  ],
+  "References": [],
+  "Platform": [
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Auto"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "SALT",
+    "MINIONS",
+    "WritableDir",
+    "TargetWritableDir",
+    "CALCULATE",
+    "ListenerTimeout",
+    "TIMEOUT",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

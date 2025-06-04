@@ -1,0 +1,125 @@
+{
+  "Name": "Citrix ADC (NetScaler) Forms SSO Target RCE",
+  "Description": "A vulnerability exists within Citrix ADC that allows an unauthenticated attacker to trigger a stack buffer overflow of the nsppe process by making a specially crafted HTTP GET request. Successful exploitation results in remote code execution as root.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/freebsd/http/citrix_formssso_target_rce.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Ron Bowes",
+    "Douglass McKee",
+    "Spencer McIntyre",
+    "rwincey"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2023-3519"
+    ],
+    [
+      "URL",
+      "https://attackerkb.com/topics/si09VNJhHh/cve-2023-3519"
+    ],
+    [
+      "URL",
+      "https://support.citrix.com/article/CTX561482/citrix-adc-and-citrix-gateway-security-bulletin-for-cve20233519-cve20233466-cve20233467"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic Targeting"
+    ],
+    [
+      1,
+      "Citrix ADC 13.1-48.47"
+    ],
+    [
+      2,
+      "Citrix ADC 13.1-37.38"
+    ],
+    [
+      3,
+      "Citrix ADC 13.0-91.12"
+    ],
+    [
+      4,
+      "Citrix ADC 12.1-65.25"
+    ],
+    [
+      5,
+      "Citrix ADC 12.1-64.17"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TARGETURI",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "RPORT": 443,
+    "SSL": true,
+    "WfsDelay": 10
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

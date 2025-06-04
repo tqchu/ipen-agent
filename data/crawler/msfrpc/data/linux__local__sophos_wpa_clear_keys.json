@@ -1,0 +1,76 @@
+{
+  "Name": "Sophos Web Protection Appliance clear_keys.pl Local Privilege Escalation",
+  "Description": "This module abuses a command injection on the clear_keys.pl perl script, installed with the Sophos Web Protection Appliance, to escalate privileges from the \"spiderman\" user to \"root\". This module is useful for post exploitation of vulnerabilities on the Sophos Web Protection Appliance web ui, executed by the \"spiderman\" user. This module has been tested successfully on Sophos Virtual Web Appliance 3.7.0.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/sophos_wpa_clear_keys.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Francisco Falcon",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-4984"
+    ],
+    [
+      "OSVDB",
+      "97028"
+    ],
+    [
+      "BID",
+      "62265"
+    ],
+    [
+      "URL",
+      "http://www.coresecurity.com/advisories/sophos-web-protection-appliance-multiple-vulnerabilities"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "Linux x86"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "clear_keys",
+    "WritableDir"
+  ],
+  "DefaultOptions": {
+    "PrependFork": true,
+    "PrependSetresuid": true,
+    "PrependSetresgid": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

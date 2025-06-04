@@ -1,0 +1,146 @@
+{
+  "Name": "GoAhead Web Server LD_PRELOAD Arbitrary Module Load",
+  "Description": "This module triggers an arbitrary shared library load vulnerability in GoAhead web server versions between 2.5 and that have the CGI module enabled.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/http/goahead_ldpreload.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Daniel Hodson <daniel@elttam.com.au>",
+    "h00die",
+    "hdm <x@hdm.io>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2017-17562"
+    ],
+    [
+      "URL",
+      "https://www.elttam.com.au/blog/goahead/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic (Reverse Shell)"
+    ],
+    [
+      1,
+      "Automatic (Bind Shell)"
+    ],
+    [
+      2,
+      "Automatic (Command)"
+    ],
+    [
+      3,
+      "Linux x86"
+    ],
+    [
+      4,
+      "Linux x86_64"
+    ],
+    [
+      5,
+      "Linux ARM (LE)"
+    ],
+    [
+      6,
+      "Linux ARM64"
+    ],
+    [
+      7,
+      "Linux MIPS"
+    ],
+    [
+      8,
+      "Linux MIPSLE"
+    ],
+    [
+      9,
+      "Linux MIPS64"
+    ],
+    [
+      10,
+      "Linux MIPS64LE"
+    ],
+    [
+      11,
+      "Linux SPARC"
+    ],
+    [
+      12,
+      "Linux SPARC64"
+    ],
+    [
+      13,
+      "Linux s390x"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TARGET_URI"
+  ],
+  "DefaultOptions": {
+    "SHELL": "/bin/sh"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

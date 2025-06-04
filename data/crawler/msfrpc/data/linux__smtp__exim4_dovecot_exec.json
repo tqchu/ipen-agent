@@ -1,0 +1,103 @@
+{
+  "Name": "Exim and Dovecot Insecure Configuration Command Injection",
+  "Description": "This module exploits a command injection vulnerability against Dovecot with Exim using the \"use_shell\" option. It uses the sender's address to inject arbitrary commands, since this is one of the user-controlled variables. It has been successfully tested on Debian Squeeze using the default Exim4 with the dovecot-common packages.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/smtp/exim4_dovecot_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Unknown",
+    "eKKiM",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "93004"
+    ],
+    [
+      "EDB",
+      "25297"
+    ],
+    [
+      "URL",
+      "https://www.redteam-pentesting.de/advisories/rt-sa-2013-001"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "Linux x86"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "MAILTO",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSLCert",
+    "SSLCompression",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "EHLO",
+    "DOWNHOST",
+    "DOWNFILE",
+    "HTTP_DELAY",
+    "SkipVersionCheck"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

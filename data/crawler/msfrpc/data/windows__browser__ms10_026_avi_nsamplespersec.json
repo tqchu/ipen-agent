@@ -1,0 +1,91 @@
+{
+  "Name": "MS10-026 Microsoft MPEG Layer-3 Audio Stack Based Overflow",
+  "Description": "This module exploits a buffer overflow in l3codecx.ax while processing a AVI files with MPEG Layer-3 audio contents. The overflow only allows to overwrite with 0's so the three least significant bytes of EIP saved on stack are overwritten and shellcode is mapped using the .NET DLL memory technique pioneered by Alexander Sotirov and Mark Dowd. Please note on IE 8 targets, your malicious URL must be a trusted site in order to load the .Net control.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/ms10_026_avi_nsamplespersec.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Yamata Li",
+    "Shahin Ramezany <shahin@abysssec.com>",
+    "juan vazquez <juan.vazquez@metasploit.com>",
+    "Jordi Sanchez <jsanchez@0x01000000.org>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2010-0480"
+    ],
+    [
+      "OSVDB",
+      "63749"
+    ],
+    [
+      "BID",
+      "39303"
+    ],
+    [
+      "MSB",
+      "MS10-026"
+    ],
+    [
+      "URL",
+      "https://www.exploit-db.com/moaub-5-microsoft-mpeg-layer-3-audio-stack-based-overflow/"
+    ],
+    [
+      "URL",
+      "http://www.phreedom.org/research/bypassing-browser-memory-protections/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows XP SP3 Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": {
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

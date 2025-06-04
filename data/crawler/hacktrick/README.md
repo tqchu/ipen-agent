@@ -1,0 +1,1 @@
+https://github.com/HackTricks-wiki/hacktricks/blob/master/src/exploiting/windows-exploiting-basic-guide-oscp-lvl.md

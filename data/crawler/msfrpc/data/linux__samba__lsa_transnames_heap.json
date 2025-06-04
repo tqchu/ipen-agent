@@ -1,0 +1,130 @@
+{
+  "Name": "Samba lsa_io_trans_names Heap Overflow",
+  "Description": "This module triggers a heap overflow in the LSA RPC service of the Samba daemon. This module uses the TALLOC chunk overwrite method (credit Ramon and Adriano), which only works with Samba versions 3.0.21-3.0.24. Additionally, this module will not work when the Samba \"log level\" parameter is higher than \"2\".",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/samba/lsa_transnames_heap.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "Ramon de C Valle <rcvalle@metasploit.com>",
+    "Adriano Lima <adriano@risesecurity.org>",
+    "hdm <x@hdm.io>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2007-2446"
+    ],
+    [
+      "OSVDB",
+      "34699"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Linux vsyscall"
+    ],
+    [
+      1,
+      "Linux Heap Brute Force (Debian/Ubuntu)"
+    ],
+    [
+      2,
+      "Linux Heap Brute Force (Gentoo)"
+    ],
+    [
+      3,
+      "Linux Heap Brute Force (Mandriva)"
+    ],
+    [
+      4,
+      "Linux Heap Brute Force (RHEL/CentOS)"
+    ],
+    [
+      5,
+      "Linux Heap Brute Force (SUSE)"
+    ],
+    [
+      6,
+      "Linux Heap Brute Force (Slackware)"
+    ],
+    [
+      7,
+      "Linux Heap Brute Force (OpenWRT MIPS)"
+    ],
+    [
+      8,
+      "DEBUG"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "DCERPC::max_frag_size",
+    "DCERPC::fake_bind_multi",
+    "DCERPC::fake_bind_multi_prepend",
+    "DCERPC::fake_bind_multi_append",
+    "DCERPC::smb_pipeio",
+    "DCERPC::ReadTimeout",
+    "NTLM::UseNTLMv2",
+    "NTLM::UseNTLM2_session",
+    "NTLM::SendLM",
+    "NTLM::UseLMKey",
+    "NTLM::SendNTLM",
+    "NTLM::SendSPN",
+    "SMB::pipe_evasion",
+    "SMB::pipe_write_min_size",
+    "SMB::pipe_write_max_size",
+    "SMB::pipe_read_min_size",
+    "SMB::pipe_read_max_size",
+    "SMB::pad_data_level",
+    "SMB::pad_file_level",
+    "SMB::obscure_trans_pipe_level",
+    "SMBDirect",
+    "SMBUser",
+    "SMBPass",
+    "SMBDomain",
+    "SMBName",
+    "SMB::VerifySignature",
+    "SMB::ChunkSize",
+    "SMB::Native_OS",
+    "SMB::Native_LM",
+    "SMB::AlwaysEncrypt",
+    "BruteWait",
+    "BruteStep",
+    "SMBPIPE"
+  ],
+  "DefaultOptions": {
+    "PrependSetresuid": true,
+    "PrependSetreuid": true,
+    "PrependSetuid": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,69 @@
+{
+  "Name": "SAP Business One License Manager 2005 Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in the SAP Business One 2005 License Manager 'NT Naming Service' A and B releases. By sending an excessively long string the stack is overwritten enabling arbitrary code execution.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/sap_2005_license.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "Jacopo Cervini"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "56837"
+    ],
+    [
+      "CVE",
+      "2009-4988"
+    ],
+    [
+      "BID",
+      "35933"
+    ],
+    [
+      "EDB",
+      "9319"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Sap Business One 2005 B1 Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

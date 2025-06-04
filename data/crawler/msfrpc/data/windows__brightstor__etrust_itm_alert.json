@@ -1,0 +1,105 @@
+{
+  "Name": "Computer Associates Alert Notification Buffer Overflow",
+  "Description": "This module exploits a buffer overflow in Computer Associates Threat Manager for the Enterprise r8.1 By sending a specially crafted RPC request, an attacker could overflow the buffer and execute arbitrary code. In order to successfully exploit this vulnerability, you will need valid logon credentials to the target.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/brightstor/etrust_itm_alert.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "MC <mc@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2007-4620"
+    ],
+    [
+      "OSVDB",
+      "44040"
+    ],
+    [
+      "BID",
+      "28605"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows 2003 SP0 English"
+    ],
+    [
+      1,
+      "Windows 2000 SP4 English"
+    ],
+    [
+      2,
+      "CA BrightStor ARCServe Backup 11.5 / Windows 2000 SP4 English"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "DCERPC::max_frag_size",
+    "DCERPC::fake_bind_multi",
+    "DCERPC::fake_bind_multi_prepend",
+    "DCERPC::fake_bind_multi_append",
+    "DCERPC::smb_pipeio",
+    "DCERPC::ReadTimeout",
+    "NTLM::UseNTLMv2",
+    "NTLM::UseNTLM2_session",
+    "NTLM::SendLM",
+    "NTLM::UseLMKey",
+    "NTLM::SendNTLM",
+    "NTLM::SendSPN",
+    "SMB::pipe_evasion",
+    "SMB::pipe_write_min_size",
+    "SMB::pipe_write_max_size",
+    "SMB::pipe_read_min_size",
+    "SMB::pipe_read_max_size",
+    "SMB::pad_data_level",
+    "SMB::pad_file_level",
+    "SMB::obscure_trans_pipe_level",
+    "SMBDirect",
+    "SMBUser",
+    "SMBPass",
+    "SMBDomain",
+    "SMBName",
+    "SMB::VerifySignature",
+    "SMB::ChunkSize",
+    "SMB::Native_OS",
+    "SMB::Native_LM",
+    "SMB::ProtocolVersion",
+    "SMB::AlwaysEncrypt",
+    "SMBPIPE"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

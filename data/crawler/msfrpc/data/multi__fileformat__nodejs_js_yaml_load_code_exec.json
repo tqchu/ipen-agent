@@ -1,0 +1,58 @@
+{
+  "Name": "Nodejs js-yaml load() Code Execution",
+  "Description": "This module can be used to abuse node.js applications that parse user-supplied YAML input using the load() function from the 'js-yaml' package < 2.0.5, which doesn't properly handle the unsafe !!js/function tag, allowing to specify a self-executing function which results on execution of arbitrary javascript code.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/fileformat/nodejs_js_yaml_load_code_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Neal Poole",
+    "joev <joev@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-4660"
+    ],
+    [
+      "OSVDB",
+      "94656"
+    ],
+    [
+      "BID",
+      "60867"
+    ],
+    [
+      "URL",
+      "https://nealpoole.com/blog/2013/06/code-execution-via-yaml-in-js-yaml-nodejs-module/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::NodeJS"
+  ],
+  "Arch": [
+    "nodejs"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

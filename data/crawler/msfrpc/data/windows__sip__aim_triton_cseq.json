@@ -1,0 +1,57 @@
+{
+  "Name": "AIM Triton 1.0.4 CSeq Buffer Overflow",
+  "Description": "This module exploits a buffer overflow in AOL\\'s AIM Triton 1.0.4. By sending an overly long CSeq value, a remote attacker could overflow a buffer and execute arbitrary code on the system with the privileges of the affected application.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/sip/aim_triton_cseq.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "MC <mc@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2006-3524"
+    ],
+    [
+      "OSVDB",
+      "27122"
+    ],
+    [
+      "BID",
+      "18906"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "AIM Triton 1.0.4 Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "CPORT",
+    "CHOST",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "seh"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

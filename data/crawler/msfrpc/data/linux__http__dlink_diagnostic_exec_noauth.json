@@ -1,0 +1,142 @@
+{
+  "Name": "D-Link DIR-645 / DIR-815 diagnostic.php Command Execution",
+  "Description": "Some D-Link Routers are vulnerable to OS Command injection in the web interface. On DIR-645 versions prior 1.03 authentication isn't needed to exploit it. On version 1.03 authentication is needed in order to trigger the vulnerability, which has been fixed definitely on version 1.04. Other D-Link products, like DIR-300 rev B and DIR-600, are also affected by this vulnerability. Not every device includes wget which we need for deploying our payload. On such devices you could use the cmd generic payload and try to start telnetd or execute other commands. Since it is a blind OS command injection vulnerability, there is no output for the executed command when using the cmd generic payload. A ping command against a controlled system could be used for testing purposes. This module has been tested successfully on DIR-645 prior to 1.03, where authentication isn't needed in order to exploit the vulnerability.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/http/dlink_diagnostic_exec_noauth.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Michael Messner <devnull@s3cur1ty.de>",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2014-100005"
+    ],
+    [
+      "OSVDB",
+      "92144"
+    ],
+    [
+      "BID",
+      "58938"
+    ],
+    [
+      "EDB",
+      "24926"
+    ],
+    [
+      "URL",
+      "http://www.s3cur1ty.de/m1adv2013-017"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "CMD"
+    ],
+    [
+      1,
+      "Linux mipsel Payload"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "DOWNHOST",
+    "DOWNFILE",
+    "HTTP_DELAY"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

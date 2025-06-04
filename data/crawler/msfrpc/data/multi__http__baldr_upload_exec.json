@@ -1,0 +1,115 @@
+{
+  "Name": "Baldr Botnet Panel Shell Upload Exploit",
+  "Description": "This module exploits an arbitrary file upload vulnerability within the Baldr stealer malware control panel when uploading victim log files (which are uploaded as ZIP files). Attackers can turn this vulnerability into an RCE by first registering a new bot to the panel and then uploading a ZIP file containing malicious PHP, which will then uploaded to a publicly accessible directory underneath the /logs web directory. Note that on versions 3.0 and 3.1 the ZIP files containing the victim log files are encoded by XORing them with a random 4 byte key. This exploit module gets around this restriction by retrieving the IP specific XOR key from panel gate before uploading the malicious ZIP file.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/http/baldr_upload_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Ege Balc\u0131 <egebalci@pm.me>"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://krabsonsecurity.com/2019/06/04/taking-a-look-at-baldr-stealer/"
+    ],
+    [
+      "URL",
+      "https://blog.malwarebytes.com/threat-analysis/2019/04/say-hello-baldr-new-stealer-market/"
+    ],
+    [
+      "URL",
+      "https://www.sophos.com/en-us/medialibrary/PDFs/technical-papers/baldr-vs-the-world.pdf"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::PHP"
+  ],
+  "Arch": [
+    "php"
+  ],
+  "Targets": [
+    [
+      0,
+      "Auto"
+    ],
+    [
+      1,
+      "<= v2.0"
+    ],
+    [
+      2,
+      "v2.2"
+    ],
+    [
+      3,
+      "v3.0 & v3.1"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TARGETURI",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "SSL": false,
+    "WfsDelay": 5
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

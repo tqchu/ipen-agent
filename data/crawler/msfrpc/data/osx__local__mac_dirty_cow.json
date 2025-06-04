@@ -1,0 +1,75 @@
+{
+  "Name": "macOS Dirty Cow Arbitrary File Write Local Privilege Escalation",
+  "Description": "An app may be able to execute arbitrary code with kernel privileges",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/osx/local/mac_dirty_cow.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Ian Beer",
+    "Zhuowei Zhang",
+    "timwr"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2022-46689"
+    ],
+    [
+      "URL",
+      "https://github.com/apple-oss-distributions/xnu/blob/xnu-8792.61.2/tests/vm/vm_unaligned_copy_switch_race.c"
+    ],
+    [
+      "URL",
+      "https://github.com/zhuowei/MacDirtyCowDemo"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::OSX"
+  ],
+  "Arch": [
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Mac OS X x64 (Native Payload)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "TargetFile",
+    "WritableDir",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "osx/x64/shell_reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,56 @@
+{
+  "Name": "Nvidia (nvsvc) Display Driver Service Local Privilege Escalation",
+  "Description": "The named pipe, \\pipe\\nsvr, has a NULL DACL allowing any authenticated user to interact with the service. It contains a stacked based buffer overflow as a result of a memmove operation. Note the slight spelling differences: the executable is 'nvvsvc.exe', the service name is 'nvsvc', and the named pipe is 'nsvr'. This exploit automatically targets nvvsvc.exe versions dated Nov 3 2011, Aug 30 2012, and Dec 1 2012. It has been tested on Windows 7 64-bit against nvvsvc.exe dated Dec 1 2012.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/nvidia_nvsvc.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "Peter Wintersmith",
+    "Ben Campbell <eat_meatballs@hotmail.co.uk>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-0109"
+    ],
+    [
+      "OSVDB",
+      "88745"
+    ],
+    [
+      "URL",
+      "http://nvidia.custhelp.com/app/answers/detail/a_id/3288"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows x64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

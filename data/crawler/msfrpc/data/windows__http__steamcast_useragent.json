@@ -1,0 +1,75 @@
+{
+  "Name": "Streamcast HTTP User-Agent Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in Streamcast <= 0.9.75. By sending an overly long User-Agent in an HTTP GET request, an attacker may be able to execute arbitrary code.",
+  "License": "BSD License",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/http/steamcast_useragent.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "LSO <lso@hushmail.com>",
+    "aushack <patrick@osisecurity.com.au>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2008-0550"
+    ],
+    [
+      "OSVDB",
+      "42670"
+    ],
+    [
+      "URL",
+      "http://aluigi.altervista.org/adv/steamcazz-adv.txt"
+    ],
+    [
+      "BID",
+      "33898"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows 2000 Pro English All"
+    ],
+    [
+      1,
+      "Windows XP Pro SP0/SP1 English"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread",
+    "AllowWin32SEH": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

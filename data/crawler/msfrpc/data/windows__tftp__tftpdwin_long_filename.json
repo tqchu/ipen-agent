@@ -1,0 +1,60 @@
+{
+  "Name": "TFTPDWIN v0.4.2 Long Filename Buffer Overflow",
+  "Description": "This module exploits the ProSysInfo TFTPDWIN threaded TFTP Server. By sending an overly long file name to the tftpd.exe server, the stack can be overwritten.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/tftp/tftpdwin_long_filename.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "aushack <patrick@osisecurity.com.au>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2006-4948"
+    ],
+    [
+      "OSVDB",
+      "29032"
+    ],
+    [
+      "BID",
+      "20131"
+    ],
+    [
+      "EDB",
+      "3132"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Universal - tftpd.exe"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "CPORT",
+    "CHOST"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

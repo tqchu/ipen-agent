@@ -1,0 +1,74 @@
+{
+  "Name": "VMware vCenter vScalation Priv Esc",
+  "Description": "This module exploits a privilege escalation in vSphere/vCenter due to improper permissions on the /usr/lib/vmware-vmon/java-wrapper-vmon file. It is possible for anyone in the cis group to write to the file, which will execute as root on vmware-vmon service restart or host reboot. This module was successfully tested against VMware VirtualCenter 6.5.0 build-7070488. The following versions should be vulnerable: vCenter 7.0 before U2c vCenter 6.7 before U3o vCenter 6.5 before U3q",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/vcenter_java_wrapper_vmon_priv_esc.rb",
+  "Version": "",
+  "Rank": "manual",
+  "Authors": [
+    "h00die",
+    "Yuval Lazar"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://pentera.io/blog/vscalation-cve-2021-22015-local-privilege-escalation-in-vmware-vcenter-pentera-labs/"
+    ],
+    [
+      "CVE",
+      "2021-22015"
+    ],
+    [
+      "URL",
+      "https://www.vmware.com/security/advisories/VMSA-2021-0020.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Auto"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "WritableDir",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 1800
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

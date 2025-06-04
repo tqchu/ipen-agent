@@ -1,0 +1,53 @@
+{
+  "Name": "Audiotran 1.4.1 (PLS File) Stack Buffer Overflow",
+  "Description": "This module exploits a stack-based buffer overflow in Audiotran 1.4.1. An attacker must send the file to victim and the victim must open the file. Alternatively it may be possible to execute code remotely via an embedded PLS file within a browser, when the PLS extension is registered to Audiotran. This functionality has not been tested in this module.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/audiotran_pls.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "Sebastien Duquette",
+    "dookie"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2009-0476"
+    ],
+    [
+      "OSVDB",
+      "55424"
+    ],
+    [
+      "EDB",
+      "11079"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

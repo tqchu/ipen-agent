@@ -1,0 +1,68 @@
+{
+  "Name": "NetDecision 4.2 TFTP Writable Directory Traversal Execution",
+  "Description": "This module exploits a vulnerability found in NetDecision 4.2 TFTP server. The software contains a directory traversal vulnerability that allows a remote attacker to write arbitrary file to the file system, which results in code execution under the context of user executing the TFTP Server.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/tftp/netdecision_tftp_traversal.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Rob Kraus",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2009-1730"
+    ],
+    [
+      "OSVDB",
+      "54607"
+    ],
+    [
+      "BID",
+      "35002"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "NetDecision 4.2 TFTP on Windows XP SP3 / Windows 2003 SP2"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "DEPTH",
+    "RHOST",
+    "RPORT"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

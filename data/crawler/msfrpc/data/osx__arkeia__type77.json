@@ -1,0 +1,63 @@
+{
+  "Name": "Arkeia Backup Client Type 77 Overflow (Mac OS X)",
+  "Description": "This module exploits a stack buffer overflow in the Arkeia backup client for the Mac OS X platform. This vulnerability affects all versions up to and including 5.3.3 and has been tested with Arkeia 5.3.1 on Mac OS X 10.3.5.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/osx/arkeia/type77.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "hdm <x@hdm.io>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2005-0491"
+    ],
+    [
+      "OSVDB",
+      "14011"
+    ],
+    [
+      "BID",
+      "12594"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::OSX"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Arkeia 5.3.1 Stack Return (boot)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

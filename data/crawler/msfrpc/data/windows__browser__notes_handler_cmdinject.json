@@ -1,0 +1,106 @@
+{
+  "Name": "IBM Lotus Notes Client URL Handler Command Injection",
+  "Description": "This module exploits a command injection vulnerability in the URL handler for for the IBM Lotus Notes Client <= 8.5.3. The registered handler can be abused with a specially crafted notes:// URL to execute arbitrary commands with also arbitrary arguments. This module has been tested successfully on Windows XP SP3 with IE8, Google Chrome 23.0.1271.97 m and IBM Lotus Notes Client 8.5.2.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/notes_handler_cmdinject.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Moritz Jodeit",
+    "Sean de Regge",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2012-2174"
+    ],
+    [
+      "OSVDB",
+      "83063"
+    ],
+    [
+      "BID",
+      "54070"
+    ],
+    [
+      "ZDI",
+      "12-154"
+    ],
+    [
+      "URL",
+      "http://pwnanisec.blogspot.com/2012/10/exploiting-command-injection.html"
+    ],
+    [
+      "URL",
+      "http://www-304.ibm.com/support/docview.wss?uid=swg21598348"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "OBFUSCATE"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "none",
+    "InitialAutoRunScript": "migrate -k -f"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

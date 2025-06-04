@@ -1,0 +1,65 @@
+{
+  "Name": "PeerCast URL Handling Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in PeerCast <= v0.1216. The vulnerability is caused due to a boundary error within the handling of URL parameters.",
+  "License": "BSD License",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/http/peercast_url.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "MC <mc@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2006-1148"
+    ],
+    [
+      "OSVDB",
+      "23777"
+    ],
+    [
+      "BID",
+      "17040"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "PeerCast v0.1212 Binary"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,85 @@
+{
+  "Name": "Persits XUpload ActiveX MakeHttpRequest Directory Traversal",
+  "Description": "This module exploits a directory traversal in Persits Software Inc's XUpload ActiveX control(version 3.0.0.3) that's included in HP LoadRunner 9.5. By passing a string containing \"..\\\" sequences to the MakeHttpRequest method, an attacker is able to write arbitrary files to arbitrary locations on disk. Code execution occurs by writing to the All Users Startup Programs directory. You may want to combine this module with the use of exploit/multi/handler since a user would have to log for the payload to execute.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/persits_xupload_traversal.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2009-3693"
+    ],
+    [
+      "OSVDB",
+      "60001"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "PATH"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

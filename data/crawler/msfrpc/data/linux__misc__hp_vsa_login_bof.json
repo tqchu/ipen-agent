@@ -1,0 +1,72 @@
+{
+  "Name": "HP StorageWorks P4000 Virtual SAN Appliance Login Buffer Overflow",
+  "Description": "This module exploits a buffer overflow vulnerability found in HP's StorageWorks P4000 VSA on versions prior to 10.0. The vulnerability is due to an insecure usage of the sscanf() function when parsing login requests. This module has been tested successfully on the HP VSA 9 Virtual Appliance.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/misc/hp_vsa_login_bof.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "e6af8de8b1d4b2b6d5ba2610cbf9cd38",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-2343"
+    ],
+    [
+      "OSVDB",
+      "94701"
+    ],
+    [
+      "ZDI",
+      "13-179"
+    ],
+    [
+      "URL",
+      "http://h20564.www2.hpe.com/hpsc/doc/public/display?docId=emr_na-c03661318"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "HP VSA 9"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

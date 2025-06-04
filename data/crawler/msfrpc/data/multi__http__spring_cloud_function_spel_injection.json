@@ -1,0 +1,150 @@
+{
+  "Name": "Spring Cloud Function SpEL Injection",
+  "Description": "Spring Cloud Function versions prior to 3.1.7 and 3.2.3 are vulnerable to remote code execution due to using an unsafe evaluation context with user-provided queries. By crafting a request to the application and setting the spring.cloud.function.routing-expression header, an unauthenticated attacker can gain remote code execution. Both patched and unpatched servers will respond with a 500 server error and a JSON encoded message.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/http/spring_cloud_function_spel_injection.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "m09u3r",
+    "hktalent",
+    "Spencer McIntyre"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2022-22963"
+    ],
+    [
+      "URL",
+      "https://github.com/hktalent/spring-spel-0day-poc"
+    ],
+    [
+      "URL",
+      "https://tanzu.vmware.com/security/cve-2022-22963"
+    ],
+    [
+      "URL",
+      "https://attackerkb.com/assessments/cda33728-908a-4394-9bd5-d4126557d225"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "cmd",
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Unix Command"
+    ],
+    [
+      1,
+      "Linux Dropper"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "CMDSTAGER::FLAVOR",
+    "CMDSTAGER::DECODER",
+    "CMDSTAGER::TEMP",
+    "CMDSTAGER::URIPATH",
+    "CMDSTAGER::SSL",
+    "TARGETURI",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "RPORT": 8080,
+    "TARGETURI": "/functionRouter"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

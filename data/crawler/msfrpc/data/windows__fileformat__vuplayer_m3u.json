@@ -1,0 +1,51 @@
+{
+  "Name": "VUPlayer M3U Buffer Overflow",
+  "Description": "This module exploits a stack over flow in VUPlayer <= 2.49. When the application is used to open a specially crafted m3u file, an buffer is overwritten allowing for the execution of arbitrary code.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/vuplayer_m3u.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "MC <mc@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2006-6251"
+    ],
+    [
+      "OSVDB",
+      "31710"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "VUPlayer 2.49"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "DisablePayloadHandler": true,
+    "AllowWin32SEH": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

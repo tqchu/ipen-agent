@@ -1,0 +1,57 @@
+{
+  "Name": "FTP Synchronizer Professional 4.0.73.274 Stack Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow vulnerability in FTP Synchronizer Pro version 4.0.73.274 The overflow gets triggered by sending an overly long filename to the client in response to a LIST command. The LIST command gets issued when doing a preview or when you have just created a new sync profile and allow the tool to see the differences. This will overwrite a structured exception handler and trigger an access violation.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/ftp/ftpsynch_list_reply.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "myne-us",
+    "corelanc0d3r <peter.ve@corelan.be>"
+  ],
+  "References": [
+    [
+      "URL",
+      "http://www.corelan.be:8800/index.php/2010/10/12/death-of-an-ftp-client/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "XP Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "PASVPORT"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

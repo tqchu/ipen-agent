@@ -1,0 +1,73 @@
+{
+  "Name": "Emacs movemail Privilege Escalation",
+  "Description": "This module exploits a SUID installation of the Emacs movemail utility to run a command as root by writing to 4.3BSD's /usr/lib/crontab.local. The vulnerability is documented in Cliff Stoll's book The Cuckoo's Egg.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/unix/local/emacs_movemail.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Markus Hess",
+    "Cliff Stoll",
+    "wvu <wvu@metasploit.com>"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://en.wikipedia.org/wiki/Movemail"
+    ],
+    [
+      "URL",
+      "https://en.wikipedia.org/wiki/The_Cuckoo%27s_Egg"
+    ],
+    [
+      "URL",
+      "http://pdf.textfiles.com/academics/wilyhacker.pdf"
+    ],
+    [
+      "URL",
+      "https://www.gnu.org/software/emacs/manual/html_node/efaq/Security-risks-with-Emacs.html"
+    ],
+    [
+      "URL",
+      "https://www.gnu.org/software/emacs/manual/html_node/emacs/Movemail.html"
+    ],
+    [
+      "URL",
+      "https://mailutils.org/manual/html_node/movemail.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "/usr/lib/crontab.local"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "MOVEMAIL",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "cmd/unix/generic",
+    "CMD": "cp /bin/sh /tmp && chmod u+s /tmp/sh"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

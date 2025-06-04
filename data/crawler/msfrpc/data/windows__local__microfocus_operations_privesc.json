@@ -1,0 +1,105 @@
+{
+  "Name": "Micro Focus Operations Bridge Manager / Reporter Local Privilege Escalation",
+  "Description": "This module exploits an incorrectly permissioned folder in Micro Focus Operations Bridge Manager and Operations Bridge Reporter. An unprivileged user (such as Guest) can drop a JSP file in an exploded WAR directory and then access it without authentication by making a request to the OBM / OBR server. This will result in automatic code execution as SYSTEM. This module has been tested on OBM 2020.05 and OBR 10.40, but it should work out of the box on earlier versions too. Note that it is only exploitable on Windows installations.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/microfocus_operations_privesc.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Pedro Ribeiro <pedrib@gmail.com>"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://github.com/pedrib/PoC/blob/master/advisories/Micro_Focus/Micro_Focus_OBM.md"
+    ],
+    [
+      "URL",
+      "https://github.com/pedrib/PoC/blob/master/advisories/Micro_Focus/Micro_Focus_OBR.md"
+    ],
+    [
+      "CVE",
+      "2020-11858"
+    ],
+    [
+      "CVE",
+      "2020-11855"
+    ],
+    [
+      "ZDI",
+      "20-1326"
+    ],
+    [
+      "ZDI",
+      "20-1217"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Micro Focus Operations Bridge Manager (Windows) <= 2020.05"
+    ],
+    [
+      1,
+      "Micro Focus Operations Bridge Reporter (Windows) <= 10.40"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "Powershell::persist",
+    "Powershell::prepend_sleep",
+    "Powershell::prepend_protections_bypass",
+    "Powershell::strip_comments",
+    "Powershell::strip_whitespace",
+    "Powershell::sub_vars",
+    "Powershell::sub_funcs",
+    "Powershell::exec_in_place",
+    "Powershell::exec_rc4",
+    "Powershell::remove_comspec",
+    "Powershell::noninteractive",
+    "Powershell::encode_final_payload",
+    "Powershell::encode_inner_payload",
+    "Powershell::wrap_double_quotes",
+    "Powershell::no_equals",
+    "Powershell::method",
+    "Powershell::Post::timeout",
+    "Powershell::Post::log_output",
+    "Powershell::Post::dry_run",
+    "Powershell::Post::force_wow64",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "RPORT",
+    "TARGETURI",
+    "SSL"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

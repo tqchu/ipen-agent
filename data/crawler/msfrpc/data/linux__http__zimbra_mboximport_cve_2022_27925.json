@@ -1,0 +1,137 @@
+{
+  "Name": "Zip Path Traversal in Zimbra (mboximport) (CVE-2022-27925)",
+  "Description": "This module POSTs a ZIP file containing path traversal characters to the administrator interface for Zimbra Collaboration Suite. If successful, it plants a JSP-based backdoor within the web directory, then executes it. The core vulnerability is a path-traversal issue in Zimbra Collaboration Suite's ZIP implementation that can result in the extraction of an arbitrary file to an arbitrary location on the host. This issue is exploitable on the following versions of Zimbra: * Zimbra Collaboration Suite Network Edition 9.0.0 Patch 23 (and earlier) * Zimbra Collaboration Suite Network Edition 8.8.15 Patch 30 (and earlier) Note that the Open Source Edition is not affected.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/http/zimbra_mboximport_cve_2022_27925.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Volexity Threat Research",
+    "Yang_99's Nest",
+    "Ron Bowes"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2022-27925"
+    ],
+    [
+      "CVE",
+      "2022-37042"
+    ],
+    [
+      "URL",
+      "https://blog.zimbra.com/2022/03/new-zimbra-patches-9-0-0-patch-24-and-8-8-15-patch-31/"
+    ],
+    [
+      "URL",
+      "https://www.cisa.gov/uscert/ncas/alerts/aa22-228a"
+    ],
+    [
+      "URL",
+      "https://www.yang99.top/index.php/archives/82/"
+    ],
+    [
+      "URL",
+      "https://wiki.zimbra.com/wiki/Zimbra_Releases/9.0.0/P24"
+    ],
+    [
+      "URL",
+      "https://wiki.zimbra.com/wiki/Zimbra_Releases/8.8.15/P31"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Zimbra Collaboration Suite"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "TARGET_PATH",
+    "TARGET_FILENAME",
+    "TARGET_USERNAME"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "linux/x64/meterpreter/reverse_tcp",
+    "TARGET_PATH": "../../../../../../../../../../../../opt/zimbra/jetty_base/webapps/zimbraAdmin/public/",
+    "TARGET_FILENAME": null,
+    "RPORT": 7071,
+    "SSL": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

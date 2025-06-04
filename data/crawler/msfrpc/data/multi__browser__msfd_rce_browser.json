@@ -1,0 +1,65 @@
+{
+  "Name": "Metasploit msfd Remote Code Execution via Browser",
+  "Description": "Metasploit's msfd-service makes it possible to get a msfconsole-like interface over a TCP socket. This module connects to the msfd-socket through the victim's browser. To execute msfconsole-commands in JavaScript from a web application, this module places the payload in the POST-data. These POST-requests can be sent cross-domain and can therefore be sent to localhost on the victim's machine. The msfconsole-command to execute code is 'rbi -e \"CODE\"'. Exploitation when the browser is running on Windows is unreliable and the exploit is only usable when IE is used and the quiet-flag has been passed to msf-daemon.",
+  "License": "BSD License",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/browser/msfd_rce_browser.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Robin Stenvi <robin.stenvi@gmail.com>"
+  ],
+  "References": [],
+  "Platform": [
+    "Msf::Module::Platform::Ruby"
+  ],
+  "Arch": [
+    "ruby"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "REMOTE_IP",
+    "REMOTE_PORT"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,54 @@
+{
+  "Name": "DjVu DjVu_ActiveX_MSOffice.dll ActiveX ComponentBuffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in DjVu ActiveX Component. When sending an overly long string to the ImageURL() property of DjVu_ActiveX_MSOffice.dll (3.0) an attacker may be able to execute arbitrary code. This control is not marked safe for scripting, so choose your attack vector accordingly.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/djvu_imageurl.rb",
+  "Version": "",
+  "Rank": "low",
+  "Authors": [
+    "dean <dean@zerodaysolutions.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2008-4922"
+    ],
+    [
+      "OSVDB",
+      "49592"
+    ],
+    [
+      "BID",
+      "31987"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows XP SP0-SP3 / Windows Vista / IE 6.0 SP0-SP2 / IE 7"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

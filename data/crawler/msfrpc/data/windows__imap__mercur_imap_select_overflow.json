@@ -1,0 +1,71 @@
+{
+  "Name": "Mercur v5.0 IMAP SP3 SELECT Buffer Overflow",
+  "Description": "Mercur v5.0 IMAP server is prone to a remotely exploitable stack-based buffer overflow vulnerability. This issue is due to a failure of the application to properly bounds check user-supplied data prior to copying it to a fixed size memory buffer. Credit to Tim Taylor for discover the vulnerability.",
+  "License": "BSD License",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/imap/mercur_imap_select_overflow.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "Jacopo Cervini <acaro@jervus.it>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2006-1255"
+    ],
+    [
+      "OSVDB",
+      "23950"
+    ],
+    [
+      "BID",
+      "17138"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows 2000 Server SP4 English"
+    ],
+    [
+      1,
+      "Windows 2000 Pro SP1 English"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "IMAPUSER",
+    "IMAPPASS"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

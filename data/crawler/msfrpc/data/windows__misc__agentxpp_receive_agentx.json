@@ -1,0 +1,63 @@
+{
+  "Name": "AgentX++ Master AgentX::receive_agentx Stack Buffer Overflow",
+  "Description": "This exploits a stack buffer overflow in the AgentX++ library, as used by various applications. By sending a specially crafted request, an attacker can execute arbitrary code, potentially with SYSTEM privileges. This module was tested successfully against master.exe as included with Real Network\\'s Helix Server v12. When installed as a service with Helix Server, the service runs as SYSTEM, has no recovery action, but will start automatically on boot. This module does not work with NX/XD enabled but could be modified easily to do so. The address",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/agentxpp_receive_agentx.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2010-1318"
+    ],
+    [
+      "OSVDB",
+      "63919"
+    ],
+    [
+      "URL",
+      "http://labs.idefense.com/intelligence/vulnerabilities/display.php?id=867"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Helix Server v12 and v13 - master.exe"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": {},
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

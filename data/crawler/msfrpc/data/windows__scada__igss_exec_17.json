@@ -1,0 +1,66 @@
+{
+  "Name": "Interactive Graphical SCADA System Remote Command Injection",
+  "Description": "This module abuses a directory traversal flaw in Interactive Graphical SCADA System v9.00. In conjunction with the traversal flaw, if opcode 0x17 is sent to the dc.exe process, an attacker may be able to execute arbitrary system commands.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/scada/igss_exec_17.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Luigi Auriemma",
+    "MC <mc@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2011-1566"
+    ],
+    [
+      "OSVDB",
+      "72349"
+    ],
+    [
+      "URL",
+      "http://aluigi.org/adv/igss_8-adv.txt"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

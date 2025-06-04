@@ -1,0 +1,107 @@
+{
+  "Name": "ManageEngine ADSelfService Plus Custom Script Execution",
+  "Description": "This module exploits the \"custom script\" feature of ADSelfService Plus. The feature was removed in build 6122 as part of the patch for CVE-2022-28810. For purposes of this module, a \"custom script\" is arbitrary operating system command execution. This module uses an attacker provided \"admin\" account to insert the malicious payload into the custom script fields. When a user resets their password or unlocks their account, the payload in the custom script will be executed. The payload will be executed as SYSTEM if ADSelfService Plus is installed as a service, which we believe is the normal operational behavior. This is a passive module because user interaction is required to trigger the payload. This module also does not automatically remove the malicious code from the remote target. Use the \"TARGET_RESET\" operation to remove the malicious custom script when you are done. ADSelfService Plus uses default credentials of \"admin\":\"admin\"",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/http/manageengine_adselfservice_plus_cve_2022_28810.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Jake Baines",
+    "Hernan Diaz",
+    "Andrew Iwamaye",
+    "Dan Kelley"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2022-28810"
+    ],
+    [
+      "URL",
+      "https://www.manageengine.com/products/self-service-password/kb/cve-2022-28810.html"
+    ],
+    [
+      "URL",
+      "https://www.rapid7.com/blog/post/2022/04/14/cve-2022-28810-manageengine-adselfservice-plus-authenticated-command-execution-fixed/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows Command"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TARGETURI",
+    "USERNAME",
+    "PASSWORD",
+    "TARGET_RESET",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "RPORT": 8888,
+    "DisablePayloadHandler": true,
+    "JJS_PATH": "..\\jre\\bin\\jjs.exe"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

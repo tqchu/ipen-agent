@@ -1,0 +1,103 @@
+{
+  "Name": "Mailcleaner Remote Code Execution",
+  "Description": "This module exploits the command injection vulnerability of MailCleaner Community Edition product. An authenticated user can execute an operating system command under the context of the web server user which is root. /admin/managetracing/search/search endpoint takes several user inputs and then pass them to the internal service which is responsible for executing operating system command. One of the user input is being passed to the service without proper validation. That cause a command injection vulnerability.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/http/mailcleaner_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Mehmet Ince <mehmet@mehmetince.net>"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://pentest.blog/advisory-mailcleaner-community-edition-remote-code-execution/"
+    ],
+    [
+      "CVE",
+      "2018-20323"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Python",
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "python",
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Python payload"
+    ],
+    [
+      1,
+      "Command payload"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TARGETURI",
+    "USERNAME",
+    "PASSWORD"
+  ],
+  "DefaultOptions": {
+    "SSL": true,
+    "WfsDelay": 5
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

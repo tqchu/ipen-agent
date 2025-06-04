@@ -1,0 +1,111 @@
+{
+  "Name": "vBulletin widgetConfig RCE",
+  "Description": "vBulletin 5.x through 5.5.4 allows remote command execution via the widgetConfig[code] parameter in an ajax/render/widget_php routestring POST request.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/http/vbulletin_widgetconfig_rce.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "unknown",
+    "mekhalleh (RAMELLA S\u00e9bastien)"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2019-16759"
+    ],
+    [
+      "URL",
+      "https://seclists.org/fulldisclosure/2019/Sep/31"
+    ],
+    [
+      "URL",
+      "https://blog.sucuri.net/2019/09/zero-day-rce-in-vbulletin-v5-0-0-v5-5-4.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::PHP",
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "cmd",
+    "php"
+  ],
+  "Targets": [
+    [
+      0,
+      "Meterpreter (PHP In-Memory)"
+    ],
+    [
+      1,
+      "Unix (CMD In-Memory)"
+    ],
+    [
+      2,
+      "Windows (CMD In-Memory)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TARGETURI",
+    "PHP_CMD",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

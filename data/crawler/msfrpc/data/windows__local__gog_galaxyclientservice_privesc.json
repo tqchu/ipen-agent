@@ -1,0 +1,66 @@
+{
+  "Name": "GOG GalaxyClientService Privilege Escalation",
+  "Description": "This module will send arbitrary file_paths to the GOG GalaxyClientService, which will be executed with SYSTEM privileges (verified on GOG Galaxy Client v1.2.62 and v2.0.12; prior versions are also likely affected).",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/gog_galaxyclientservice_privesc.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Joe Testa <jtesta@positronsecurity.com>"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://www.positronsecurity.com/blog/2020-04-28-gog-galaxy-client-local-privilege-escalation/"
+    ],
+    [
+      "CVE",
+      "2020-7352"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows (Dropper)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "PATH",
+    "WORKING_DIR"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,69 @@
+{
+  "Name": "CA BrightStor ARCserve License Service GCR NETWORK Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in Computer Associates BrightStor ARCserve Backup 11.0. By sending a specially crafted request to the lic98rmtd.exe service, an attacker could overflow the buffer and execute arbitrary code.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/brightstor/license_gcr.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "MC <mc@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2005-0581"
+    ],
+    [
+      "OSVDB",
+      "14389"
+    ],
+    [
+      "BID",
+      "12705"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows 2003 SP0 English"
+    ],
+    [
+      1,
+      "Windows 2000 SP4 English"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

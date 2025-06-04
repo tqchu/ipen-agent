@@ -1,0 +1,65 @@
+{
+  "Name": "Polycom Shell HDX Series Traceroute Command Execution",
+  "Description": "Within Polycom command shell, a command execution flaw exists in lan traceroute, one of the dev commands, which allows for an attacker to execute arbitrary payloads with telnet or openssl.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/unix/misc/polycom_hdx_traceroute_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Mumbai",
+    "staaldraad",
+    "Paul Haas <Paul.Haas@Security-Assessment.com>",
+    "h00die <mike@shorebreaksecurity.com>"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://staaldraad.github.io/2017/11/12/polycom-hdx-rce/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "PASSWORD",
+    "CBHOST",
+    "CBPORT"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "cmd/unix/reverse"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

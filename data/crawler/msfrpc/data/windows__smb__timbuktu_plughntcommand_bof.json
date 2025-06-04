@@ -1,0 +1,93 @@
+{
+  "Name": "Timbuktu PlughNTCommand Named Pipe Buffer Overflow",
+  "Description": "This module exploits a stack based buffer overflow in Timbuktu Pro version <= 8.6.6 in a pretty novel way. This exploit requires two connections. The first connection is used to leak stack data using the buffer overflow to overwrite the nNumberOfBytesToWrite argument. By supplying a large value for this argument it is possible to cause Timbuktu to reply to the initial request with leaked stack data. Using this data allows for reliable exploitation of the buffer overflow vulnerability. Props to Infamous41d for helping in finding this exploitation path. The second connection utilizes the data from the data leak to accurately exploit the stack based buffer overflow vulnerability. TODO: hdm suggested using meterpreter's migration capability and restarting the process for multishot exploitation.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/smb/timbuktu_plughntcommand_bof.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "bannedit <bannedit@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2009-1394"
+    ],
+    [
+      "OSVDB",
+      "55436"
+    ],
+    [
+      "BID",
+      "35496"
+    ],
+    [
+      "URL",
+      "http://labs.idefense.com/intelligence/vulnerabilities/display.php?id=809"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic Targeting"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "NTLM::UseNTLMv2",
+    "NTLM::UseNTLM2_session",
+    "NTLM::SendLM",
+    "NTLM::UseLMKey",
+    "NTLM::SendNTLM",
+    "NTLM::SendSPN",
+    "SMB::pipe_evasion",
+    "SMB::pipe_write_min_size",
+    "SMB::pipe_write_max_size",
+    "SMB::pipe_read_min_size",
+    "SMB::pipe_read_max_size",
+    "SMB::pad_data_level",
+    "SMB::pad_file_level",
+    "SMB::obscure_trans_pipe_level",
+    "SMBDirect",
+    "SMBUser",
+    "SMBPass",
+    "SMBDomain",
+    "SMBName",
+    "SMB::VerifySignature",
+    "SMB::ChunkSize",
+    "SMB::Native_OS",
+    "SMB::Native_LM",
+    "SMB::AlwaysEncrypt"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,114 @@
+{
+  "Name": "Java Applet ProviderSkeleton Insecure Invoke Method",
+  "Description": "This module abuses the insecure invoke() method of the ProviderSkeleton class that allows to call arbitrary static methods with user supplied arguments. The vulnerability affects Java version 7u21 and earlier.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/browser/java_jre17_provider_skeleton.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "Adam Gowdiak",
+    "Matthias Kaiser"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-2460"
+    ],
+    [
+      "OSVDB",
+      "94346"
+    ],
+    [
+      "URL",
+      "http://www.oracle.com/technetwork/topics/security/javacpujun2013-1899847.html"
+    ],
+    [
+      "URL",
+      "http://hg.openjdk.java.net/jdk7u/jdk7u/jdk/rev/160cde99bb1a"
+    ],
+    [
+      "URL",
+      "http://www.security-explorations.com/materials/SE-2012-01-ORACLE-12.pdf"
+    ],
+    [
+      "URL",
+      "http://www.security-explorations.com/materials/se-2012-01-61.zip"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Java",
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::OSX",
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Generic (Java Payload)"
+    ],
+    [
+      1,
+      "Windows x86 (Native Payload)"
+    ],
+    [
+      2,
+      "Mac OS X x86 (Native Payload)"
+    ],
+    [
+      3,
+      "Linux x86 (Native Payload)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

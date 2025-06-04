@@ -1,0 +1,73 @@
+{
+  "Name": "PostgreSQL CREATE LANGUAGE Execution",
+  "Description": "Some installations of Postgres 8 and 9 are configured to allow loading external scripting languages. Most commonly this is Perl and Python. When enabled, command execution is possible on the host. To execute system commands, loading the \"untrusted\" version of the language is necessary. This requires a superuser. This is usually postgres. The execution should be platform-agnostic, and has been tested on OS X, Windows, and Linux. This module attempts to load Perl or Python to execute system commands. As this dynamically loads a scripting language to execute commands, it is not necessary to drop a file on the filesystem. Only Postgres 8 and up are supported.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/postgres/postgres_createlang.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "Micheal Cottingham",
+    "midnitesnake",
+    "Nixawk"
+  ],
+  "References": [
+    [
+      "URL",
+      "http://www.postgresql.org/docs/current/static/sql-createlanguage.html"
+    ],
+    [
+      "URL",
+      "http://www.postgresql.org/docs/current/static/plperl.html"
+    ],
+    [
+      "URL",
+      "http://www.postgresql.org/docs/current/static/plpython.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::Windows",
+    "Msf::Module::Platform::OSX"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "DATABASE",
+    "USERNAME",
+    "PASSWORD",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "SESSION"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

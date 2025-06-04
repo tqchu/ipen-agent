@@ -1,0 +1,63 @@
+{
+  "Name": "Real Networks Netzip Classic 7.5.1 86 File Parsing Buffer Overflow Vulnerability",
+  "Description": "This module exploits a stack-based buffer overflow vulnerability in version 7.5.1 86 of Real Networks Netzip Classic. In order for the command to be executed, an attacker must convince someone to load a specially crafted zip file with NetZip Classic. By doing so, an attacker can execute arbitrary code as the victim user.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/real_networks_netzip_bof.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "C4SS!0 G0M3S",
+    "TecR0c <roccogiovannicalvi@gmail.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "83436"
+    ],
+    [
+      "EDB",
+      "16083"
+    ],
+    [
+      "BID",
+      "46059"
+    ],
+    [
+      "URL",
+      "http://proforma.real.com"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows XP SP3"
+    ],
+    [
+      1,
+      "Windows 7/Windows Vista"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "CONTENTNAME"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

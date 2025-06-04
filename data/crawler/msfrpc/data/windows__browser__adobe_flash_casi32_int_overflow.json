@@ -1,0 +1,91 @@
+{
+  "Name": "Adobe Flash Player casi32 Integer Overflow",
+  "Description": "This module exploits an integer overflow in Adobe Flash Player. The vulnerability occurs in the casi32 method, where an integer overflow occurs if a ByteArray of length 0 is setup as domainMemory for the current application domain. This module has been tested successfully on Windows 7 SP1 (32-bit), IE 8 to IE 11 and Flash 15.0.0.167.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/adobe_flash_casi32_int_overflow.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "bilou",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "ZDI",
+      "14-365"
+    ],
+    [
+      "CVE",
+      "2014-0569"
+    ],
+    [
+      "OSVDB",
+      "113199"
+    ],
+    [
+      "URL",
+      "https://helpx.adobe.com/security/products/flash-player/apsb14-22.html"
+    ],
+    [
+      "URL",
+      "http://malware.dontneedcoffee.com/2014/10/cve-2014-0569.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "JsObfuscate",
+    "JsIdentifiers",
+    "Retries",
+    "CookieName",
+    "CookieExpiration",
+    "Custom404"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

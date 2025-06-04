@@ -1,0 +1,103 @@
+{
+  "Name": "FreeBSD Intel SYSRET Privilege Escalation",
+  "Description": "This module exploits a vulnerability in the FreeBSD kernel, when running on 64-bit Intel processors. By design, 64-bit processors following the X86-64 specification will trigger a general protection fault (GPF) when executing a SYSRET instruction with a non-canonical address in the RCX register. However, Intel processors check for a non-canonical address prior to dropping privileges, causing a GPF in privileged mode. As a result, the current userland RSP stack pointer is restored and executed, resulting in privileged code execution. This module has been tested successfully on: FreeBSD 8.3-RELEASE (amd64); and FreeBSD 9.0-RELEASE (amd64).",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/freebsd/local/intel_sysret_priv_esc.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "Rafal Wojtczuk",
+    "John Baldwin",
+    "iZsh",
+    "bcoles <bcoles@gmail.com>"
+  ],
+  "References": [
+    [
+      "BID",
+      "53856"
+    ],
+    [
+      "CVE",
+      "2012-0217"
+    ],
+    [
+      "EDB",
+      "28718"
+    ],
+    [
+      "PACKETSTORM",
+      "113584"
+    ],
+    [
+      "URL",
+      "https://www.freebsd.org/security/patches/SA-12:04/sysret.patch"
+    ],
+    [
+      "URL",
+      "https://blog.xenproject.org/2012/06/13/the-intel-sysret-privilege-escalation/"
+    ],
+    [
+      "URL",
+      "https://github.com/iZsh/exploits/blob/master/stash/CVE-2012-0217-sysret/CVE-2012-0217-sysret_FreeBSD.c"
+    ],
+    [
+      "URL",
+      "https://fail0verflow.com/blog/2012/cve-2012-0217-intel-sysret-freebsd/"
+    ],
+    [
+      "URL",
+      "http://security.freebsd.org/advisories/FreeBSD-SA-12:04.sysret.asc"
+    ],
+    [
+      "URL",
+      "https://www.slideshare.net/nkslides/exploiting-the-linux-kernel-via-intels-sysret-implementation"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::BSD"
+  ],
+  "Arch": [
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "WritableDir",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "bsd/x64/shell_reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

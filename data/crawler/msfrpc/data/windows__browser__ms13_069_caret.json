@@ -1,0 +1,81 @@
+{
+  "Name": "MS13-069 Microsoft Internet Explorer CCaret Use-After-Free",
+  "Description": "This module exploits a use-after-free vulnerability found in Internet Explorer, specifically in how the browser handles the caret (text cursor) object. In IE's standards mode, the caret handling's vulnerable state can be triggered by first setting up an editable page with an input field, and then we can force the caret to update in an onbeforeeditfocus event by setting the body's innerHTML property. In this event handler, mshtml!CCaret::`vftable' can be freed using a document.write() function, however, mshtml!CCaret::UpdateScreenCaret remains unaware of this change, and still uses the same reference to the CCaret object. When the function tries to use this invalid reference to call a virtual function at offset 0x2c, it finally results a crash. Precise control of the freed object allows arbitrary code execution under the context of the user.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/ms13_069_caret.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "corelanc0d3r",
+    "sinn3r <sinn3r@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-3205"
+    ],
+    [
+      "OSVDB",
+      "97094"
+    ],
+    [
+      "MSB",
+      "MS13-069"
+    ],
+    [
+      "ZDI",
+      "13-217"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "IE 8 on Windows XP SP3"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": {
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

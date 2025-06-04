@@ -1,0 +1,124 @@
+{
+  "Name": "Java Applet JMX Remote Code Execution",
+  "Description": "This module abuses the JMX classes from a Java Applet to run arbitrary Java code outside of the sandbox as exploited in the wild in February of 2013. Additionally, this module bypasses default security settings introduced in Java 7 Update 10 to run unsigned applet without displaying any warning to the user.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/browser/java_jre17_jmxbean_2.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Unknown",
+    "Adam Gowdiak",
+    "SecurityObscurity",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-0431"
+    ],
+    [
+      "OSVDB",
+      "89613"
+    ],
+    [
+      "BID",
+      "57726"
+    ],
+    [
+      "URL",
+      "http://www.security-explorations.com/materials/SE-2012-01-ORACLE-8.pdf"
+    ],
+    [
+      "URL",
+      "http://www.security-explorations.com/materials/SE-2012-01-ORACLE-9.pdf"
+    ],
+    [
+      "URL",
+      "http://security-obscurity.blogspot.com.es/2013/01/about-new-java-0-day-vulnerability.html"
+    ],
+    [
+      "URL",
+      "http://pastebin.com/QWU1rqjf"
+    ],
+    [
+      "URL",
+      "http://malware.dontneedcoffee.com/2013/02/cve-2013-0431-java-17-update-11.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Java",
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::OSX",
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Generic (Java Payload)"
+    ],
+    [
+      1,
+      "Windows x86 (Native Payload)"
+    ],
+    [
+      2,
+      "Mac OS X x86 (Native Payload)"
+    ],
+    [
+      3,
+      "Linux x86 (Native Payload)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

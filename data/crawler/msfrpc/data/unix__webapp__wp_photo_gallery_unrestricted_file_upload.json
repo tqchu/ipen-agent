@@ -1,0 +1,107 @@
+{
+  "Name": "WordPress Photo Gallery Unrestricted File Upload",
+  "Description": "Photo Gallery Plugin for WordPress contains a flaw that allows a remote attacker to execute arbitrary PHP code. This flaw exists because the photo-gallery\\photo-gallery.php script allows access to filemanager\\UploadHandler.php. The post() method in UploadHandler.php does not properly verify or sanitize user-uploaded files. This module was tested on version 1.2.5.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/unix/webapp/wp_photo_gallery_unrestricted_file_upload.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Kacper Szurek",
+    "rastating"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "117676"
+    ],
+    [
+      "WPVDB",
+      "7769"
+    ],
+    [
+      "CVE",
+      "2014-9312"
+    ],
+    [
+      "URL",
+      "http://security.szurek.pl/photo-gallery-125-unrestricted-file-upload.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::PHP"
+  ],
+  "Arch": [
+    "php"
+  ],
+  "Targets": [
+    [
+      0,
+      "photo-gallery < 1.2.6"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TARGETURI",
+    "WPCONTENTDIR",
+    "WPCHECK",
+    "USERNAME",
+    "PASSWORD"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

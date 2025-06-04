@@ -1,0 +1,70 @@
+{
+  "Name": "Yum Package Manager Persistence",
+  "Description": "This module will run a payload when the package manager is used. No handler is ran automatically so you must configure an appropriate exploit/multi/handler to connect. Module modifies a yum plugin to launch a binary of choice. grep -F 'enabled=1' /etc/yum/pluginconf.d/ will show what plugins are currently enabled on the system.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/yum_package_manager_persistence.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Aaron Ringo"
+  ],
+  "References": [],
+  "Platform": [
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd",
+    "x86",
+    "x64",
+    "armle",
+    "aarch64",
+    "ppc",
+    "mipsle",
+    "mipsbe"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "PLUGIN",
+    "BACKDOOR_NAME",
+    "WritableDir",
+    "PluginPath"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 0,
+    "DisablePayloadHandler": true,
+    "Payload": "cmd/unix/reverse_python"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,84 @@
+{
+  "Name": "MS09-067 Microsoft Excel Malformed FEATHEADER Record Vulnerability",
+  "Description": "This module exploits a vulnerability in the handling of the FEATHEADER record by Microsoft Excel. Revisions of Office XP and later prior to the release of the MS09-067 bulletin are vulnerable. When processing a FEATHEADER (Shared Feature) record, Microsoft used a data structure from the file to calculate a pointer offset without doing proper validation. Attacker supplied data is then used to calculate the location of an object, and in turn a virtual function call. This results in arbitrary code execution. NOTE: On some versions of Office, the user will need to dismiss a warning dialog prior to the payload executing.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/ms09_067_excel_featheader.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "Sean Larsson",
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2009-3129"
+    ],
+    [
+      "OSVDB",
+      "59860"
+    ],
+    [
+      "MSB",
+      "MS09-067"
+    ],
+    [
+      "BID",
+      "36945"
+    ],
+    [
+      "ZDI",
+      "09-083"
+    ],
+    [
+      "URL",
+      "http://labs.idefense.com/intelligence/vulnerabilities/display.php?id=832"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Microsoft Office 2002 (XP) SP3 base English on Windows XP SP3 English"
+    ],
+    [
+      1,
+      "Microsoft Office 2002 (XP) SP3 w/kb969680 English on Windows XP SP3 English"
+    ],
+    [
+      2,
+      "Microsoft Office 2003 SP0 English on Windows XP SP3 English"
+    ],
+    [
+      3,
+      "Microsoft Office 2007 SP2 English on Windows XP SP3 English"
+    ],
+    [
+      4,
+      "Crash Target for Debugging"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "OUTPUTPATH"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

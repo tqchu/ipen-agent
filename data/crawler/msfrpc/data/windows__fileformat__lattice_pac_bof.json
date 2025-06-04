@@ -1,0 +1,63 @@
+{
+  "Name": "Lattice Semiconductor PAC-Designer 6.21 Symbol Value Buffer Overflow",
+  "Description": "This module exploits a vulnerability found in Lattice Semiconductor PAC-Designer 6.21. As a .pac file, when supplying a long string of data to the 'value' field under the 'SymbolicSchematicData' tag, it is possible to cause a memory corruption on the stack, which results in arbitrary code execution under the context of the user.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/lattice_pac_bof.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Unknown",
+    "juan vazquez <juan.vazquez@metasploit.com>",
+    "sinn3r <sinn3r@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2012-2915"
+    ],
+    [
+      "OSVDB",
+      "82001"
+    ],
+    [
+      "EDB",
+      "19006"
+    ],
+    [
+      "BID",
+      "53566"
+    ],
+    [
+      "URL",
+      "http://web.archive.org/web/20120523175252/http://secunia.com:80/advisories/48741"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "PAC-Designer 6.21 on Windows XP SP3"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

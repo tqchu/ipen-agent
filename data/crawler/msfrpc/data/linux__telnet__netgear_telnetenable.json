@@ -1,0 +1,86 @@
+{
+  "Name": "NETGEAR TelnetEnable",
+  "Description": "This module sends a magic packet to a NETGEAR device to enable telnetd. Upon successful connect, a root shell should be presented to the user.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/telnet/netgear_telnetenable.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Paul Gebheim",
+    "insanid",
+    "wvu <wvu@metasploit.com>"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://wiki.openwrt.org/toh/netgear/telnet.console"
+    ],
+    [
+      "URL",
+      "https://github.com/cyanitol/netgear-telenetenable"
+    ],
+    [
+      "URL",
+      "https://github.com/insanid/netgear-telenetenable"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic (detect TCP or UDP)"
+    ],
+    [
+      1,
+      "TCP (typically older devices)"
+    ],
+    [
+      2,
+      "UDP (typically newer devices)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "CPORT",
+    "CHOST",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "PCAPFILE",
+    "INTERFACE",
+    "FILTER",
+    "SNAPLEN",
+    "TIMEOUT",
+    "SECRET",
+    "GATEWAY_PROBE_HOST",
+    "GATEWAY_PROBE_PORT",
+    "MAC",
+    "USERNAME",
+    "PASSWORD"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

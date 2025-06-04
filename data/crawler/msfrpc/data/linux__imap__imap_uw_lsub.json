@@ -1,0 +1,72 @@
+{
+  "Name": "UoW IMAP Server LSUB Buffer Overflow",
+  "Description": "This module exploits a buffer overflow in the 'LSUB' command of the University of Washington IMAP service. This vulnerability can only be exploited with a valid username and password.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/imap/imap_uw_lsub.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "aushack <patrick@osisecurity.com.au>",
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2000-0284"
+    ],
+    [
+      "OSVDB",
+      "12037"
+    ],
+    [
+      "BID",
+      "1110"
+    ],
+    [
+      "EDB",
+      "284"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Linux Bruteforce"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "BruteWait",
+    "BruteStep",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "IMAPUSER",
+    "IMAPPASS"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

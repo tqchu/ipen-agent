@@ -1,0 +1,73 @@
+{
+  "Name": "MS01-033 Microsoft IIS 5.0 IDQ Path Overflow",
+  "Description": "This module exploits a stack buffer overflow in the IDQ ISAPI handler for Microsoft Index Server.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/iis/ms01_033_idq.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "MC <mc@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2001-0500"
+    ],
+    [
+      "OSVDB",
+      "568"
+    ],
+    [
+      "MSB",
+      "MS01-033"
+    ],
+    [
+      "BID",
+      "2880"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows 2000 Pro English SP0"
+    ],
+    [
+      1,
+      "Windows 2000 Pro English SP1-SP2"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

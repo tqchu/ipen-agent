@@ -1,0 +1,88 @@
+{
+  "Name": "Sun Java JRE getSoundbank file:// URI Buffer Overflow",
+  "Description": "This module exploits a flaw in the getSoundbank function in the Sun JVM. The payload is serialized and passed to the applet via PARAM tags. It must be a native payload. The effected Java versions are JDK and JRE 6 Update 16 and earlier, JDK and JRE 5.0 Update 21 and earlier, SDK and JRE 1.4.2_23 and earlier, and SDK and JRE 1.3.1_26 and earlier. NOTE: Although all of the above versions are reportedly vulnerable, only 1.6.0_u11 and 1.6.0_u16 on Windows XP SP3 were tested.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/browser/java_getsoundbank_bof.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "kf <kf_list@digitalmunition.com>",
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2009-3867"
+    ],
+    [
+      "OSVDB",
+      "59711"
+    ],
+    [
+      "BID",
+      "36881"
+    ],
+    [
+      "ZDI",
+      "09-076"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows",
+    "Msf::Module::Platform::OSX"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "J2SE 1.6_16 on Windows x86"
+    ],
+    [
+      1,
+      "J2SE 1.6_16 on Mac OS X PPC"
+    ],
+    [
+      2,
+      "J2SE 1.6_16 on Mac OS X x86"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

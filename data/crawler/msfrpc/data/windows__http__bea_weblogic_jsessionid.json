@@ -1,0 +1,66 @@
+{
+  "Name": "BEA WebLogic JSESSIONID Cookie Value Overflow",
+  "Description": "This module exploits a buffer overflow in BEA's WebLogic plugin. The vulnerable code is only accessible when clustering is configured. A request containing a long JSESSION cookie value can lead to arbitrary code execution.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/http/bea_weblogic_jsessionid.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "pusscat <pusscat@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2008-5457"
+    ],
+    [
+      "OSVDB",
+      "51311"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows Apache 2.2 - WebLogic module version 1.0.1136334"
+    ],
+    [
+      1,
+      "Windows Apache 2.2 - WebLogic module version 1.0.1150354"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "seh"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

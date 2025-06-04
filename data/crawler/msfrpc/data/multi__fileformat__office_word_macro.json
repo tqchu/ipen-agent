@@ -1,0 +1,61 @@
+{
+  "Name": "Microsoft Office Word Malicious Macro Execution",
+  "Description": "This module injects a malicious macro into a Microsoft Office Word document (docx). The comments field in the metadata is injected with a Base64 encoded payload, which will be decoded by the macro and execute as a Windows executable. For a successful attack, the victim is required to manually enable macro execution.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/fileformat/office_word_macro.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "sinn3r <sinn3r@metasploit.com>"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://en.wikipedia.org/wiki/Macro_virus"
+    ]
+  ],
+  "Platform": [],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Microsoft Office Word on Windows"
+    ],
+    [
+      1,
+      "Microsoft Office Word on Mac OS X (Python)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "CUSTOMTEMPLATE"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread",
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

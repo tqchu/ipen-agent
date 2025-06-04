@@ -1,0 +1,56 @@
+{
+  "Name": "Cron Persistence",
+  "Description": "This module will create a cron or crontab entry to execute a payload. The module includes the ability to automatically clean up those entries to prevent multiple executions. syslog will get a copy of the cron entry.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/cron_persistence.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "h00die <mike@shorebreaksecurity.com>"
+  ],
+  "References": [],
+  "Platform": [
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Cron"
+    ],
+    [
+      1,
+      "User Crontab"
+    ],
+    [
+      2,
+      "System Crontab"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "USERNAME",
+    "TIMING",
+    "CLEANUP"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 90
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

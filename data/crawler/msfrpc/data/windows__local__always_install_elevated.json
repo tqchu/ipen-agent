@@ -1,0 +1,75 @@
+{
+  "Name": "Windows AlwaysInstallElevated MSI",
+  "Description": "This module checks the AlwaysInstallElevated registry keys which dictates if .MSI files should be installed with elevated privileges (NT AUTHORITY\\SYSTEM). The generated .MSI file has an embedded executable which is extracted and run by the installer. After execution the .MSI file intentionally fails installation (by calling some invalid VBS) to prevent it being registered on the system. By running this with the /quiet argument the error will not be seen by the user.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/always_install_elevated.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Ben Campbell <eat_meatballs@hotmail.co.uk>",
+    "Parvez Anwar"
+  ],
+  "References": [
+    [
+      "URL",
+      "http://www.greyhathacker.net/?p=185"
+    ],
+    [
+      "URL",
+      "http://msdn.microsoft.com/en-us/library/aa367561(VS.85).aspx"
+    ],
+    [
+      "URL",
+      "http://rewtdance.blogspot.co.uk/2013/03/metasploit-msi-payload-generation.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "LOG_FILE",
+    "QUIET"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 10,
+    "EXITFUNC": "process",
+    "MSI::UAC": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

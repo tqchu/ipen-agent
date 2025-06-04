@@ -1,0 +1,56 @@
+{
+  "Name": "Media Jukebox 8.0.400 Buffer Overflow (SEH)",
+  "Description": "This module exploits a stack buffer overflow in Media Jukebox 8.0.400 by creating a specially crafted m3u or pls file.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/mediajukebox.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Ron Henry <rlh@ciphermonk.net>",
+    "dijital1"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "55924"
+    ],
+    [
+      "CVE",
+      "2009-2650"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows XP SP3 - English"
+    ],
+    [
+      1,
+      "Windows XP SP2 - English"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "seh",
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

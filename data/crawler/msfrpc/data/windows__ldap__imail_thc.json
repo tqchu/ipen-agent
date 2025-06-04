@@ -1,0 +1,71 @@
+{
+  "Name": "IMail LDAP Service Buffer Overflow",
+  "Description": "This exploits a buffer overflow in the LDAP service that is part of the IMail product. This module was tested against version 7.10 and 8.5, both running on Windows 2000.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/ldap/imail_thc.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "hdm <x@hdm.io>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2004-0297"
+    ],
+    [
+      "OSVDB",
+      "3984"
+    ],
+    [
+      "BID",
+      "9682"
+    ],
+    [
+      "URL",
+      "http://web.archive.org/web/20060110155821/http://secunia.com:80/advisories/10880/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows 2000 English"
+    ],
+    [
+      1,
+      "Windows 2000 IMail 8.x"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

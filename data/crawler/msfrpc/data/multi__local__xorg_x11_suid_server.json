@@ -1,0 +1,103 @@
+{
+  "Name": "Xorg X11 Server SUID logfile Privilege Escalation",
+  "Description": "This module attempts to gain root privileges with SUID Xorg X11 server versions 1.19.0 < 1.20.3. A permission check flaw exists for -modulepath and -logfile options when starting Xorg. This allows unprivileged users that can start the server the ability to elevate privileges and run arbitrary code under root privileges. This module has been tested with OpenBSD 6.3, 6.4, CentOS 7.4.1708, and CentOS 7.5.1804, and RHEL 7.5. The default PAM configuration for CentOS and RHEL systems requires console auth for the user's session to start the Xorg server. Cron launches the payload, so if SELinux is enforcing, exploitation may still be possible, but the module will bail. Xorg must have SUID permissions and may not start if already running. On exploitation a crontab.old backup file will be created by Xorg. This module will remove the .old file and restore crontab after successful exploitation. Failed exploitation may result in a corrupted crontab. On successful exploitation artifacts will be created consistant with starting Xorg and running a cron.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/local/xorg_x11_suid_server.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "Narendra Shinde",
+    "Raptor - 0xdea",
+    "Aaron Ringo",
+    "bcoles <bcoles@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2018-14665"
+    ],
+    [
+      "BID",
+      "105741"
+    ],
+    [
+      "EDB",
+      "45697"
+    ],
+    [
+      "EDB",
+      "45742"
+    ],
+    [
+      "EDB",
+      "45832"
+    ],
+    [
+      "URL",
+      "https://www.securepatterns.com/2018/10/cve-2018-14665-xorg-x-server.html"
+    ],
+    [
+      "URL",
+      "https://github.com/0xdea/exploits/blob/master/openbsd/raptor_xorgasm"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::OpenBSD",
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "cmd",
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "OpenBSD"
+    ],
+    [
+      1,
+      "Linux x64"
+    ],
+    [
+      2,
+      "Linux x86"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "WritableDir",
+    "Xdisplay",
+    "ConsoleLock"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "cmd/unix/reverse_openssl",
+    "WfsDelay": 120
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

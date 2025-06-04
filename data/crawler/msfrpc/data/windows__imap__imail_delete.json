@@ -1,0 +1,67 @@
+{
+  "Name": "IMail IMAP4D Delete Overflow",
+  "Description": "This module exploits a buffer overflow in the 'DELETE' command of the IMail IMAP4D service. This vulnerability can only be exploited with a valid username and password. This flaw was patched in version 8.14.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/imap/imail_delete.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "spoonm <spoonm@no$email.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2004-1520"
+    ],
+    [
+      "OSVDB",
+      "11838"
+    ],
+    [
+      "BID",
+      "11675"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows XP sp0 comctl32.dll"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "IMAPUSER",
+    "IMAPPASS"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

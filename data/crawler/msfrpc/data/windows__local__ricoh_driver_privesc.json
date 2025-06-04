@@ -1,0 +1,68 @@
+{
+  "Name": "Ricoh Driver Privilege Escalation",
+  "Description": "Various Ricoh printer drivers allow escalation of privileges on Windows systems. For vulnerable drivers, a low-privileged user can read/write files within the `RICOH_DRV` directory and its subdirectories. `PrintIsolationHost.exe`, a Windows process running as NT AUTHORITY\\SYSTEM, loads driver-specific DLLs during the installation of a printer. A user can elevate to SYSTEM by writing a malicious DLL to the vulnerable driver directory and adding a new printer with a vulnerable driver. This module leverages the `prnmngr.vbs` script to add and delete printers. Multiple runs of this module may be required given successful exploitation is time-sensitive.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/ricoh_driver_privesc.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Alexander Pudwill",
+    "Pentagrid AG",
+    "Shelby Pace"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2019-19363"
+    ],
+    [
+      "URL",
+      "https://www.pentagrid.ch/en/blog/local-privilege-escalation-in-ricoh-printer-drivers-for-windows-cve-2019-19363/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

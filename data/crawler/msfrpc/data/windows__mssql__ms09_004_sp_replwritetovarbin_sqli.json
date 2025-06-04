@@ -1,0 +1,150 @@
+{
+  "Name": "MS09-004 Microsoft SQL Server sp_replwritetovarbin Memory Corruption via SQL Injection",
+  "Description": "A heap-based buffer overflow can occur when calling the undocumented \"sp_replwritetovarbin\" extended stored procedure. This vulnerability affects all versions of Microsoft SQL Server 2000 and 2005, Windows Internal Database, and Microsoft Desktop Engine (MSDE) without the updates supplied in MS09-004. Microsoft patched this vulnerability in SP3 for 2005 without any public mention. This exploit smashes several pointers, as shown below. 1. pointer to a 32-bit value that is set to 0 2. pointer to a 32-bit value that is set to a length influenced by the buffer length. 3. pointer to a 32-bit value that is used as a vtable pointer. In MSSQL 2000, this value is referenced with a displacement of 0x38. For MSSQL 2005, the displacement is 0x10. The address of our buffer is conveniently stored in ecx when this instruction is executed. 4. On MSSQL 2005, an additional vtable ptr is smashed, which is referenced with a displacement of 4. This pointer is not used by this exploit. This particular exploit replaces the previous dual-method exploit. It uses a technique where the value contained in ecx becomes the stack. From there, return oriented programming is used to normalize the execution state and finally execute the payload via a \"jmp esp\". All addresses used were found within the sqlservr.exe memory space, yielding very reliable code execution using only a single query. NOTE: The MSSQL server service does not automatically restart by default. That said, some exceptions are caught and will not result in terminating the process. If the exploit crashes the service prior to hijacking the stack, it won't die. Otherwise, it's a goner.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/mssql/ms09_004_sp_replwritetovarbin_sqli.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "jduck <jduck@metasploit.com>",
+    "Rodrigo Marcos"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "50589"
+    ],
+    [
+      "CVE",
+      "2008-5416"
+    ],
+    [
+      "BID",
+      "32710"
+    ],
+    [
+      "MSB",
+      "MS09-004"
+    ],
+    [
+      "EDB",
+      "7501"
+    ],
+    [
+      "URL",
+      "http://www.secforce.co.uk/blog/2011/01/exploiting-ms09-004-via-sql-injection/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "MSSQL 2000 / MSDE SP0 (8.00.194)"
+    ],
+    [
+      2,
+      "MSSQL 2000 / MSDE SP1 (8.00.384)"
+    ],
+    [
+      3,
+      "MSSQL 2000 / MSDE SP2 (8.00.534)"
+    ],
+    [
+      4,
+      "MSSQL 2000 / MSDE SP3 (8.00.760)"
+    ],
+    [
+      5,
+      "MSSQL 2000 / MSDE SP4 (8.00.2039)"
+    ],
+    [
+      6,
+      "MSSQL 2005 SP0 (9.00.1399.06)"
+    ],
+    [
+      7,
+      "MSSQL 2005 SP1 (9.00.2047.00)"
+    ],
+    [
+      8,
+      "MSSQL 2005 SP2 (9.00.3042.00)"
+    ],
+    [
+      9,
+      "CRASHER"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "METHOD",
+    "GET_PATH",
+    "DATA",
+    "COOKIE",
+    "HEX2BINARY"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "seh",
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

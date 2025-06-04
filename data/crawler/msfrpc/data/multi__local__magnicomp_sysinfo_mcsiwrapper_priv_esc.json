@@ -1,0 +1,91 @@
+{
+  "Name": "MagniComp SysInfo mcsiwrapper Privilege Escalation",
+  "Description": "This module attempts to gain root privileges on systems running MagniComp SysInfo versions prior to 10-H64. The .mcsiwrapper suid executable allows loading a config file using the '--configfile' argument. The 'ExecPath' config directive is used to set the executable load path. This module abuses this functionality to set the load path resulting in execution of arbitrary code as root. This module has been tested successfully with SysInfo version 10-H63 on Fedora 20 x86_64, 10-H32 on Fedora 27 x86_64, 10-H10 on Debian 8 x86_64, and 10-GA on Solaris 10u11 x86.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/local/magnicomp_sysinfo_mcsiwrapper_priv_esc.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Daniel Lawson",
+    "Romain Trouve",
+    "bcoles <bcoles@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2017-6516"
+    ],
+    [
+      "BID",
+      "96934"
+    ],
+    [
+      "URL",
+      "http://www.magnicomp.com/support/cve/CVE-2017-6516.shtml"
+    ],
+    [
+      "URL",
+      "https://labs.mwrinfosecurity.com/advisories/magnicomps-sysinfo-root-setuid-local-privilege-escalation-vulnerability/"
+    ],
+    [
+      "URL",
+      "https://labs.mwrinfosecurity.com/advisories/multiple-vulnerabilities-in-magnicomps-sysinfo-root-setuid/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::Solaris"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "Solaris"
+    ],
+    [
+      2,
+      "Linux"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "SYSINFO_DIR",
+    "WritableDir",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

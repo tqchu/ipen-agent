@@ -1,0 +1,86 @@
+{
+  "Name": "GetGo Download Manager HTTP Response Buffer Overflow",
+  "Description": "This module exploits a stack-based buffer overflow vulnerability in GetGo Download Manager version 5.3.0.2712 earlier, caused by an overly long HTTP response header. By persuading the victim to download a file from a malicious server, a remote attacker could execute arbitrary code on the system or cause the application to crash. This module has been tested successfully on Windows XP SP3.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/getgodm_http_response_bof.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Julien Ahrens",
+    "Gabor Seljan",
+    "bzyo",
+    "sinn3r <sinn3r@metasploit.com>"
+  ],
+  "References": [
+    [
+      "EDB",
+      "32132"
+    ],
+    [
+      "OSVDB",
+      "103910"
+    ],
+    [
+      "CVE",
+      "2014-2206"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "4.9.0.1982 on Windows XP SP3"
+    ],
+    [
+      2,
+      "5.3.0.2712 on Windows XP SP3"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "DynamicSehRecord",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread",
+    "URIPATH": "/shakeitoff.mp3"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

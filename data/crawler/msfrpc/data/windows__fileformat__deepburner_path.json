@@ -1,0 +1,66 @@
+{
+  "Name": "AstonSoft DeepBurner (DBR File) Path Buffer Overflow",
+  "Description": "This module exploits a stack-based buffer overflow in versions 1.9.0.228, 1.8.0, and possibly other versions of AstonSoft's DeepBurner (Pro, Lite, etc). An attacker must send the file to victim and the victim must open the file. Alternatively it may be possible to execute code remotely via an embedded DBR file within a browser, since the DBR extension is registered to DeepBurner.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/deepburner_path.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "Expanders",
+    "fl0 fl0w",
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "BID",
+      "21657"
+    ],
+    [
+      "OSVDB",
+      "32356"
+    ],
+    [
+      "CVE",
+      "2006-6665"
+    ],
+    [
+      "EDB",
+      "2950"
+    ],
+    [
+      "EDB",
+      "8335"
+    ],
+    [
+      "EDB",
+      "11315"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

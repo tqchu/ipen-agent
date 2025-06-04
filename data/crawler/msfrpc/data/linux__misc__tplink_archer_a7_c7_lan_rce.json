@@ -1,0 +1,169 @@
+{
+  "Name": "TP-Link Archer A7/C7 Unauthenticated LAN Remote Code Execution",
+  "Description": "This module exploits a command injection vulnerability in the tdpServer daemon (/usr/bin/tdpServer), running on the router TP-Link Archer A7/C7 (AC1750), hardware version 5, MIPS Architecture, firmware version 190726. The vulnerability can only be exploited by an attacker on the LAN side of the router, but the attacker does not need any authentication to abuse it. After exploitation, an attacker will be able to execute any command as root, including downloading and executing a binary from another host. This vulnerability was discovered and exploited at Pwn2Own Tokyo 2019 by the Flashback team (Pedro Ribeiro + Radek Domanski). This module was updated in November 2020, after a bypass was discovered for the patch TP-Link issued. The new injection technique works on older firmware too. All firmware versions up to (but excluding) releases 201029 and 201030 are exploitable.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/misc/tplink_archer_a7_c7_lan_rce.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Pedro Ribeiro <pedrib@gmail.com>",
+    "Radek Domanski <radek.domanski <Radek Domanski <radek.domanski@gmail.com> @RabbitPro>"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://www.thezdi.com/blog/2020/4/6/exploiting-the-tp-link-archer-c7-at-pwn2own-tokyo"
+    ],
+    [
+      "URL",
+      "https://github.com/pedrib/PoC/blob/master/advisories/Pwn2Own/Tokyo_2019/lao_bomb/lao_bomb.md"
+    ],
+    [
+      "URL",
+      "https://github.com/rdomanski/Exploits_and_Advisories/blob/master/advisories/Pwn2Own/Tokyo2019/lao_bomb.md"
+    ],
+    [
+      "URL",
+      "https://github.com/pedrib/PoC/blob/master/advisories/Pwn2Own/Tokyo_2020/minesweeper.md"
+    ],
+    [
+      "URL",
+      "https://github.com/rdomanski/Exploits_and_Advisories/blob/master/advisories/Pwn2Own/Tokyo2020/minesweeper.md"
+    ],
+    [
+      "CVE",
+      "2020-10882"
+    ],
+    [
+      "CVE",
+      "2020-10883"
+    ],
+    [
+      "CVE",
+      "2020-10884"
+    ],
+    [
+      "CVE",
+      "2020-28347"
+    ],
+    [
+      "ZDI",
+      "20-334"
+    ],
+    [
+      "ZDI",
+      "20-335"
+    ],
+    [
+      "ZDI",
+      "20-336"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "mipsbe"
+  ],
+  "Targets": [
+    [
+      0,
+      "TP-Link Archer A7/C7 (AC1750) v5 (firmware up to 201029/30)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "RHOSTS",
+    "RPORT",
+    "CPORT",
+    "CHOST",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "VHOST",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "MAX_WAIT"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "linux/mipsbe/shell_reverse_tcp",
+    "WfsDelay": 15
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

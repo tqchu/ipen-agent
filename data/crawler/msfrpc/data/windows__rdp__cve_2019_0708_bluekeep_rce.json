@@ -1,0 +1,115 @@
+{
+  "Name": "CVE-2019-0708 BlueKeep RDP Remote Windows Kernel Use After Free",
+  "Description": "The RDP termdd.sys driver improperly handles binds to internal-only channel MS_T120, allowing a malformed Disconnect Provider Indication message to cause use-after-free. With a controllable data/size remote nonpaged pool spray, an indirect call gadget of the freed channel is used to achieve arbitrary code execution. Windows 7 SP1 and Windows Server 2008 R2 are the only currently supported targets. Windows 7 SP1 should be exploitable in its default configuration, assuming your target selection is correctly matched to the system's memory layout. HKLM\\SYSTEM\\CurrentControlSet\\Control\\TerminalServer\\Winstations\\RDP-Tcp\\fDisableCam *needs* to be set to 0 for exploitation to succeed against Windows Server 2008 R2. This is a non-standard configuration for normal servers, and the target will crash if the aforementioned Registry key is not set! If the target is crashing regardless, you will likely need to determine the non-paged pool base in kernel memory and set it as the GROOMBASE option.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/rdp/cve_2019_0708_bluekeep_rce.rb",
+  "Version": "",
+  "Rank": "manual",
+  "Authors": [
+    "Sean Dillon <sean.dillon@risksense.com>",
+    "Ryan Hanson",
+    "OJ Reeves <oj@beyondbinary.io>",
+    "Brent Cook <bcook@rapid7.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2019-0708"
+    ],
+    [
+      "URL",
+      "https://github.com/zerosum0x0/CVE-2019-0708"
+    ],
+    [
+      "URL",
+      "https://zerosum0x0.blogspot.com/2019/11/fixing-remote-windows-kernel-payloads-meltdown.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic targeting via fingerprinting"
+    ],
+    [
+      1,
+      "Windows 7 SP1 / 2008 R2 (6.1.7601 x64)"
+    ],
+    [
+      2,
+      "Windows 7 SP1 / 2008 R2 (6.1.7601 x64 - Virtualbox 6)"
+    ],
+    [
+      3,
+      "Windows 7 SP1 / 2008 R2 (6.1.7601 x64 - VMWare 14)"
+    ],
+    [
+      4,
+      "Windows 7 SP1 / 2008 R2 (6.1.7601 x64 - VMWare 15)"
+    ],
+    [
+      5,
+      "Windows 7 SP1 / 2008 R2 (6.1.7601 x64 - VMWare 15.1)"
+    ],
+    [
+      6,
+      "Windows 7 SP1 / 2008 R2 (6.1.7601 x64 - Hyper-V)"
+    ],
+    [
+      7,
+      "Windows 7 SP1 / 2008 R2 (6.1.7601 x64 - AWS)"
+    ],
+    [
+      8,
+      "Windows 7 SP1 / 2008 R2 (6.1.7601 x64 - QEMU/KVM)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "RDP_USER",
+    "RDP_CLIENT_NAME",
+    "RDP_DOMAIN",
+    "RDP_CLIENT_IP",
+    "RDP_TLS_SECURITY_LEVEL",
+    "CheckModule",
+    "GROOMSIZE",
+    "GROOMCHANNEL",
+    "GROOMCHANNELCOUNT",
+    "GROOMDELAY",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "RDP_CLIENT_NAME": "ethdev",
+    "EXITFUNC": "thread",
+    "CheckModule": "auxiliary/scanner/rdp/cve_2019_0708_bluekeep",
+    "WfsDelay": 5
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

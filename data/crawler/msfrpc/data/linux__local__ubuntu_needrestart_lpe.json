@@ -1,0 +1,75 @@
+{
+  "Name": "Ubuntu needrestart Privilege Escalation",
+  "Description": "Local attackers can execute arbitrary code as root by tricking needrestart into running the Python interpreter with an attacker-controlled PYTHONPATH environment variable. Verified against Ubuntu 22.04 with needrestart 3.5-5ubuntu2.1 Attempted exploitation against Debian 12, expliotation failed",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/ubuntu_needrestart_lpe.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "h00die",
+    "makuga01",
+    "qualys"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://github.com/makuga01/CVE-2024-48990-PoC"
+    ],
+    [
+      "URL",
+      "https://www.qualys.com/2024/11/19/needrestart/needrestart.txt"
+    ],
+    [
+      "CVE",
+      "2024-48990"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Auto"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "COMPILE",
+    "COMPILER",
+    "WritableDir",
+    "ListenerTimeout",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

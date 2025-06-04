@@ -1,0 +1,135 @@
+{
+  "Name": "CitectSCADA/CitectFacilities ODBC Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in CitectSCADA's ODBC daemon. This has only been tested against Citect v5, v6 and v7.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/scada/citect_scada_odbc.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "KF <kf_lists@digitalmunition.com>",
+    "aushack <patrick@osisecurity.com.au>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2008-2639"
+    ],
+    [
+      "BID",
+      "29634"
+    ],
+    [
+      "OSVDB",
+      "46105"
+    ],
+    [
+      "URL",
+      "http://www.coresecurity.com/content/citect-scada-odbc-service-vulnerability"
+    ],
+    [
+      "URL",
+      "http://www.auscert.org.au/render.html?it=9433"
+    ],
+    [
+      "URL",
+      "http://www.citect.com/documents/news_and_media/pr-citect-address-security.pdf"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "Citect32.exe v5.21 NT4"
+    ],
+    [
+      2,
+      "Citect32.exe v5.21 2K/XP"
+    ],
+    [
+      3,
+      "Citect32.exe v5.41-r0 NT4"
+    ],
+    [
+      4,
+      "Citect32.exe v5.41-r0 2K/XP"
+    ],
+    [
+      5,
+      "Citect32.exe v6.0-r0 2K/XP"
+    ],
+    [
+      6,
+      "CiExceptionMailer.dll v5.42 on XP Sp2 or SP3"
+    ],
+    [
+      7,
+      "CiExceptionMailer.dll v6.0-r0 on Server 2003 Sp2"
+    ],
+    [
+      8,
+      "CiExceptionMailer.dll v6.0-r0 on XP Sp2 or SP3"
+    ],
+    [
+      9,
+      "CiExceptionMailer.dll v6.10 on XP Sp2 or SP3"
+    ],
+    [
+      10,
+      "CiExceptionMailer.dll v7.0-r0 on XP Sp2 or SP3"
+    ],
+    [
+      11,
+      "CiExceptionMailer.dll v7.0-r0 on 2003 Server SP1"
+    ],
+    [
+      12,
+      "CiExceptionMailer.dll v5.50-r0 XP SP2"
+    ],
+    [
+      13,
+      "CiExceptionMailer.dll v5.50-r0 2003 Server"
+    ],
+    [
+      14,
+      "Debug"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

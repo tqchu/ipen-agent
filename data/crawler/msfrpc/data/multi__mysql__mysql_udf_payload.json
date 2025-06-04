@@ -1,0 +1,100 @@
+{
+  "Name": "Oracle MySQL UDF Payload Execution",
+  "Description": "This module creates and enables a custom UDF (user defined function) on the target host via the SELECT ... into DUMPFILE method of binary injection. On default Microsoft Windows installations of MySQL (=< 5.5.9), directory write permissions not enforced, and the MySQL service runs as LocalSystem. NOTE: This module will leave a payload executable on the target system when the attack is finished, as well as the UDF DLL, and will define or redefine sys_eval() and sys_exec() functions.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/mysql/mysql_udf_payload.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Bernardo Damele A. G. <bernardo.damele@gmail.com>",
+    "todb <todb@metasploit.com>",
+    "h00die"
+  ],
+  "References": [
+    [
+      "URL",
+      "http://bernardodamele.blogspot.com/2009/01/command-execution-with-mysql-udf.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows",
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows"
+    ],
+    [
+      1,
+      "Linux"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "USERNAME",
+    "PASSWORD",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSLCert",
+    "SSLCompression",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "CMDSTAGER::FLAVOR",
+    "CMDSTAGER::DECODER",
+    "CMDSTAGER::TEMP",
+    "CMDSTAGER::URIPATH",
+    "CMDSTAGER::SSL",
+    "SESSION",
+    "FORCE_UDF_UPLOAD"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,78 @@
+{
+  "Name": "Ra1NX PHP Bot PubCall Authentication Bypass Remote Code Execution",
+  "Description": "This module allows remote command execution on the PHP IRC bot Ra1NX by using the public call feature in private message to covertly bypass the authentication system.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/misc/ra1nx_pubcall_exec.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "bwall <bwall@openbwall.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "91663"
+    ],
+    [
+      "URL",
+      "https://defense.ballastsecurity.net/wiki/index.php/Ra1NX_bot"
+    ],
+    [
+      "URL",
+      "https://defense.ballastsecurity.net/decoding/index.php?hash=69401ac90262f3855c23cd143d7d2ae0"
+    ],
+    [
+      "URL",
+      "http://ddecode.com/phpdecoder/?results=8c6ba611ea2a504da928c6e176a6537b"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Ra1NX / Unix"
+    ],
+    [
+      1,
+      "Ra1NX / Windows"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "IRC_PASSWORD",
+    "NICK",
+    "RNICK",
+    "PHP_EXEC"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

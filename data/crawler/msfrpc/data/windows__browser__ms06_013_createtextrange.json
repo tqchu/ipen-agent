@@ -1,0 +1,102 @@
+{
+  "Name": "MS06-013 Microsoft Internet Explorer createTextRange() Code Execution",
+  "Description": "This module exploits a code execution vulnerability in Microsoft Internet Explorer. Both IE6 and IE7 (Beta 2) are vulnerable. It will corrupt memory in a way, which, under certain circumstances, can lead to an invalid/corrupt table pointer dereference. EIP will point to a very remote, non-existent memory location. This module is the result of merging three different exploit submissions and has only been reliably tested against Windows XP SP2. This vulnerability was independently discovered by multiple parties. The heap spray method used by this exploit was pioneered by Skylined.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/ms06_013_createtextrange.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Faithless <rhyskidd@gmail.com>",
+    "Darkeagle <unl0ck.net>",
+    "hdm <x@hdm.io>",
+    "justfriends4n0w <justfriends4n0w@yahoo.com>",
+    "Unknown"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2006-1359"
+    ],
+    [
+      "OSVDB",
+      "24050"
+    ],
+    [
+      "MSB",
+      "MS06-013"
+    ],
+    [
+      "BID",
+      "17196"
+    ],
+    [
+      "US-CERT-VU",
+      "876678"
+    ],
+    [
+      "URL",
+      "http://web.archive.org/web/20060418044756/http://secunia.com:80/secunia_research/2006-7/advisory/"
+    ],
+    [
+      "URL",
+      "https://seclists.org/lists/bugtraq/2006/Mar/0410.html"
+    ],
+    [
+      "URL",
+      "https://seclists.org/lists/fulldisclosure/2006/Mar/1439.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Internet Explorer 6 - (6.0.3790.0 - Windows XP SP2)"
+    ],
+    [
+      1,
+      "Internet Explorer 7 - (7.0.5229.0 - Windows XP SP2)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,80 @@
+{
+  "Name": "RealNetworks RealPlayer SMIL Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in RealNetworks RealPlayer 10 and 8. By creating a URL link to a malicious SMIL file, a remote attacker could overflow a buffer and execute arbitrary code. When using this module, be sure to set the URIPATH with an extension of '.smil'. This module has been tested with RealPlayer 10 build 6.0.12.883 and RealPlayer 8 build 6.0.9.584.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/realplayer_smil.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "MC <mc@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2005-0455"
+    ],
+    [
+      "OSVDB",
+      "14305"
+    ],
+    [
+      "BID",
+      "12698"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "RealPlayer 10/8 on Windows 2000 SP0-SP4 English"
+    ],
+    [
+      1,
+      "RealPlayer 10/8 on Windows XP PRO SP0-SP1 English"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

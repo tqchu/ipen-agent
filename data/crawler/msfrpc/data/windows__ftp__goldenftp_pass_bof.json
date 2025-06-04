@@ -1,0 +1,88 @@
+{
+  "Name": "GoldenFTP PASS Stack Buffer Overflow",
+  "Description": "This module exploits a vulnerability in the Golden FTP service, using the PASS command to cause a buffer overflow. Please note that in order trigger the vulnerable code, the victim machine must have the \"Show new connections\" setting enabled. By default, this option is unchecked.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/ftp/goldenftp_pass_bof.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "Craig Freyman",
+    "bannedit <bannedit@metasploit.com>",
+    "Joff Thyer <jsthyer@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2006-6576"
+    ],
+    [
+      "OSVDB",
+      "35951"
+    ],
+    [
+      "BID",
+      "45957"
+    ],
+    [
+      "EDB",
+      "16036"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "Windows XP Pro SP3"
+    ],
+    [
+      2,
+      "Windows XP Pro SP2"
+    ],
+    [
+      3,
+      "Windows XP Pro SP0/SP1"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "FTPUSER",
+    "FTPPASS",
+    "FTPTimeout",
+    "FTPDEBUG",
+    "PassiveMode"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "seh"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

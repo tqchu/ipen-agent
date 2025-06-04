@@ -1,0 +1,151 @@
+{
+  "Name": "MS06-014 Microsoft Internet Explorer COM CreateObject Code Execution",
+  "Description": "This module exploits a generic code execution vulnerability in Internet Explorer by abusing vulnerable ActiveX objects.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/ie_createobject.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "hdm <x@hdm.io>"
+  ],
+  "References": [
+    [
+      "MSB",
+      "MS06-014"
+    ],
+    [
+      "CVE",
+      "2006-0003"
+    ],
+    [
+      "OSVDB",
+      "24517"
+    ],
+    [
+      "MSB",
+      "MS06-073"
+    ],
+    [
+      "CVE",
+      "2006-4704"
+    ],
+    [
+      "OSVDB",
+      "30155"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "MS06-014 - RDS.DataSpace"
+    ],
+    [
+      2,
+      "MS06-014 - RDS.DataSpace"
+    ],
+    [
+      3,
+      "MS06-073 - WMIScriptUtils.WMIObjectBroker2.1"
+    ],
+    [
+      4,
+      "UNKNOWN  - SoftwareDistribution.MicrosoftUpdateWebControl.1"
+    ],
+    [
+      5,
+      "UNKNOWN  - SoftwareDistribution.WebControl.1"
+    ],
+    [
+      6,
+      "UNKNOWN  - VsmIDE.DTE"
+    ],
+    [
+      7,
+      "UNKNOWN  - DExplore.AppObj.8.0"
+    ],
+    [
+      8,
+      "UNKNOWN  - VisualStudio.DTE.8.0"
+    ],
+    [
+      9,
+      "UNKNOWN  - Microsoft.DbgClr.DTE.8.0"
+    ],
+    [
+      10,
+      "UNKNOWN  - VsaIDE.DTE"
+    ],
+    [
+      11,
+      "UNKNOWN  - Business Object Factory "
+    ],
+    [
+      12,
+      "UNKNOWN  - Outlook Data Object"
+    ],
+    [
+      13,
+      "UNKNOWN  - Outlook.Application"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "DynamicSehRecord",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

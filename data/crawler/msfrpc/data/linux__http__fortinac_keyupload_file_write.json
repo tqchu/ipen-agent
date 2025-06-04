@@ -1,0 +1,124 @@
+{
+  "Name": "Fortinet FortiNAC keyUpload.jsp arbitrary file write",
+  "Description": "This module uploads a payload to the /tmp directory in addition to a cron job to /etc/cron.d which executes the payload in the context of the root user. The core vulnerability is an arbitrary file write issue in /configWizard/keyUpload.jsp which is accessible remotely and without authentication. When you send the vulnerable endpoint a ZIP file, it will extract an attacker controlled file to a directory of the attackers choice on the target system. This issue is exploitable on the following versions of FortiNAC: FortiNAC version 9.4 prior to 9.4.1 FortiNAC version 9.2 prior to 9.2.6 FortiNAC version 9.1 prior to 9.1.8 FortiNAC 8.8 all versions FortiNAC 8.7 all versions FortiNAC 8.6 all versions FortiNAC 8.5 all versions FortiNAC 8.3 all versions",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/http/fortinac_keyupload_file_write.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Gwendal Gu\u00e9gniaud",
+    "Zach Hanley",
+    "jheysel-r7"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://www.horizon3.ai/fortinet-fortinac-cve-2022-39952-deep-dive-and-iocs/"
+    ],
+    [
+      "URL",
+      "https://www.fortiguard.com/psirt/FG-IR-22-300"
+    ],
+    [
+      "URL",
+      "https://github.com/horizon3ai/CVE-2022-39952"
+    ],
+    [
+      "URL",
+      "https://attackerkb.com/topics/9BvxYuiHYJ/cve-2022-39952"
+    ],
+    [
+      "CVE",
+      "2022-39952"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd",
+    "x64",
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "CMD"
+    ],
+    [
+      1,
+      "Linux x86"
+    ],
+    [
+      2,
+      "Linux x64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "SSL": true,
+    "RPORT": 8443,
+    "WfsDelay": "75"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

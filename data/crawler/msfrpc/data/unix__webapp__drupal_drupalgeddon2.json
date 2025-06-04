@@ -1,0 +1,186 @@
+{
+  "Name": "Drupal Drupalgeddon 2 Forms API Property Injection",
+  "Description": "This module exploits a Drupal property injection in the Forms API. Drupal 6.x, < 7.58, 8.2.x, < 8.3.9, < 8.4.6, and < 8.5.1 are vulnerable.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/unix/webapp/drupal_drupalgeddon2.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Jasper Mattsson",
+    "a2u",
+    "Nixawk",
+    "FireFart",
+    "wvu <wvu@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2018-7600"
+    ],
+    [
+      "URL",
+      "https://www.drupal.org/sa-core-2018-002"
+    ],
+    [
+      "URL",
+      "https://greysec.net/showthread.php?tid=2912"
+    ],
+    [
+      "URL",
+      "https://research.checkpoint.com/uncovering-drupalgeddon-2/"
+    ],
+    [
+      "URL",
+      "https://github.com/a2u/CVE-2018-7600"
+    ],
+    [
+      "URL",
+      "https://github.com/nixawk/labs/issues/19"
+    ],
+    [
+      "URL",
+      "https://github.com/FireFart/CVE-2018-7600"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::PHP",
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "php",
+    "cmd",
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic (PHP In-Memory)"
+    ],
+    [
+      1,
+      "Automatic (PHP Dropper)"
+    ],
+    [
+      2,
+      "Automatic (Unix In-Memory)"
+    ],
+    [
+      3,
+      "Automatic (Linux Dropper)"
+    ],
+    [
+      4,
+      "Drupal 7.x (PHP In-Memory)"
+    ],
+    [
+      5,
+      "Drupal 7.x (PHP Dropper)"
+    ],
+    [
+      6,
+      "Drupal 7.x (Unix In-Memory)"
+    ],
+    [
+      7,
+      "Drupal 7.x (Linux Dropper)"
+    ],
+    [
+      8,
+      "Drupal 8.x (PHP In-Memory)"
+    ],
+    [
+      9,
+      "Drupal 8.x (PHP Dropper)"
+    ],
+    [
+      10,
+      "Drupal 8.x (Unix In-Memory)"
+    ],
+    [
+      11,
+      "Drupal 8.x (Linux Dropper)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TARGETURI",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "PHP_FUNC",
+    "DUMP_OUTPUT",
+    "WritableDir",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 2
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

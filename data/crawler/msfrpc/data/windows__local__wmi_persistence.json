@@ -1,0 +1,77 @@
+{
+  "Name": "WMI Event Subscription Persistence",
+  "Description": "This module will create a permanent WMI event subscription to achieve file-less persistence using one of five methods. The EVENT method will create an event filter that will query the event log for an EVENT_ID_TRIGGER (default: failed logon request id 4625) that also contains a specified USERNAME_TRIGGER (note: failed logon auditing must be enabled on the target for this method to work, this can be enabled using \"auditpol.exe /set /subcategory:Logon /failure:Enable\"). When these criteria are met a command line event consumer will trigger an encoded powershell payload. The INTERVAL method will create an event filter that triggers the payload after the specified CALLBACK_INTERVAL. The LOGON method will create an event filter that will trigger the payload after the system has an uptime of 4 minutes. The PROCESS method will create an event filter that triggers the payload when the specified process is started. The WAITFOR method creates an event filter that utilizes the Microsoft binary waitfor.exe to wait for a signal specified by WAITFOR_TRIGGER before executing the payload. The signal can be sent from a windows host on a LAN utilizing the waitfor.exe command (note: requires target to have port 445 open). Additionally a custom command can be specified to run once the trigger is activated using the advanced option CUSTOM_PS_COMMAND. This module requires administrator level privileges as well as a high integrity process. It is also recommended not to use stageless payloads due to powershell script length limitations.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/wmi_persistence.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Nick Tyrer <@NickTyrer>"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://www.blackhat.com/docs/us-15/materials/us-15-Graeber-Abusing-Windows-Management-Instrumentation-WMI-To-Build-A-Persistent%20Asynchronous-And-Fileless-Backdoor-wp.pdf"
+    ],
+    [
+      "URL",
+      "https://learn-powershell.net/2013/08/14/powershell-and-events-permanent-wmi-event-subscriptions/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "Powershell::persist",
+    "Powershell::prepend_sleep",
+    "Powershell::prepend_protections_bypass",
+    "Powershell::strip_comments",
+    "Powershell::strip_whitespace",
+    "Powershell::sub_vars",
+    "Powershell::sub_funcs",
+    "Powershell::exec_in_place",
+    "Powershell::exec_rc4",
+    "Powershell::remove_comspec",
+    "Powershell::noninteractive",
+    "Powershell::encode_final_payload",
+    "Powershell::encode_inner_payload",
+    "Powershell::wrap_double_quotes",
+    "Powershell::no_equals",
+    "Powershell::method",
+    "Powershell::Post::timeout",
+    "Powershell::Post::log_output",
+    "Powershell::Post::dry_run",
+    "Powershell::Post::force_wow64",
+    "PERSISTENCE_METHOD",
+    "EVENT_ID_TRIGGER",
+    "USERNAME_TRIGGER",
+    "PROCESS_TRIGGER",
+    "WAITFOR_TRIGGER",
+    "CALLBACK_INTERVAL",
+    "CLASSNAME",
+    "CUSTOM_PS_COMMAND"
+  ],
+  "DefaultOptions": {
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,90 @@
+{
+  "Name": "Crypttech CryptoLog Remote Code Execution",
+  "Description": "This module exploits a SQL injection and command injection vulnerability in the PHP version of CryptoLog. An unauthenticated user can execute a terminal command under the context of the web user. These vulnerabilities are no longer present in the ASP.NET version CryptoLog, available since 2009. CryptoLog's login.php endpoint is responsible for the login process. One of the user supplied parameters is used by the application without input validation and parameter binding, which leads to SQL injection vulnerability. Successfully exploiting this vulnerability gives a valid session. CryptoLog's logshares_ajax.php endpoint is responsible for executing an operation system command. It's not possible to access this endpoint without having a valid session. One user parameter is used by the application while executing an operating system command, which causes a command injection issue. Combining these vulnerabilities gives the opportunity execute operation system commands under the context of the web user.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/http/crypttech_cryptolog_login_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Mehmet Ince <mehmet@mehmetince.net>"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://pentest.blog/advisory-cryptolog-unauthenticated-remote-code-execution/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Python"
+  ],
+  "Arch": [
+    "python"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TARGETURI"
+  ],
+  "DefaultOptions": {
+    "Payload": "python/meterpreter/reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

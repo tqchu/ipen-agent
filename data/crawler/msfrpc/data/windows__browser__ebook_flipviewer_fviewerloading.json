@@ -1,0 +1,76 @@
+{
+  "Name": "FlipViewer FViewerLoading ActiveX Control Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in E-BOOK Systems FlipViewer 4.0. The vulnerability is caused due to a boundary error in the FViewerLoading (FlipViewerX.dll) ActiveX control when handling the \"LoadOpf()\" method.",
+  "License": "BSD License",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/ebook_flipviewer_fviewerloading.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "LSO <lso@hushmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2007-2919"
+    ],
+    [
+      "OSVDB",
+      "37042"
+    ],
+    [
+      "BID",
+      "24328"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows XP SP0-SP3 / Windows Vista / IE 6.0 SP0-SP2 / IE 7"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

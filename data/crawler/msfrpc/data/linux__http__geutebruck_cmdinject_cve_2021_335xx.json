@@ -1,0 +1,194 @@
+{
+  "Name": "Geutebruck Multiple Remote Command Execution",
+  "Description": "This module bypasses the HTTP basic authentication used to access the /uapi-cgi/ folder and exploits multiple authenticated arbitrary command execution vulnerabilities within the parameters of various pages on Geutebruck G-Cam EEC-2xxx and G-Code EBC-21xx, EFD-22xx, ETHC-22xx, and EWPC-22xx devices running firmware versions <= 1.12.0.27 as well as firmware versions 1.12.13.2 and 1.12.14.5. Successful exploitation results in remote code execution as the root user.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/http/geutebruck_cmdinject_cve_2021_335xx.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Titouan Lazard",
+    "Ibrahim Ayadhi",
+    "S\u00e9bastien Charbonnier"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2021-33543"
+    ],
+    [
+      "CVE",
+      "2021-33544"
+    ],
+    [
+      "CVE",
+      "2021-33548"
+    ],
+    [
+      "CVE",
+      "2021-33550"
+    ],
+    [
+      "CVE",
+      "2021-33551"
+    ],
+    [
+      "CVE",
+      "2021-33552"
+    ],
+    [
+      "CVE",
+      "2021-33553"
+    ],
+    [
+      "CVE",
+      "2021-33554"
+    ],
+    [
+      "URL",
+      "http://geutebruck.com"
+    ],
+    [
+      "URL",
+      "https://www.randorisec.fr/udp-technology-ip-camera-vulnerabilities/"
+    ],
+    [
+      "URL",
+      "https://us-cert.cisa.gov/ics/advisories/icsa-21-208-03"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "CVE-2021-33544 - certmngr.cgi"
+    ],
+    [
+      1,
+      "CVE-2021-33548 - factory.cgi"
+    ],
+    [
+      2,
+      "CVE-2021-33550 - language.cgi"
+    ],
+    [
+      3,
+      "CVE-2021-33551 - oem.cgi"
+    ],
+    [
+      4,
+      "CVE-2021-33552 - simple_reclistjs.cgi"
+    ],
+    [
+      5,
+      "CVE-2021-33553 - testcmd.cgi"
+    ],
+    [
+      6,
+      "CVE-2021-33554 - tmpapp.cgi"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "CMDSTAGER::FLAVOR",
+    "CMDSTAGER::DECODER",
+    "CMDSTAGER::TEMP",
+    "CMDSTAGER::URIPATH",
+    "CMDSTAGER::SSL",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "cmd/unix/reverse_netcat_gaping"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,62 @@
+{
+  "Name": "IBM Tivoli Storage Manager Express CAD Service Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in the IBM Tivoli Storage Manager Express CAD Service. By sending a \"ping\" packet containing a long string, an attacker can execute arbitrary code. NOTE: the dsmcad.exe service must be in a particular state (CadWaitingStatus = 1) in order for the vulnerable code to be reached. This state doesn't appear to be reachable when the TSM server is not running. This service does not restart.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/ibm_tsm_cad_ping.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2009-3853"
+    ],
+    [
+      "OSVDB",
+      "59632"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "IBM Tivoli Storage Manager Express 5.3.6.2"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "seh"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

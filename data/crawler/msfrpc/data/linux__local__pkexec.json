@@ -1,0 +1,75 @@
+{
+  "Name": "Linux PolicyKit Race Condition Privilege Escalation",
+  "Description": "A race condition flaw was found in the PolicyKit pkexec utility and polkitd daemon. A local user could use this flaw to appear as a privileged user to pkexec, allowing them to execute arbitrary commands as root by running those commands with pkexec. Those vulnerable include RHEL6 prior to polkit-0.96-2.el6_0.1 and Ubuntu libpolkit-backend-1 prior to 0.96-2ubuntu1.1 (10.10) 0.96-2ubuntu0.1 (10.04 LTS) and 0.94-1ubuntu1.1 (9.10)",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/pkexec.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "xi4oyu",
+    "0a29406d9794e4f9b30b3c5d6702c708"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2011-1485"
+    ],
+    [
+      "EDB",
+      "17942"
+    ],
+    [
+      "OSVDB",
+      "72261"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Linux x86"
+    ],
+    [
+      1,
+      "Linux x64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "Count",
+    "ListenerTimeout",
+    "DEBUG_EXPLOIT",
+    "WritableDir"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

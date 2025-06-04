@@ -1,0 +1,60 @@
+{
+  "Name": "Photodex ProShow Producer 5.0.3256 load File Handling Buffer Overflow",
+  "Description": "This module exploits a stack-based buffer overflow in Photodex ProShow Producer v5.0.3256 in the handling of the plugins load list file. An attacker must send the crafted \"load\" file to victim, who must store it in the installation directory. The vulnerability will be triggered the next time ProShow is opened. The module has been tested successfully on Windows XP SP3 and Windows 7 SP1.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/proshow_load_bof.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Julien Ahrens",
+    "mr.pr0n",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "83745"
+    ],
+    [
+      "EDB",
+      "19563"
+    ],
+    [
+      "EDB",
+      "20036"
+    ],
+    [
+      "URL",
+      "http://security.inshell.net/advisory/30"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Photodex ProShow Producer 5.0.3256 / Windows XP SP3 / Windows 7 SP1"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

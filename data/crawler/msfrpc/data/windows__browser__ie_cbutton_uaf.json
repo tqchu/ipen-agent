@@ -1,0 +1,129 @@
+{
+  "Name": "MS13-008 Microsoft Internet Explorer CButton Object Use-After-Free Vulnerability",
+  "Description": "This module exploits a vulnerability found in Microsoft Internet Explorer. A use-after-free condition occurs when a CButton object is freed, but a reference is kept and used again during a page reload, an invalid memory that's controllable is used, and allows arbitrary code execution under the context of the user. Please note: This vulnerability has been exploited in the wild targeting mainly China/Taiwan/and US-based computers.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/ie_cbutton_uaf.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "eromang",
+    "mahmud ab rahman",
+    "juan vazquez <juan.vazquez@metasploit.com>",
+    "sinn3r <sinn3r@metasploit.com>",
+    "Peter Vreugdenhil"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2012-4792"
+    ],
+    [
+      "OSVDB",
+      "88774"
+    ],
+    [
+      "US-CERT-VU",
+      "154201"
+    ],
+    [
+      "BID",
+      "57070"
+    ],
+    [
+      "MSB",
+      "MS13-008"
+    ],
+    [
+      "URL",
+      "http://blog.fireeye.com/research/2012/12/council-foreign-relations-water-hole-attack-details.html"
+    ],
+    [
+      "URL",
+      "http://eromang.zataz.com/2012/12/29/attack-and-ie-0day-informations-used-against-council-on-foreign-relations/"
+    ],
+    [
+      "URL",
+      "http://technet.microsoft.com/en-us/security/advisory/2794220"
+    ],
+    [
+      "URL",
+      "http://blogs.technet.com/b/srd/archive/2012/12/29/new-vulnerability-affecting-internet-explorer-8-users.aspx"
+    ],
+    [
+      "URL",
+      "http://blog.exodusintel.com/2013/01/02/happy-new-year-analysis-of-cve-2012-4792/"
+    ],
+    [
+      "URL",
+      "https://www.rapid7.com/blog/post/2012/12/29/microsoft-internet-explorer-0-day-marks-the-end-of-2012"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "IE 8 on Windows XP SP3"
+    ],
+    [
+      2,
+      "IE 8 on Windows Vista"
+    ],
+    [
+      3,
+      "IE 8 on Windows Server 2003"
+    ],
+    [
+      4,
+      "IE 8 on Windows 7"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "OBFUSCATE"
+  ],
+  "DefaultOptions": {
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

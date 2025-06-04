@@ -1,0 +1,110 @@
+{
+  "Name": "HP LoadRunner lrFileIOService ActiveX Remote Code Execution",
+  "Description": "This module exploits a vulnerability on the lrFileIOService ActiveX, as installed with HP LoadRunner 11.50. The vulnerability exists in the WriteFileBinary method where user provided data is used as a memory pointer. This module has been tested successfully on IE6-IE9 on Windows XP, Vista and 7, using the LrWebIERREWrapper.dll 11.50.2216.0. In order to bypass ASLR the no aslr compatible module msvcr71.dll is used. This one is installed with HP LoadRunner.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/hp_loadrunner_writefilebinary.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "rgod <rgod@autistici.org>",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-2370"
+    ],
+    [
+      "OSVDB",
+      "95640"
+    ],
+    [
+      "BID",
+      "61441"
+    ],
+    [
+      "ZDI",
+      "13-182"
+    ],
+    [
+      "URL",
+      "https://h20566.www2.hp.com/portal/site/hpsc/public/kb/docDisplay/?docId=emr_na-c03862772"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "IE 7 on Windows XP SP3"
+    ],
+    [
+      2,
+      "IE 8 on Windows XP SP3"
+    ],
+    [
+      3,
+      "IE 7 on Windows Vista"
+    ],
+    [
+      4,
+      "IE 8 on Windows Vista"
+    ],
+    [
+      5,
+      "IE 8 on Windows 7"
+    ],
+    [
+      6,
+      "IE 9 on Windows 7"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "OBFUSCATE"
+  ],
+  "DefaultOptions": {
+    "PrependMigrate": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

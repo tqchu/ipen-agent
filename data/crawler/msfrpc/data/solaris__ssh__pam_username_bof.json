@@ -1,0 +1,80 @@
+{
+  "Name": "Oracle Solaris SunSSH PAM parse_user_name() Buffer Overflow",
+  "Description": "This module exploits a stack-based buffer overflow in the Solaris PAM library's username parsing code, as used by the SunSSH daemon when the keyboard-interactive authentication method is specified. Tested against SunSSH 1.1.5 on Solaris 10u11 1/13 (x86) in VirtualBox, VMware Fusion, and VMware Player. Bare metal untested. Your addresses may vary.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/solaris/ssh/pam_username_bof.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Jacob Thompson",
+    "Aaron Carreras",
+    "Jeffrey Martin",
+    "Hacker Fantastic",
+    "wvu <wvu@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2020-14871"
+    ],
+    [
+      "URL",
+      "https://www.oracle.com/security-alerts/cpuoct2020.html"
+    ],
+    [
+      "URL",
+      "https://www.fireeye.com/blog/threat-research/2020/11/critical-buffer-overflow-vulnerability-in-solaris-can-allow-remote-takeover.html"
+    ],
+    [
+      "URL",
+      "https://hacker.house/lab/cve-2020-18471/"
+    ],
+    [
+      "URL",
+      "https://twitter.com/hackerfantastic/status/1323431512822435841"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "SunSSH 1.1.5 / Solaris 10u11 1/13 (x86) / VMware"
+    ],
+    [
+      1,
+      "SunSSH 1.1.5 / Solaris 10u11 1/13 (x86) / VirtualBox"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "CheckModule",
+    "RHOSTS",
+    "RPORT",
+    "SSH_IDENT",
+    "SSH_TIMEOUT",
+    "SSH_DEBUG",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "cmd/unix/reverse_perl",
+    "SSH_TIMEOUT": 2,
+    "CheckModule": "auxiliary/scanner/ssh/ssh_version"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

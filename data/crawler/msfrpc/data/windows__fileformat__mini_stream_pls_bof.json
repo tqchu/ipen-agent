@@ -1,0 +1,60 @@
+{
+  "Name": "Mini-Stream RM-MP3 Converter v3.1.2.1 PLS File Stack Buffer Overflow",
+  "Description": "This module exploits a stack based buffer overflow found in Mini-Stream RM-MP3 Converter v3.1.2.1. The overflow is triggered when an unsuspecting victim opens the malicious PLS file.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/mini_stream_pls_bof.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "Madjix",
+    "Tiago Henriques",
+    "James Fitts <fitts.james@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2010-5081"
+    ],
+    [
+      "OSVDB",
+      "78078"
+    ],
+    [
+      "EDB",
+      "14373"
+    ],
+    [
+      "BID",
+      "34514"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Mini-stream RM-MP3 Converter v3.1.2.1.2010.03.30"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

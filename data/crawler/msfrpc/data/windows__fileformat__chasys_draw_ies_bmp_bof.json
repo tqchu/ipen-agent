@@ -1,0 +1,62 @@
+{
+  "Name": "Chasys Draw IES Buffer Overflow",
+  "Description": "This module exploits a buffer overflow vulnerability found in Chasys Draw IES (version 4.10.01). The vulnerability exists in the module flt_BMP.dll, while parsing BMP files, where the ReadFile function is used to store user provided data on the stack in an insecure way. It results in arbitrary code execution under the context of the user viewing a specially crafted BMP file. This module has been tested successfully with Chasys Draw IES 4.10.01 on Windows XP SP3 and Windows 7 SP1.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/chasys_draw_ies_bmp_bof.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Christopher Gabriel",
+    "Longinos Recuero Bustos",
+    "Javier 'soez'",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-3928"
+    ],
+    [
+      "OSVDB",
+      "95689"
+    ],
+    [
+      "BID",
+      "61463"
+    ],
+    [
+      "URL",
+      "http://web.archive.org/web/20140326093457/http://secunia.com/advisories/53773/"
+    ],
+    [
+      "URL",
+      "http://longinox.blogspot.com/2013/08/explot-stack-based-overflow-bypassing.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Chasys Draw IES 4.10.01 / Windows XP SP3 / Windows 7 SP1"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

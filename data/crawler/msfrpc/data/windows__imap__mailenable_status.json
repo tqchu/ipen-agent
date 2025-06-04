@@ -1,0 +1,84 @@
+{
+  "Name": "MailEnable IMAPD (1.54) STATUS Request Buffer Overflow",
+  "Description": "MailEnable's IMAP server contains a buffer overflow vulnerability in the STATUS command. With proper credentials, this could allow for the execution of arbitrary code.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/imap/mailenable_status.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "MC <mc@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2005-2278"
+    ],
+    [
+      "OSVDB",
+      "17844"
+    ],
+    [
+      "BID",
+      "14243"
+    ],
+    [
+      "URL",
+      "http://www.nessus.org/plugins/index.php?view=single&id=19193"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "MailEnable 1.54 Pro Universal"
+    ],
+    [
+      1,
+      "Windows XP Pro SP0/SP1 English"
+    ],
+    [
+      2,
+      "Windows 2000 Pro English ALL"
+    ],
+    [
+      3,
+      "Windows 2003 Server English"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "IMAPUSER",
+    "IMAPPASS",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

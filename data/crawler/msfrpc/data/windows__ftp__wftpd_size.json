@@ -1,0 +1,78 @@
+{
+  "Name": "Texas Imperial Software WFTPD 3.23 SIZE Overflow",
+  "Description": "This module exploits a buffer overflow in the SIZE verb in Texas Imperial's Software WFTPD 3.23.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/ftp/wftpd_size.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "MC <mc@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2006-4318"
+    ],
+    [
+      "OSVDB",
+      "28134"
+    ],
+    [
+      "BID",
+      "19617"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows 2000 Pro SP4 English"
+    ],
+    [
+      1,
+      "Windows XP Pro SP1 English"
+    ],
+    [
+      2,
+      "Windows XP Pro SP2 English"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "FTPUSER",
+    "FTPPASS",
+    "FTPTimeout",
+    "FTPDEBUG",
+    "PassiveMode"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

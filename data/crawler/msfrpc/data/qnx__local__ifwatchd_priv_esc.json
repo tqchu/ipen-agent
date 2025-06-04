@@ -1,0 +1,67 @@
+{
+  "Name": "ifwatchd Privilege Escalation",
+  "Description": "This module attempts to gain root privileges on QNX 6.4.x and 6.5.x systems by exploiting the ifwatchd suid executable. ifwatchd allows users to specify scripts to execute using the '-A' command line argument; however, it does not drop privileges when executing user-supplied scripts, resulting in execution of arbitrary commands as root. This module has been tested successfully on QNX Neutrino 6.5.0 (x86) and 6.5.0 SP1 (x86).",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/qnx/local/ifwatchd_priv_esc.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "cenobyte",
+    "Tim Brown",
+    "bcoles <bcoles@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2014-2533"
+    ],
+    [
+      "BID",
+      "66449"
+    ],
+    [
+      "EDB",
+      "32153"
+    ],
+    [
+      "URL",
+      "http://seclists.org/bugtraq/2014/Mar/66"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "WritableDir",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 10,
+    "PAYLOAD": "cmd/unix/reverse_awk"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

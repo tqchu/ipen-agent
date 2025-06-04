@@ -1,0 +1,79 @@
+{
+  "Name": "Firebird Relational Database CNCT Group Number Buffer Overflow",
+  "Description": "This module exploits a vulnerability in Firebird SQL Server. A specially crafted packet can be sent which will overwrite a pointer allowing the attacker to control where data is read from. Shortly, following the controlled read, the pointer is called resulting in code execution. The vulnerability exists with a group number extracted from the CNCT information, which is sent by the client, and whose size is not properly checked. This module uses an existing call to memcpy, just prior to the vulnerable code, which allows a small amount of data to be written to the stack. A two-phases stack pivot allows to execute the ROP chain which ultimately is used to execute VirtualAlloc and bypass DEP.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/fb_cnct_group.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Spencer McIntyre"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-2492"
+    ],
+    [
+      "OSVDB",
+      "91044"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows FB 2.5.2.26539"
+    ],
+    [
+      1,
+      "Windows FB 2.5.1.26351"
+    ],
+    [
+      2,
+      "Windows FB 2.1.5.18496"
+    ],
+    [
+      3,
+      "Windows FB 2.1.4.18393"
+    ],
+    [
+      4,
+      "Debug"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "seh"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,76 @@
+{
+  "Name": "Adobe Shockwave rcsL Memory Corruption",
+  "Description": "This module exploits a weakness in the Adobe Shockwave player's handling of Director movies (.DIR). A memory corruption vulnerability occurs through an undocumented rcsL chunk.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/adobe_shockwave_rcsl_corruption.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "David Kennedy \"ReL1K\" <kennedyd013@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2010-3653"
+    ],
+    [
+      "OSVDB",
+      "68803"
+    ],
+    [
+      "URL",
+      "http://www.adobe.com/support/security/bulletins/apsb10-25.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": {
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

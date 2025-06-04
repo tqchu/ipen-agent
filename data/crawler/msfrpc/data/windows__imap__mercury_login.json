@@ -1,0 +1,64 @@
+{
+  "Name": "Mercury/32 4.01 IMAP LOGIN SEH Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in Mercury/32 <= 4.01b IMAPD LOGIN verb. By sending a specially crafted login command, a buffer is corrupted, and code execution is possible. This vulnerability was discovered by (mu-b at digit-labs.org).",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/imap/mercury_login.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "mu-b",
+    "MC <mc@metasploit.com>",
+    "Ivan Racic"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2007-1373"
+    ],
+    [
+      "EDB",
+      "3418"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

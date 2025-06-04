@@ -1,0 +1,69 @@
+{
+  "Name": "Windows Update Orchestrator unchecked ScheduleWork call",
+  "Description": "This exploit uses access to the UniversalOrchestrator ScheduleWork API call which does not verify the caller's token before scheduling a job to be run as SYSTEM. You cannot schedule something in a given time, so the payload will execute as system sometime in the next 24 hours.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/cve_2020_1313_system_orchestrator.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Imre Rad",
+    "bwatters-r7"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2020-1313"
+    ],
+    [
+      "URL",
+      "https://github.com/irsl/CVE-2020-1313"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows x64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "EXPLOIT_NAME",
+    "PAYLOAD_NAME",
+    "WRITABLE_DIR",
+    "EXPLOIT_TIMEOUT",
+    "EXECUTE_DELAY",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

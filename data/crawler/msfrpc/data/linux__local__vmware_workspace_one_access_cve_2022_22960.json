@@ -1,0 +1,82 @@
+{
+  "Name": "VMware Workspace ONE Access CVE-2022-22960",
+  "Description": "This module exploits CVE-2022-22960 which allows the user to overwrite the permissions of the certproxyService.sh script so that it can be modified by the horizon user. This allows a local attacker with the uid 1001 to escalate their privileges to root access.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/vmware_workspace_one_access_cve_2022_22960.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "mr_me",
+    "jheysel-r7"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2022-22960"
+    ],
+    [
+      "URL",
+      "https://srcincite.io/blog/2022/08/11/i-am-whoever-i-say-i-am-infiltrating-vmware-workspace-one-access-using-a-0-click-exploit.html#dbconnectioncheckcontroller-dbcheck-jdbc-injection-remote-code-execution"
+    ],
+    [
+      "URL",
+      "https://github.com/sourceincite/hekate/"
+    ],
+    [
+      "URL",
+      "https://www.vmware.com/security/advisories/VMSA-2022-0011.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd",
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Unix Command"
+    ],
+    [
+      1,
+      "Linux Dropper"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "WritableDir",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

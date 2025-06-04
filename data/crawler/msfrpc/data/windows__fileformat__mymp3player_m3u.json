@@ -1,0 +1,59 @@
+{
+  "Name": "Steinberg MyMP3Player 3.0 Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in Steinberg MyMP3Player == 3.0. When the application is used to open a specially crafted m3u file, a buffer overflow occurs allowing arbitrary code execution.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/mymp3player_m3u.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "n3w7u",
+    "m_101"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "64580"
+    ],
+    [
+      "EDB",
+      "11791"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows Universal"
+    ],
+    [
+      1,
+      "Windows Universal (SEH)"
+    ],
+    [
+      2,
+      "Windows XP SP3 French"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,111 @@
+{
+  "Name": "Seagate Business NAS Unauthenticated Remote Command Execution",
+  "Description": "Some Seagate Business NAS devices are vulnerable to command execution via a local file include vulnerability hidden in the language parameter of the CodeIgniter session cookie. The vulnerability manifests in the way the language files are included in the code on the login page, and hence is open to attack from users without the need for authentication. The cookie can be easily decrypted using a known static encryption key and re-encrypted once the PHP object string has been modified. This module has been tested on the STBN300 device.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/http/seagate_nas_php_exec_noauth.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "OJ Reeves <oj@beyondbinary.io>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2014-8684"
+    ],
+    [
+      "CVE",
+      "2014-8686"
+    ],
+    [
+      "CVE",
+      "2014-8687"
+    ],
+    [
+      "EDB",
+      "36202"
+    ],
+    [
+      "URL",
+      "http://www.seagate.com/au/en/support/external-hard-drives/network-storage/business-storage-2-bay-nas/"
+    ],
+    [
+      "URL",
+      "https://beyondbinary.io/advisory/seagate-nas-rce/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::PHP"
+  ],
+  "Arch": [
+    "php"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TARGETURI",
+    "ADMINACCOUNT",
+    "COOKIEID",
+    "XORKEY"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

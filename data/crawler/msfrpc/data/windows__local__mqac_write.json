@@ -1,0 +1,56 @@
+{
+  "Name": "MQAC.sys Arbitrary Write Privilege Escalation",
+  "Description": "A vulnerability within the MQAC.sys module allows an attacker to overwrite an arbitrary location in kernel memory. This module will elevate itself to SYSTEM, then inject the payload into another SYSTEM process.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/mqac_write.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "Matt Bergin",
+    "Spencer McIntyre"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2014-4971"
+    ],
+    [
+      "EDB",
+      "34112"
+    ],
+    [
+      "URL",
+      "https://www.korelogic.com/Resources/Advisories/KL-001-2014-003.txt"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows XP SP3"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

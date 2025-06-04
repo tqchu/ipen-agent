@@ -1,0 +1,78 @@
+{
+  "Name": "7-Technologies IGSS 9 IGSSdataServer .RMS Rename Buffer Overflow",
+  "Description": "This module exploits a vulnerability found on 7-Technologies IGSS 9. By supplying a long string of data to the 'Rename' (0x02), 'Delete' (0x03), or 'Add' (0x04) command, a buffer overflow condition occurs in IGSSdataServer.exe while handing an RMS report, which results arbitrary code execution under the context of the user. The attack is carried out in three stages. The first stage sends the final payload to IGSSdataServer.exe, which will remain in memory. The second stage sends the Add command so the process can find a valid ID for the Rename command. The last stage then triggers the vulnerability with the Rename command, and uses an egghunter to search for the shellcode that we sent in stage 1. The use of egghunter appears to be necessary due to the small buffer size, which cannot even contain our ROP chain and the final payload.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/scada/igss9_igssdataserver_rename.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Luigi Auriemma <aluigi@autistici.org>",
+    "sinn3r <sinn3r@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2011-1567"
+    ],
+    [
+      "OSVDB",
+      "72352"
+    ],
+    [
+      "URL",
+      "http://aluigi.altervista.org/adv/igss_5-adv.txt"
+    ],
+    [
+      "URL",
+      "https://www.cisa.gov/uscert/ics/advisories/ICSA-11-132-01A"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "Windows XP SP3"
+    ],
+    [
+      2,
+      "Windows Server 2003 SP2/R2 SP2"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "seh"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

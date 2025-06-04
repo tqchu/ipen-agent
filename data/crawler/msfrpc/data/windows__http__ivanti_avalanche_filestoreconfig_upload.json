@@ -1,0 +1,108 @@
+{
+  "Name": "Ivanti Avalanche FileStoreConfig File Upload",
+  "Description": "Ivanti Avalanche prior to v6.4.0.186 permits MS-DOS style short names in the configuration path for the Central FileStore. Because of this, an administrator can change the default path to the web root of the applications, upload a JSP file, and achieve RCE as NT AUTHORITY\\SYSTEM.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/http/ivanti_avalanche_filestoreconfig_upload.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Piotr Bazydlo",
+    "Shelby Pace"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://www.zerodayinitiative.com/advisories/ZDI-23-456/"
+    ],
+    [
+      "URL",
+      "https://forums.ivanti.com/s/article/ZDI-CAN-17812-Ivanti-Avalanche-FileStoreConfig-Arbitrary-File-Upload-Remote-Code-Execution-Vulnerability?language=en_US"
+    ],
+    [
+      "URL",
+      "https://attackerkb.com/topics/jcdcN9SN9V/cve-2023-28128"
+    ],
+    [
+      "CVE",
+      "2023-28128"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows",
+    "Msf::Module::Platform::Java"
+  ],
+  "Arch": [
+    "java"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic Target"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "USERNAME",
+    "PASSWORD",
+    "TARGETURI",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

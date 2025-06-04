@@ -1,0 +1,75 @@
+{
+  "Name": "AppXSvc Hard Link Privilege Escalation",
+  "Description": "There exists a privilege escalation vulnerability for Windows 10 builds prior to build 17763. Due to the AppXSvc's improper handling of hard links, a user can gain full privileges over a SYSTEM-owned file. The user can then utilize the new file to execute code as SYSTEM. This module employs a technique using the Diagnostics Hub Standard Collector Service (DiagHub) which was discovered by James Forshaw to load and execute a DLL as SYSTEM.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/appxsvc_hard_link_privesc.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Nabeel Ahmed",
+    "James Forshaw",
+    "Shelby Pace"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2019-0841"
+    ],
+    [
+      "URL",
+      "https://krbtgt.pw/dacl-permissions-overwrite-privilege-escalation-cve-2019-0841/"
+    ],
+    [
+      "URL",
+      "https://googleprojectzero.blogspot.com/2015/12/between-rock-and-hard-link.html"
+    ],
+    [
+      "URL",
+      "https://googleprojectzero.blogspot.com/2018/04/windows-exploitation-tricks-exploiting.html"
+    ],
+    [
+      "URL",
+      "https://0x00-0x00.github.io/research/2019/05/30/Coding-a-reliable-CVE-2019-0841-Bypass.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows 10"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

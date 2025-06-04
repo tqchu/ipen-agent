@@ -1,0 +1,67 @@
+{
+  "Name": "Lianja SQL 1.0.0RC5.1 db_netserver Stack Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in the db_netserver process, which is spawned by the Lianja SQL server. The issue is fixed in Lianja SQL 1.0.0RC5.2.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/lianja_db_net.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Spencer McIntyre"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-3563"
+    ],
+    [
+      "OSVDB",
+      "93759"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "Lianja SQL 1.0.0RC5.1 / Windows Server 2003 SP1-SP2"
+    ],
+    [
+      1,
+      "Lianja SQL 1.0.0RC5.1 / Windows XP SP3"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 20
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

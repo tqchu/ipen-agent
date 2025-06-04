@@ -1,0 +1,65 @@
+{
+  "Name": "IBM Tivoli Storage Manager Express RCA Service Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in the IBM Tivoli Storage Manager Express Remote Client Agent service. By sending a \"dicuGetIdentify\" request packet containing a long NodeName parameter, an attacker can execute arbitrary code. NOTE: this exploit first connects to the CAD service to start the RCA service and obtain the port number on which it runs. This service does not restart.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/ibm_tsm_rca_dicugetidentify.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2008-4828"
+    ],
+    [
+      "OSVDB",
+      "54232"
+    ],
+    [
+      "BID",
+      "34803"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "IBM Tivoli Storage Manager Express 5.3.6.2"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "seh"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

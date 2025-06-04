@@ -1,0 +1,52 @@
+{
+  "Name": "VirtualBox Guest Additions VBoxGuest.sys Privilege Escalation",
+  "Description": "A vulnerability within the VBoxGuest driver allows an attacker to inject memory they control into an arbitrary location they define. This can be used by an attacker to overwrite HalDispatchTable+0x4 and execute arbitrary code by subsequently calling NtQueryIntervalProfile on Windows XP SP3 systems. This has been tested with VBoxGuest Additions up to 4.3.10r93012.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/virtual_box_guest_additions.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "Matt Bergin <level@korelogic.com>",
+    "Jay Smith <jsmith@korelogic.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2014-2477"
+    ],
+    [
+      "URL",
+      "https://www.korelogic.com/Resources/Advisories/KL-001-2014-001.txt"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows XP SP3"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

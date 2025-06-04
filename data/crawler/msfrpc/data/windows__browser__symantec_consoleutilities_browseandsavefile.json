@@ -1,0 +1,96 @@
+{
+  "Name": "Symantec ConsoleUtilities ActiveX Control Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in Symantecs ConsoleUtilities. By sending an overly long string to the \"BrowseAndSaveFile()\" method located in the AeXNSConsoleUtilities.dll (6.0.0.1846) Control, an attacker may be able to execute arbitrary code",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/symantec_consoleutilities_browseandsavefile.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Nikolas Sotiriu (lofi)"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2009-3031"
+    ],
+    [
+      "OSVDB",
+      "59597"
+    ],
+    [
+      "BID",
+      "36698"
+    ],
+    [
+      "URL",
+      "http://sotiriu.de/adv/NSOADV-2009-001.txt"
+    ],
+    [
+      "URL",
+      "http://www.symantec.com/business/security_response/securityupdates/detail.jsp?fid=security_advisory&pvid=security_advisory&year=2009&suid=20091102_00"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows XP SP3 English"
+    ],
+    [
+      1,
+      "Windows XP SP2 Universal"
+    ],
+    [
+      2,
+      "Windows XP SP2 Pro German"
+    ],
+    [
+      3,
+      "Windows XP SP3 Pro German"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

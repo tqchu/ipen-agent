@@ -1,0 +1,85 @@
+{
+  "Name": "Microsoft DirectShow (msvidctl.dll) MPEG-2 Memory Corruption",
+  "Description": "This module exploits a memory corruption within the MSVidCtl component of Microsoft DirectShow (BDATuner.MPEG2TuneRequest). By loading a specially crafted GIF file, an attacker can overrun a buffer and execute arbitrary code. ClassID is now configurable via an advanced option (otherwise randomized) - I)ruid",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/msvidctl_mpeg2.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Trancer <mtrancer@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2008-0015"
+    ],
+    [
+      "OSVDB",
+      "55651"
+    ],
+    [
+      "BID",
+      "35558"
+    ],
+    [
+      "MSB",
+      "MS09-032"
+    ],
+    [
+      "MSB",
+      "MS09-037"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows XP SP0-SP3 / IE 6.0 SP0-2 & IE 7.0"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "ClassID"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,81 @@
+{
+  "Name": "CA BrightStor Discovery Service TCP Overflow",
+  "Description": "This module exploits a vulnerability in the CA BrightStor Discovery Service. This vulnerability occurs when a specific type of request is sent to the TCP listener on port 41523. This vulnerability was discovered by cybertronic[at]gmx.net and affects all known versions of the BrightStor product. This module is based on the 'cabrightstor_disco' exploit by HD Moore.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/brightstor/discovery_tcp.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "hdm <x@hdm.io>",
+    "aushack <patrick@osisecurity.com.au>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2005-2535"
+    ],
+    [
+      "OSVDB",
+      "13814"
+    ],
+    [
+      "BID",
+      "12536"
+    ],
+    [
+      "URL",
+      "http://archives.neohapsis.com/archives/bugtraq/2005-02/0123.html"
+    ],
+    [
+      "EDB",
+      "1131"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "cheyprod.dll 9/14/2000"
+    ],
+    [
+      1,
+      "cheyprod.dll 12/12/2003"
+    ],
+    [
+      2,
+      "cheyprod.dll 07/21/2004"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

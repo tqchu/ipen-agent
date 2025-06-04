@@ -1,0 +1,85 @@
+{
+  "Name": "Oracle Weblogic Server Deserialization RCE - Raw Object",
+  "Description": "An unauthenticated attacker with network access to the Oracle Weblogic Server T3 interface can send a serialized object (weblogic.jms.common.StreamMessageImpl) to the interface to execute code on vulnerable hosts.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/misc/weblogic_deserialize_rawobject.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Andres Rodriguez",
+    "Stephen Breen",
+    "Aaron Soto",
+    "Steve Embling"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2015-4852"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::Windows",
+    "Msf::Module::Platform::Solaris"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Unix"
+    ],
+    [
+      1,
+      "Windows"
+    ],
+    [
+      2,
+      "Solaris"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "Powershell::persist",
+    "Powershell::prepend_sleep",
+    "Powershell::prepend_protections_bypass",
+    "Powershell::strip_comments",
+    "Powershell::strip_whitespace",
+    "Powershell::sub_vars",
+    "Powershell::sub_funcs",
+    "Powershell::exec_in_place",
+    "Powershell::exec_rc4",
+    "Powershell::remove_comspec",
+    "Powershell::noninteractive",
+    "Powershell::encode_final_payload",
+    "Powershell::encode_inner_payload",
+    "Powershell::wrap_double_quotes",
+    "Powershell::no_equals",
+    "Powershell::method",
+    "FORCE_T3"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

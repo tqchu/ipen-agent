@@ -1,0 +1,73 @@
+{
+  "Name": "Ricoh DC DL-10 SR10 FTP USER Command Buffer Overflow",
+  "Description": "This module exploits a vulnerability found in Ricoh DC's DL-10 SR10 FTP service. By supplying a long string of data to the USER command, it is possible to trigger a stack-based buffer overflow, which allows remote code execution under the context of the user. Please note that in order to trigger the vulnerability, the server must be configured with a log file name (by default, it's disabled).",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/ftp/ricoh_dl_bof.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Julien Ahrens",
+    "sinn3r <sinn3r@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2012-5002"
+    ],
+    [
+      "OSVDB",
+      "79691"
+    ],
+    [
+      "URL",
+      "http://web.archive.org/web/20120514112629/http://secunia.com/advisories/47912/"
+    ],
+    [
+      "URL",
+      "http://www.inshell.net/2012/03/ricoh-dc-software-dl-10-ftp-server-sr10-exe-remote-buffer-overflow-vulnerability/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows XP SP3"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "FTPTimeout",
+    "FTPDEBUG",
+    "PassiveMode"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

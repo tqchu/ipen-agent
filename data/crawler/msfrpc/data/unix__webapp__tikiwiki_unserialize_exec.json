@@ -1,0 +1,105 @@
+{
+  "Name": "Tiki Wiki unserialize() PHP Code Execution",
+  "Description": "This module exploits a php unserialize() vulnerability in Tiki Wiki <= 8.3 which could be abused to allow unauthenticated users to execute arbitrary code under the context of the webserver user. The dangerous unserialize() exists in the 'tiki-print_multi_pages.php' script, which is called with user controlled data from the 'printpages' parameter. The exploit abuses the __destruct() method from the Zend_Pdf_ElementFactory_Proxy class to write arbitrary PHP code to a file on the Tiki Wiki web directory. In order to run successfully three conditions must be satisfied (1) display_errors php setting must be On to disclose the filesystem path of Tiki Wiki, (2) The Tiki Wiki Multiprint feature must be enabled to exploit the unserialize() and (3) a php version older than 5.3.4 must be used to allow poison null bytes in filesystem related functions. The exploit has been tested successfully on Ubuntu 9.10 and Tiki Wiki 8.3.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/unix/webapp/tikiwiki_unserialize_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "EgiX",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2012-0911"
+    ],
+    [
+      "OSVDB",
+      "83534"
+    ],
+    [
+      "BID",
+      "54298"
+    ],
+    [
+      "EDB",
+      "19573"
+    ],
+    [
+      "URL",
+      "http://dev.tiki.org/item4109"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::PHP"
+  ],
+  "Arch": [
+    "php"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TARGETURI"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

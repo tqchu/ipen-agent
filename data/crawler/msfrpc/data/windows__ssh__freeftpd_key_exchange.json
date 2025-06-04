@@ -1,0 +1,77 @@
+{
+  "Name": "FreeFTPd 1.0.10 Key Exchange Algorithm String Buffer Overflow",
+  "Description": "This module exploits a simple stack buffer overflow in FreeFTPd 1.0.10 This flaw is due to a buffer overflow error when handling a specially crafted key exchange algorithm string received from an SSH client. This module is based on MC's freesshd_key_exchange exploit.",
+  "License": "BSD License",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/ssh/freeftpd_key_exchange.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "riaf <riaf@mysec.org>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2006-2407"
+    ],
+    [
+      "OSVDB",
+      "25569"
+    ],
+    [
+      "BID",
+      "17958"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows 2000 SP0-SP4 English"
+    ],
+    [
+      1,
+      "Windows 2000 SP0-SP4 German"
+    ],
+    [
+      2,
+      "Windows XP SP0-SP1 English"
+    ],
+    [
+      3,
+      "Windows XP SP2 English"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

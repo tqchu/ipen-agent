@@ -1,0 +1,73 @@
+{
+  "Name": "Ansible Agent Payload Deployer",
+  "Description": "This exploit module creates an ansible module for deployment to nodes in the network. It creates a new yaml playbook which copies our payload, chmods it, then runs it on all targets which have been selected (default all).",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/ansible_node_deployer.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "h00die",
+    "n0tty"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://github.com/n0tty/Random-Hacking-Scripts/blob/master/pwnsible.sh"
+    ],
+    [
+      "URL",
+      "https://web.archive.org/web/20180220031610/http://n0tty.github.io/2017/06/11/Enterprise-Offense-IT-Operations-Part-1"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Auto"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "ANSIBLE",
+    "ANSIBLEPLAYBOOK",
+    "WritableDir",
+    "HOSTS",
+    "CALCULATE",
+    "TargetWritableDir",
+    "ListenerTimeout",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

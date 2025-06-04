@@ -1,0 +1,94 @@
+{
+  "Name": "MS10-002 Microsoft Internet Explorer Object Memory Use-After-Free",
+  "Description": "This module exploits a vulnerability found in Internet Explorer's mshtml component. Due to the way IE handles objects in memory, it is possible to cause a pointer in CTableRowCellsCollectionCacheItem::GetNext to be used even after it gets freed, therefore allowing remote code execution under the context of the user. This particular vulnerability was also one of 2012's Pwn2Own challenges, and was later explained by Peter Vreugdenhil with exploitation details. Instead of Peter's method, this module uses heap spraying like the 99% to store a specially crafted memory layout before re-using the freed memory.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/ms10_002_ie_object.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Peter Vreugdenhil",
+    "juan vazquez <juan.vazquez@metasploit.com>",
+    "sinn3r <sinn3r@metasploit.com>"
+  ],
+  "References": [
+    [
+      "MSB",
+      "MS10-002"
+    ],
+    [
+      "CVE",
+      "2010-0248"
+    ],
+    [
+      "OSVDB",
+      "61914"
+    ],
+    [
+      "URL",
+      "http://dvlabs.tippingpoint.com/blog/2012/03/15/pwn2own-2012-challenge-writeup"
+    ],
+    [
+      "ZDI",
+      "10-014"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "IE 8 on Windows XP SP3"
+    ],
+    [
+      2,
+      "IE 8 on Windows 7 SP0"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": {
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

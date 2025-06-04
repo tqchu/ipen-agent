@@ -1,0 +1,69 @@
+{
+  "Name": "SpamAssassin spamd Remote Command Execution",
+  "Description": "This module exploits a flaw in the SpamAssassin spamd service by specifying a malicious vpopmail User header, when running with vpopmail and paranoid modes enabled (non-default). Versions prior to v3.1.3 are vulnerable",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/unix/misc/spamassassin_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "aushack <patrick@osisecurity.com.au>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2006-2447"
+    ],
+    [
+      "OSVDB",
+      "26177"
+    ],
+    [
+      "BID",
+      "18290"
+    ],
+    [
+      "URL",
+      "http://spamassassin.apache.org/advisories/cve-2006-2447.txt"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

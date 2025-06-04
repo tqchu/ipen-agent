@@ -1,0 +1,85 @@
+{
+  "Name": "Tumbleweed FileTransfer vcst_eu.dll ActiveX Control Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in the vcst_eu.dll FileTransfer Module (1.0.0.5) ActiveX control in the Tumbleweed SecureTransport suite. By sending an overly long string to the TransferFile() 'remotefile' function, an attacker may be able to execute arbitrary code.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/tumbleweed_filetransfer.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "aushack <patrick@osisecurity.com.au>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2008-1724"
+    ],
+    [
+      "OSVDB",
+      "44252"
+    ],
+    [
+      "URL",
+      "http://www.aushack.com/200708-tumbleweed.txt"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Universal vcst_eu.dll"
+    ],
+    [
+      1,
+      "Windows 2000 Pro English"
+    ],
+    [
+      2,
+      "Windows XP Pro SP0/SP1 English"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

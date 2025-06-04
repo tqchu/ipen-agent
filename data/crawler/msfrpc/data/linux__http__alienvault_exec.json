@@ -1,0 +1,104 @@
+{
+  "Name": "AlienVault OSSIM/USM Remote Code Execution",
+  "Description": "This module exploits object injection, authentication bypass and ip spoofing vulnerabilities all together. Unauthenticated users can execute arbitrary commands under the context of the root user. By abusing authentication bypass issue on gauge.php lead adversaries to exploit object injection vulnerability which leads to SQL injection attack that leaks an administrator session token. Attackers can create a rogue action and policy that enables to execute operating system commands by using captured session token. As a final step, SSH login attempt with an invalid credentials can trigger a created rogue policy which triggers an action that executes operating system command with root user privileges. This module was tested against following product and versions: AlienVault USM 5.3.0, 5.2.5, 5.0.0, 4.15.11, 4.5.0 AlienVault OSSIM 5.0.0, 4.6.1",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/http/alienvault_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Peter Lapp",
+    "Mehmet Ince <mehmet@mehmetince.net>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2016-8582"
+    ],
+    [
+      "URL",
+      "https://pentest.blog/unexpected-journey-into-the-alienvault-ossimusm-during-engagement/"
+    ],
+    [
+      "EDB",
+      "40682"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Python"
+  ],
+  "Arch": [
+    "python"
+  ],
+  "Targets": [
+    [
+      0,
+      "Alienvault USM/OSSIM <= 5.3.0"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "SSH_IDENT",
+    "SSH_TIMEOUT",
+    "SSH_DEBUG",
+    "TARGETURI"
+  ],
+  "DefaultOptions": {
+    "SSL": true,
+    "WfsDelay": 10,
+    "Payload": "python/meterpreter/reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

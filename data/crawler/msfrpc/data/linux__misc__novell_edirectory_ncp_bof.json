@@ -1,0 +1,79 @@
+{
+  "Name": "Novell eDirectory 8 Buffer Overflow",
+  "Description": "This exploit abuses a buffer overflow vulnerability in Novell eDirectory. The vulnerability exists in the ndsd daemon, specifically in the NCP service, while parsing a specially crafted Keyed Object Login request. It allows remote code execution with root privileges.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/misc/novell_edirectory_ncp_bof.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "David Klein",
+    "Gary Nilson",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2012-0432"
+    ],
+    [
+      "OSVDB",
+      "88718"
+    ],
+    [
+      "BID",
+      "57038"
+    ],
+    [
+      "EDB",
+      "24205"
+    ],
+    [
+      "URL",
+      "http://www.novell.com/support/kb/doc.php?id=3426981"
+    ],
+    [
+      "URL",
+      "https://seclists.org/fulldisclosure/2013/Jan/97"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "Novell eDirectory 8.8.7 v20701.33/ SLES 10 SP3"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

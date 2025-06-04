@@ -1,0 +1,92 @@
+{
+  "Name": "Mozilla Suite/Firefox Navigator Object Code Execution",
+  "Description": "This module exploits a code execution vulnerability in the Mozilla Suite, Mozilla Firefox, and Mozilla Thunderbird applications. This exploit requires the Java plugin to be installed.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/browser/mozilla_navigatorjava.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "hdm <x@hdm.io>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2006-3677"
+    ],
+    [
+      "OSVDB",
+      "27559"
+    ],
+    [
+      "BID",
+      "19192"
+    ],
+    [
+      "URL",
+      "http://www.mozilla.org/security/announce/mfsa2006-45.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows",
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::OSX"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Firefox 1.5.0.4 Windows x86"
+    ],
+    [
+      1,
+      "Firefox 1.5.0.4 Linux x86"
+    ],
+    [
+      2,
+      "Firefox 1.5.0.4 Mac OS X PPC"
+    ],
+    [
+      3,
+      "Firefox 1.5.0.4 Mac OS X x86"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

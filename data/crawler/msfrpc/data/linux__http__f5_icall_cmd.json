@@ -1,0 +1,103 @@
+{
+  "Name": "F5 iControl iCall::Script Root Command Execution",
+  "Description": "This module exploits an authenticated privilege escalation vulnerability in the iControl API on the F5 BIG-IP LTM (and likely other F5 devices). This requires valid credentials and the Resource Administrator role. The exploit should work on BIG-IP 11.3.0 - 11.6.0, (11.5.x < 11.5.3 HF2 or 11.6.x < 11.6.0 HF6, see references for more details)",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/http/f5_icall_cmd.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "tom",
+    "Jon Hart <jon_hart@rapid7.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2015-3628"
+    ],
+    [
+      "URL",
+      "https://support.f5.com/kb/en-us/solutions/public/16000/700/sol16728.html"
+    ],
+    [
+      "URL",
+      "https://gdssecurity.squarespace.com/labs/2015/9/8/f5-icallscript-privilege-escalation-cve-2015-3628.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "F5 BIG-IP LTM 11.x"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "TARGETURI",
+    "SESSION_WAIT",
+    "PATH",
+    "FILENAME",
+    "ARG_MAX"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

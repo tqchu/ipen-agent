@@ -1,0 +1,88 @@
+{
+  "Name": "IBM Lotus Domino Sametime STMux.exe Stack Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in Lotus Domino\\'s Sametime Server. By sending an overly long POST request to the Multiplexer STMux.exe service we are able to overwrite SEH. Based on the exploit by Manuel Santamarina Suarez.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/lotus/domino_sametime_stmux.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "aushack <patrick@osisecurity.com.au>",
+    "riaf <riaf@mysec.org>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2008-2499"
+    ],
+    [
+      "OSVDB",
+      "45610"
+    ],
+    [
+      "BID",
+      "29328"
+    ],
+    [
+      "ZDI",
+      "08-028"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "Lotus Sametime 7.5 on Windows Server 2000 SP4"
+    ],
+    [
+      1,
+      "Lotus Sametime 7.5 on Windows Server 2003 SP1"
+    ],
+    [
+      2,
+      "Lotus Sametime 7.5 on Windows Server 2003 SP2"
+    ],
+    [
+      3,
+      "Lotus Sametime 7.5.1  Windows Server 2003 SP2"
+    ],
+    [
+      4,
+      "Lotus Sametime 8.0.0  Windows Server 2003 SP2"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "seh"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

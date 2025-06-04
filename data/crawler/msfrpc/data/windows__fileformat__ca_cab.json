@@ -1,0 +1,58 @@
+{
+  "Name": "CA Antivirus Engine CAB Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in CA eTrust Antivirus 8.1.637. By creating a specially crafted CAB file, an attacker may be able to execute arbitrary code.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/ca_cab.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "MC <mc@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2007-2864"
+    ],
+    [
+      "OSVDB",
+      "35245"
+    ],
+    [
+      "BID",
+      "24330"
+    ],
+    [
+      "ZDI",
+      "07-035"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows 2000 All / Windows XP SP0/SP1 (CA eTrust Antivirus 8.1.637)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread",
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

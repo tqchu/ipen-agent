@@ -1,0 +1,63 @@
+{
+  "Name": "F5 BIG-IP SSH Private Key Exposure",
+  "Description": "F5 ships a public/private key pair on BIG-IP appliances that allows passwordless authentication to any other BIG-IP box. Since the key is easily retrievable, an attacker can use it to gain unauthorized remote access as root.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/ssh/f5_bigip_known_privkey.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "egypt <egypt@metasploit.com>"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://www.trustmatta.com/advisories/MATTA-2012-002.txt"
+    ],
+    [
+      "CVE",
+      "2012-1493"
+    ],
+    [
+      "OSVDB",
+      "82780"
+    ],
+    [
+      "URL",
+      "https://www.rapid7.com/blog/post/2012/06/25/press-f5-for-root-shell"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSH_IDENT",
+    "SSH_TIMEOUT",
+    "SSH_DEBUG"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "cmd/unix/interact"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

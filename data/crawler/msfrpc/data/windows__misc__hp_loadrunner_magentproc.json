@@ -1,0 +1,68 @@
+{
+  "Name": "HP LoadRunner magentproc.exe Overflow",
+  "Description": "This module exploits a stack buffer overflow in HP LoadRunner before 11.52. The vulnerability exists on the LoadRunner Agent Process magentproc.exe. By sending a specially crafted packet, an attacker may be able to execute arbitrary code.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/hp_loadrunner_magentproc.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Unknown",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-4800"
+    ],
+    [
+      "OSVDB",
+      "95644"
+    ],
+    [
+      "ZDI",
+      "13-169"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows XP SP3 / HP LoadRunner 11.50"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "SSL": true,
+    "PrependMigrate": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

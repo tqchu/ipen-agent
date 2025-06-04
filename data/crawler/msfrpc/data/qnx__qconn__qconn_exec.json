@@ -1,0 +1,77 @@
+{
+  "Name": "QNX qconn Command Execution",
+  "Description": "This module uses the qconn daemon on QNX systems to gain a shell. The QNX qconn daemon does not require authentication and allows remote users to execute arbitrary operating system commands. This module has been tested successfully on QNX Neutrino 6.5.0 (x86) and 6.5.0 SP1 (x86).",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/qnx/qconn/qconn_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "David Odell",
+    "Mor!p3r",
+    "bcoles <bcoles@gmail.com>"
+  ],
+  "References": [
+    [
+      "EDB",
+      "21520"
+    ],
+    [
+      "URL",
+      "https://www.optiv.com/blog/pentesting-qnx-neutrino-rtos"
+    ],
+    [
+      "URL",
+      "http://www.qnx.com/developers/docs/6.5.0SP1/neutrino/utilities/q/qconn.html"
+    ],
+    [
+      "URL",
+      "http://www.qnx.com/developers/docs/6.5.0/topic/com.qnx.doc.neutrino_utilities/q/qconn.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "SHELL",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 10,
+    "PAYLOAD": "cmd/unix/interact"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

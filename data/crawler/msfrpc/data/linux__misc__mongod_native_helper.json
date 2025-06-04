@@ -1,0 +1,71 @@
+{
+  "Name": "MongoDB nativeHelper.apply Remote Code Execution",
+  "Description": "This module exploits the nativeHelper feature from spiderMonkey which allows remote code execution by calling it with specially crafted arguments. This module has been tested successfully on MongoDB 2.2.3 on Ubuntu 10.04 and Debian Squeeze.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/misc/mongod_native_helper.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "agix"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-1892"
+    ],
+    [
+      "OSVDB",
+      "91632"
+    ],
+    [
+      "BID",
+      "58695"
+    ],
+    [
+      "URL",
+      "http://blog.scrt.ch/2013/03/24/mongodb-0-day-ssji-to-rce/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Linux - mongod 2.2.3 - 32bits"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "DB",
+    "COLLECTION",
+    "USERNAME",
+    "PASSWORD"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

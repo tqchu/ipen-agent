@@ -1,0 +1,71 @@
+{
+  "Name": "Apple OS X DYLD_PRINT_TO_FILE Privilege Escalation",
+  "Description": "In Apple OS X 10.10.4 and prior, the DYLD_PRINT_TO_FILE environment variable is used for redirecting logging data to a file instead of stderr. Due to a design error, this feature can be abused by a local attacker to write arbitrary files as root via restricted, SUID-root binaries.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/osx/local/dyld_print_to_file_root.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "Stefan Esser",
+    "joev <joev@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2015-3760"
+    ],
+    [
+      "URL",
+      "https://www.sektioneins.de/en/blog/15-07-07-dyld_print_to_file_lpe.html"
+    ],
+    [
+      "URL",
+      "https://www.reddit.com/r/netsec/comments/3e34i2/os_x_1010_dyld_print_to_file_local_privilege/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::OSX"
+  ],
+  "Arch": [
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Mac OS X 10.10-10.10.4"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "WritableDir"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "osx/x64/shell_reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

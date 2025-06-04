@@ -1,0 +1,101 @@
+{
+  "Name": "PlaySMS index.php Unauthenticated Template Injection Code Execution",
+  "Description": "This module exploits a preauth Server-Side Template Injection vulnerability that leads to remote code execution in PlaySMS before version 1.4.3. This issue is caused by double processing a server-side template with a custom PHP template system called 'TPL' which is used in the PlaySMS template engine at `src/Playsms/Tpl.php:_compile()`. The vulnerability is triggered when an attacker supplied username with a malicious payload is submitted. This malicious payload is then stored in a TPL template which when rendered a second time, results in code execution. The TPL(https://github.com/antonraharja/tpl) template language is vulnerable to PHP code injection. This module was tested against PlaySMS 1.4 on HackTheBox's Forlic Machine.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/http/playsms_template_injection.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Touhid M.Shaikh <touhidshaikh22@gmail.com>",
+    "Lucas Rosevear"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2020-8644"
+    ],
+    [
+      "URL",
+      "https://www.youtube.com/watch?v=zu-bwoAtTrc"
+    ],
+    [
+      "URL",
+      "https://research.nccgroup.com/2020/02/11/technical-advisory-playsms-pre-authentication-remote-code-execution-cve-2020-8644/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::PHP"
+  ],
+  "Arch": [
+    "php"
+  ],
+  "Targets": [
+    [
+      0,
+      "PlaySMS Before 1.4.3"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TARGETURI"
+  ],
+  "DefaultOptions": {
+    "SSL": false,
+    "PAYLOAD": "php/meterpreter/reverse_tcp",
+    "ENCODER": "php/base64"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

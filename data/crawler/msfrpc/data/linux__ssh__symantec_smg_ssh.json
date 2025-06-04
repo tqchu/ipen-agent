@@ -1,0 +1,65 @@
+{
+  "Name": "Symantec Messaging Gateway 9.5 Default SSH Password Vulnerability",
+  "Description": "This module exploits a default misconfiguration flaw on Symantec Messaging Gateway. The 'support' user has a known default password, which can be used to login to the SSH service, and gain privileged access from remote.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/ssh/symantec_smg_ssh.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Stefan Viehbock",
+    "Ben Williams",
+    "sinn3r <sinn3r@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2012-3579"
+    ],
+    [
+      "OSVDB",
+      "85028"
+    ],
+    [
+      "BID",
+      "55143"
+    ],
+    [
+      "URL",
+      "http://www.symantec.com/security_response/securityupdates/detail.jsp?fid=security_advisory&pvid=security_advisory&suid=20120827_00"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Symantec Messaging Gateway 9.5"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSH_IDENT",
+    "SSH_TIMEOUT",
+    "SSH_DEBUG"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

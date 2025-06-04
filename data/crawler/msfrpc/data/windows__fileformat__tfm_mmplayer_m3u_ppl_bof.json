@@ -1,0 +1,63 @@
+{
+  "Name": "TFM MMPlayer (m3u/ppl File) Buffer Overflow",
+  "Description": "This module exploits a buffer overflow in MMPlayer 2.2 The vulnerability is triggered when opening a malformed M3U/PPL file that contains an overly long string, which results in overwriting a SEH record, thus allowing arbitrary code execution under the context of the user.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/tfm_mmplayer_m3u_ppl_bof.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "RjRjh Hack3r",
+    "bcoles <bcoles@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2009-2566"
+    ],
+    [
+      "OSVDB",
+      "80532"
+    ],
+    [
+      "BID",
+      "52698"
+    ],
+    [
+      "EDB",
+      "18656"
+    ],
+    [
+      "EDB",
+      "18657"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread",
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

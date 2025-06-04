@@ -1,0 +1,96 @@
+{
+  "Name": "Microsoft Office Word Malicious MSHTML RCE",
+  "Description": "This module creates a malicious docx file that when opened in Word on a vulnerable Windows system will lead to code execution. This vulnerability exists because an attacker can craft a malicious ActiveX control to be used by a Microsoft Office document that hosts the browser rendering engine.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/word_mshtml_rce.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "lockedbyte",
+    "klezVirus",
+    "thesunRider",
+    "mekhalleh (RAMELLA S\u00e9bastien)"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2021-40444"
+    ],
+    [
+      "URL",
+      "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-40444"
+    ],
+    [
+      "URL",
+      "https://www.sentinelone.com/blog/peeking-into-cve-2021-40444-ms-office-zero-day-vulnerability-exploited-in-the-wild/"
+    ],
+    [
+      "URL",
+      "http://download.microsoft.com/download/4/d/a/4da14f27-b4ef-4170-a6e6-5b1ef85b1baa/[ms-cab].pdf"
+    ],
+    [
+      "URL",
+      "https://github.com/lockedbyte/CVE-2021-40444/blob/master/REPRODUCE.md"
+    ],
+    [
+      "URL",
+      "https://github.com/klezVirus/CVE-2021-40444"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Hosted"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "FILENAME",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "OBFUSCATE",
+    "DocxTemplate"
+  ],
+  "DefaultOptions": {
+    "FILENAME": "msf.docx"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,82 @@
+{
+  "Name": "NetWare 6.5 SunRPC Portmapper CALLIT Stack Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in the NetWare PKERNEL.NLM driver's CALLIT procedure. PKERNEL.NLM is installed by default on all NetWare servers to support NFS. The PKERNEL.NLM module runs in kernel mode so a failed exploit attempt can cause the operating system to reboot.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/netware/sunrpc/pkernel_callit.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "pahtzo"
+  ],
+  "References": [
+    [
+      "BID",
+      "36564"
+    ],
+    [
+      "OSVDB",
+      "58447"
+    ],
+    [
+      "ZDI",
+      "09-067"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Netware"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "NetWare 6.5 SP2"
+    ],
+    [
+      2,
+      "NetWare 6.5 SP3"
+    ],
+    [
+      3,
+      "NetWare 6.5 SP4"
+    ],
+    [
+      4,
+      "NetWare 6.5 SP5"
+    ],
+    [
+      5,
+      "NetWare 6.5 SP6"
+    ],
+    [
+      6,
+      "NetWare 6.5 SP7"
+    ],
+    [
+      7,
+      "NetWare 6.5 SP8"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "CPORT",
+    "CHOST"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,86 @@
+{
+  "Name": "Windows 10 UAC Protection Bypass Via Windows Store (WSReset.exe)",
+  "Description": "This module exploits a flaw in the WSReset.exe Windows Store Reset Tool. The tool is run with the \"autoElevate\" property set to true, however it can be moved to a new Windows directory containing a space (C:\\Windows \\System32\\) where, upon execution, it will load our payload dll (propsys.dll).",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/bypassuac_windows_store_filesys.rb",
+  "Version": "",
+  "Rank": "manual",
+  "Authors": [
+    "ACTIVELabs",
+    "sailay1996",
+    "timwr"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://heynowyouseeme.blogspot.com/2019/08/windows-10-lpe-uac-bypass-in-windows.html"
+    ],
+    [
+      "URL",
+      "https://github.com/sailay1996/UAC_bypass_windows_store"
+    ],
+    [
+      "URL",
+      "https://medium.com/tenable-techblog/uac-bypass-by-mocking-trusted-directories-24a96675f6e"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "Powershell::persist",
+    "Powershell::prepend_sleep",
+    "Powershell::prepend_protections_bypass",
+    "Powershell::strip_comments",
+    "Powershell::strip_whitespace",
+    "Powershell::sub_vars",
+    "Powershell::sub_funcs",
+    "Powershell::exec_in_place",
+    "Powershell::exec_rc4",
+    "Powershell::remove_comspec",
+    "Powershell::noninteractive",
+    "Powershell::encode_final_payload",
+    "Powershell::encode_inner_payload",
+    "Powershell::wrap_double_quotes",
+    "Powershell::no_equals",
+    "Powershell::method"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "WfsDelay": 15
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

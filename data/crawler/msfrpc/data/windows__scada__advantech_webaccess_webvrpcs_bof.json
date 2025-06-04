@@ -1,0 +1,71 @@
+{
+  "Name": "Advantech WebAccess Webvrpcs Service Opcode 80061 Stack Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in Advantech WebAccess 8.2. By sending a specially crafted DCERPC request, an attacker could overflow the buffer and execute arbitrary code.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/scada/advantech_webaccess_webvrpcs_bof.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "mr_me <mr_me@offensive-security.com>"
+  ],
+  "References": [
+    [
+      "ZDI",
+      "17-938"
+    ],
+    [
+      "CVE",
+      "2017-14016"
+    ],
+    [
+      "URL",
+      "https://ics-cert.us-cert.gov/advisories/ICSA-17-306-02"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows 7 x86 - Advantech WebAccess 8.2-2017.03.31"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "DCERPC::max_frag_size",
+    "DCERPC::fake_bind_multi",
+    "DCERPC::fake_bind_multi_prepend",
+    "DCERPC::fake_bind_multi_append",
+    "DCERPC::smb_pipeio",
+    "DCERPC::ReadTimeout"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

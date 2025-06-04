@@ -1,0 +1,81 @@
+{
+  "Name": "VMWare OVF Tools Format String Vulnerability",
+  "Description": "This module exploits a format string vulnerability in VMWare OVF Tools 2.1 for Windows. The vulnerability occurs when printing error messages while parsing a a malformed OVF file. The module has been tested successfully with VMWare OVF Tools 2.1 on Windows XP SP3.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/ovftool_format_string.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Jeremy Brown",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2012-3569"
+    ],
+    [
+      "OSVDB",
+      "87117"
+    ],
+    [
+      "BID",
+      "56468"
+    ],
+    [
+      "URL",
+      "https://www.vmware.com/security/advisories/VMSA-2012-0015.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "VMWare OVF Tools 2.1 on Windows XP SP3"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": {
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

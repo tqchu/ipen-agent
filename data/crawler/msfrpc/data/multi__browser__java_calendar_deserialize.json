@@ -1,0 +1,114 @@
+{
+  "Name": "Sun Java Calendar Deserialization Privilege Escalation",
+  "Description": "This module exploits a flaw in the deserialization of Calendar objects in the Sun JVM. The payload can be either a native payload which is generated as an executable and dropped/executed on the target or a shell from within the Java applet in the target browser. The affected Java versions are JDK and JRE 6 Update 10 and earlier, JDK and JRE 5.0 Update 16 and earlier, SDK and JRE 1.4.2_18 and earlier (SDK and JRE 1.3.1 are not affected).",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/browser/java_calendar_deserialize.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "sf <stephen_fewer@harmonysecurity.com>",
+    "hdm <x@hdm.io>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2008-5353"
+    ],
+    [
+      "OSVDB",
+      "50500"
+    ],
+    [
+      "URL",
+      "http://slightlyrandombrokenthoughts.blogspot.com/2008/12/calendar-bug.html"
+    ],
+    [
+      "URL",
+      "http://landonf.bikemonkey.org/code/macosx/CVE-2008-5353.20090519.html"
+    ],
+    [
+      "URL",
+      "http://blog.cr0.org/2009/05/write-once-own-everyone.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::OSX",
+    "Msf::Module::Platform::Solaris",
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Generic (Java Payload)"
+    ],
+    [
+      1,
+      "Windows x86 (Native Payload)"
+    ],
+    [
+      2,
+      "Mac OS X PPC (Native Payload)"
+    ],
+    [
+      3,
+      "Mac OS X x86 (Native Payload)"
+    ],
+    [
+      4,
+      "Linux x86 (Native Payload)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,98 @@
+{
+  "Name": "VLC AMV Dangling Pointer Vulnerability",
+  "Description": "This module exploits VLC media player when handling a .AMV file. By flipping the 0x41st byte in the file format (video width/height), VLC crashes due to an invalid pointer, which allows remote attackers to gain arbitrary code execution. The vulnerable packages include: VLC 1.1.4, VLC 1.1.5, VLC 1.1.6, VLC 1.1.7. Also, please note that IE 8 targets require Java support in order to run properly.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/vlc_amv.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "sinn3r <sinn3r@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2010-3275"
+    ],
+    [
+      "OSVDB",
+      "71277"
+    ],
+    [
+      "URL",
+      "http://www.coresecurity.com/content/vlc-vulnerabilities-amv-nsv-files"
+    ],
+    [
+      "URL",
+      "http://git.videolan.org/?p=vlc/vlc-1.1.git;a=commitdiff;h=fe44129dc6509b3347113ab0e1a0524af1e0dd11"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "Internet Explorer 6 on XP SP3"
+    ],
+    [
+      2,
+      "Internet Explorer 7 on XP SP3"
+    ],
+    [
+      3,
+      "Internet Explorer 8 on XP SP3"
+    ],
+    [
+      4,
+      "Internet Explorer 7 on Vista"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "OBFUSCATE"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

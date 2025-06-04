@@ -1,0 +1,58 @@
+{
+  "Name": "ERS Viewer 2013 ERS File Handling Buffer Overflow",
+  "Description": "This module exploits a buffer overflow vulnerability found in ERS Viewer 2013. The vulnerability exists in the module ermapper_u.dll, where the function rf_report_error handles user provided data in an insecure way. It results in arbitrary code execution under the context of the user viewing a specially crafted .ers file. This module has been tested successfully with ERS Viewer 2013 (versions 13.0.0.1151) on Windows XP SP3 and Windows 7 SP1.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/erdas_er_viewer_rf_report_error.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "James Fitts",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-3482"
+    ],
+    [
+      "OSVDB",
+      "93650"
+    ],
+    [
+      "URL",
+      "http://web.archive.org/web/20130609135637/http://secunia.com:80/advisories/53620"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "ERS Viewer 2013 13.0.0.1151 / NO DEP / NO ASLR"
+    ],
+    [
+      1,
+      "ERS Viewer 2013 13.0.0.1151 / DEP & ASLR bypass"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

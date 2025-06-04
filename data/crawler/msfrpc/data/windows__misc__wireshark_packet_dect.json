@@ -1,0 +1,66 @@
+{
+  "Name": "Wireshark packet-dect.c Stack Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in Wireshark <= 1.4.4 by sending a malicious packet.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/wireshark_packet_dect.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "Paul Makowski",
+    "sickness",
+    "corelanc0d3r <peter.ve@corelan.be>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2011-1591"
+    ],
+    [
+      "OSVDB",
+      "71848"
+    ],
+    [
+      "URL",
+      "https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=5838"
+    ],
+    [
+      "URL",
+      "https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=5836"
+    ],
+    [
+      "EDB",
+      "17185"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Win32 Universal (Generic DEP & ASLR Bypass)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "INTERFACE",
+    "LOOP",
+    "DELAY",
+    "ExitOnSession"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

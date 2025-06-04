@@ -1,0 +1,102 @@
+{
+  "Name": "CMS Made Simple Authenticated RCE via object injection",
+  "Description": "An issue was discovered in CMS Made Simple 2.2.8. In the module DesignManager (in the files action.admin_bulk_css.php and action.admin_bulk_template.php), with an unprivileged user with Designer permission, it is possible to reach an unserialize call with a crafted value in the m1_allparms parameter, and achieve object injection. This module has been successfully tested on CMS Made Simple versions 2.2.6, 2.2.7, 2.2.8, 2.2.9 and 2.2.9.1.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/http/cmsms_object_injection_rce.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Daniele Scanu danielescanu20 <Daniele Scanu danielescanu20@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2019-9055"
+    ],
+    [
+      "URL",
+      "https://newsletter.cmsmadesimple.org/w/89247Qog4jCRCuRinvhsofwg"
+    ],
+    [
+      "URL",
+      "https://www.cmsmadesimple.org/2019/03/Announcing-CMS-Made-Simple-v2.2.10-Spuzzum"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::PHP"
+  ],
+  "Arch": [
+    "php"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "TARGETURI",
+    "USERNAME",
+    "PASSWORD",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,63 @@
+{
+  "Name": "CyberLink Power2Go name Attribute (p2g) Stack Buffer Overflow Exploit",
+  "Description": "This module exploits a stack buffer overflow in CyberLink Power2Go version 8.x The vulnerability is triggered when opening a malformed p2g file containing an overly long string in the 'name' attribute of the file element. This results in overwriting a structured exception handler record.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/cyberlink_p2g_bof.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "modpr0be <modpr0be@spentera.com>",
+    "mr_me <steventhomasseeley@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2011-5171"
+    ],
+    [
+      "BID",
+      "50997"
+    ],
+    [
+      "OSVDB",
+      "77600"
+    ],
+    [
+      "EDB",
+      "18220"
+    ],
+    [
+      "US-CERT-VU",
+      "158003"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "CyberLink Power2Go 8 (XP/Vista/win7) Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

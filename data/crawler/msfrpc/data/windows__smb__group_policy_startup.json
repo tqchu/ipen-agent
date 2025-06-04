@@ -1,0 +1,66 @@
+{
+  "Name": "Group Policy Script Execution From Shared Resource",
+  "Description": "This is a general-purpose module for exploiting systems with Windows Group Policy configured to load VBS startup/logon scripts from remote locations. This module runs a SMB shared resource that will provide a payload through a VBS file. Startup scripts will be executed with SYSTEM privileges, while logon scripts will be executed with the user privileges. Have into account which the attacker still needs to redirect the target traffic to the fake SMB share to exploit it successfully. Please note in some cases, it will take 5 to 10 minutes to receive a session.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/smb/group_policy_startup.rb",
+  "Version": "",
+  "Rank": "manual",
+  "Authors": [
+    "Sam Bertram <sbertram@gdssecurity.com>",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "URL",
+      "http://blog.gdssecurity.com/labs/2015/1/26/badsamba-exploiting-windows-startup-scripts-using-a-maliciou.html"
+    ],
+    [
+      "URL",
+      "https://github.com/GDSSecurity/BadSamba"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows x86"
+    ],
+    [
+      1,
+      "Windows x64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "CAINPWFILE",
+    "JOHNPWFILE",
+    "SHARE",
+    "FILE_NAME",
+    "FOLDER_NAME",
+    "SMBDomain"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

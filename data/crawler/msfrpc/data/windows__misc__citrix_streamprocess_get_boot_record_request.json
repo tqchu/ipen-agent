@@ -1,0 +1,58 @@
+{
+  "Name": "Citrix Provisioning Services 5.6 SP1 Streamprocess Opcode 0x40020004 Buffer Overflow",
+  "Description": "This module exploits a remote buffer overflow in the Citrix Provisioning Services 5.6 SP1 (without Hotfix CPVS56SP1E043) by sending a malformed packet with the opcode 0x40020004 (GetBootRecordRequest) to the 6905/UDP port. The module, which allows code execution under the context of SYSTEM, has been successfully tested on Windows Server 2003 SP2 and Windows XP SP3.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/citrix_streamprocess_get_boot_record_request.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "alino <26alino@gmail.com>",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "75780"
+    ],
+    [
+      "BID",
+      "49803"
+    ],
+    [
+      "URL",
+      "http://support.citrix.com/article/CTX130846"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Citrix Provisioning Services 5.6 SP1"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "CPORT",
+    "CHOST"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

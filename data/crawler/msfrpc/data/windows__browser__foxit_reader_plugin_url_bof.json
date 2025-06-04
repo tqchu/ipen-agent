@@ -1,0 +1,87 @@
+{
+  "Name": "Foxit Reader Plugin URL Processing Buffer Overflow",
+  "Description": "This module exploits a vulnerability in the Foxit Reader Plugin, it exists in the npFoxitReaderPlugin.dll module. When loading PDF files from remote hosts, overly long query strings within URLs can cause a stack-based buffer overflow, which can be exploited to execute arbitrary code. This exploit has been tested on Windows 7 SP1 with Firefox 18.0 and Foxit Reader version 5.4.4.11281 (npFoxitReaderPlugin.dll version 2.2.1.530).",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/foxit_reader_plugin_url_bof.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "rgod <rgod@autistici.org>",
+    "Sven Krewitt <svnk@krewitt.org>",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "89030"
+    ],
+    [
+      "BID",
+      "57174"
+    ],
+    [
+      "EDB",
+      "23944"
+    ],
+    [
+      "URL",
+      "http://web.archive.org/web/20130113203143/http://secunia.com/advisories/51733/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "Windows 7 SP1 / Firefox 18 / Foxit Reader 5.4.4.11281"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

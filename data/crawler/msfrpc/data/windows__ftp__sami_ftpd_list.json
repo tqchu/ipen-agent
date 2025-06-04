@@ -1,0 +1,70 @@
+{
+  "Name": "Sami FTP Server LIST Command Buffer Overflow",
+  "Description": "This module exploits a stack based buffer overflow on Sami FTP Server 2.0.1. The vulnerability exists in the processing of LIST commands. In order to trigger the vulnerability, the \"Log\" tab must be viewed in the Sami FTP Server managing application, in the target machine. On the other hand, the source IP address used to connect with the FTP Server is needed. If the user can't provide it, the module will try to resolve it. This module has been tested successfully on Sami FTP Server 2.0.1 over Windows XP SP3.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/ftp/sami_ftpd_list.rb",
+  "Version": "",
+  "Rank": "low",
+  "Authors": [
+    "superkojiman",
+    "Doug Prostko <dougtko@gmail.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "90815"
+    ],
+    [
+      "BID",
+      "58247"
+    ],
+    [
+      "EDB",
+      "24557"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Sami FTP Server 2.0.1 / Windows XP SP3"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "FTPUSER",
+    "FTPPASS",
+    "FTPTimeout",
+    "FTPDEBUG",
+    "PassiveMode",
+    "SOURCEIP"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

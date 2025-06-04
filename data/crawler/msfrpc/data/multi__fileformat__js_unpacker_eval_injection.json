@@ -1,0 +1,43 @@
+{
+  "Name": "Javascript Injection for Eval-based Unpackers",
+  "Description": "This module generates a Javascript file that executes arbitrary code when an eval-based unpacker is run on it. Works against js-beautify's P_A_C_K_E_R unpacker.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/fileformat/js_unpacker_eval_injection.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "joev <joev@metasploit.com>"
+  ],
+  "References": [],
+  "Platform": [
+    "Msf::Module::Platform::NodeJS"
+  ],
+  "Arch": [
+    "nodejs"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "JsObfuscate",
+    "JsIdentifiers",
+    "CUSTOM_JS"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

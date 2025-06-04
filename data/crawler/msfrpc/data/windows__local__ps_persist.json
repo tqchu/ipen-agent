@@ -1,0 +1,70 @@
+{
+  "Name": "Powershell Payload Execution",
+  "Description": "This module generates a dynamic executable on the session host using .NET templates. Code is pulled from C# templates and impregnated with a payload before being sent to a modified PowerShell session with .NET 4 loaded. The compiler builds the executable (standard or Windows service) in memory and produces a binary which can be started/installed and downloaded for later use. After compilation the PoweShell session can also sign the executable if provided a path the a .pfx formatted certificate.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/ps_persist.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "RageLtMan <rageltman@sempervictus>",
+    "Matt \"hostess\" Andreko"
+  ],
+  "References": [],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "Powershell::persist",
+    "Powershell::prepend_sleep",
+    "Powershell::prepend_protections_bypass",
+    "Powershell::strip_comments",
+    "Powershell::strip_whitespace",
+    "Powershell::sub_vars",
+    "Powershell::sub_funcs",
+    "Powershell::exec_in_place",
+    "Powershell::exec_rc4",
+    "Powershell::remove_comspec",
+    "Powershell::noninteractive",
+    "Powershell::encode_final_payload",
+    "Powershell::encode_inner_payload",
+    "Powershell::wrap_double_quotes",
+    "Powershell::no_equals",
+    "Powershell::method",
+    "Powershell::Post::timeout",
+    "Powershell::Post::log_output",
+    "Powershell::Post::dry_run",
+    "Powershell::Post::force_wow64",
+    "CERT_PATH",
+    "SVC_GEN",
+    "SVC_NAME",
+    "SVC_DNAME",
+    "START_APP",
+    "OUTPUT_TARGET",
+    "SVC_REMOVE",
+    "BypassUAC",
+    "USERNAME",
+    "PASSWORD",
+    "DOMAIN"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

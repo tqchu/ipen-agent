@@ -1,0 +1,106 @@
+{
+  "Name": "vBulletin 5.x /ajax/render/widget_tabbedcontainer_tab_panel PHP remote code execution.",
+  "Description": "This module exploits a logic bug within the template rendering code in vBulletin 5.x. The module uses the vBulletin template rendering functionality to render the 'widget_tabbedcontainer_tab_panel' template while also providing the 'widget_php' argument. This causes the former template to load the latter bypassing filters originally put in place to address 'CVE-2019-16759'. This also allows the exploit to reach an eval call with user input allowing the module to achieve PHP remote code execution on the target. This module has been tested successfully on vBulletin version 5.6.2 on Ubuntu Linux.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/http/vbulletin_widget_template_rce.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Zenofex <zenofex@exploitee.rs>"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://blog.exploitee.rs/2020/exploiting-vbulletin-a-tale-of-patch-fail/"
+    ],
+    [
+      "CVE",
+      "2020-17496"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::PHP",
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "cmd",
+    "php"
+  ],
+  "Targets": [
+    [
+      0,
+      "Meterpreter (PHP In-Memory)"
+    ],
+    [
+      1,
+      "Unix (CMD In-Memory)"
+    ],
+    [
+      2,
+      "Windows (CMD In-Memory)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TARGETURI",
+    "PHP_CMD",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

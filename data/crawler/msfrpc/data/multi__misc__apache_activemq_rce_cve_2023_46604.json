@@ -1,0 +1,106 @@
+{
+  "Name": "Apache ActiveMQ Unauthenticated Remote Code Execution",
+  "Description": "This module exploits a deserialization vulnerability in the OpenWire transport unmarshaller in Apache ActiveMQ. Affected versions include 5.18.0 through to 5.18.2, 5.17.0 through to 5.17.5, 5.16.0 through to 5.16.6, and all versions before 5.15.16.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/misc/apache_activemq_rce_cve_2023_46604.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "X1r0z",
+    "sfewer-r7"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2023-46604"
+    ],
+    [
+      "URL",
+      "https://github.com/X1r0z/ActiveMQ-RCE"
+    ],
+    [
+      "URL",
+      "https://exp10it.cn/2023/10/apache-activemq-%E7%89%88%E6%9C%AC-5.18.3-rce-%E5%88%86%E6%9E%90/"
+    ],
+    [
+      "URL",
+      "https://attackerkb.com/topics/IHsgZDE3tS/cve-2023-46604/rapid7-analysis"
+    ],
+    [
+      "URL",
+      "https://activemq.apache.org/security-advisories.data/CVE-2023-46604-announcement.txt"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows",
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows"
+    ],
+    [
+      1,
+      "Linux"
+    ],
+    [
+      2,
+      "Unix"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "RHOSTS",
+    "RPORT",
+    "SSLServerNameIndication",
+    "SSLVerifyMode",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "RPORT": 61616,
+    "WfsDelay": 30
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

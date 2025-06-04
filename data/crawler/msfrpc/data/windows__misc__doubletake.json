@@ -1,0 +1,70 @@
+{
+  "Name": "DoubleTake/HP StorageWorks Storage Mirroring Service Authentication Overflow",
+  "Description": "This module exploits a stack buffer overflow in the authentication mechanism of NSI Doubletake which is also rebranded as HP Storage Works. This vulnerability was found by Titon of Bastard Labs.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/doubletake.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "ri0t <ri0t@ri0tnet.net>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2008-1661"
+    ],
+    [
+      "OSVDB",
+      "45924"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "doubletake 4.5.0"
+    ],
+    [
+      1,
+      "doubletake 4.4.2"
+    ],
+    [
+      2,
+      "doubletake 4.5.0.1819"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

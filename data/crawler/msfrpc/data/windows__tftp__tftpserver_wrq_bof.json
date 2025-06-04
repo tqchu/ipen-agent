@@ -1,0 +1,81 @@
+{
+  "Name": "TFTP Server for Windows 1.4 ST WRQ Buffer Overflow",
+  "Description": "This module exploits a vulnerability found in TFTP Server 1.4 ST. The flaw is due to the way TFTP handles the filename parameter extracted from a WRQ request. The server will append the user-supplied filename to TFTP server binary's path without any bounds checking, and then attempt to check this path with a fopen(). Since this isn't a valid file path, fopen() returns null, which allows the corrupted data to be used in a strcmp() function, causing an access violation. Since the offset is sensitive to how the TFTP server is launched, you must know in advance if your victim machine launched the TFTP as a 'Service' or 'Standalone' , and then manually select your target accordingly. A successful attempt will lead to remote code execution under the context of SYSTEM if run as a service, or the user if run as a standalone. A failed attempt will result a denial-of-service.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/tftp/tftpserver_wrq_bof.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Mati Aharoni",
+    "Datacut"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2008-1611"
+    ],
+    [
+      "OSVDB",
+      "43785"
+    ],
+    [
+      "BID",
+      "18345"
+    ],
+    [
+      "EDB",
+      "5314"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows XP SP2/SP3 EN Service Mode"
+    ],
+    [
+      1,
+      "Windows XP SP2/SP3 EN Standalone Mode"
+    ],
+    [
+      2,
+      "Windows 7 SP0/SP1 EN x64 Service Mode"
+    ],
+    [
+      3,
+      "Windows 7 SP0/SP1 EN x64 Standalone Mode"
+    ],
+    [
+      4,
+      "Windows 7 SP0/SP1 EN x86 Service Mode"
+    ],
+    [
+      5,
+      "Windows 7 SP0/SP1 EN x86 Standalone Mode"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "CPORT",
+    "CHOST"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "seh"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,90 @@
+{
+  "Name": "Safari Webkit JIT Exploit for iOS 7.1.2",
+  "Description": "This module exploits a JIT optimization bug in Safari Webkit. This allows us to write shellcode to an RWX memory section in JavaScriptCore and execute it. The shellcode contains a kernel exploit (CVE-2016-4669) that obtains kernel rw, obtains root and disables code signing. Finally we download and execute the meterpreter payload. This module has been tested against iOS 7.1.2 on an iPhone 4.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/apple_ios/browser/safari_jit.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "kudima",
+    "Ian Beer",
+    "WanderingGlitch",
+    "timwr"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2016-4669"
+    ],
+    [
+      "CVE",
+      "2018-4162"
+    ],
+    [
+      "URL",
+      "https://github.com/kudima/exploit_playground/tree/master/iPhone3_1_shell"
+    ],
+    [
+      "URL",
+      "https://www.thezdi.com/blog/2018/4/12/inverting-your-assumptions-a-guide-to-jit-comparisons"
+    ],
+    [
+      "URL",
+      "https://bugs.chromium.org/p/project-zero/issues/detail?id=882"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Apple_iOS"
+  ],
+  "Arch": [
+    "armle"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "DEBUG_EXPLOIT"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "apple_ios/armle/meterpreter_reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

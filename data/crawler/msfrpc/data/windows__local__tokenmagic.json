@@ -1,0 +1,101 @@
+{
+  "Name": "Windows Privilege Escalation via TokenMagic (UAC Bypass)",
+  "Description": "This module leverages a UAC bypass (TokenMagic) in order to spawn a process/conduct a DLL hijacking attack to gain SYSTEM-level privileges. Windows 7 through Windows 10 1803 are affected.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/tokenmagic.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "James Forshaw",
+    "Ruben Boonen ( <Ruben Boonen (@FuzzySec)>",
+    "bwatters-r7",
+    "jheysel-r7"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://github.com/FuzzySecurity/PowerShell-Suite/blob/master/UAC-TokenMagic.ps1"
+    ],
+    [
+      "URL",
+      "https://tyranidslair.blogspot.co.uk/2017/05/reading-your-way-around-uac-part-1.html"
+    ],
+    [
+      "URL",
+      "https://tyranidslair.blogspot.co.uk/2017/05/reading-your-way-around-uac-part-2.html"
+    ],
+    [
+      "URL",
+      "https://tyranidslair.blogspot.co.uk/2017/05/reading-your-way-around-uac-part-3.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "Powershell::persist",
+    "Powershell::prepend_sleep",
+    "Powershell::prepend_protections_bypass",
+    "Powershell::strip_comments",
+    "Powershell::strip_whitespace",
+    "Powershell::sub_vars",
+    "Powershell::sub_funcs",
+    "Powershell::exec_in_place",
+    "Powershell::exec_rc4",
+    "Powershell::remove_comspec",
+    "Powershell::noninteractive",
+    "Powershell::encode_final_payload",
+    "Powershell::encode_inner_payload",
+    "Powershell::wrap_double_quotes",
+    "Powershell::no_equals",
+    "Powershell::method",
+    "Powershell::Post::timeout",
+    "Powershell::Post::log_output",
+    "Powershell::Post::dry_run",
+    "Powershell::Post::force_wow64",
+    "SERVICE_NAME",
+    "WRITABLE_DIR",
+    "SERVICE_FILENAME",
+    "METHOD",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "windows/x64/meterpreter/reverse_tcp",
+    "WfsDelay": 900
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

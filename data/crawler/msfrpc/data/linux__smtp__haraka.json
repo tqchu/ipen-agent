@@ -1,0 +1,104 @@
+{
+  "Name": "Haraka SMTP Command Injection",
+  "Description": "The Haraka SMTP server comes with a plugin for processing attachments. Versions before 2.8.9 can be vulnerable to command injection",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/smtp/haraka.py",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "xychix <xychix[AT]hotmail.com>",
+    "smfreegard",
+    "Adam Cammack <adam_cammack[AT]rapid7.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2016-1000282"
+    ],
+    [
+      "EDB",
+      "41162"
+    ],
+    [
+      "URL",
+      "https://github.com/haraka/Haraka/pull/1606"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x64",
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "linux x64"
+    ],
+    [
+      1,
+      "linux x86"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "CMDSTAGER::FLAVOR",
+    "CMDSTAGER::DECODER",
+    "CMDSTAGER::TEMP",
+    "CMDSTAGER::URIPATH",
+    "CMDSTAGER::SSL",
+    "email_to",
+    "email_from",
+    "rhost",
+    "rport"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 5
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

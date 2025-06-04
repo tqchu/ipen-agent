@@ -1,0 +1,60 @@
+{
+  "Name": "SMBv3 Compression Buffer Overflow",
+  "Description": "A vulnerability exists within the Microsoft Server Message Block 3.1.1 (SMBv3) protocol that can be leveraged to execute code on a vulnerable server. This local exploit implementation leverages this flaw to elevate itself before injecting a payload into winlogon.exe.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/cve_2020_0796_smbghost.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "Daniel Garc\u00eda Guti\u00e9rrez",
+    "Manuel Blanco Paraj\u00f3n",
+    "Spencer McIntyre"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2020-0796"
+    ],
+    [
+      "URL",
+      "https://github.com/danigargu/CVE-2020-0796"
+    ],
+    [
+      "URL",
+      "https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/adv200005"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows 10 v1903-1909 x64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

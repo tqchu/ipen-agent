@@ -1,0 +1,54 @@
+{
+  "Name": "Publish-It PUI Buffer Overflow (SEH)",
+  "Description": "This module exploits a stack based buffer overflow in Publish-It when processing a specially crafted .PUI file. This vulnerability could be exploited by a remote attacker to execute arbitrary code on the target machine by enticing a user of Publish-It to open a malicious .PUI file.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/publishit_pui.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Daniel Kazimirow",
+    "Andrew Smith \"jakx_\""
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "102911"
+    ],
+    [
+      "CVE",
+      "2014-0980"
+    ],
+    [
+      "EDB",
+      "31461"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Publish-It 3.6d"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

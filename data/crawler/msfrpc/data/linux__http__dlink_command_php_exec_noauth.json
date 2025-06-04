@@ -1,0 +1,113 @@
+{
+  "Name": "D-Link Devices Unauthenticated Remote Command Execution",
+  "Description": "Various D-Link Routers are vulnerable to OS command injection via the web interface. The vulnerability exists in command.php, which is accessible without authentication. This module has been tested with the versions DIR-600 2.14b01, DIR-300 rev B 2.13.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/http/dlink_command_php_exec_noauth.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Michael Messner <devnull@s3cur1ty.de>",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "89861"
+    ],
+    [
+      "EDB",
+      "24453"
+    ],
+    [
+      "BID",
+      "57734"
+    ],
+    [
+      "URL",
+      "http://www.dlink.com/uk/en/home-solutions/connect/routers/dir-600-wireless-n-150-home-router"
+    ],
+    [
+      "URL",
+      "http://www.s3cur1ty.de/home-network-horror-days"
+    ],
+    [
+      "URL",
+      "http://www.s3cur1ty.de/m1adv2013-003"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TelnetTimeout",
+    "TelnetBannerTimeout",
+    "SessionTimeout"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "cmd/unix/interact"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

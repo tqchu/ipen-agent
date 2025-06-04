@@ -1,0 +1,74 @@
+{
+  "Name": "Solaris sadmind Command Execution",
+  "Description": "This exploit targets a weakness in the default security settings of the sadmind RPC application. This server is installed and enabled by default on most versions of the Solaris operating system. Vulnerable systems include solaris 2.7, 8, and 9",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/solaris/sunrpc/sadmind_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "vlad902 <vlad902@gmail.com>",
+    "hdm <x@hdm.io>",
+    "cazz <bmc@shmoo.com>",
+    "midnitesnake"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2003-0722"
+    ],
+    [
+      "OSVDB",
+      "4585"
+    ],
+    [
+      "BID",
+      "8615"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Solaris",
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "ONCRPC::tcp_request_fragmentation",
+    "TIMEOUT",
+    "HOSTNAME",
+    "GID",
+    "UID"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,66 @@
+{
+  "Name": "GitLens Git Local Configuration Exec",
+  "Description": "GitKraken GitLens before v.14.0.0 allows an untrusted workspace to execute git commands. A repo may include its own .git folder including a malicious config file to execute arbitrary code. Tested against VSCode 1.87.2 with GitLens 13.6.0 on Ubuntu 22.04 and Windows 10",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/fileformat/gitlens_local_config_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "h00die",
+    "Paul Gerste"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://www.sonarsource.com/blog/vscode-security-markdown-vulnerabilities-in-extensions/"
+    ],
+    [
+      "URL",
+      "https://www.sonarsource.com/blog/securing-developer-tools-git-integrations/"
+    ],
+    [
+      "URL",
+      "https://github.com/gitkraken/vscode-gitlens/commit/ee2a0c42a92d33059a39fd15fbbd5dd3d5ab6440"
+    ],
+    [
+      "CVE",
+      "2023-46944"
+    ]
+  ],
+  "Platform": [],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Linux/Unix (In-Memory)"
+    ],
+    [
+      1,
+      "PowerShell (In-Memory)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "README"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread",
+    "DisablePayloadHandler": false,
+    "FILENAME": "repo.zip",
+    "WfsDelay": 3600
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

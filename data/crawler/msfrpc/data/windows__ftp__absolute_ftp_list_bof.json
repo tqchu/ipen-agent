@@ -1,0 +1,64 @@
+{
+  "Name": "AbsoluteFTP 1.9.6 - 2.2.10 LIST Command Remote Buffer Overflow",
+  "Description": "This module exploits VanDyke Software AbsoluteFTP by overflowing a filename buffer related to the LIST command.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/ftp/absolute_ftp_list_bof.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Node"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2011-5164"
+    ],
+    [
+      "OSVDB",
+      "77105"
+    ],
+    [
+      "EDB",
+      "18102"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "WinXP SP2 - Windows 7 SP1 / AbsoluteFTP 1.9.6 - 2.2.10.252"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "PASVPORT"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,101 @@
+{
+  "Name": "Zyxel Firewall SUID Binary Privilege Escalation",
+  "Description": "This module exploits CVE-2022-30526, a local privilege escalation vulnerability that allows a low privileged user (e.g. nobody) escalate to root. The issue stems from a suid binary that allows all users to copy files as root. This module overwrites the firewall's crontab to execute an attacker provided script, resulting in code execution as root. In order to use this module, the attacker must first establish shell access. For example, by exploiting CVE-2022-30525. Known affected Zyxel models are: USG FLEX (50, 50W, 100W, 200, 500, 700), ATP (100, 200, 500, 700, 800), VPN (50, 100, 300, 1000), USG20-VPN and USG20W-VPN.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/zyxel_suid_cp_lpe.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "jbaines-r7"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2022-30526"
+    ],
+    [
+      "URL",
+      "https://www.zyxel.com/support/Zyxel-security-advisory-authenticated-directory-traversal-vulnerabilities-of-firewalls.shtml"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd",
+    "mips64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Unix Command"
+    ],
+    [
+      1,
+      "Linux Dropper"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "CMDSTAGER::FLAVOR",
+    "CMDSTAGER::DECODER",
+    "CMDSTAGER::TEMP",
+    "CMDSTAGER::URIPATH",
+    "CMDSTAGER::SSL",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "MeterpreterTryToFork": true,
+    "WfsDelay": 70
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

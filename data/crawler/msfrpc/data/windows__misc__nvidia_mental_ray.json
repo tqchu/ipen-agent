@@ -1,0 +1,83 @@
+{
+  "Name": "Nvidia Mental Ray Satellite Service Arbitrary DLL Injection",
+  "Description": "The Nvidia Mental Ray Satellite Service listens for control commands on port 7414. When it receives the command to load a DLL (via an UNC path) it will try to connect back to the host on port 7514. If a TCP connection is successful it will then attempt to load the DLL. This module has been tested successfully on Win7 x64 with Nvidia Mental Ray Satellite Service v3.11.1.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/nvidia_mental_ray.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Luigi Auriemma",
+    "Donato Ferrante",
+    "Ben Campbell <eat_meatballs@hotmail.co.uk>"
+  ],
+  "References": [
+    [
+      "URL",
+      "http://revuln.com/files/ReVuln_NVIDIA_mental_ray.pdf"
+    ],
+    [
+      "OSVDB",
+      "100827"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows x64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "CAINPWFILE",
+    "JOHNPWFILE",
+    "SMBDomain",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "LISTEN_PORT",
+    "SMB_DELAY"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

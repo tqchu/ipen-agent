@@ -1,0 +1,112 @@
+{
+  "Name": "Trend Micro Web Security (Virtual Appliance) Remote Code Execution",
+  "Description": "This module exploits multiple vulnerabilities together in order to achive a remote code execution. Unauthenticated users can execute a terminal command under the context of the root user. The specific flaw exists within the LogSettingHandler class of administrator interface software. When parsing the mount_device parameter, the process does not properly validate a user-supplied string before using it to execute a system call. An attacker can leverage this vulnerability to execute code in the context of root. But authentication is required to exploit this vulnerability. Another specific flaw exist within the proxy service, which listens on port 8080 by default. Unauthenticated users can exploit this vulnerability in order to communicate with internal services in the product. Last but not least a flaw exists within the Apache Solr application, which is installed within the product. When parsing the file parameter, the process does not properly validate a user-supplied path prior to using it in file operations. An attacker can leverage this vulnerability to disclose information in the context of the IWSS user. Due to combination of these vulnerabilities, unauthenticated users can execute a terminal command under the context of the root user. Version perior to 6.5 SP2 Patch 4 (Build 1901) are affected.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/http/trendmicro_websecurity_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Mehmet Ince <mehmet@mehmetince.net>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2020-8604"
+    ],
+    [
+      "CVE",
+      "2020-8605"
+    ],
+    [
+      "CVE",
+      "2020-8606"
+    ],
+    [
+      "ZDI",
+      "20-676"
+    ],
+    [
+      "ZDI",
+      "20-677"
+    ],
+    [
+      "ZDI",
+      "20-678"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Python"
+  ],
+  "Arch": [
+    "python"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "PROXY_PORT"
+  ],
+  "DefaultOptions": {
+    "SSL": true,
+    "payload": "python/meterpreter/reverse_tcp",
+    "WfsDelay": 30
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

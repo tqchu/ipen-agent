@@ -1,0 +1,160 @@
+{
+  "Name": "GL.iNet Unauthenticated Remote Command Execution via the logread module.",
+  "Description": "A command injection vulnerability exists in multiple GL.iNet network products, allowing an attacker to inject and execute arbitrary shell commands via JSON parameters at the `gl_system_log` and `gl_crash_log` interface in the `logread` module. This exploit requires post-authentication using the `Admin-Token` cookie/sessionID (`SID`), typically stolen by the attacker. However, by chaining this exploit with vulnerability CVE-2023-50919, one can bypass the Nginx authentication through a `Lua` string pattern matching and SQL injection vulnerability. The `Admin-Token` cookie/`SID` can be retrieved without knowing a valid username and password. The following GL.iNet network products are vulnerable: - A1300, AX1800, AXT1800, MT3000, MT2500/MT2500A: v4.0.0 < v4.5.0; - MT6000: v4.5.0 - v4.5.3; - MT1300, MT300N-V2, AR750S, AR750, AR300M, AP1300, B1300: v4.3.7; - E750/E750V2, MV1000: v4.3.8; - X3000: v4.0.0 - v4.4.2; - XE3000: v4.0.0 - v4.4.3; - SFT1200: v4.3.6; - and potentially others (just try ;-) NOTE: Staged Meterpreter payloads might core dump on the target, so use stage-less Meterpreter payloads when using the Linux Dropper target.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/http/glinet_unauth_rce_cve_2023_50445.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "h00die-gr3y <h00die.gr3y@gmail.com>",
+    "Unknown",
+    "DZONERZY"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2023-50445"
+    ],
+    [
+      "CVE",
+      "2023-50919"
+    ],
+    [
+      "URL",
+      "https://attackerkb.com/topics/3LmJ0d7rzC/cve-2023-50445"
+    ],
+    [
+      "URL",
+      "https://attackerkb.com/topics/LdqSuqHKOj/cve-2023-50919"
+    ],
+    [
+      "URL",
+      "https://libdzonerzy.so/articles/from-zero-to-botnet-glinet.html"
+    ],
+    [
+      "URL",
+      "https://github.com/gl-inet/CVE-issues/blob/main/4.0.0/Using%20Shell%20Metacharacter%20Injection%20via%20API.md"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "cmd",
+    "mipsle",
+    "mipsbe",
+    "armle",
+    "aarch64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Unix Command"
+    ],
+    [
+      1,
+      "Linux Dropper"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "CMDSTAGER::FLAVOR",
+    "CMDSTAGER::DECODER",
+    "CMDSTAGER::TEMP",
+    "CMDSTAGER::URIPATH",
+    "CMDSTAGER::SSL",
+    "SID",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "RPORT": 443,
+    "SSL": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

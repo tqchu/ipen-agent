@@ -1,0 +1,50 @@
+{
+  "Name": "ABBS Audio Media Player .LST Buffer Overflow",
+  "Description": "This module exploits a buffer overflow in ABBS Audio Media Player. The vulnerability occurs when adding a specially crafted .lst file, allowing arbitrary code execution with the privileges of the user running the application. This module has been tested successfully on ABBS Audio Media Player 3.1 over Windows XP SP3 and Windows 7 SP1.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/abbs_amp_lst.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Julian Ahrens",
+    "modpr0be <modpr0be@spentera.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "75096"
+    ],
+    [
+      "EDB",
+      "25204"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "ABBS Audio Media Player 3.1 / Windows XP SP3 / Windows 7 SP1"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

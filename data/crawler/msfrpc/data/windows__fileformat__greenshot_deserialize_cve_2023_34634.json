@@ -1,0 +1,51 @@
+{
+  "Name": "Greenshot .NET Deserialization Fileformat Exploit",
+  "Description": "There exists a .NET deserialization vulnerability in Greenshot version 1.3.274 and below. The deserialization allows the execution of commands when a user opens a Greenshot file. The commands execute under the same permissions as the Greenshot service. Typically, is the logged in user.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/greenshot_deserialize_cve_2023_34634.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "p4r4bellum",
+    "bwatters-r7"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2023-34634"
+    ],
+    [
+      "EDB",
+      "51633"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "PNG_FILE"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

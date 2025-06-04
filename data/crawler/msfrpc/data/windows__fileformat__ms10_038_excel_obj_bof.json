@@ -1,0 +1,68 @@
+{
+  "Name": "MS11-038 Microsoft Office Excel Malformed OBJ Record Handling Overflow",
+  "Description": "This module exploits a vulnerability found in Excel 2002 of Microsoft Office XP. By supplying a .xls file with a malformed OBJ (recType 0x5D) record an attacker can get the control of the execution flow. This results in arbitrary code execution under the context of the user.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/ms10_038_excel_obj_bof.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Nicolas Joly",
+    "Shahin Ramezany <shahin@abysssec.com>",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2010-0822"
+    ],
+    [
+      "OSVDB",
+      "65236"
+    ],
+    [
+      "BID",
+      "40520"
+    ],
+    [
+      "MSB",
+      "MS10-038"
+    ],
+    [
+      "URL",
+      "https://www.exploit-db.com/moaub-24-microsoft-excel-obj-record-stack-overflow/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Microsoft Office Excel 2002 10.2614.2625 Service Pack 0(Office XP) on Windows XP SP3"
+    ],
+    [
+      1,
+      "Microsoft Office Excel 2002 10.6501.6626 Service Pack 3 (Office XP SP3) on Windows XP SP3"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

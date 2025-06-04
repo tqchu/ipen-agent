@@ -1,0 +1,116 @@
+{
+  "Name": "Wordpress Plugin Catch Themes Demo Import RCE",
+  "Description": "The Wordpress Plugin Catch Themes Demo Import versions < 1.8 are vulnerable to authenticated arbitrary file uploads via the import functionality found in the ~/inc/CatchThemesDemoImport.php file, due to insufficient file type validation. Re-exploitation may need a reboot of the server, or to wait an arbitrary timeout. During testing this timeout was roughly 5min.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/http/wp_catch_themes_demo_import.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "h00die",
+    "Ron Jost",
+    "Thinkland Security Team"
+  ],
+  "References": [
+    [
+      "EDB",
+      "50580"
+    ],
+    [
+      "CVE",
+      "2021-39352"
+    ],
+    [
+      "URL",
+      "https://plugins.trac.wordpress.org/changeset/2617555/catch-themes-demo-import/trunk/inc/CatchThemesDemoImport.php"
+    ],
+    [
+      "URL",
+      "https://www.wordfence.com/vulnerability-advisories/#CVE-2021-39352"
+    ],
+    [
+      "WPVDB",
+      "781f2ff4-cb94-40d7-96cb-90128daed862"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::PHP"
+  ],
+  "Arch": [
+    "php"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic Target"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TARGETURI",
+    "WPCONTENTDIR",
+    "WPCHECK",
+    "USERNAME",
+    "PASSWORD",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "php/meterpreter/reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,77 @@
+{
+  "Name": "SCADA 3S CoDeSys Gateway Server Directory Traversal",
+  "Description": "This module exploits a directory traversal vulnerability that allows arbitrary file creation, which can be used to execute a mof file in order to gain remote execution within the SCADA system.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/scada/codesys_gateway_server_traversal.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Enrique Sanchez <esanchez@accuvant.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2012-4705"
+    ],
+    [
+      "OSVDB",
+      "90368"
+    ],
+    [
+      "URL",
+      "http://ics-cert.us-cert.gov/pdf/ICSA-13-050-01-a.pdf"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows Universal S3 CoDeSyS < 2.3.9.27"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,60 @@
+{
+  "Name": "UltraISO CUE File Parsing Buffer Overflow",
+  "Description": "This module exploits a stack-based buffer overflow in EZB Systems, Inc's UltraISO. When processing .CUE files, data is read from file into a fixed-size stack buffer. Since no bounds checking is done, a buffer overflow can occur. Attackers can execute arbitrary code by convincing their victim to open an CUE file. NOTE: A file with the same base name, but the extension of \"bin\" must also exist. Opening either file will trigger the vulnerability, but the files must both exist.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/ultraiso_cue.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "n00b",
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2007-2888"
+    ],
+    [
+      "OSVDB",
+      "36570"
+    ],
+    [
+      "BID",
+      "24140"
+    ],
+    [
+      "EDB",
+      "3978"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows - UltraISO v8.6.2.2011 portable"
+    ],
+    [
+      1,
+      "Windows - UltraISO v8.6.0.1936"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

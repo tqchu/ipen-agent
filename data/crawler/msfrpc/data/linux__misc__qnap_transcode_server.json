@@ -1,0 +1,103 @@
+{
+  "Name": "QNAP Transcode Server Command Execution",
+  "Description": "This module exploits an unauthenticated remote command injection vulnerability in QNAP NAS devices. The transcoding server listens on port 9251 by default and is vulnerable to command injection using the 'rmfile' command. This module was tested successfully on a QNAP TS-431 with firmware version 4.3.3.0262 (20170727).",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/misc/qnap_transcode_server.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Zenofex",
+    "0x00string",
+    "bcoles <bcoles@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2017-13067"
+    ],
+    [
+      "URL",
+      "https://www.exploitee.rs/index.php/QNAP_TS-131"
+    ],
+    [
+      "URL",
+      "http://docs.qnap.com/nas/4.1/Home/en/index.html?transcode_management.htm"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "armle"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSLCert",
+    "SSLCompression",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "CMDSTAGER::FLAVOR",
+    "CMDSTAGER::TEMP",
+    "CMDSTAGER::URIPATH",
+    "CMDSTAGER::SSL",
+    "DELAY"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "linux/armle/meterpreter_reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

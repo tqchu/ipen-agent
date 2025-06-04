@@ -1,0 +1,104 @@
+{
+  "Name": "Adobe Flash Player Object Type Confusion",
+  "Description": "This module exploits a vulnerability found in Adobe Flash Player. By supplying a corrupt AMF0 \"_error\" response, it is possible to gain arbitrary remote code execution under the context of the user. This vulnerability has been exploited in the wild as part of the \"World Uyghur Congress Invitation.doc\" e-mail attack. According to the advisory, 10.3.183.19 and 11.x before 11.2.202.235 are affected.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/adobe_flash_rtmp.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "sinn3r <sinn3r@metasploit.com>",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2012-0779"
+    ],
+    [
+      "OSVDB",
+      "81656"
+    ],
+    [
+      "BID",
+      "53395"
+    ],
+    [
+      "URL",
+      "http://www.adobe.com/support/security/bulletins/apsb12-09.html"
+    ],
+    [
+      "URL",
+      "http://contagiodump.blogspot.com.es/2012/05/may-3-cve-2012-0779-world-uyghur.html"
+    ],
+    [
+      "URL",
+      "https://www.rapid7.com/blog/post/2012/06/22/the-secret-sauce-to-cve-2012-0779-adobe-flash-object-confusion-vulnerability"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "IE 6 on Windows XP SP3"
+    ],
+    [
+      2,
+      "IE 7 on Windows XP SP3"
+    ],
+    [
+      3,
+      "IE 8 on Windows XP SP3 with msvcrt ROP"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "OBFUSCATE",
+    "RTMPHOST",
+    "RTMPPORT"
+  ],
+  "DefaultOptions": {
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

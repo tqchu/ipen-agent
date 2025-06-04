@@ -1,0 +1,71 @@
+{
+  "Name": "Zimbra sudo + postfix privilege escalation",
+  "Description": "This module exploits a vulnerable sudo configuration that permits the zimbra user to execute postfix as root. In turn, postfix can execute arbitrary shellscripts, which means it can execute a root shell.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/zimbra_postfix_priv_esc.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "EvergreenCartoons",
+    "Ron Bowes"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2022-3569"
+    ],
+    [
+      "URL",
+      "https://twitter.com/ldsopreload/status/1580539318879547392"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Auto"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "SUDO_PATH",
+    "ZIMBRA_BASE",
+    "WritableDir",
+    "PayloadFilename",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

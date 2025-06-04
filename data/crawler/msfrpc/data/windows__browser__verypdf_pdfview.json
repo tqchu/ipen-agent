@@ -1,0 +1,77 @@
+{
+  "Name": "VeryPDF PDFView OCX ActiveX OpenPDF Heap Overflow",
+  "Description": "The VeryPDF PDFView ActiveX control is prone to a heap buffer-overflow because it fails to properly bounds-check user-supplied data before copying it into an insufficiently sized memory buffer. An attacker can exploit this issue to execute arbitrary code within the context of the affected application.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/verypdf_pdfview.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "MC <mc@metasploit.com>",
+    "dean <dean@zerodaysolutions.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2008-5492"
+    ],
+    [
+      "OSVDB",
+      "49871"
+    ],
+    [
+      "BID",
+      "32313"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows XP SP0-SP3 / Windows Vista / IE 6.0 SP0-SP2 / IE 7"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

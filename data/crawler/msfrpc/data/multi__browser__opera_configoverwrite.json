@@ -1,0 +1,66 @@
+{
+  "Name": "Opera 9 Configuration Overwrite",
+  "Description": "Opera web browser in versions <= 9.10 allows unrestricted script access to its configuration page, opera:config, allowing an attacker to change settings and potentially execute arbitrary code.",
+  "License": "BSD License",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/browser/opera_configoverwrite.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "egypt <egypt@metasploit.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "66472"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Opera < 9.10 Unix Cmd"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

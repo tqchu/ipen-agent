@@ -1,0 +1,76 @@
+{
+  "Name": "Linux udev Netlink Local Privilege Escalation",
+  "Description": "Versions of udev < 1.4.1 do not verify that netlink messages are coming from the kernel. This allows local users to gain privileges by sending netlink messages from userland.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/udev_netlink.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "kcope",
+    "Jon Oberheide",
+    "egypt <egypt@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2009-1185"
+    ],
+    [
+      "OSVDB",
+      "53810"
+    ],
+    [
+      "BID",
+      "34536"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Linux x86"
+    ],
+    [
+      1,
+      "Linux x64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "NetlinkPID",
+    "WritableDir"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 2
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

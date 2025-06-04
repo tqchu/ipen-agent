@@ -1,0 +1,77 @@
+{
+  "Name": "HP Data Protector 6 EXEC_CMD Remote Code Execution",
+  "Description": "This exploit abuses a vulnerability in the HP Data Protector service. This flaw allows an unauthenticated attacker to take advantage of the EXEC_CMD command and traverse back to /bin/sh, this allows arbitrary remote code execution under the context of root.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/misc/hp_data_protector_cmd_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "ch0ks",
+    "c4an",
+    "wireghoul",
+    "Javier Ignacio"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2011-0923"
+    ],
+    [
+      "OSVDB",
+      "72526"
+    ],
+    [
+      "ZDI",
+      "11-055"
+    ],
+    [
+      "URL",
+      "http://hackarandas.com/blog/2011/08/04/hp-data-protector-remote-shell-for-hpux"
+    ],
+    [
+      "URL",
+      "https://community.rapid7.com/thread/2253"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "HP Data Protector 6.10/6.11/6.20 on Linux"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,81 @@
+{
+  "Name": "Microsoft Windows POP/MOV SS Local Privilege Elevation Vulnerability",
+  "Description": "This module exploits a vulnerability in a statement in the system programming guide of the Intel 64 and IA-32 architectures software developer's manual being mishandled in various operating system kerneles, resulting in unexpected behavior for #DB excpetions that are deferred by MOV SS or POP SS. This module will upload the pre-compiled exploit and use it to execute the final payload in order to gain remote code execution.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/mov_ss.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Nick Peterson",
+    "Nemanja Mulasmajic",
+    "Can B\u00f6l\u00fck <can1357>",
+    "bwatters-r7"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2018-8897"
+    ],
+    [
+      "EDB",
+      "44697"
+    ],
+    [
+      "BID",
+      "104071"
+    ],
+    [
+      "URL",
+      "https://github.com/can1357/CVE-2018-8897/"
+    ],
+    [
+      "URL",
+      "https://blog.can.ac/2018/05/11/arbitrary-code-execution-at-ring-0-using-cve-2018-8897/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows x64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "USE_INJECTION",
+    "EXPLOIT_NAME",
+    "PAYLOAD_NAME",
+    "PATH",
+    "EXECUTE_DELAY"
+  ],
+  "DefaultOptions": {
+    "DisablePayloadHandler": false
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,69 @@
+{
+  "Name": "GLD (Greylisting Daemon) Postfix Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in the Salim Gasmi GLD <= 1.4 greylisting daemon for Postfix. By sending an overly long string the stack can be overwritten.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/misc/gld_postfix.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "aushack <patrick@osisecurity.com.au>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2005-1099"
+    ],
+    [
+      "OSVDB",
+      "15492"
+    ],
+    [
+      "BID",
+      "13129"
+    ],
+    [
+      "EDB",
+      "934"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "RedHat Linux 7.0 (Guinness)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

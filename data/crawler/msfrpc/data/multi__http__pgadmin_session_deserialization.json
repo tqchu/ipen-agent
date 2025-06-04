@@ -1,0 +1,116 @@
+{
+  "Name": "pgAdmin Session Deserialization RCE",
+  "Description": "pgAdmin versions <= 8.3 have a path traversal vulnerability within their session management logic that can allow a pickled file to be loaded from an arbitrary location. This can be used to load a malicious, serialized Python object to execute code within the context of the target application. This exploit supports two techniques by which the payload can be loaded, depending on whether or not credentials are specified. If valid credentials are provided, Metasploit will login to pgAdmin and upload a payload object using pgAdmin's file management plugin. Once uploaded, this payload is executed via the path traversal before being deleted using the file management plugin. This technique works for both Linux and Windows targets. If no credentials are provided, Metasploit will start an SMB server and attempt to trigger loading the payload via a UNC path. This technique only works for Windows targets. For Windows 10 v1709 (Redstone 3) and later, it also requires that insecure outbound guest access be enabled. Tested on pgAdmin 8.3 on Linux, 7.7 on Linux, 7.0 on Linux, and 8.3 on Windows. The file management plugin underwent changes in the 6.x versions and therefor, pgAdmin versions < 7.0 can not utilize the authenticated technique whereby a payload is uploaded.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/http/pgadmin_session_deserialization.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Spencer McIntyre",
+    "Davide Silvetti",
+    "Abdel Adim Oisfi"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2024-2044"
+    ],
+    [
+      "URL",
+      "https://www.shielder.com/advisories/pgadmin-path-traversal_leads_to_unsafe_deserialization_and_rce/"
+    ],
+    [
+      "URL",
+      "https://github.com/pgadmin-org/pgadmin4/commit/4e49d752fba72953acceeb7f4aa2e6e32d25853d"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Python"
+  ],
+  "Arch": [
+    "python"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "CAINPWFILE",
+    "JOHNPWFILE",
+    "SHARE",
+    "FILE_NAME",
+    "FOLDER_NAME",
+    "SMBDomain",
+    "TARGETURI",
+    "USERNAME",
+    "PASSWORD",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "SSL": true,
+    "WfsDelay": 5
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

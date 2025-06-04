@@ -1,0 +1,83 @@
+{
+  "Name": "Adobe Flash Player ActionScript Launch Command Execution Vulnerability",
+  "Description": "This module exploits a vulnerability in Adobe Flash Player for Linux, version 10.0.12.36 and 9.0.151.0 and prior. An input validation vulnerability allows command execution when the browser loads a SWF file which contains shell metacharacters in the arguments to the ActionScript launch method. The victim must have Adobe AIR installed for the exploit to work. This module was tested against version 10.0.12.36 (10r12_36).",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/browser/adobe_flashplayer_aslaunch.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "0a29406d9794e4f9b30b3c5d6702c708"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2008-5499"
+    ],
+    [
+      "OSVDB",
+      "50796"
+    ],
+    [
+      "BID",
+      "32896"
+    ],
+    [
+      "URL",
+      "http://www.adobe.com/support/security/bulletins/apsb08-24.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": {
+    "HTTP::compression": "gzip",
+    "HTTP::chunked": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

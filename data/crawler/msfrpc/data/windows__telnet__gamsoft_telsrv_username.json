@@ -1,0 +1,80 @@
+{
+  "Name": "GAMSoft TelSrv 1.5 Username Buffer Overflow",
+  "Description": "This module exploits a username sprintf stack buffer overflow in GAMSoft TelSrv 1.5. Other versions may also be affected. The service terminates after exploitation, so you only get one chance!",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/telnet/gamsoft_telsrv_username.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "aushack <patrick@osisecurity.com.au>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2000-0665"
+    ],
+    [
+      "OSVDB",
+      "373"
+    ],
+    [
+      "BID",
+      "1478"
+    ],
+    [
+      "URL",
+      "http://cdn.simtel.net/pub/simtelnet/win95/inetmisc/telsrv15.zip"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows 2000 Pro SP0/4 English REMOTE"
+    ],
+    [
+      1,
+      "Windows 2000 Pro SP0/4 English LOCAL (debug - 127.0.0.1)"
+    ],
+    [
+      2,
+      "Windows 2000 Pro SP0/4 English LOCAL (debug - dhcp)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

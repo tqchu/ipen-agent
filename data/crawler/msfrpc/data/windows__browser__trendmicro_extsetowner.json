@@ -1,0 +1,80 @@
+{
+  "Name": "Trend Micro Internet Security Pro 2010 ActiveX extSetOwner() Remote Code Execution",
+  "Description": "This module exploits a remote code execution vulnerability in Trend Micro Internet Security Pro 2010 ActiveX. When sending an invalid pointer to the extSetOwner() function of UfPBCtrl.dll an attacker may be able to execute arbitrary code.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/trendmicro_extsetowner.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Trancer <mtrancer@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2010-3189"
+    ],
+    [
+      "OSVDB",
+      "67561"
+    ],
+    [
+      "ZDI",
+      "10-165"
+    ],
+    [
+      "EDB",
+      "14878"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows XP SP0-SP2 / Windows Vista / IE 6.0 SP0-SP2 / IE 7"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

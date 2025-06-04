@@ -1,0 +1,112 @@
+{
+  "Name": "Palo Alto Networks PAN-OS Management Interface Unauthenticated Remote Code Execution",
+  "Description": "This module exploits an authentication bypass vulnerability (CVE-2024-0012) and a command injection vulnerability (CVE-2024-9474) in the PAN-OS management web interface. An unauthenticated attacker can execute arbitrary code with root privileges. The following versions are affected: * PAN-OS 11.2 (up to and including 11.2.4-h1) * PAN-OS 11.1 (up to and including 11.1.5-h1) * PAN-OS 11.0 (up to and including 11.0.6-h1) * PAN-OS 10.2 (up to and including 10.2.12-h2)",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/http/panos_management_unauth_rce.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "watchTowr",
+    "sfewer-r7"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2024-0012"
+    ],
+    [
+      "CVE",
+      "2024-9474"
+    ],
+    [
+      "URL",
+      "https://security.paloaltonetworks.com/CVE-2024-0012"
+    ],
+    [
+      "URL",
+      "https://security.paloaltonetworks.com/CVE-2024-9474"
+    ],
+    [
+      "URL",
+      "https://labs.watchtowr.com/pots-and-pans-aka-an-sslvpn-palo-alto-pan-os-cve-2024-0012-and-cve-2024-9474/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Default"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "WRITABLE_DIR",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "RPORT": 443,
+    "SSL": true,
+    "FETCH_WRITABLE_DIR": "/var/tmp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

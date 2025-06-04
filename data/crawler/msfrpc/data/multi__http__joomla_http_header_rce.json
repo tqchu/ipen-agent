@@ -1,0 +1,127 @@
+{
+  "Name": "Joomla HTTP Header Unauthenticated Remote Code Execution",
+  "Description": "Joomla suffers from an unauthenticated remote code execution that affects all versions from 1.5.0 to 3.4.5. By storing user supplied headers in the databases session table it's possible to truncate the input by sending an UTF-8 character. The custom created payload is then executed once the session is read from the database. You also need to have a PHP version before 5.4.45 (including 5.3.x), 5.5.29 or 5.6.13. In later versions the deserialisation of invalid session data stops on the first error and the exploit will not work. The PHP Patch was included in Ubuntu versions 5.5.9+dfsg-1ubuntu4.13 and 5.3.10-1ubuntu3.20 and in Debian in version 5.4.45-0+deb7u1.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/http/joomla_http_header_rce.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Marc-Alexandre Montpas",
+    "Christian Mehlmauer <FireFart@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2015-8562"
+    ],
+    [
+      "EDB",
+      "38977"
+    ],
+    [
+      "EDB",
+      "39033"
+    ],
+    [
+      "URL",
+      "https://blog.sucuri.net/2015/12/joomla-remote-code-execution-the-details.html"
+    ],
+    [
+      "URL",
+      "https://blog.sucuri.net/2015/12/remote-command-execution-vulnerability-in-joomla.html"
+    ],
+    [
+      "URL",
+      "https://developer.joomla.org/security-centre/630-20151214-core-remote-code-execution-vulnerability.html"
+    ],
+    [
+      "URL",
+      "https://blog.patrolserver.com/2015/12/17/in-depth-analyses-of-the-joomla-0-day-user-agent-exploit/"
+    ],
+    [
+      "URL",
+      "https://translate.google.com/translate?hl=en&sl=auto&tl=en&u=http%3A%2F%2Fdrops.wooyun.org%2Fpapers%2F11330"
+    ],
+    [
+      "URL",
+      "https://translate.google.com/translate?hl=en&sl=auto&tl=en&u=http%3A%2F%2Fwww.freebuf.com%2Fvuls%2F89754.html"
+    ],
+    [
+      "URL",
+      "https://bugs.php.net/bug.php?id=70219"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::PHP"
+  ],
+  "Arch": [
+    "php"
+  ],
+  "Targets": [
+    [
+      0,
+      "Joomla 1.5.0 - 3.4.5"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TARGETURI",
+    "HEADER",
+    "FORCE"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

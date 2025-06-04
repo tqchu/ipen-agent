@@ -1,0 +1,57 @@
+{
+  "Name": "Audio Workstation 6.4.2.4.3 pls Buffer Overflow",
+  "Description": "This module exploits a buffer overflow in Audio Workstation 6.4.2.4.3. When opening a malicious pls file with the Audio Workstation, a remote attacker could overflow a buffer and execute arbitrary code.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/audio_wkstn_pls.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "germaya_x",
+    "dookie"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2009-0476"
+    ],
+    [
+      "OSVDB",
+      "55424"
+    ],
+    [
+      "EDB",
+      "10353"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "seh",
+    "DisablePayloadHandler": true,
+    "AllowWin32SEH": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

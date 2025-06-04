@@ -1,0 +1,101 @@
+{
+  "Name": "HP Performance Monitoring xglance Priv Esc",
+  "Description": "This exploit takes advantage of xglance-bin, part of HP's Glance (or Performance Monitoring) version 11 'and subsequent' , which was compiled with an insecure RPATH option. The RPATH includes a relative path to -L/lib64/ which can be controlled by a user. Creating libraries in this location will result in an escalation of privileges to root.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/hp_xglance_priv_esc.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "h00die",
+    "Tim Brown",
+    "Robert Jaroszuk",
+    "Marco Ortisi"
+  ],
+  "References": [
+    [
+      "EDB",
+      "48000"
+    ],
+    [
+      "URL",
+      "https://seclists.org/fulldisclosure/2014/Nov/55"
+    ],
+    [
+      "URL",
+      "https://www.redtimmy.com/linux-hacking/perf-exploiter/"
+    ],
+    [
+      "URL",
+      "https://github.com/redtimmy/perf-exploiter"
+    ],
+    [
+      "PACKETSTORM",
+      "156206"
+    ],
+    [
+      "URL",
+      "https://www.portcullis-security.com/security-research-and-downloads/security-advisories/cve-2014-2630/"
+    ],
+    [
+      "CVE",
+      "2014-2630"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "Linux x86"
+    ],
+    [
+      2,
+      "Linux x64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "COMPILE",
+    "COMPILER",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "GLANCE_PATH",
+    "WritableDir",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

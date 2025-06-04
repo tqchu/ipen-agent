@@ -1,0 +1,57 @@
+{
+  "Name": "NodeJS Debugger Command Injection",
+  "Description": "This module uses the \"evaluate\" request type of the NodeJS V8 debugger protocol (version 1) to evaluate arbitrary JS and call out to other system commands. The port (default 5858) is not exposed non-locally in default configurations, but may be exposed either intentionally or via misconfiguration.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/misc/nodejs_v8_debugger.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Patrick Thomas <pst@coffeetocode.net>"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://github.com/buggerjs/bugger-v8-client/blob/master/PROTOCOL.md"
+    ],
+    [
+      "URL",
+      "https://github.com/nodejs/node/pull/8106"
+    ]
+  ],
+  "Platform": [],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "NodeJS"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

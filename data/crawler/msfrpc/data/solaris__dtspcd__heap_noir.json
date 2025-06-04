@@ -1,0 +1,74 @@
+{
+  "Name": "Solaris dtspcd Heap Overflow",
+  "Description": "This is a port of noir's dtspcd exploit. This module should work against any vulnerable version of Solaris 8 (sparc). The original exploit code was published in the book Shellcoder's Handbook.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/solaris/dtspcd/heap_noir.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "noir <noir@uberhax0r.net>",
+    "hdm <x@hdm.io>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2001-0803"
+    ],
+    [
+      "OSVDB",
+      "4503"
+    ],
+    [
+      "BID",
+      "3517"
+    ],
+    [
+      "URL",
+      "http://www.cert.org/advisories/CA-2001-31.html"
+    ],
+    [
+      "URL",
+      "http://media.wiley.com/product_ancillary/83/07645446/DOWNLOAD/Source_Files.zip"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Solaris"
+  ],
+  "Arch": [
+    "sparc"
+  ],
+  "Targets": [
+    [
+      0,
+      "Solaris 8"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

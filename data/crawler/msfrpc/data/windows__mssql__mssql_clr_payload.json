@@ -1,0 +1,78 @@
+{
+  "Name": "Microsoft SQL Server Clr Stored Procedure Payload Execution",
+  "Description": "This module executes an arbitrary native payload on a Microsoft SQL server by loading a custom SQL CLR Assembly into the target SQL installation, and calling it directly with a base64-encoded payload. The module requires working credentials in order to connect directly to the MSSQL Server. This method requires the user to have sufficient privileges to install a custom SQL CRL DLL, and invoke the custom stored procedure that comes with it. This exploit does not leave any binaries on disk. Tested on MS SQL Server versions: 2005, 2012, 2016 (all x64).",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/mssql/mssql_clr_payload.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Lee Christensen",
+    "Nathan Kirk",
+    "OJ Reeves"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://web.archive.org/web/20200810021536/http://sekirkity.com/command-execution-in-sql-server-via-fileless-clr-based-custom-stored-procedure/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "CPORT",
+    "CHOST",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "NTLM::UseNTLMv2",
+    "NTLM::UseNTLM2_session",
+    "NTLM::SendLM",
+    "NTLM::UseLMKey",
+    "NTLM::SendNTLM",
+    "NTLM::SendSPN",
+    "USERNAME",
+    "PASSWORD",
+    "USE_WINDOWS_AUTHENT",
+    "HEX2BINARY",
+    "DOMAIN",
+    "KrbCacheMode",
+    "Mssql::Auth",
+    "Mssql::Rhostname",
+    "DomainControllerRhost",
+    "Mssql::Krb5Ccname",
+    "Mssql::KrbOfferedEncryptionTypes",
+    "DATABASE"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

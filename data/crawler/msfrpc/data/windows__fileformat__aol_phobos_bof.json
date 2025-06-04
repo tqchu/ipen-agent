@@ -1,0 +1,54 @@
+{
+  "Name": "AOL 9.5 Phobos.Playlist Import() Stack-based Buffer Overflow",
+  "Description": "This module exploits a stack-based buffer overflow within Phobos.dll of AOL 9.5. By setting an overly long value to 'Import()', an attacker can overrun a buffer and execute arbitrary code. NOTE: This ActiveX control is NOT marked safe for scripting or initialization.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/aol_phobos_bof.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "Trancer <mtrancer@gmail.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "61964"
+    ],
+    [
+      "EDB",
+      "11204"
+    ],
+    [
+      "URL",
+      "http://www.rec-sec.com/2010/01/25/aol-playlist-class-buffer-overflow/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows XP SP0-SP3 / IE 6.0 SP0-2 & IE 7.0"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

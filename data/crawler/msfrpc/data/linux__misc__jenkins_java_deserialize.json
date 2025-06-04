@@ -1,0 +1,84 @@
+{
+  "Name": "Jenkins CLI RMI Java Deserialization Vulnerability",
+  "Description": "This module exploits a vulnerability in Jenkins. An unsafe deserialization bug exists on the Jenkins master, which allows remote arbitrary code execution. Authentication is not required to exploit this vulnerability.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/misc/jenkins_java_deserialize.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Christopher Frohoff",
+    "Steve Breen",
+    "Dev Mohanty",
+    "Louis Sato",
+    "wvu <wvu@metasploit.com>",
+    "juan vazquez <juan.vazquez@metasploit.com>",
+    "Wei Chen"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2015-8103"
+    ],
+    [
+      "URL",
+      "https://github.com/foxglovesec/JavaUnserializeExploits/blob/master/jenkins.py"
+    ],
+    [
+      "URL",
+      "https://github.com/frohoff/ysoserial/blob/master/src/main/java/ysoserial/payloads/CommonsCollections1.java"
+    ],
+    [
+      "URL",
+      "http://foxglovesecurity.com/2015/11/06/what-do-weblogic-websphere-jboss-jenkins-opennms-and-your-application-have-in-common-this-vulnerability"
+    ],
+    [
+      "URL",
+      "https://wiki.jenkins-ci.org/display/SECURITY/Jenkins+Security+Advisory+2015-11-11"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Java"
+  ],
+  "Arch": [
+    "java"
+  ],
+  "Targets": [
+    [
+      0,
+      "Jenkins 1.637"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "TARGETURI",
+    "TEMP",
+    "XJenkinsCliPort"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

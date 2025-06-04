@@ -1,0 +1,73 @@
+{
+  "Name": "macOS cfprefsd Arbitrary File Write Local Privilege Escalation",
+  "Description": "This module exploits an arbitrary file write in cfprefsd on macOS <= 10.15.4 in order to run a payload as root. The CFPreferencesSetAppValue function, which is reachable from most unsandboxed processes, can be exploited with a race condition in order to overwrite an arbitrary file as root. By overwriting /etc/pam.d/login a user can then login as root with the `login root` command without a password.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/osx/local/cfprefsd_race_condition.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Yonghwi Jin <jinmoteam@gmail.com>",
+    "Jungwon Lim <setuid0@protonmail.com>",
+    "Insu Yun <insu@gatech.edu>",
+    "Taesoo Kim <taesoo@gatech.edu>",
+    "timwr"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2020-9839"
+    ],
+    [
+      "URL",
+      "https://github.com/sslab-gatech/pwn2own2020"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::OSX"
+  ],
+  "Arch": [
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Mac OS X x64 (Native Payload)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "WritableDir",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 300,
+    "PAYLOAD": "osx/x64/meterpreter/reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

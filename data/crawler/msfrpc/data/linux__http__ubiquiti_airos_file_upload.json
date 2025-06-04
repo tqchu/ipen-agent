@@ -1,0 +1,100 @@
+{
+  "Name": "Ubiquiti airOS Arbitrary File Upload",
+  "Description": "This module exploits a pre-auth file upload to install a new root user to /etc/passwd and an SSH key to /etc/dropbear/authorized_keys. FYI, /etc/{passwd,dropbear/authorized_keys} will be overwritten. /etc/persistent/rc.poststart will be overwritten if PERSIST_ETC is true. This method is used by the \"mf\" malware infecting these devices.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/http/ubiquiti_airos_file_upload.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "93c08539",
+    "wvu <wvu@metasploit.com>"
+  ],
+  "References": [
+    [
+      "EDB",
+      "39701"
+    ],
+    [
+      "URL",
+      "https://hackerone.com/reports/73480"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Ubiquiti airOS < 5.6.2"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "SSH_IDENT",
+    "SSH_TIMEOUT",
+    "SSH_DEBUG",
+    "SSH_PORT",
+    "PERSIST_ETC",
+    "WIPE_LOGS"
+  ],
+  "DefaultOptions": {
+    "SSL": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,168 @@
+{
+  "Name": "Zyxel chained RCE using LFI and weak password derivation algorithm",
+  "Description": "This module exploits multiple vulnerabilities in the `zhttpd` binary (/bin/zhttpd) and `zcmd` binary (/bin/zcmd). It is present on more than 40 Zyxel routers and CPE devices. The remote code execution vulnerability can be exploited by chaining the local file disclosure vulnerability in the zhttpd binary that allows an unauthenticated attacker to read the entire configuration of the router via the vulnerable endpoint `/Export_Log?/data/zcfg_config.json`. With this information disclosure, the attacker can determine if the router is reachable via ssh and use the second vulnerability in the `zcmd` binary to derive the `supervisor` password exploiting a weak implementation of a password derivation algorithm using the device serial number. After exploitation, an attacker will be able to execute any command as user `supervisor`.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/http/zyxel_lfi_unauth_ssh_rce.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "h00die-gr3y <h00die.gr3y@gmail.com>",
+    "SEC Consult Vulnerability Lab",
+    "Thomas Rinsma",
+    "Bogi Napoleon Wennerstr\u00f8m"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2023-28770"
+    ],
+    [
+      "URL",
+      "https://r.sec-consult.com/zyxsploit"
+    ],
+    [
+      "URL",
+      "https://sec-consult.com/vulnerability-lab/advisory/multiple-critical-vulnerabilities-in-multiple-zyxel-devices/"
+    ],
+    [
+      "URL",
+      "https://th0mas.nl/2020/03/26/getting-root-on-a-zyxel-vmg8825-t50-router/"
+    ],
+    [
+      "URL",
+      "https://github.com/boginw/zyxel-vmg8825-keygen"
+    ],
+    [
+      "URL",
+      "https://attackerkb.com/topics/tPAvkwQgDK/cve-2023-28770"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "cmd",
+    "mipsbe"
+  ],
+  "Targets": [
+    [
+      0,
+      "Unix Command"
+    ],
+    [
+      1,
+      "Linux Dropper"
+    ],
+    [
+      2,
+      "Interactive SSH"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "SSH_IDENT",
+    "SSH_TIMEOUT",
+    "SSH_DEBUG",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "CMDSTAGER::FLAVOR",
+    "CMDSTAGER::DECODER",
+    "CMDSTAGER::TEMP",
+    "CMDSTAGER::URIPATH",
+    "CMDSTAGER::SSL",
+    "STORE_CRED",
+    "ConnectTimeout",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "RPORT": 80,
+    "SSL": false,
+    "SSH_TIMEOUT": 30,
+    "WfsDelay": 5
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

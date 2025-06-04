@@ -1,0 +1,125 @@
+{
+  "Name": "ConnectWise ScreenConnect Unauthenticated Remote Code Execution",
+  "Description": "This module exploits an authentication bypass vulnerability that allows an unauthenticated attacker to create a new administrator user account on a vulnerable ConnectWise ScreenConnect server. The attacker can leverage this to achieve RCE by uploading a malicious extension module. All versions of ScreenConnect version 23.9.7 and below are affected.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/http/connectwise_screenconnect_rce_cve_2024_1709.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "sfewer-r7",
+    "WatchTowr"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2024-1708"
+    ],
+    [
+      "CVE",
+      "2024-1709"
+    ],
+    [
+      "URL",
+      "https://www.connectwise.com/company/trust/security-bulletins/connectwise-screenconnect-23.9.8"
+    ],
+    [
+      "URL",
+      "https://github.com/watchtowrlabs/connectwise-screenconnect_auth-bypass-add-user-poc/"
+    ],
+    [
+      "URL",
+      "https://www.huntress.com/blog/a-catastrophe-for-control-understanding-the-screenconnect-authentication-bypass"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows",
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "x64",
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows In-Memory"
+    ],
+    [
+      1,
+      "Windows Command"
+    ],
+    [
+      2,
+      "Linux Command"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "USERNAME",
+    "PASSWORD",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "RPORT": 8040,
+    "SSL": false,
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

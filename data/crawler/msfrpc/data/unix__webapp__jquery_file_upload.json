@@ -1,0 +1,133 @@
+{
+  "Name": "blueimp's jQuery (Arbitrary) File Upload",
+  "Description": "This module exploits an arbitrary file upload in the sample PHP upload handler for blueimp's jQuery File Upload widget in versions <= 9.22.0. Due to a default configuration in Apache 2.3.9+, the widget's .htaccess file may be disabled, enabling exploitation of this vulnerability. This vulnerability has been exploited in the wild since at least 2015 and was publicly disclosed to the vendor in 2018. It has been present since the .htaccess change in Apache 2.3.9. This module provides a generic exploit against the jQuery widget.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/unix/webapp/jquery_file_upload.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Claudio Viviani",
+    "Larry W. Cashdollar",
+    "wvu <wvu@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2018-9206"
+    ],
+    [
+      "URL",
+      "http://www.vapidlabs.com/advisory.php?v=204"
+    ],
+    [
+      "URL",
+      "https://github.com/blueimp/jQuery-File-Upload/pull/3514"
+    ],
+    [
+      "URL",
+      "https://github.com/lcashdol/Exploits/tree/master/CVE-2018-9206"
+    ],
+    [
+      "URL",
+      "https://www.homelab.it/index.php/2015/04/04/wordpress-work-the-flow-file-upload-vulnerability/"
+    ],
+    [
+      "URL",
+      "https://github.com/rapid7/metasploit-framework/pull/5130"
+    ],
+    [
+      "URL",
+      "https://httpd.apache.org/docs/current/mod/core.html#allowoverride"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::PHP",
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "php",
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "PHP Dropper"
+    ],
+    [
+      1,
+      "Linux Dropper"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "TARGETURI"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

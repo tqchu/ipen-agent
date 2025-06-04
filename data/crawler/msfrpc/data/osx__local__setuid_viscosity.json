@@ -1,0 +1,80 @@
+{
+  "Name": "Viscosity setuid-set ViscosityHelper Privilege Escalation",
+  "Description": "This module exploits a vulnerability in Viscosity 1.4.1 on Mac OS X. The vulnerability exists in the setuid ViscosityHelper, where an insufficient validation of path names allows execution of arbitrary python code as root. This module has been tested successfully on Viscosity 1.4.1 over Mac OS X 10.7.5.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/osx/local/setuid_viscosity.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Jason A. Donenfeld",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2012-4284"
+    ],
+    [
+      "OSVDB",
+      "84709"
+    ],
+    [
+      "EDB",
+      "20485"
+    ],
+    [
+      "URL",
+      "http://blog.zx2c4.com/791"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::OSX"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Viscosity 1.4.1 / Mac OS X x86"
+    ],
+    [
+      1,
+      "Viscosity 1.4.1 / Mac OS X x64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "WritableDir",
+    "Viscosity"
+  ],
+  "DefaultOptions": {
+    "PrependSetresuid": true,
+    "WfsDelay": 2
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

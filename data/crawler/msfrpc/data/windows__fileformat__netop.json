@@ -1,0 +1,50 @@
+{
+  "Name": "NetOp Remote Control Client 9.5 Buffer Overflow",
+  "Description": "This module exploits a stack-based buffer overflow in NetOp Remote Control 9.5. When opening a .dws file containing a specially crafted string longer then 520 characters will allow an attacker to execute arbitrary code.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/netop.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Ruben Alejandro \"chap0\""
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "72291"
+    ],
+    [
+      "EDB",
+      "17223"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows XP SP3"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,84 @@
+{
+  "Name": "Firefox 3.5 escape() Return Value Memory Corruption",
+  "Description": "This module exploits a memory corruption vulnerability in the Mozilla Firefox browser. This flaw occurs when a bug in the javascript interpreter fails to preserve the return value of the escape() function and results in uninitialized memory being used instead. This module has only been tested on Windows, but should work on other platforms as well with the current targets.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/browser/firefox_escape_retval.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Simon Berry-Byrne <x00050876@itnet.ie>",
+    "hdm <x@hdm.io>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2009-2477"
+    ],
+    [
+      "OSVDB",
+      "55846"
+    ],
+    [
+      "BID",
+      "35660"
+    ],
+    [
+      "URL",
+      "https://bugzilla.mozilla.org/show_bug.cgi?id=503286"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows",
+    "Msf::Module::Platform::OSX"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Firefox 3.5.0 on Windows XP SP0-SP3"
+    ],
+    [
+      1,
+      "Firefox 3.5.0 on Mac OS X 10.5.7 (Intel)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

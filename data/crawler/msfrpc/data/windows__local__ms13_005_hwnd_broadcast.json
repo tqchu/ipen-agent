@@ -1,0 +1,117 @@
+{
+  "Name": "MS13-005 HWND_BROADCAST Low to Medium Integrity Privilege Escalation",
+  "Description": "Due to a problem with isolating window broadcast messages in the Windows kernel, an attacker can broadcast commands from a lower Integrity Level process to a higher Integrity Level process, thereby effecting a privilege escalation. This issue affects Windows Vista, 7, 8, Server 2008, Server 2008 R2, Server 2012, and RT. Note that spawning a command prompt with the shortcut key combination Win+Shift+# does not work in Vista, so the attacker will have to check if the user is already running a command prompt and set SPAWN_PROMPT false. Three exploit techniques are available with this module. The WEB technique will execute a powershell encoded payload from a Web location. The FILE technique will drop an executable to the file system, set it to medium integrity and execute it. The TYPE technique will attempt to execute a powershell encoded payload directly from the command line, but may take some time to complete.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/ms13_005_hwnd_broadcast.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Tavis Ormandy",
+    "Axel Souchet",
+    "Ben Campbell <eat_meatballs@hotmail.co.uk>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-0008"
+    ],
+    [
+      "MSB",
+      "MS13-005"
+    ],
+    [
+      "OSVDB",
+      "88966"
+    ],
+    [
+      "URL",
+      "http://blog.cmpxchg8b.com/2013/02/a-few-years-ago-while-working-on.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows x86"
+    ],
+    [
+      1,
+      "Windows x64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "Powershell::persist",
+    "Powershell::prepend_sleep",
+    "Powershell::prepend_protections_bypass",
+    "Powershell::strip_comments",
+    "Powershell::strip_whitespace",
+    "Powershell::sub_vars",
+    "Powershell::sub_funcs",
+    "Powershell::exec_in_place",
+    "Powershell::exec_rc4",
+    "Powershell::remove_comspec",
+    "Powershell::noninteractive",
+    "Powershell::encode_final_payload",
+    "Powershell::encode_inner_payload",
+    "Powershell::wrap_double_quotes",
+    "Powershell::no_equals",
+    "Powershell::method",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "SPAWN_PROMPT",
+    "TECHNIQUE",
+    "CUSTOM_COMMAND"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 40
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

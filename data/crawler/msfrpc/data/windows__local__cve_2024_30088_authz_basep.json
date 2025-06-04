@@ -1,0 +1,52 @@
+{
+  "Name": "Windows Kernel Time of Check Time of Use LPE in AuthzBasepCopyoutInternalSecurityAttributes",
+  "Description": "CVE-2024-30088 is a Windows Kernel Elevation of Privilege Vulnerability which affects many recent versions of Windows 10, Windows 11 and Windows Server 2022. The vulnerability exists inside the function called `AuthzBasepCopyoutInternalSecurityAttributes` specifically when the kernel copies the `_AUTHZBASEP_SECURITY_ATTRIBUTES_INFORMATION` of the current token object to user mode. When the kernel preforms the copy of the `SecurityAttributesList`, it sets up the list of the SecurityAttribute's structure directly to the user supplied pointed. It then calls `RtlCopyUnicodeString` and `AuthzBasepCopyoutInternalSecurityAttributeValues` to copy out the names and values of the `SecurityAttribute` leading to multiple Time Of Check Time Of Use (TOCTOU) vulnerabilities in the function.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/cve_2024_30088_authz_basep.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "tykawaii98",
+    "jheysel-r7"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://github.com/tykawaii98/CVE-2024-30088"
+    ],
+    [
+      "CVE",
+      "2024-30038"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows x64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

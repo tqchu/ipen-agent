@@ -1,0 +1,94 @@
+{
+  "Name": "MS04-011 Microsoft Private Communications Transport Overflow",
+  "Description": "This module exploits a buffer overflow in the Microsoft Windows SSL PCT protocol stack. This code is based on Johnny Cyberpunk's THC release and has been tested against Windows 2000 and Windows XP. To use this module, specify the remote port of any SSL service, or the port and protocol of an application that uses SSL. The only application protocol supported at this time is SMTP. You only have one chance to select the correct target, if you are attacking IIS, you may want to try one of the other exploits first (WebDAV). If WebDAV does not work, this more than likely means that this is either Windows 2000 SP4+ or Windows XP (IIS 5.0 vs IIS 5.1). Using the wrong target may not result in an immediate crash of the remote system.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/ssl/ms04_011_pct.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "hdm <x@hdm.io>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2003-0719"
+    ],
+    [
+      "OSVDB",
+      "5250"
+    ],
+    [
+      "BID",
+      "10116"
+    ],
+    [
+      "MSB",
+      "MS04-011"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows 2000 SP4"
+    ],
+    [
+      1,
+      "Windows 2000 SP3"
+    ],
+    [
+      2,
+      "Windows 2000 SP2"
+    ],
+    [
+      3,
+      "Windows 2000 SP1"
+    ],
+    [
+      4,
+      "Windows 2000 SP0"
+    ],
+    [
+      5,
+      "Windows XP SP0"
+    ],
+    [
+      6,
+      "Windows XP SP1"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "PROTO"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

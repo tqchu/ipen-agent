@@ -1,0 +1,100 @@
+{
+  "Name": "Foswiki MAKETEXT Remote Command Execution",
+  "Description": "This module exploits a vulnerability in the MAKETEXT Foswiki variable. By using a specially crafted MAKETEXT, a malicious user can execute shell commands since the input is passed to the Perl \"eval\" command without first being sanitized. The problem is caused by an underlying security issue in the CPAN:Locale::Maketext module. Only Foswiki sites that have user interface localization enabled (UserInterfaceInternationalisation variable set) are vulnerable. If USERNAME and PASSWORD aren't provided, anonymous access will be tried. Also, if the FoswikiPage option isn't provided, the module will try to create a random page on the SandBox space. The modules has been tested successfully on Foswiki 1.1.5 as distributed with the official Foswiki-1.1.5-vmware image.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/unix/webapp/foswiki_maketext.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Brian Carlson",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2012-6329"
+    ],
+    [
+      "OSVDB",
+      "88410"
+    ],
+    [
+      "URL",
+      "http://foswiki.org/Support/SecurityAlert-CVE-2012-6330"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Foswiki 1.1.5"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TARGETURI",
+    "FoswikiPage",
+    "USERNAME",
+    "PASSWORD"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

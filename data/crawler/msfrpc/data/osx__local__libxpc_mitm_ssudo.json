@@ -1,0 +1,66 @@
+{
+  "Name": "Mac OS X libxpc MITM Privilege Escalation",
+  "Description": "This module exploits a vulnerablity in libxpc on macOS <= 10.13.3 The task_set_special_port API allows callers to overwrite their bootstrap port, which is used to communicate with launchd. This port is inherited across forks: child processes will use the same bootstrap port as the parent. By overwriting the bootstrap port and forking a child processes, we can now gain a MitM position between our child and launchd. To gain root we target the sudo binary and intercept its communication with opendirectoryd, which is used by sudo to verify credentials. We modify the replies from opendirectoryd to make it look like our password was valid.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/osx/local/libxpc_mitm_ssudo.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "saelo"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2018-4237"
+    ],
+    [
+      "URL",
+      "https://github.com/saelo/pwn2own2018"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::OSX"
+  ],
+  "Arch": [
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Mac OS X x64 (Native Payload)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "WritableDir"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "osx/x64/meterpreter/reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

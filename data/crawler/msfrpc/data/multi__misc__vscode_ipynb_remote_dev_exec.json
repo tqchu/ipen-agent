@@ -1,0 +1,82 @@
+{
+  "Name": "VSCode ipynb Remote Development RCE",
+  "Description": "VSCode when opening an Jupyter notebook (.ipynb) file bypasses the trust model. On versions v1.4.0 - v1.71.1, its possible for the Jupyter notebook to embed HTML and javascript, which can then open new terminal windows within VSCode. Each of these new windows can then execute arbitrary code at startup. During testing, the first open of the Jupyter notebook resulted in pop-ups displaying errors of unable to find the payload exe file. The second attempt at opening the Jupyter notebook would result in successful exeuction. Successfully tested against VSCode 1.70.2 on Windows 10.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/misc/vscode_ipynb_remote_dev_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "h00die",
+    "Zemnmez"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://github.com/google/security-research/security/advisories/GHSA-pw56-c55x-cm9m"
+    ],
+    [
+      "CVE",
+      "2022-41034"
+    ],
+    [
+      "URL",
+      "https://github.com/andyhsu024/CVE-2022-41034"
+    ]
+  ],
+  "Platform": [],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows"
+    ],
+    [
+      1,
+      "Linux File-Dropper"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "PAYLOAD_FILENAME",
+    "WRITABLE_DIR"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 3600,
+    "URIPATH": "project.ipynb"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

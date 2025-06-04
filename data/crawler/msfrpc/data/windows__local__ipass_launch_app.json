@@ -1,0 +1,66 @@
+{
+  "Name": "iPass Mobile Client Service Privilege Escalation",
+  "Description": "The named pipe, \\IPEFSYSPCPIPE, can be accessed by normal users to interact with the iPass service. The service provides a LaunchAppSysMode command which allows to execute arbitrary commands as SYSTEM.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/ipass_launch_app.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "h0ng10"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2015-0925"
+    ],
+    [
+      "URL",
+      "https://www.mogwaisecurity.de/advisories/MSA-2015-03.txt"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "WritableDir"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

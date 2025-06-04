@@ -1,0 +1,72 @@
+{
+  "Name": "ALLMediaServer 0.8 Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in ALLMediaServer 0.8. The vulnerability is caused due to a boundary error within the handling of HTTP request. While the exploit supports DEP bypass via ROP, on Windows 7 the stack pivoting isn't reliable across virtual (VMWare, VirtualBox) and physical environments. Because of this the module isn't using DEP bypass on the Windows 7 SP1 target, where by default DEP is OptIn and AllMediaServer won't run with DEP.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/allmediaserver_bof.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "motaz reda <motazkhodair@gmail.com>",
+    "modpr0be <tom@spentera.com>",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2017-17932"
+    ],
+    [
+      "OSVDB",
+      "83889"
+    ],
+    [
+      "EDB",
+      "19625"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "ALLMediaServer 0.8 / Windows XP SP3 - English"
+    ],
+    [
+      1,
+      "ALLMediaServer 0.8 / Windows 7 SP1 - English"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

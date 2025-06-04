@@ -1,0 +1,79 @@
+{
+  "Name": "Docker Privileged Container Escape",
+  "Description": "This module escapes from a privileged Docker container and obtains root on the host machine by abusing the Linux cgroup notification on release feature. This exploit should work against any container started with the following flags: `--cap-add=SYS_ADMIN`, `--privileged`.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/docker_privileged_container_escape.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "stealthcopter"
+  ],
+  "References": [
+    [
+      "EDB",
+      "47147"
+    ],
+    [
+      "URL",
+      "https://blog.trailofbits.com/2019/07/19/understanding-docker-container-escapes/"
+    ],
+    [
+      "URL",
+      "https://github.com/stealthcopter/deepce"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x86",
+    "x64",
+    "armle",
+    "mipsle",
+    "mipsbe"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "ForcePayloadSearch",
+    "WritableContainerDir",
+    "WritableHostDir",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "PrependFork": true,
+    "WfsDelay": 20
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,89 @@
+{
+  "Name": "HP StorageWorks P4000 Virtual SAN Appliance Command Execution",
+  "Description": "This module exploits a vulnerability found in HP's StorageWorks P4000 VSA on versions prior to 9.5. By using a default account credential, it is possible to inject arbitrary commands as part of a ping request via port 13838.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/misc/hp_vsa_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Nicolas Gregoire",
+    "sinn3r <sinn3r@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2012-4361"
+    ],
+    [
+      "OSVDB",
+      "82087"
+    ],
+    [
+      "EDB",
+      "18893"
+    ],
+    [
+      "URL",
+      "http://www.verisigninc.com/en_US/products-and-services/network-intelligence-availability/idefense/public-vulnerability-reports/articles/index.xhtml?loc=en_US&id=958"
+    ],
+    [
+      "URL",
+      "http://h20000.www2.hp.com/bizsupport/TechSupport/Document.jsp?objectID=c03082086"
+    ],
+    [
+      "URL",
+      "http://www.agarri.fr/blog/archives/2012/02/index.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "HP VSA up to 8.5"
+    ],
+    [
+      2,
+      "HP VSA 9"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

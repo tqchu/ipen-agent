@@ -1,0 +1,110 @@
+{
+  "Name": "WordPress InfiniteWP Client Authentication Bypass",
+  "Description": "This module exploits an authentication bypass in the WordPress InfiniteWP Client plugin to log in as an administrator and execute arbitrary PHP code by overwriting the file specified by PLUGIN_FILE. The module will attempt to retrieve the original PLUGIN_FILE contents and restore them after payload execution. If VerifyContents is set, which is the default setting, the module will check to see if the restored contents match the original. Note that a valid administrator username is required for this module. WordPress >= 4.9 is currently not supported due to a breaking WordPress API change. Tested against 4.8.3.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/unix/webapp/wp_infinitewp_auth_bypass.rb",
+  "Version": "",
+  "Rank": "manual",
+  "Authors": [
+    "WebARX",
+    "wvu <wvu@metasploit.com>"
+  ],
+  "References": [
+    [
+      "WPVDB",
+      "10011"
+    ],
+    [
+      "URL",
+      "https://www.webarxsecurity.com/vulnerability-infinitewp-client-wp-time-capsule/"
+    ],
+    [
+      "URL",
+      "https://www.wordfence.com/blog/2020/01/critical-authentication-bypass-vulnerability-in-infinitewp-client-plugin/"
+    ],
+    [
+      "URL",
+      "https://blog.sucuri.net/2020/01/authentication-bypass-vulnerability-in-infinitewp-client.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::PHP"
+  ],
+  "Arch": [
+    "php"
+  ],
+  "Targets": [
+    [
+      0,
+      "InfiniteWP Client < 1.9.4.5"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TARGETURI",
+    "WPCONTENTDIR",
+    "WPCHECK",
+    "USERNAME",
+    "PLUGIN_FILE",
+    "VerifyContents",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "php/meterpreter/reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

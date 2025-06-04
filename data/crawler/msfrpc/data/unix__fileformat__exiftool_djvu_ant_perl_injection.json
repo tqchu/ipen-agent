@@ -1,0 +1,66 @@
+{
+  "Name": "ExifTool DjVu ANT Perl injection",
+  "Description": "This module exploits a Perl injection vulnerability in the DjVu ANT parsing code of ExifTool versions 7.44 through 12.23 inclusive. The injection is used to execute a shell command using Perl backticks. The DjVu image can be embedded in a wrapper image using the HasselbladExif EXIF field.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/unix/fileformat/exiftool_djvu_ant_perl_injection.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "William Bowling",
+    "Justin Steven"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2021-22204"
+    ],
+    [
+      "URL",
+      "https://twitter.com/wcbowling/status/1385803927321415687"
+    ],
+    [
+      "URL",
+      "https://github.com/exiftool/exiftool/commit/cf0f4e7dcd024ca99615bfd1102a841a25dde031"
+    ],
+    [
+      "URL",
+      "https://www.openwall.com/lists/oss-security/2021/05/10/5"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "JPEG file"
+    ],
+    [
+      1,
+      "TIFF file"
+    ],
+    [
+      2,
+      "DjVu file"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

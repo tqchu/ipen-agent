@@ -1,0 +1,120 @@
+{
+  "Name": "Primefaces Remote Code Execution Exploit",
+  "Description": "This module exploits a Java Expression Language remote code execution flaw in the Primefaces JSF framework. Primefaces versions prior to 5.2.21, 5.3.8 or 6.0 are vulnerable to a padding oracle attack, due to the use of weak crypto and default encryption password and salt. Tested against Docker image with Tomcat 7.0 with the Primefaces 5.2 showcase application. See documentation for working payloads.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/http/primefaces_weak_encryption_rce.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Bjoern Schuette",
+    "h00die"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2017-1000486"
+    ],
+    [
+      "URL",
+      "https://blog.mindedsecurity.com/2016/02/rce-in-oracle-netbeans-opensource.html"
+    ],
+    [
+      "URL",
+      "https://web.archive.org/web/20180515174733/https://cryptosense.com/blog/weak-encryption-flaw-in-primefaces"
+    ],
+    [
+      "URL",
+      "https://schuette.se/2018/01/17/cve-2017-1000486-in-your-primeface/"
+    ],
+    [
+      "URL",
+      "https://github.com/primefaces/primefaces/issues/1152"
+    ],
+    [
+      "URL",
+      "https://github.com/pimps/CVE-2017-1000486/tree/master"
+    ],
+    [
+      "EDB",
+      "43733"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::BSD",
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::OSX",
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "PASSWORD",
+    "TARGETURI",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

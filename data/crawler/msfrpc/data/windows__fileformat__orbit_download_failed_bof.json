@@ -1,0 +1,60 @@
+{
+  "Name": "Orbit Downloader URL Unicode Conversion Overflow",
+  "Description": "This module exploits a stack-based buffer overflow in Orbit Downloader. The vulnerability is due to Orbit converting a URL ascii string to unicode in an insecure way with MultiByteToWideChar. The vulnerability is exploited with a specially crafted metalink file that should be opened with Orbit through the \"File->Add Metalink...\" option.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/orbit_download_failed_bof.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Diego Juarez",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "BID",
+      "28541"
+    ],
+    [
+      "OSVDB",
+      "44036"
+    ],
+    [
+      "CVE",
+      "2008-1602"
+    ],
+    [
+      "URL",
+      "http://www.coresecurity.com/content/orbit-downloader"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Orbit Downloader 6.4 on Windows XP SP3"
+    ],
+    [
+      1,
+      "Orbit Downloader 6.4 on Windows 7"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

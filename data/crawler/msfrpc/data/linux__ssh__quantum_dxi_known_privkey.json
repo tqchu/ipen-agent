@@ -1,0 +1,51 @@
+{
+  "Name": "Quantum DXi V1000 SSH Private Key Exposure",
+  "Description": "Quantum ships a public/private key pair on DXi V1000 2.2.1 appliances that allows passwordless authentication to any other DXi box. Since the key is easily retrievable, an attacker can use it to gain unauthorized remote access as root.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/ssh/quantum_dxi_known_privkey.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "xistence <xistence@0x90.nl>"
+  ],
+  "References": [
+    [
+      "PACKETSTORM",
+      "125755"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSH_IDENT",
+    "SSH_TIMEOUT",
+    "SSH_DEBUG"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "cmd/unix/interact"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

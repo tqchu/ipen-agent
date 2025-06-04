@@ -1,0 +1,87 @@
+{
+  "Name": "Apple QuickTime 7.6.6 Invalid SMIL URI Buffer Overflow",
+  "Description": "This module exploits a buffer overflow in Apple QuickTime 7.6.6. When processing a malformed SMIL uri, a stack-based buffer overflow can occur when logging an error message.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/apple_quicktime_smil_debug.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "Krystian Kloskowski",
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2010-1799"
+    ],
+    [
+      "OSVDB",
+      "66636"
+    ],
+    [
+      "BID",
+      "41962"
+    ],
+    [
+      "URL",
+      "http://web.archive.org/web/20100729143247/http://secunia.com:80/advisories/40729"
+    ],
+    [
+      "URL",
+      "http://support.apple.com/kb/HT4290"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Apple QuickTime Player 7.6.6"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

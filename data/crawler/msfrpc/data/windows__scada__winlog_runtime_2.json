@@ -1,0 +1,81 @@
+{
+  "Name": "Sielco Sistemi Winlog Buffer Overflow 2.07.14 - 2.07.16",
+  "Description": "This module exploits a buffer overflow in Sielco Sistem Winlog <= 2.07.16. When sending a specially formatted packet to the Runtime.exe service on port 46824, an attacker may be able to execute arbitrary code.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/scada/winlog_runtime_2.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Michael Messner <devnull@s3cur1ty.de>"
+  ],
+  "References": [
+    [
+      "BID",
+      "53811"
+    ],
+    [
+      "CVE",
+      "2012-3815"
+    ],
+    [
+      "OSVDB",
+      "82654"
+    ],
+    [
+      "EDB",
+      "18986"
+    ],
+    [
+      "URL",
+      "http://www.s3cur1ty.de/m1adv2012-001"
+    ],
+    [
+      "URL",
+      "http://www.sielcosistemi.com/en/download/public/winlog_lite.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Sielco Sistemi Winlog 2.07.14/2.07.16 - Ceramics Kiln Project"
+    ],
+    [
+      1,
+      "Sielco Sistemi Winlog 2.07.14 - Automatic Washing System Project"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

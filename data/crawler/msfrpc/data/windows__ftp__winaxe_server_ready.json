@@ -1,0 +1,61 @@
+{
+  "Name": "WinaXe 7.7 FTP Client Remote Buffer Overflow",
+  "Description": "This module exploits a buffer overflow in the WinaXe 7.7 FTP client. This issue is triggered when a client connects to the server and is expecting the Server Ready response.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/ftp/winaxe_server_ready.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "Chris Higgins",
+    "hyp3rlix"
+  ],
+  "References": [
+    [
+      "EDB",
+      "40693"
+    ],
+    [
+      "URL",
+      "http://hyp3rlinx.altervista.org/advisories/WINAXE-FTP-CLIENT-REMOTE-BUFFER-OVERFLOW.txt"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "PASVPORT"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

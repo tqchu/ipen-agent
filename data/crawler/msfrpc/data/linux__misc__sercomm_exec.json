@@ -1,0 +1,140 @@
+{
+  "Name": "SerComm Device Remote Code Execution",
+  "Description": "This module will cause remote code execution on several SerComm devices. These devices typically include routers from NetGear and Linksys. This module was tested successfully against several NetGear, Honeywell and Cisco devices.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/misc/sercomm_exec.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "Eloi Vanderbeken <eloi.vanderbeken@gmail.com>",
+    "Matt \"hostess\" Andreko <mandreko@accuvant.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "101653"
+    ],
+    [
+      "URL",
+      "https://github.com/elvanderb/TCP-32764"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Generic Linux MIPS Big Endian"
+    ],
+    [
+      1,
+      "Generic Linux MIPS Little Endian"
+    ],
+    [
+      2,
+      "Manual Linux MIPS Big Endian"
+    ],
+    [
+      3,
+      "Manual Linux MIPS Little Endian"
+    ],
+    [
+      4,
+      "Cisco WAP4410N"
+    ],
+    [
+      5,
+      "Honeywell WAP-PL2 IP Camera"
+    ],
+    [
+      6,
+      "Netgear DG834"
+    ],
+    [
+      7,
+      "Netgear DG834G"
+    ],
+    [
+      8,
+      "Netgear DG834PN"
+    ],
+    [
+      9,
+      "Netgear DGN1000"
+    ],
+    [
+      10,
+      "Netgear DSG835"
+    ],
+    [
+      11,
+      "Netgear WPNT834"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSLCert",
+    "SSLCompression",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "CMDSTAGER::TEMP",
+    "CMDSTAGER::URIPATH",
+    "CMDSTAGER::SSL",
+    "PACKFORMAT",
+    "UPLOADPATH",
+    "NOARGS",
+    "ENCODING"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,65 @@
+{
+  "Name": "Windows Silent Process Exit Persistence",
+  "Description": "Windows allows you to set up a debug process when a process exits. This module uploads a payload and declares that it is the debug process to launch when a specified process exits.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/persistence_image_exec_options.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Mithun Shanbhag",
+    "bwatters-r7"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://attack.mitre.org/techniques/T1183/"
+    ],
+    [
+      "URL",
+      "https://blogs.msdn.microsoft.com/mithuns/2010/03/24/image-file-execution-options-ifeo/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "PAYLOAD_NAME",
+    "PATH",
+    "IMAGE_FILE"
+  ],
+  "DefaultOptions": {
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

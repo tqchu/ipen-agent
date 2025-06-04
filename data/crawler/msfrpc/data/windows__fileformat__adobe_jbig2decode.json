@@ -1,0 +1,58 @@
+{
+  "Name": "Adobe JBIG2Decode Memory Corruption",
+  "Description": "This module exploits a heap-based pointer corruption flaw in Adobe Reader 9.0.0 and earlier. This module relies upon javascript for the heap spray.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/adobe_jbig2decode.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "natron <natron@metasploit.com>",
+    "xort",
+    "redsand",
+    "MC <mc@metasploit.com>",
+    "Didier Stevens <didier.stevens@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2009-0658"
+    ],
+    [
+      "OSVDB",
+      "52073"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Adobe Reader v9.0.0 (Windows XP SP3 English)"
+    ],
+    [
+      1,
+      "Adobe Reader v8.1.2 (Windows XP SP2 English)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

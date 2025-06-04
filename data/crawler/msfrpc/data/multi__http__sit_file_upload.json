@@ -1,0 +1,111 @@
+{
+  "Name": "Support Incident Tracker Remote Command Execution",
+  "Description": "This module combines two separate issues within Support Incident Tracker (<= 3.65) application to upload arbitrary data and thus execute a shell. The two issues exist in ftp_upload_file.php. The first vulnerability exposes the upload dir used to store attachments. The second vulnerability allows arbitrary file upload since there is no validation function to prevent from uploading any file type. Authentication is required to exploit both vulnerabilities.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/http/sit_file_upload.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Secunia Research",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2011-3829"
+    ],
+    [
+      "CVE",
+      "2011-3833"
+    ],
+    [
+      "OSVDB",
+      "76999"
+    ],
+    [
+      "OSVDB",
+      "77003"
+    ],
+    [
+      "URL",
+      "http://web.archive.org/web/20111202001019/http://secunia.com:80/secunia_research/2011-75"
+    ],
+    [
+      "URL",
+      "http://web.archive.org/web/20120105104613/http://secunia.com/secunia_research/2011-79/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::PHP"
+  ],
+  "Arch": [
+    "php"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "URI",
+    "USERNAME",
+    "PASSWORD"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

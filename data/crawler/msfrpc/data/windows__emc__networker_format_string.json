@@ -1,0 +1,79 @@
+{
+  "Name": "EMC Networker Format String",
+  "Description": "This module exploits a format string vulnerability in the lg_sprintf function as implemented in liblocal.dll on EMC Networker products. This module exploits the vulnerability by using a specially crafted RPC call to the program number 0x5F3DD, version 0x02, and procedure 0x06. This module has been tested successfully on EMC Networker 7.6 SP3 on Windows XP SP3 and Windows 2003 SP2 (DEP bypass).",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/emc/networker_format_string.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Aaron Portnoy",
+    "Luigi Auriemma <aluigi@autistici.org>",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2012-2288"
+    ],
+    [
+      "OSVDB",
+      "85116"
+    ],
+    [
+      "BID",
+      "55330"
+    ],
+    [
+      "URL",
+      "http://aluigi.altervista.org/misc/aluigi0216_story.txt"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "EMC Networker 7.6 SP3 / Windows Universal"
+    ],
+    [
+      1,
+      "EMC Networker 7.6 SP3 / Windows XP SP3"
+    ],
+    [
+      2,
+      "EMC Networker 7.6 SP3 / Windows 2003 SP2"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "ONCRPC::tcp_request_fragmentation",
+    "TIMEOUT"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

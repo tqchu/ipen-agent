@@ -1,0 +1,105 @@
+{
+  "Name": "ManageEngine OpManager Remote Code Execution",
+  "Description": "This module exploits a default credential vulnerability in ManageEngine OpManager, where a default hidden account \"IntegrationUser\" with administrator privileges exists. The account has a default password of \"plugin\" which cannot be reset through the user interface. By log-in and abusing the default administrator's SQL query functionality, it's possible to write a WAR payload to disk and trigger an automatic deployment of this payload. This module has been tested successfully on OpManager v11.0 and v11.4-v11.6 for Windows.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/http/manage_engine_opmanager_rce.rb",
+  "Version": "",
+  "Rank": "manual",
+  "Authors": [
+    "xistence <xistence@0x90.nl>"
+  ],
+  "References": [
+    [
+      "EDB",
+      "38174"
+    ],
+    [
+      "CVE",
+      "2015-7765"
+    ],
+    [
+      "CVE",
+      "2015-7766"
+    ],
+    [
+      "URL",
+      "https://seclists.org/fulldisclosure/2015/Sep/66"
+    ],
+    [
+      "URL",
+      "https://support.zoho.com/portal/manageengine/helpcenter/articles/pgsql-submitquery-do-vulnerability"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Java"
+  ],
+  "Arch": [
+    "java"
+  ],
+  "Targets": [
+    [
+      0,
+      "ManageEngine OpManager <= v11.6"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "FileDropperDelay",
+    "AllowNoCleanup"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

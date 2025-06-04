@@ -1,0 +1,142 @@
+{
+  "Name": "ManageEngine Desktop Central / Password Manager LinkViewFetchServlet.dat SQL Injection",
+  "Description": "This module exploits an unauthenticated blind SQL injection in LinkViewFetchServlet, which is exposed in ManageEngine Desktop Central v7 build 70200 to v9 build 90033 and Password Manager Pro v6 build 6500 to v7 build 7002 (including the MSP versions). The SQL injection can be used to achieve remote code execution as SYSTEM in Windows or as the user in Linux. This module exploits both PostgreSQL (newer builds) and MySQL (older or upgraded builds). MySQL targets are more reliable due to the use of relative paths; with PostgreSQL you should find the web root path via other means and specify it with WEB_ROOT. The injection is only exploitable via a GET request, which means that the payload has to be sent in chunks smaller than 8000 characters (URL size limitation). Small payloads and the use of exe-small is recommended, as you can only do between 10 and 20 injections before using up all the available ManagedConnections until the next server restart. This vulnerability exists in all versions released since 2006, however builds below DC v7 70200 and PMP v6 6500 do not ship with a JSP compiler. You can still try your luck using the MySQL targets as a JDK might be installed in the $PATH.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/http/manage_engine_dc_pmp_sqli.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Pedro Ribeiro <pedrib@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2014-3996"
+    ],
+    [
+      "OSVDB",
+      "110198"
+    ],
+    [
+      "URL",
+      "https://seclists.org/fulldisclosure/2014/Aug/55"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "Desktop Central v8 >= b80200 / v9 < b90039 (PostgreSQL) on Windows"
+    ],
+    [
+      2,
+      "Desktop Central MSP v8 >= b80200 / v9 < b90039 (PostgreSQL) on Windows"
+    ],
+    [
+      3,
+      "Desktop Central [MSP] v7 >= b70200 / v8 / v9 < b90039 (MySQL) on Windows"
+    ],
+    [
+      4,
+      "Password Manager Pro [MSP] v6 >= b6800 / v7 < b7003 (PostgreSQL) on Windows"
+    ],
+    [
+      5,
+      "Password Manager Pro v6 >= b6500 / v7 < b7003 (MySQL) on Windows"
+    ],
+    [
+      6,
+      "Password Manager Pro [MSP] v6 >= b6800 / v7 < b7003 (PostgreSQL) on Linux"
+    ],
+    [
+      7,
+      "Password Manager Pro v6 >= b6500 / v7 < b7003 (MySQL) on Linux"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "WEB_ROOT",
+    "CHUNK_SIZE",
+    "SLEEP",
+    "EXE_SMALL"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

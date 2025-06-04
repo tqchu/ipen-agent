@@ -1,0 +1,91 @@
+{
+  "Name": "Ubisoft uplay 2.0.3 ActiveX Control Arbitrary Code Execution",
+  "Description": "The uplay ActiveX component allows an attacker to execute any command line action. User must sign in, unless auto-sign in is enabled and uplay must not already be running. Due to the way the malicious executable is served (WebDAV), the module must be run on port 80, so please make sure you have enough privilege to do that. Ubisoft released patch 2.04 as of Mon 20th July.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/ubisoft_uplay_cmd_exec.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Tavis Ormandy <taviso@cmpxchg8b.com>",
+    "Ben Campbell <eat_meatballs@hotmail.co.uk>",
+    "phillips321 <phillips321@phillips321.co.uk>",
+    "Richard Hicks <scriptmonkeyblog@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2012-4177"
+    ],
+    [
+      "OSVDB",
+      "84402"
+    ],
+    [
+      "URL",
+      "https://seclists.org/fulldisclosure/2012/Jul/375"
+    ],
+    [
+      "URL",
+      "http://forums.ubi.com/showthread.php/699940-Uplay-PC-Patch-2-0-4-Security-fix"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSLCompression",
+    "SSLCipher",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "EXPLOITPATH"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,132 @@
+{
+  "Name": "Pallete Projects Werkzeug Debugger Remote Code Execution",
+  "Description": "This module will exploit the Werkzeug debug console to put down a Python shell. Werkzeug is included with Flask, but not enabled by default. It is also included in other projects, for example the RunServerPlus extension for Django. It may also be used alone. The documentation states the following: \"The debugger must never be used on production machines. We cannot stress this enough. Do not enable the debugger in production.\" Of course this doesn't prevent developers from mistakenly enabling it in production! Tested against the following Werkzeug versions: - 3.0.3 on Debian 12, Windows 11 and macOS 14.6 - 1.1.4 on Debian 12 - 1.0.1 on Debian 12 - 0.11.5 on Debian 12 - 0.10 on Debian 12",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/http/werkzeug_debug_rce.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "h00die <mike@shorebreaksecurity.com>",
+    "Graeme Robinson <metasploit <Graeme Robinson <metasploit@grobinson.me>/@GraSec>"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://werkzeug.palletsprojects.com/debug/#enabling-the-debugger"
+    ],
+    [
+      "URL",
+      "https://flask.palletsprojects.com/debugging/#the-built-in-debugger"
+    ],
+    [
+      "URL",
+      "https://web.archive.org/web/20150217044248/http://werkzeug.pocoo.org/docs/0.10/debug/#enabling-the-debugger"
+    ],
+    [
+      "URL",
+      "https://web.archive.org/web/20151124061830/http://werkzeug.pocoo.org/docs/0.11/debug/#enabling-the-debugger"
+    ],
+    [
+      "URL",
+      "https://github.com/pallets/werkzeug/commit/11ba286a1b907110a2d36f5c05740f239bc7deed?diff=unified&w=0#diff-83867b1c4c9b75c728654ed284dc98f7c8d4e8bd682fc31b977d122dd045178a"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Python"
+  ],
+  "Arch": [
+    "python"
+  ],
+  "Targets": [
+    [
+      0,
+      "Werkzeug > 1.0.1 (Flask > 1.1.4)"
+    ],
+    [
+      1,
+      "Werkzeug 0.11.6 - 1.0.1 (Flask 1.0 - 1.1.4)"
+    ],
+    [
+      2,
+      "Werkzeug 0.11 - 0.11.5 (Flask < 1.0)"
+    ],
+    [
+      3,
+      "Werkzeug < 0.11 (Flask < 1.0)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "AUTHMODE",
+    "METHOD",
+    "TARGETURI",
+    "PIN",
+    "COOKIE",
+    "APPNAME",
+    "CGROUP",
+    "FLASKPATH",
+    "MACADDRESS",
+    "MACHINEID",
+    "MODULENAME",
+    "SERVICEUSER",
+    "REQUESTBODY",
+    "REQUESTCONTENTTYPE",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

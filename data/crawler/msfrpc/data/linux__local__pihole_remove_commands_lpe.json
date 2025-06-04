@@ -1,0 +1,67 @@
+{
+  "Name": "Pi-Hole Remove Commands Linux Priv Esc",
+  "Description": "Pi-Hole versions 3.0 - 5.3 allows for command line input to the removecustomcname, removecustomdns, and removestaticdhcp functions without properly validating the parameters before passing to sed. When executed as the www-data user, this allows for a privilege escalation to root since www-data is in the sudoers.d/pihole file with no password.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/pihole_remove_commands_lpe.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "h00die",
+    "Emanuele Barbeno <emanuele.barbeno@compass-security.com>"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://github.com/pi-hole/pi-hole/security/advisories/GHSA-3597-244c-wrpj"
+    ],
+    [
+      "URL",
+      "https://www.compass-security.com/fileadmin/Research/Advisories/2021-02_CSNC-2021-008_Pi-hole_Privilege_Escalation.txt"
+    ],
+    [
+      "CVE",
+      "2021-29449"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "DHCP"
+    ],
+    [
+      1,
+      "DNS"
+    ],
+    [
+      2,
+      "CNAME"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "Payload": "cmd/unix/reverse_php_ssl"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

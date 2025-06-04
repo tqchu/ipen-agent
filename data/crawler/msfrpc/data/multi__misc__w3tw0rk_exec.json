@@ -1,0 +1,65 @@
+{
+  "Name": "w3tw0rk / Pitbul IRC Bot  Remote Code Execution",
+  "Description": "This module allows remote command execution on the w3tw0rk / Pitbul IRC Bot.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/misc/w3tw0rk_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Jay Turla"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "120384"
+    ],
+    [
+      "EDB",
+      "36652"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "w3tw0rk"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "IRC_PASSWORD",
+    "NICK",
+    "CHANNEL"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

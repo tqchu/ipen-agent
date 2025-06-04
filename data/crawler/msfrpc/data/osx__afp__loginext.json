@@ -1,0 +1,63 @@
+{
+  "Name": "AppleFileServer LoginExt PathName Overflow",
+  "Description": "This module exploits a stack buffer overflow in the AppleFileServer service on MacOS X. This vulnerability was originally reported by Atstake and was actually one of the few useful advisories ever published by that company. You only have one chance to exploit this bug. This particular exploit uses a stack-based return address that will only work under optimal conditions.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/osx/afp/loginext.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "hdm <x@hdm.io>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2004-0430"
+    ],
+    [
+      "OSVDB",
+      "5762"
+    ],
+    [
+      "BID",
+      "10271"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::OSX"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Mac OS X 10.3.3"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

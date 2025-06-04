@@ -1,0 +1,74 @@
+{
+  "Name": "Serv-U FTP Server Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in the site chmod command in versions of Serv-U FTP Server prior to 4.2. You must have valid credentials to trigger this vulnerability. Exploitation also leaves the service in a non-functional state.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/ftp/servu_chmod.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "theLightCosine <theLightCosine@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2004-2111"
+    ],
+    [
+      "OSVDB",
+      "3713"
+    ],
+    [
+      "BID",
+      "9483"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows 2000 SP0-4 EN"
+    ],
+    [
+      1,
+      "Windows XP SP0-1 EN"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "FTPUSER",
+    "FTPPASS",
+    "FTPTimeout",
+    "FTPDEBUG",
+    "PassiveMode"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

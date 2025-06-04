@@ -1,0 +1,111 @@
+{
+  "Name": "Apache Flink JAR Upload Java Code Execution",
+  "Description": "This module uses job functionality in Apache Flink dashboard web interface to upload and execute a JAR file, leading to remote execution of arbitrary Java code as the web server user. This module has been tested successfully on Apache Flink versions: 1.9.3 on Ubuntu 18.04.4; 1.11.2 on Ubuntu 18.04.4; 1.9.3 on Windows 10; and 1.11.2 on Windows 10.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/http/apache_flink_jar_upload_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Henry Chen",
+    "bigger.wing",
+    "bcoles <bcoles@gmail.com>"
+  ],
+  "References": [
+    [
+      "EDB",
+      "48978"
+    ],
+    [
+      "PACKETSTORM",
+      "159779"
+    ],
+    [
+      "URL",
+      "https://github.com/biggerwing/apache-flink-unauthorized-upload-rce-"
+    ],
+    [
+      "URL",
+      "https://s.tencent.com/research/bsafe/841.html"
+    ],
+    [
+      "URL",
+      "https://cloud.tencent.com/developer/article/1540439"
+    ],
+    [
+      "URL",
+      "https://nsfocusglobal.com/advisory-apache-flink-remote-code-execution-vulnerability/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Java"
+  ],
+  "Arch": [
+    "java"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

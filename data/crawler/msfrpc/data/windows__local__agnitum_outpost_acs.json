@@ -1,0 +1,67 @@
+{
+  "Name": "Agnitum Outpost Internet Security Local Privilege Escalation",
+  "Description": "This module exploits a directory traversal vulnerability on Agnitum Outpost Internet Security 8.1. The vulnerability exists in the acs.exe component, allowing the user to load arbitrary DLLs through the acsipc_server named pipe, and finally execute arbitrary code with SYSTEM privileges. This module has been tested successfully on Windows 7 SP1 with Agnitum Outpost Internet Security 8.1 (32 bits and 64 bits versions).",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/agnitum_outpost_acs.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Ahmad Moghimi",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "96208"
+    ],
+    [
+      "EDB",
+      "27282"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Agnitum Outpost Internet Security 8.1"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "WritableDir",
+    "DEPTH"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

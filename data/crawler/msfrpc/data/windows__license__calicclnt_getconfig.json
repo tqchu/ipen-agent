@@ -1,0 +1,87 @@
+{
+  "Name": "Computer Associates License Client GETCONFIG Overflow",
+  "Description": "This module exploits a vulnerability in the CA License Client service. This exploit will only work if your IP address can be resolved from the target system point of view. This can be accomplished on a local network by running the 'nmbd' service that comes with Samba. If you are running this exploit from Windows and do not filter udp port 137, this should not be a problem (if the target is on the same network segment). Due to the bugginess of the software, you are only allowed one connection to the agent port before it starts ignoring you. If it wasn't for this issue, it would be possible to repeatedly exploit this bug.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/license/calicclnt_getconfig.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "hdm <x@hdm.io>",
+    "aushack <patrick@osisecurity.com.au>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2005-0581"
+    ],
+    [
+      "OSVDB",
+      "14389"
+    ],
+    [
+      "BID",
+      "12705"
+    ],
+    [
+      "URL",
+      "http://labs.idefense.com/intelligence/vulnerabilities/display.php?id=213"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "Windows 2000 English"
+    ],
+    [
+      2,
+      "Windows XP English SP0-1"
+    ],
+    [
+      3,
+      "Windows XP English SP2"
+    ],
+    [
+      4,
+      "Windows 2003 English SP0"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "SRVPORT"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

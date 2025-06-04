@@ -1,0 +1,115 @@
+{
+  "Name": "Oracle Business Transaction Management FlashTunnelService Remote Code Execution",
+  "Description": "This module exploits abuses the FlashTunnelService SOAP web service on Oracle Business Transaction Management 12.1.0.7 to upload arbitrary files, without authentication, using the WriteToFile method. The same method contains a directory traversal vulnerability, which allows to upload the files to arbitrary locations. In order to execute remote code two techniques are provided. If the Oracle app has been deployed in the same WebLogic Samples Domain a JSP can be uploaded to the web root. If a new Domain has been used to deploy the Oracle application, the Windows Management Instrumentation service can be used to execute arbitrary code. Both techniques have been successfully tested on default installs of Oracle BTM 12.1.0.7, Weblogic 12.1.1 and Windows 2003 SP2. Default path traversal depths are provided, but the user can configure the traversal depth using the DEPTH option.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/http/oracle_btm_writetofile.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "rgod <rgod@autistici.org>",
+    "sinn3r <sinn3r@metasploit.com>",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "85087"
+    ],
+    [
+      "BID",
+      "54839"
+    ],
+    [
+      "EDB",
+      "20318"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Java",
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Oracle BTM 12.1.0.7 / Weblogic 12.1.1 with Samples Domain / Java"
+    ],
+    [
+      1,
+      "Oracle BTM 12.1.0.7 / Windows 2003 SP2 through WMI"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "DEPTH"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 5
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

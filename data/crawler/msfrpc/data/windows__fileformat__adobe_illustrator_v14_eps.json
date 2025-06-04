@@ -1,0 +1,60 @@
+{
+  "Name": "Adobe Illustrator CS4 v14.0.0",
+  "Description": "Adobe Illustrator CS4 (V14.0.0) Encapsulated Postscript (.eps) overlong DSC Comment Buffer Overflow Exploit",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/adobe_illustrator_v14_eps.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "pyrokinesis",
+    "dookie"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2009-4195"
+    ],
+    [
+      "BID",
+      "37192"
+    ],
+    [
+      "OSVDB",
+      "60632"
+    ],
+    [
+      "EDB",
+      "10281"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "seh",
+    "DisablePayloadHandler": true,
+    "AllowWin32SEH": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

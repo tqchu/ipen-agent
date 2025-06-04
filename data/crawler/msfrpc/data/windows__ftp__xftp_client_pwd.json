@@ -1,0 +1,61 @@
+{
+  "Name": "Xftp FTP Client 3.0 PWD Remote Buffer Overflow",
+  "Description": "This module exploits a buffer overflow in the Xftp 3.0 FTP client that is triggered through an excessively long PWD message.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/ftp/xftp_client_pwd.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "zombiefx",
+    "dookie"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "63968"
+    ],
+    [
+      "EDB",
+      "12332"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "SRVNAME"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "seh"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

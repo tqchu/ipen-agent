@@ -1,0 +1,56 @@
+{
+  "Name": "Cytel Studio 9.0 (CY3 File) Stack Buffer Overflow",
+  "Description": "This module exploits a stack based buffer overflow found in Cytel Studio <= 9.0. The overflow is triggered during the copying of strings to a stack buffer of 256 bytes.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/cytel_studio_cy3.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "Luigi Auriemma",
+    "James Fitts <fitts.james@gmail.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "75991"
+    ],
+    [
+      "BID",
+      "49924"
+    ],
+    [
+      "URL",
+      "http://aluigi.altervista.org/adv/cytel_1-adv.txt"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Cytel Studio 9.0"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

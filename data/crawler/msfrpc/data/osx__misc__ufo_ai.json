@@ -1,0 +1,58 @@
+{
+  "Name": "UFO: Alien Invasion IRC Client Buffer Overflow",
+  "Description": "This module exploits a buffer overflow in the IRC client component of UFO: Alien Invasion 2.2.1.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/osx/misc/ufo_ai.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "Jason Geffner",
+    "dookie"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "65689"
+    ],
+    [
+      "EDB",
+      "14013"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::OSX"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Mac OS X 10.5.8 x86, UFOAI 2.2.1"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

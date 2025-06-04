@@ -1,0 +1,69 @@
+{
+  "Name": "mIRC PRIVMSG Handling Stack Buffer Overflow",
+  "Description": "This module exploits a buffer overflow in the mIRC IRC Client v6.34 and earlier. By enticing a mIRC user to connect to this server module, an excessively long PRIVMSG command can be sent, overwriting the stack. Due to size restrictions, ordinal payloads may be necessary. This module is based on the code by SkD.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/mirc_privmsg_server.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "aushack <patrick@osisecurity.com.au>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2008-4449"
+    ],
+    [
+      "OSVDB",
+      "48752"
+    ],
+    [
+      "BID",
+      "31552"
+    ],
+    [
+      "EDB",
+      "6666"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows XP SP3"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "DynamicSehRecord",
+    "SRVNAME"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

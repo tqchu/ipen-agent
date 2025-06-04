@@ -1,0 +1,104 @@
+{
+  "Name": "MediaWiki SyntaxHighlight extension option injection vulnerability",
+  "Description": "This module exploits an option injection vulnerability in the SyntaxHighlight extension of MediaWiki. It tries to create & execute a PHP file in the document root. The USERNAME & PASSWORD options are only needed if the Wiki is configured as private. This vulnerability affects any MediaWiki installation with SyntaxHighlight version 2.0 installed & enabled. This extension ships with the AIO package of MediaWiki version 1.27.x & 1.28.x. A fix for this issue is included in MediaWiki version 1.28.2 and version 1.27.3.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/http/mediawiki_syntaxhighlight.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "Yorick Koster"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2017-0372"
+    ],
+    [
+      "URL",
+      "https://lists.wikimedia.org/pipermail/mediawiki-announce/2017-April/000207.html"
+    ],
+    [
+      "URL",
+      "https://phabricator.wikimedia.org/T158689"
+    ],
+    [
+      "URL",
+      "https://securify.nl/advisory/SFY20170201/syntaxhighlight_mediawiki_extension_allows_injection_of_arbitrary_pygments_options.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::PHP"
+  ],
+  "Arch": [
+    "php"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic Targeting"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TARGETURI",
+    "UPLOADPATH",
+    "USERNAME",
+    "PASSWORD",
+    "CLEANUP"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

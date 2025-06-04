@@ -1,0 +1,64 @@
+{
+  "Name": "DIAEnergie SQL Injection (CVE-2024-4548)",
+  "Description": "SQL injection vulnerability in DIAEnergie <= v1.10 from Delta Electronics. This vulnerability can be exploited by an unauthenticated remote attacker to gain arbitrary code execution through a SQL injection vulnerability in the CEBC service. The commands will get executed in the context of NT AUTHORITY\\SYSTEM.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/scada/diaenergie_sqli.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Michael Heinzl",
+    "Tenable"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://www.tenable.com/security/research/tra-2024-13"
+    ],
+    [
+      "CVE",
+      "2024-4548"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows_Fetch"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

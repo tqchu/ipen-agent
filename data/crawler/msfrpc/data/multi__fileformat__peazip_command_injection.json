@@ -1,0 +1,60 @@
+{
+  "Name": "PeaZip Zip Processing Command Injection",
+  "Description": "This module exploits a command injection vulnerability in PeaZip. All versions prior to 2.6.2 are suspected vulnerable. Testing was conducted with version 2.6.1 on Windows. In order for the command to be executed, an attacker must convince someone to open a specially crafted zip file with PeaZip, and access the specially file via double-clicking it. By doing so, an attacker can execute arbitrary commands as the victim user.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/fileformat/peazip_command_injection.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "pyrokinesis",
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2009-2261"
+    ],
+    [
+      "OSVDB",
+      "54966"
+    ],
+    [
+      "URL",
+      "http://peazip.sourceforge.net/"
+    ],
+    [
+      "EDB",
+      "8881"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

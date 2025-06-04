@@ -1,0 +1,55 @@
+{
+  "Name": "MPlayer Lite M3U Buffer Overflow",
+  "Description": "This module exploits a stack-based buffer overflow vulnerability in MPlayer Lite r33064, caused by improper bounds checking of an URL entry. By persuading the victim to open a specially-crafted .M3U file, specifically by drag-and-dropping it to the player, a remote attacker can execute arbitrary code on the system.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/mplayer_m3u_bof.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "C4SS!0 and h1ch4m",
+    "Gabor Seljan"
+  ],
+  "References": [
+    [
+      "BID",
+      "46926"
+    ],
+    [
+      "EDB",
+      "17013"
+    ],
+    [
+      "URL",
+      "http://www.mplayer-ww.com/eng/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows XP SP3 (DEP Bypass) / MPlayer Lite r33064"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

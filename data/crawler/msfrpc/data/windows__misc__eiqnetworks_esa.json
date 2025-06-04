@@ -1,0 +1,159 @@
+{
+  "Name": "eIQNetworks ESA License Manager LICMGR_ADDLICENSE Overflow",
+  "Description": "This module exploits a stack buffer overflow in eIQnetworks Enterprise Security Analyzer. During the processing of long arguments to the LICMGR_ADDLICENSE command, a stack-based buffer overflow occurs. This module has only been tested against ESA v2.1.13.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/eiqnetworks_esa.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "MC <mc@metasploit.com>",
+    "ri0t <ri0t@ri0tnet.net>",
+    "kf <kf_list@digitalmunition.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2006-3838"
+    ],
+    [
+      "OSVDB",
+      "27526"
+    ],
+    [
+      "BID",
+      "19163"
+    ],
+    [
+      "ZDI",
+      "06-024"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "EnterpriseSecurityAnalyzerv21 Universal"
+    ],
+    [
+      2,
+      "EiQ Enterprise Security Analyzer Offset 494 Windows 2000 SP0-SP4 English"
+    ],
+    [
+      3,
+      "EiQ Enterprise Security Analyzer Offset 494 Windows XP English SP1/SP2"
+    ],
+    [
+      4,
+      "EiQ Enterprise Security Analyzer Offset 494 Windows Server 2003 SP0/SP1"
+    ],
+    [
+      5,
+      "Astaro Report Manager (OEM) Offset 1262 Windows 2000 SP0-SP4 English"
+    ],
+    [
+      6,
+      "Astaro Report Manager (OEM) Offset 1262 Windows XP English SP1/SP2"
+    ],
+    [
+      7,
+      "Astaro Report Manager (OEM) Offset 1262 Windows Server 2003 English SP0/SP1"
+    ],
+    [
+      8,
+      "Fortinet FortiReporter (OEM) Offset 1262 Windows 2000 SP0-SP4 English"
+    ],
+    [
+      9,
+      "Fortinet FortiReporter (OEM) Offset 1262 Windows XP English SP1/SP2"
+    ],
+    [
+      10,
+      "Fortinet FortiReporter (OEM) Offset 1262 Windows Server 2003 English SP0/SP1"
+    ],
+    [
+      11,
+      "iPolicy Security Reporter (OEM) Offset 1262 Windows 2000 SP0-SP4 English"
+    ],
+    [
+      12,
+      "iPolicy Security Reporter (OEM) Offset 1262 Windows XP English SP1/SP2"
+    ],
+    [
+      13,
+      "iPolicy Security Reporter (OEM) Offset 1262 Windows Server 2003 English SP0/SP1"
+    ],
+    [
+      14,
+      "SanMina Viking Multi-Log Manager (OEM) Offset 1262 Windows 2000 SP0-SP4 English"
+    ],
+    [
+      15,
+      "SanMina Viking Multi-Log Manager (OEM) Offset 1262 Windows XP English SP1/SP2"
+    ],
+    [
+      16,
+      "SanMina Viking Multi-Log Manager (OEM) Offset 1262 Windows Server 2003 English SP0/SP1"
+    ],
+    [
+      17,
+      "Secure Computing G2 Security Reporter (OEM) Offset 1262 Windows 2000 SP0-SP4 English"
+    ],
+    [
+      18,
+      "Secure Computing G2 Security Reporter (OEM) Offset 1262 Windows XP English SP1/SP2"
+    ],
+    [
+      19,
+      "Secure Computing G2 Security Reporter (OEM) Offset 1262 Windows Server 2003 English SP0/SP1"
+    ],
+    [
+      20,
+      "Top Layer Network Security Analyzer (OEM) Offset 1262 Windows 2000 SP0-SP4 English"
+    ],
+    [
+      21,
+      "Top Layer Network Security Analyzer (OEM) Offset 1262 Windows XP English SP1/SP2"
+    ],
+    [
+      22,
+      "Top Layer Network Security Analyzer (OEM) Offset 1262 Windows Server 2003 English SP0/SP1"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "seh"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,94 @@
+{
+  "Name": "IBM Rational ClearQuest CQOle Remote Code Execution",
+  "Description": "This module exploits a function prototype mismatch on the CQOle ActiveX control in IBM Rational ClearQuest < 7.1.1.9, < 7.1.2.6 or < 8.0.0.2 which allows reliable remote code execution when DEP isn't enabled.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/clear_quest_cqole.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Andrea Micalizzi aka rgod",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2012-0708"
+    ],
+    [
+      "BID",
+      "53170"
+    ],
+    [
+      "OSVDB",
+      "81443"
+    ],
+    [
+      "ZDI",
+      "12-113"
+    ],
+    [
+      "URL",
+      "http://www-304.ibm.com/support/docview.wss?uid=swg21591705"
+    ],
+    [
+      "URL",
+      "https://www.rapid7.com/blog/post/2012/07/11/it-isnt-always-about-buffer-overflow"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "IE 6 / IE7 (No DEP)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread",
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

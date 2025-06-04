@@ -1,0 +1,101 @@
+{
+  "Name": "MS10-022 Microsoft Internet Explorer Winhlp32.exe MsgBox Code Execution",
+  "Description": "This module exploits a code execution vulnerability that occurs when a user presses F1 on MessageBox originated from VBscript within a web page. When the user hits F1, the MessageBox help functionality will attempt to load and use a HLP file from an SMB or WebDAV (if the WebDAV redirector is enabled) server. This particular version of the exploit implements a WebDAV server that will serve HLP file as well as a payload EXE. During testing warnings about the payload EXE being unsigned were witnessed. A future version of this module might use other methods that do not create such a warning.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/ms10_022_ie_vbscript_winhlp32.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "Maurycy Prodeus",
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2010-0483"
+    ],
+    [
+      "OSVDB",
+      "62632"
+    ],
+    [
+      "MSB",
+      "MS10-022"
+    ],
+    [
+      "URL",
+      "https://blogs.technet.com/msrc/archive/2010/02/28/investigating-a-new-win32hlp-and-internet-explorer-issue.aspx"
+    ],
+    [
+      "URL",
+      "https://isec.pl/vulnerabilities/isec-0027-msgbox-helpfile-ie.txt"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "Internet Explorer on Windows"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

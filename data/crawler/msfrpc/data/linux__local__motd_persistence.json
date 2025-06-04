@@ -1,0 +1,50 @@
+{
+  "Name": "update-motd.d Persistence",
+  "Description": "This module will add a script in /etc/update-motd.d/ in order to persist a payload. The payload will be executed with root privileges everytime a user logs in.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/motd_persistence.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Julien Voisin"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://manpages.ubuntu.com/manpages/oracular/en/man5/update-motd.5.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "BACKDOOR_NAME"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 0,
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,83 @@
+{
+  "Name": "Firefox location.QueryInterface() Code Execution",
+  "Description": "This module exploits a code execution vulnerability in the Mozilla Firefox browser. To reliably exploit this vulnerability, we need to fill almost a gigabyte of memory with our nop sled and payload. This module has been tested on OS X 10.3 with the stock Firefox 1.5.0 package.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/browser/firefox_queryinterface.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "hdm <x@hdm.io>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2006-0295"
+    ],
+    [
+      "OSVDB",
+      "22893"
+    ],
+    [
+      "BID",
+      "16476"
+    ],
+    [
+      "URL",
+      "http://www.mozilla.org/security/announce/mfsa2006-04.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::OSX",
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Firefox 1.5.0.0 Mac OS X"
+    ],
+    [
+      1,
+      "Firefox 1.5.0.0 Linux"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

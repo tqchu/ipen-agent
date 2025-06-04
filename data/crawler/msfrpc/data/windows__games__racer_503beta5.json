@@ -1,0 +1,68 @@
+{
+  "Name": "Racer v0.5.3 Beta 5 Buffer Overflow",
+  "Description": "This module exploits the Racer Car and Racing Simulator game versions v0.5.3 beta 5 and earlier. Both the client and server listen on UDP port 26000. By sending an overly long buffer we are able to execute arbitrary code remotely.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/games/racer_503beta5.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "Trancek <trancek@yashira.org>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2007-4370"
+    ],
+    [
+      "OSVDB",
+      "39601"
+    ],
+    [
+      "EDB",
+      "4283"
+    ],
+    [
+      "BID",
+      "25297"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Fmodex.dll - Universal"
+    ],
+    [
+      1,
+      "Win XP SP2 English"
+    ],
+    [
+      2,
+      "Win XP SP2 Spanish"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "CPORT",
+    "CHOST"
+  ],
+  "DefaultOptions": {
+    "AllowWin32SEH": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

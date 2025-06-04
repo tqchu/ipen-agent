@@ -1,0 +1,59 @@
+{
+  "Name": "Zinf Audio Player 2.2.1 (PLS File) Stack Buffer Overflow",
+  "Description": "This module exploits a stack-based buffer overflow in the Zinf Audio Player 2.2.1. An attacker must send the file to victim and the victim must open the file. Alternatively it may be possible to execute code remotely via an embedded PLS file within a browser, when the PLS extension is registered to Zinf. This functionality has not been tested in this module.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/zinfaudioplayer221_pls.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "Trancek <trancek@yashira.org>",
+    "aushack <patrick@osisecurity.com.au>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2004-0964"
+    ],
+    [
+      "OSVDB",
+      "10416"
+    ],
+    [
+      "EDB",
+      "7888"
+    ],
+    [
+      "BID",
+      "11248"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Zinf Universal 2.2.1"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "AllowWin32SEH": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

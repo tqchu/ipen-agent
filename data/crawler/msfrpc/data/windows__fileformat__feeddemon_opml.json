@@ -1,0 +1,69 @@
+{
+  "Name": "FeedDemon Stack Buffer Overflow",
+  "Description": "This module exploits a buffer overflow in FeedDemon v3.1.0.12. When the application is used to import a specially crafted opml file, a buffer overflow occurs allowing arbitrary code execution. All versions are suspected to be vulnerable. This vulnerability was originally reported against version 2.7 in February of 2009.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/feeddemon_opml.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "fl0 fl0w",
+    "dookie",
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2009-0546"
+    ],
+    [
+      "OSVDB",
+      "51753"
+    ],
+    [
+      "BID",
+      "33630"
+    ],
+    [
+      "EDB",
+      "7995"
+    ],
+    [
+      "EDB",
+      "8010"
+    ],
+    [
+      "EDB",
+      "11379"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

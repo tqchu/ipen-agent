@@ -1,0 +1,95 @@
+{
+  "Name": "LNK Code Execution Vulnerability",
+  "Description": "This module exploits a vulnerability in the handling of Windows Shortcut files (.LNK) that contain a dynamic icon, loaded from a malicious DLL. This vulnerability is a variant of MS15-020 (CVE-2015-0096). The created LNK file is similar except an additional SpecialFolderDataBlock is included. The folder ID set in this SpecialFolderDataBlock is set to the Control Panel. This is enough to bypass the CPL whitelist. This bypass can be used to trick Windows into loading an arbitrary DLL file. The PATH option must be an absolute path to a writeable directory which is indexed for searching. If no PATH is specified, the module defaults to %USERPROFILE%.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/cve_2017_8464_lnk_lpe.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "Uncredited",
+    "Yorick Koster",
+    "Spencer McIntyre"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2017-8464"
+    ],
+    [
+      "URL",
+      "https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2017-8464"
+    ],
+    [
+      "URL",
+      "http://www.vxjump.net/files/vuln_analysis/cve-2017-8464.txt"
+    ],
+    [
+      "URL",
+      "https://msdn.microsoft.com/en-us/library/dd871305.aspx"
+    ],
+    [
+      "URL",
+      "http://www.geoffchappell.com/notes/security/stuxnet/ctrlfldr.htm"
+    ],
+    [
+      "URL",
+      "https://www.trendmicro.de/cloud-content/us/pdfs/security-intelligence/white-papers/wp-cpl-malware.pdf"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows x64"
+    ],
+    [
+      1,
+      "Windows x86"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "FILENAME",
+    "DLLNAME",
+    "PATH",
+    "LnkComment",
+    "LnkDisplayName"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "FileDropperDelay": 15,
+    "WfsDelay": 30
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

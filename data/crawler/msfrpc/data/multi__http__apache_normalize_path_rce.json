@@ -1,0 +1,142 @@
+{
+  "Name": "Apache 2.4.49/2.4.50 Traversal RCE",
+  "Description": "This module exploit an unauthenticated RCE vulnerability which exists in Apache version 2.4.49 (CVE-2021-41773). If files outside of the document root are not protected by \u2018require all denied\u2019 and CGI has been explicitly enabled, it can be used to execute arbitrary commands (Remote Command Execution). This vulnerability has been reintroduced in Apache 2.4.50 fix (CVE-2021-42013).",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/http/apache_normalize_path_rce.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Ash Daulton",
+    "Dhiraj Mishra",
+    "mekhalleh (RAMELLA S\u00e9bastien)"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2021-41773"
+    ],
+    [
+      "CVE",
+      "2021-42013"
+    ],
+    [
+      "URL",
+      "https://httpd.apache.org/security/vulnerabilities_24.html"
+    ],
+    [
+      "URL",
+      "https://github.com/RootUp/PersonalStuff/blob/master/http-vuln-cve-2021-41773.nse"
+    ],
+    [
+      "URL",
+      "https://github.com/projectdiscovery/nuclei-templates/blob/master/vulnerabilities/apache/apache-httpd-rce.yaml"
+    ],
+    [
+      "URL",
+      "https://github.com/projectdiscovery/nuclei-templates/commit/9384dd235ec5107f423d930ac80055f2ce2bff74"
+    ],
+    [
+      "URL",
+      "https://attackerkb.com/topics/1RltOPCYqE/cve-2021-41773/rapid7-analysis"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "cmd",
+    "x64",
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic (Dropper)"
+    ],
+    [
+      1,
+      "Unix Command (In-Memory)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "CheckModule",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "CVE",
+    "DEPTH",
+    "TARGETURI"
+  ],
+  "DefaultOptions": {
+    "CheckModule": "auxiliary/scanner/http/apache_normalize_path",
+    "RPORT": 443,
+    "SSL": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

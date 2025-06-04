@@ -1,0 +1,54 @@
+{
+  "Name": "CCMPlayer 1.5 m3u Playlist Stack Based Buffer Overflow",
+  "Description": "This module exploits a stack based buffer overflow in CCMPlayer 1.5. Opening a m3u playlist with a long track name, a SEH exception record can be overwritten with parts of the controllable buffer. SEH execution is triggered after an invalid read of an injectable address, thus allowing arbitrary code execution. This module works on multiple Windows platforms including: Windows XP SP3, Windows Vista, and Windows 7.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/ccmplayer_m3u_bof.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "Rh0"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2011-5170"
+    ],
+    [
+      "OSVDB",
+      "77453"
+    ],
+    [
+      "EDB",
+      "18178"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "CCMPlayer 1.5"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

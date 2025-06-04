@@ -1,0 +1,100 @@
+{
+  "Name": "Western Digital Arkeia Remote Code Execution",
+  "Description": "This module exploits a code execution flaw in Western Digital Arkeia version 11.0.12 and below. The vulnerability exists in the 'arkeiad' daemon listening on TCP port 617. Because there are insufficient checks on the authentication of all clients, this can be bypassed. Using the ARKFS_EXEC_CMD operation it's possible to execute arbitrary commands with root or SYSTEM privileges. The daemon is installed on both the Arkeia server as well on all the backup clients. The module has been successfully tested on Windows, Linux, OSX, FreeBSD and OpenBSD.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/misc/arkeia_agent_exec.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "xistence <xistence@0x90.nl>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2015-7709"
+    ],
+    [
+      "EDB",
+      "37600"
+    ],
+    [
+      "URL",
+      "https://seclists.org/fulldisclosure/2015/Jul/54"
+    ]
+  ],
+  "Platform": [],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows"
+    ],
+    [
+      1,
+      "Linux"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSLCert",
+    "SSLCompression",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "HTTP_DELAY"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

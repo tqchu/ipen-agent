@@ -1,0 +1,91 @@
+{
+  "Name": "CCProxy Telnet Proxy Ping Overflow",
+  "Description": "This module exploits the YoungZSoft CCProxy <= v6.2 suite Telnet service. The stack is overwritten when sending an overly long address to the 'ping' command.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/proxy/ccproxy_telnet_ping.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "aushack <patrick@osisecurity.com.au>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2004-2416"
+    ],
+    [
+      "OSVDB",
+      "11593"
+    ],
+    [
+      "BID",
+      "11666"
+    ],
+    [
+      "EDB",
+      "621"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "Windows 2000 Pro All - English"
+    ],
+    [
+      2,
+      "Windows 2000 Pro All - Italian"
+    ],
+    [
+      3,
+      "Windows 2000 Pro All - French"
+    ],
+    [
+      4,
+      "Windows XP SP0/1 - English"
+    ],
+    [
+      5,
+      "Windows XP SP2 - English"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

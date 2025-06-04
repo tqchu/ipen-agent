@@ -1,0 +1,79 @@
+{
+  "Name": "FreeBSD 9 Address Space Manipulation Privilege Escalation",
+  "Description": "This module exploits a vulnerability that can be used to modify portions of a process's address space, which may lead to privilege escalation. Systems such as FreeBSD 9.0 and 9.1 are known to be vulnerable.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/freebsd/local/mmap.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "Konstantin Belousov",
+    "Alan Cox",
+    "Hunger",
+    "sinn3r <sinn3r@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-2171"
+    ],
+    [
+      "OSVDB",
+      "94414"
+    ],
+    [
+      "EDB",
+      "26368"
+    ],
+    [
+      "BID",
+      "60615"
+    ],
+    [
+      "URL",
+      "http://www.freebsd.org/security/advisories/FreeBSD-SA-13:06.mmap.asc"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::BSD"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "FreeBSD x86"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "WritableDir"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

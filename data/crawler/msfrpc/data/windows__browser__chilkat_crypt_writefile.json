@@ -1,0 +1,91 @@
+{
+  "Name": "Chilkat Crypt ActiveX WriteFile Unsafe Method",
+  "Description": "This module allows attackers to execute code via the 'WriteFile' unsafe method of Chilkat Software Inc's Crypt ActiveX control. This exploit is based on shinnai's exploit that uses an hcp:// protocol URI to execute our payload immediately. However, this method requires that the victim user be browsing with Administrator. Additionally, this method will not work on newer versions of Windows. NOTE: This vulnerability is still unpatched. The latest version of Chilkat Crypt at the time of this writing includes ChilkatCrypt2.DLL version 4.4.4.0.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/chilkat_crypt_writefile.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "shinnai",
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2008-5002"
+    ],
+    [
+      "OSVDB",
+      "49510"
+    ],
+    [
+      "BID",
+      "32073"
+    ],
+    [
+      "EDB",
+      "6963"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

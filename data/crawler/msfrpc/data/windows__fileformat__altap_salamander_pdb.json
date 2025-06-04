@@ -1,0 +1,59 @@
+{
+  "Name": "Altap Salamander 2.5 PE Viewer Buffer Overflow",
+  "Description": "This module exploits a buffer overflow in Altap Salamander <= v2.5. By creating a malicious file and convincing a user to view the file with the Portable Executable Viewer plugin within a vulnerable version of Salamander, the PDB file string is copied onto the stack and the SEH can be overwritten.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/altap_salamander_pdb.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "aushack <patrick@osisecurity.com.au>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2007-3314"
+    ],
+    [
+      "BID",
+      "24557"
+    ],
+    [
+      "OSVDB",
+      "37579"
+    ],
+    [
+      "URL",
+      "http://vuln.sg/salamander25-en.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Universal Salamander 2.5"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

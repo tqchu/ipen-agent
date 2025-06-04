@@ -1,0 +1,177 @@
+{
+  "Name": "D-Link Unauthenticated Remote Command Execution using UPnP via a special crafted M-SEARCH packet.",
+  "Description": "A command injection vulnerability exists in multiple D-Link network products, allowing an attacker to inject arbitrary command to the UPnP via a crafted M-SEARCH packet. Universal Plug and Play (UPnP), by default is enabled in most D-Link devices, on the port 1900. An attacker can perform a remote command execution by injecting the payload into the `Search Target` (ST) field of the SSDP M-SEARCH discover packet. After successful exploitation, an attacker will have full access with `root` user privileges. NOTE: Staged meterpreter payloads might core dump on the target, so use stage-less meterpreter payloads when using the Linux Dropper target. Some D-Link devices do not have the `wget` command so configure `echo` as flavor with the command set CMDSTAGER::FLAVOR echo. The following D-Link network products and firmware are vulnerable: - D-Link Router model GO-RT-AC750 revisions Ax with firmware v1.01 or older; - D-Link Router model DIR-300 revisions Ax with firmware v1.06 or older; - D-Link Router model DIR-300 revisions Bx with firmware v2.15 or older; - D-Link Router model DIR-600 revisions Bx with firmware v2.18 or older; - D-Link Router model DIR-645 revisions Ax with firmware v1.05 or older; - D-Link Router model DIR-815 revisions Bx with firmware v1.04 or older; - D-Link Router model DIR-816L revisions Bx with firmware v2.06 or older; - D-Link Router model DIR-817LW revisions Ax with firmware v1.04b01_hotfix or older; - D-Link Router model DIR-818LW revisions Bx with firmware v2.05b03_Beta08 or older; - D-Link Router model DIR-822 revisions Bx with firmware v2.03b01 or older; - D-Link Router model DIR-822 revisions Cx with firmware v3.12b04 or older; - D-Link Router model DIR-823 revisions Ax with firmware v1.00b06_Beta or older; - D-Link Router model DIR-845L revisions Ax with firmware v1.02b05 or older; - D-Link Router model DIR-860L revisions Ax with firmware v1.12b05 or older; - D-Link Router model DIR-859 revisions Ax with firmware v1.06b01Beta01 or older; - D-Link Router model DIR-860L revisions Ax with firmware v1.10b04 or older; - D-Link Router model DIR-860L revisions Bx with firmware v2.03b03 or older; - D-Link Router model DIR-865L revisions Ax with firmware v1.07b01 or older; - D-Link Router model DIR-868L revisions Ax with firmware v1.12b04 or older; - D-Link Router model DIR-868L revisions Bx with firmware v2.05b02 or older; - D-Link Router model DIR-869 revisions Ax with firmware v1.03b02Beta02 or older; - D-Link Router model DIR-880L revisions Ax with firmware v1.08b04 or older; - D-Link Router model DIR-890L/R revisions Ax with firmware v1.11b01_Beta01 or older; - D-Link Router model DIR-885L/R revisions Ax with firmware v1.12b05 or older; - D-Link Router model DIR-895L/R revisions Ax with firmware v1.12b10 or older; - probably more looking at the scale of impacted devices :-(",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/upnp/dlink_upnp_msearch_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "h00die-gr3y <h00die.gr3y@gmail.com>",
+    "Zach Cutlip",
+    "Michael Messner <devnull@s3cur1ty.de>",
+    "Miguel Mendez Z. (s1kr10s)",
+    "Pablo Pollanco (secenv)",
+    "Naihsin https://github.com/naihsin"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2023-33625"
+    ],
+    [
+      "CVE",
+      "2020-15893"
+    ],
+    [
+      "CVE",
+      "2019-20215"
+    ],
+    [
+      "URL",
+      "https://attackerkb.com/topics/uqicA23ecz/cve-2023-33625"
+    ],
+    [
+      "URL",
+      "https://github.com/zcutlip/exploit-poc/tree/master/dlink/dir-815-a1/upnp-command-injection"
+    ],
+    [
+      "URL",
+      "https://medium.com/@s1kr10s/d-link-dir-859-unauthenticated-rce-in-ssdpcgi-http-st-cve-2019-20215-en-2e799acb8a73"
+    ],
+    [
+      "URL",
+      "https://shadow-file.blogspot.com/2013/02/dlink-dir-815-upnp-command-injection.html"
+    ],
+    [
+      "URL",
+      "https://research.loginsoft.com/vulnerability/multiple-vulnerabilities-discovered-in-the-d-link-firmware-dir-816l/"
+    ],
+    [
+      "URL",
+      "https://github.com/naihsin/IoT/blob/main/D-Link/DIR-600/cmd%20injection/README.md"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "cmd",
+    "mipsle",
+    "mipsbe",
+    "armle"
+  ],
+  "Targets": [
+    [
+      0,
+      "Unix Command"
+    ],
+    [
+      1,
+      "Linux Dropper"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "CMDSTAGER::FLAVOR",
+    "CMDSTAGER::DECODER",
+    "CMDSTAGER::TEMP",
+    "CMDSTAGER::URIPATH",
+    "CMDSTAGER::SSL",
+    "CPORT",
+    "CHOST",
+    "URN",
+    "HTTP_PORT",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "RPORT": 1900,
+    "SSL": false
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

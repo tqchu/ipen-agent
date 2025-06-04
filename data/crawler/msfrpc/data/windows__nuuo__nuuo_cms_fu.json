@@ -1,0 +1,76 @@
+{
+  "Name": "Nuuo Central Management Server Authenticated Arbitrary File Upload",
+  "Description": "The COMMITCONFIG verb is used by a CMS client to upload and modify the configuration of the CMS Server. The vulnerability is in the \"FileName\" parameter, which accepts directory traversal (..\\..\\) characters. Therefore, this function can be abused to overwrite any files in the installation drive of CMS Server. This vulnerability is exploitable in CMS versions up to and including v2.4. This module will either use a provided session number (which can be guessed with an auxiliary module) or attempt to login using a provided username and password - it will also try the default credentials if nothing is provided. This module will overwrite the LicenseTool.dll file in the CMS Server installation. If the module fails to restore LicenseTool.dll then the installation will be corrupted and NCS Server will not execute successfully.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/nuuo/nuuo_cms_fu.rb",
+  "Version": "",
+  "Rank": "manual",
+  "Authors": [
+    "Pedro Ribeiro <pedrib@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2018-17936"
+    ],
+    [
+      "URL",
+      "https://ics-cert.us-cert.gov/advisories/ICSA-18-284-02"
+    ],
+    [
+      "URL",
+      "https://seclists.org/fulldisclosure/2019/Jan/51"
+    ],
+    [
+      "URL",
+      "https://raw.githubusercontent.com/pedrib/PoC/master/advisories/NUUO/nuuo-cms-ownage.txt"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "Nuuo Central Management Server <= v2.4.0"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "RHOSTS",
+    "RPORT",
+    "NCSSESSION",
+    "NCSUSER",
+    "NCSPASS",
+    "NCSVERSION",
+    "NCSBRUTEAPI",
+    "NCSTRACE"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

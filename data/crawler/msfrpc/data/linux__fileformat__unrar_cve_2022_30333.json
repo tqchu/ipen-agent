@@ -1,0 +1,74 @@
+{
+  "Name": "UnRAR Path Traversal (CVE-2022-30333)",
+  "Description": "This module creates a RAR file that exploits CVE-2022-30333, which is a path-traversal vulnerability in unRAR that can extract an arbitrary file to an arbitrary location on a Linux system. UnRAR fixed this vulnerability in version 6.12 (open source version 6.1.7). The core issue is that when a symbolic link is unRAR'ed, Windows symbolic links are not properly validated on Linux systems and can therefore write a symbolic link that points anywhere on the filesystem. If a second file in the archive has the same name, it will be written to the symbolic link path.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/fileformat/unrar_cve_2022_30333.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Simon Scannell",
+    "Ron Bowes"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2022-30333"
+    ],
+    [
+      "URL",
+      "https://blog.sonarsource.com/zimbra-pre-auth-rce-via-unrar-0day/"
+    ],
+    [
+      "URL",
+      "https://github.com/pmachapman/unrar/commit/22b52431a0581ab5d687747b65662f825ec03946"
+    ],
+    [
+      "URL",
+      "https://attackerkb.com/topics/RCa4EIZdbZ/cve-2022-30333/rapid7-analysis"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Generic RAR file"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "CUSTOM_PAYLOAD",
+    "TARGET_PATH",
+    "SYMLINK_FILENAME"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

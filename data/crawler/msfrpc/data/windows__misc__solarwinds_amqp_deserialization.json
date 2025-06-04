@@ -1,0 +1,63 @@
+{
+  "Name": "SolarWinds Information Service (SWIS) .NET Deserialization From AMQP RCE",
+  "Description": "The SolarWinds Information Service (SWIS) is vulnerable to RCE by way of a crafted message received through the AMQP message queue. A malicious user that can authenticate to the AMQP service can publish such a crafted message whose body is a serialized .NET object which can lead to OS command execution as NT AUTHORITY\\SYSTEM.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/solarwinds_amqp_deserialization.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Justin Hong",
+    "Lucas Miller",
+    "Piotr Bazyd\u0142o",
+    "Spencer McIntyre"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2022-38108"
+    ],
+    [
+      "URL",
+      "https://www.zerodayinitiative.com/blog/2023/2/27/cve-2022-38108-rce-in-solarwinds-network-performance-monitor"
+    ],
+    [
+      "URL",
+      "https://www.solarwinds.com/trust-center/security-advisories/cve-2022-38108"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "USERNAME",
+    "PASSWORD",
+    "SSL",
+    "SSLVersion"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 10
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,53 @@
+{
+  "Name": "GlobalSCAPE CuteZIP Stack Buffer Overflow",
+  "Description": "This module exploits a stack-based buffer overflow vulnerability in version 2.1 of CuteZIP. In order for the command to be executed, an attacker must convince the target user to open a specially crafted zip file with CuteZIP. By doing so, an attacker can execute arbitrary code as the target user.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/cutezip_bof.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "C4SS!0 G0M3S <Louredo_@hotmail.com>",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "85709"
+    ],
+    [
+      "EDB",
+      "16162"
+    ],
+    [
+      "BID",
+      "46375"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "CuteZIP 2.1 / Windows Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

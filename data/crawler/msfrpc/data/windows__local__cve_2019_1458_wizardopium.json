@@ -1,0 +1,75 @@
+{
+  "Name": "Microsoft Windows Uninitialized Variable Local Privilege Elevation",
+  "Description": "This module exploits CVE-2019-1458, an arbitrary pointer dereference vulnerability within win32k which occurs due to an uninitalized variable, which allows user mode attackers to write a limited amount of controlled data to an attacker controlled address in kernel memory. By utilizing this vulnerability to execute controlled writes to kernel memory, an attacker can gain arbitrary code execution as the SYSTEM user. This module has been tested against Windows 7 x64 SP1. Offsets within the exploit code may need to be adjusted to work with other versions of Windows. The exploit can only be triggered once against the target and can cause the target machine to reboot when the session is terminated.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/cve_2019_1458_wizardopium.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "piotrflorczyk",
+    "unamer",
+    "timwr"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2019-1458"
+    ],
+    [
+      "URL",
+      "https://github.com/unamer/CVE-2019-1458"
+    ],
+    [
+      "URL",
+      "https://github.com/piotrflorczyk/cve-2019-1458_POC"
+    ],
+    [
+      "URL",
+      "https://securelist.com/windows-0-day-exploit-cve-2019-1458-used-in-operation-wizardopium/95432/"
+    ],
+    [
+      "URL",
+      "https://googleprojectzero.blogspot.com/p/rca-cve-2019-1458.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows 7 x64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,18 @@
+- SOURCE 
+  - CVE & Exploit Write-ups Database
+    - CVE descriptions + metadata ()
+    - Crawl ExploitDB 
+  -> Info of CVE (Step-by-step commands)
+  - Pentesting Tutorials / Walkthroughs
+  -> The entire chain of thought: reconnaissance, payload crafting, injection points, reverse shell staging, privilege escalation. 
+  - Tool Manuals & Examples
+      - Include data from nmap, netcat, msfconsole, sqlmap, etc
+     -> Params for nmap command
+  - Open Source Vulnerability Management Reports & Blogs
+    - Corporate or open sources that describe real engagements (red team reports).
+    - Structure them as “Lesson” style Q&As.
+  - Other sources
+
+- SIZE:
+  - 10-100k pairs
+  - Small from 5k

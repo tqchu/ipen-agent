@@ -59,6 +59,30 @@ class TinyLlama(nn.Module):
 
         return logits, new_caches
 
+    def prepare_inputs_for_generation(
+            self,
+            input_ids: torch.LongTensor,
+            past_key_values: list[dict] = None,
+            attention_mask: torch.LongTensor = None,
+            **kwargs
+    ):
+        """
+        This method is used by PEFT (and HF generation) to package up inputs for the next token.
+        For a “decoder‐only” model like TinyLlama, you simply return a dict of kwargs that forward() expects.
+        """
+
+        # If past_key_values is not None, we are in “incremental” mode;
+        # the next token to feed is the last token of input_ids:
+        if past_key_values is not None:
+            # Only keep the last token in incremental decoding
+            input_ids = input_ids[:, -1:].contiguous()
+
+        return {
+            "idx": input_ids,  # matches your forward signature
+            "kv_caches": past_key_values
+            # (you could pass attention_mask here if you had one)
+        }
+
 def test_tinyllama_kv_cache_full_sequence():
     """
     Verifies that TinyLlama produces identical logits when run:

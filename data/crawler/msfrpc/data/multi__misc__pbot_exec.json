@@ -1,0 +1,73 @@
+{
+  "Name": "PHP IRC Bot pbot eval() Remote Code Execution",
+  "Description": "This module allows remote command execution on the PHP IRC bot pbot by abusing the usage of eval() in the implementation of the .php command. In order to work, the data to connect to the IRC server and channel where find pbot must be provided. The module has been successfully tested on the version of pbot analyzed by Jay Turla, and published on Infosec Institute, running over Ubuntu 10.04 and Windows XP SP3.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/misc/pbot_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "evilcry",
+    "Jay Turla",
+    "bwall",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "84913"
+    ],
+    [
+      "EDB",
+      "20168"
+    ],
+    [
+      "URL",
+      "http://resources.infosecinstitute.com/pbot-analysis/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "pbot"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "IRC_PASSWORD",
+    "NICK",
+    "CHANNEL",
+    "PBOT_PASSWORD"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

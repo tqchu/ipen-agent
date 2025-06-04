@@ -1,0 +1,50 @@
+{
+  "Name": "Documalis Free PDF Editor and Scanner JPEG Stack Buffer Overflow",
+  "Description": "Documalis Free PDF Editor version 5.7.2.26 and Documalis Free PDF Scanner version 5.7.2.122 do not appropriately validate the contents of JPEG images contained within a PDF. Attackers can exploit this vulnerability to trigger a buffer overflow on the stack and gain remote code execution as the user running the Documalis Free PDF Editor or Documalis Free PDF Scanner software.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/documalis_pdf_editor_and_scanner.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "metacom",
+    "metacom27 <metacom27@gmail.com>"
+  ],
+  "References": [],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Documalis Free PDF Editor v.5.7.2.26 / Win 7, Win 10"
+    ],
+    [
+      1,
+      "Documalis Free PDF Scanner v.5.7.2.122 / Win 7, Win 10"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "PDF::Obfuscate",
+    "PDF::Method",
+    "PDF::Encoder",
+    "PDF::MultiFilter",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

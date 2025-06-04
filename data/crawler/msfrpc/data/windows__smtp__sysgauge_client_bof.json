@@ -1,0 +1,60 @@
+{
+  "Name": "SysGauge SMTP Validation Buffer Overflow",
+  "Description": "This module will setup an SMTP server expecting a connection from SysGauge 1.5.18 via its SMTP server validation. The module sends a malicious response along in the 220 service ready response and exploits the client, resulting in an unprivileged shell.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/smtp/sysgauge_client_bof.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Chris Higgins",
+    "Peter Baris"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2017-6416"
+    ],
+    [
+      "EDB",
+      "41479"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

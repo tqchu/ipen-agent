@@ -1,0 +1,95 @@
+{
+  "Name": "Mozilla Firefox Bootstrapped Addon Social Engineering Code Execution",
+  "Description": "Mozilla Firefox before version 41 allowed users to install unsigned browser extensions from arbitrary web servers. This module dynamically creates an unsigned .xpi addon file. The resulting bootstrapped Firefox addon is presented to the victim via a web page. The victim's Firefox browser will pop a dialog asking if they trust the addon. Once the user clicks \"install\", the addon is installed and executes the payload with full user permissions. As of Firefox 4, this will work without a restart as the addon is marked to be \"bootstrapped\". As the addon will execute the payload after each Firefox restart, an option can be given to automatically uninstall the addon once the payload has been executed. As of Firefox 41, unsigned extensions can still be installed on Firefox Nightly, Unbranded and Development builds when configured with `xpinstall.signatures.required` set to `false`. Note: this module generates legacy extensions which are supported only in Firefox before version 57.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/browser/firefox_xpi_bootstrapped_addon.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "mihi",
+    "joev <joev@metasploit.com>"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://blog.mozilla.org/addons/2015/02/10/extension-signing-safer-experience/"
+    ],
+    [
+      "URL",
+      "https://blog.mozilla.org/addons/2015/04/15/the-case-for-extension-signing/"
+    ],
+    [
+      "URL",
+      "https://support.mozilla.org/en-US/kb/frequently-asked-questions-firefox-addon"
+    ],
+    [
+      "URL",
+      "https://web.archive.org/web/20170727035940/https://developer.mozilla.org/en-US/Add-ons/Bootstrapped_extensions"
+    ],
+    [
+      "URL",
+      "https://web.archive.org/web/20160322014439/https://dvlabs.tippingpoint.com/blog/2007/06/27/xpi-the-next-malware-vector"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Java",
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::OSX",
+    "Msf::Module::Platform::Solaris",
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Universal (Javascript XPCOM Shell)"
+    ],
+    [
+      1,
+      "Native Payload"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "JsObfuscate",
+    "JsIdentifiers",
+    "ADDONNAME",
+    "AutoUninstall"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,65 @@
+{
+  "Name": "Hikvision DVR RTSP Request Remote Code Execution",
+  "Description": "This module exploits a buffer overflow in the RTSP request parsing code of Hikvision DVR appliances. The Hikvision DVR devices record video feeds of surveillance cameras and offer remote administration and playback of recorded footage. The vulnerability is present in several models / firmware versions but due to the available test device this module only supports the DS-7204 model.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/misc/hikvision_rtsp_bof.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Mark Schloesser <mark_schloesser@rapid7.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2014-4880"
+    ],
+    [
+      "URL",
+      "https://www.rapid7.com/blog/post/2014/11/19/r7-2014-18-hikvision-dvr-devices-multiple-vulnerabilities"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "armle"
+  ],
+  "Targets": [
+    [
+      0,
+      "DS-7204 Firmware V2.2.10 build 131009"
+    ],
+    [
+      1,
+      "Debug Target"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

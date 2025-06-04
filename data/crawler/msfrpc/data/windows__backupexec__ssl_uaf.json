@@ -1,0 +1,114 @@
+{
+  "Name": "Veritas/Symantec Backup Exec SSL NDMP Connection Use-After-Free",
+  "Description": "This module exploits a use-after-free vulnerability in the handling of SSL NDMP connections in Veritas/Symantec Backup Exec's Remote Agent for Windows. When SSL is re-established on a NDMP connection that previously has had SSL established, the BIO struct for the connection's previous SSL session is reused, even though it has previously been freed. This module supports 3 specific versions of the Backup Exec agent in the 14, 15 and 16 series on 64-bit and 32-bit versions of Windows and has been tested from Vista to Windows 10. The check command can help narrow down what major and minor revision is installed and the precise of version of Windows, but some other information may be required to make a reliable choice of target. NX, ASLR and Windows 8+ anti-ROP mitigations are bypassed. On Windows 8+, it has a reliability of around 85%. On other versions of Windows, reliability is around 35% (due to the need to win a race condition across the network in this case; this may drop further depending on network conditions). The agent is normally installed on all hosts in a domain that need to be backed up, so if one service crashes, try again on another :) Successful exploitation will give remote code execution as the user of the Backup Exec Remote Agent for Windows service, almost always NT AUTHORITY\\SYSTEM.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/backupexec/ssl_uaf.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Matthew Daley"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2017-8895"
+    ],
+    [
+      "VTS",
+      "17-006"
+    ],
+    [
+      "URL",
+      "https://www.veritas.com/content/support/en_US/security/VTS17-006.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Backup Exec 14 (14.1 / revision 9.1), Windows >= 8 x64"
+    ],
+    [
+      1,
+      "Backup Exec 14 (14.1 / revision 9.1), Windows >= 8 x86"
+    ],
+    [
+      2,
+      "Backup Exec 14 (14.1 / revision 9.1), Windows <= 7 x64"
+    ],
+    [
+      3,
+      "Backup Exec 14 (14.1 / revision 9.1), Windows <= 7 x86"
+    ],
+    [
+      4,
+      "Backup Exec 15 (14.2 / revision 9.2), Windows >= 8 x64"
+    ],
+    [
+      5,
+      "Backup Exec 15 (14.2 / revision 9.2), Windows >= 8 x86"
+    ],
+    [
+      6,
+      "Backup Exec 15 (14.2 / revision 9.2), Windows <= 7 x64"
+    ],
+    [
+      7,
+      "Backup Exec 15 (14.2 / revision 9.2), Windows <= 7 x86"
+    ],
+    [
+      8,
+      "Backup Exec 16 (16.0 / revision 9.2), Windows >= 8 x64"
+    ],
+    [
+      9,
+      "Backup Exec 16 (16.0 / revision 9.2), Windows >= 8 x86"
+    ],
+    [
+      10,
+      "Backup Exec 16 (16.0 / revision 9.2), Windows <= 7 x64"
+    ],
+    [
+      11,
+      "Backup Exec 16 (16.0 / revision 9.2), Windows <= 7 x86"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "NumSpraySockets",
+    "NumTLSSpraySockets",
+    "NumTriggerAttempts"
+  ],
+  "DefaultOptions": {
+    "RPORT": 10000,
+    "NumTriggerAttempts": 50,
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

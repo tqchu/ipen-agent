@@ -1,0 +1,113 @@
+{
+  "Name": "MoinMoin twikidraw Action Traversal File Upload",
+  "Description": "This module exploits a vulnerability in MoinMoin 1.9.5. The vulnerability exists on the manage of the twikidraw actions, where a traversal path can be used in order to upload arbitrary files. Exploitation is achieved on Apached/mod_wsgi configurations by overwriting moin.wsgi, which allows to execute arbitrary python code, as exploited in the wild on July, 2012. This module is \"ManualRanking,\" and the user is warned to use this module at his own risk since it will overwrite the moin.wsgi file, required for the correct working of the MoinMoin wiki. While the exploit will try to restore the attacked application at post exploitation, successful restoration cannot be guaranteed.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/unix/webapp/moinmoin_twikidraw.rb",
+  "Version": "",
+  "Rank": "manual",
+  "Authors": [
+    "Unknown",
+    "HTP",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2012-6081"
+    ],
+    [
+      "OSVDB",
+      "88825"
+    ],
+    [
+      "BID",
+      "57082"
+    ],
+    [
+      "EDB",
+      "25304"
+    ],
+    [
+      "URL",
+      "http://hg.moinmo.in/moin/1.9/rev/7e7e1cbb9d3f"
+    ],
+    [
+      "URL",
+      "http://wiki.python.org/moin/WikiAttack2013"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "MoinMoin 1.9.5"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TARGETURI",
+    "WritablePage",
+    "USERNAME",
+    "PASSWORD"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

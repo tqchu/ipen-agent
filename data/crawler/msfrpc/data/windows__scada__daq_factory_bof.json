@@ -1,0 +1,63 @@
+{
+  "Name": "DaqFactory HMI NETB Request Overflow",
+  "Description": "This module exploits a stack buffer overflow in Azeotech's DaqFactory product. The specific vulnerability is triggered when sending a specially crafted 'NETB' request to port 20034. Exploitation of this vulnerability may take a few seconds due to the use of egghunter. This vulnerability was one of the 14 releases discovered by researcher Luigi Auriemma.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/scada/daq_factory_bof.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "Luigi Auriemma",
+    "mr_me <steventhomasseeley@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2011-3492"
+    ],
+    [
+      "OSVDB",
+      "75496"
+    ],
+    [
+      "URL",
+      "http://aluigi.altervista.org/adv/daqfactory_1-adv.txt"
+    ],
+    [
+      "URL",
+      "https://www.cisa.gov/uscert/ics/advisories/ICSA-11-264-01"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "DAQFactory Pro 5.85 Build 1853 on Windows XP SP3"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "CPORT",
+    "CHOST",
+    "DHCP"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

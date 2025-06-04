@@ -1,0 +1,91 @@
+{
+  "Name": "MS13-055 Microsoft Internet Explorer CAnchorElement Use-After-Free",
+  "Description": "In IE8 standards mode, it's possible to cause a use-after-free condition by first creating an illogical table tree, where a CPhraseElement comes after CTableRow, with the final node being a sub table element. When the CPhraseElement's outer content is reset by using either outerText or outerHTML through an event handler, this triggers a free of its child element (in this case, a CAnchorElement, but some other objects apply too), but a reference is still kept in function SRunPointer::SpanQualifier. This function will then pass on the invalid reference to the next functions, eventually used in mshtml!CElement::Doc when it's trying to make a call to the object's SecurityContext virtual function at offset +0x70, which results a crash. An attacker can take advantage of this by first creating an CAnchorElement object, let it free, and then replace the freed memory with another fake object. Successfully doing so may allow arbitrary code execution under the context of the user. This bug is specific to Internet Explorer 8 only. It was originally discovered by Jose Antonio Vazquez Gonzalez and reported to iDefense, but was discovered again by Orange Tsai at Hitcon 2013.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/ms13_055_canchor.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Jose Antonio Vazquez Gonzalez",
+    "Orange Tsai",
+    "Peter Vreugdenhil",
+    "sinn3r <sinn3r@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-3163"
+    ],
+    [
+      "OSVDB",
+      "94981"
+    ],
+    [
+      "MSB",
+      "MS13-055"
+    ],
+    [
+      "URL",
+      "https://speakerd.s3.amazonaws.com/presentations/0df98910d26c0130e8927e81ab71b214/for-share.pdf"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "IE 8 on Windows XP SP3"
+    ],
+    [
+      2,
+      "IE 8 on Windows 7"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": {
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

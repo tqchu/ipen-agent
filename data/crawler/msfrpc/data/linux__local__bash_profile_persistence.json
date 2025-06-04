@@ -1,0 +1,51 @@
+{
+  "Name": "Bash Profile Persistence",
+  "Description": "This module writes an execution trigger to the target's Bash profile. The execution trigger executes a call back payload whenever the target user opens a Bash terminal. A handler is not run automatically, so you must configure an appropriate exploit/multi/handler to receive the callback.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/bash_profile_persistence.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Michael Long <bluesentinel@protonmail.com>"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://attack.mitre.org/techniques/T1156/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "BASH_PROFILE",
+    "PAYLOAD_DIR"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 0,
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

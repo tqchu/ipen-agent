@@ -1,0 +1,89 @@
+{
+  "Name": "Java JMX Server Insecure Configuration Java Code Execution",
+  "Description": "This module takes advantage a Java JMX interface insecure configuration, which would allow loading classes from any remote (HTTP) URL. JMX interfaces with authentication disabled (com.sun.management.jmxremote.authenticate=false) should be vulnerable, while interfaces with authentication enabled will be vulnerable only if a weak configuration is deployed (allowing to use javax.management.loading.MLet, having a security manager allowing to load a ClassLoader MBean, etc.).",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/misc/java_jmx_server.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Braden Thomas",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://docs.oracle.com/javase/8/docs/technotes/guides/jmx/JMX_1_4_specification.pdf"
+    ],
+    [
+      "URL",
+      "https://www.optiv.com/blog/exploiting-jmx-rmi"
+    ],
+    [
+      "CVE",
+      "2015-2342"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Java"
+  ],
+  "Arch": [
+    "java"
+  ],
+  "Targets": [
+    [
+      0,
+      "Generic (Java Payload)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "RHOSTS",
+    "RPORT",
+    "SSLServerNameIndication",
+    "SSLVerifyMode",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "RmiReadLoopTimeout",
+    "JMX_ROLE",
+    "JMX_PASSWORD",
+    "JMXRMI"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 10
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,61 @@
+{
+  "Name": "Citrix Provisioning Services 5.6 streamprocess.exe Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in Citrix Provisioning Services 5.6. By sending a specially crafted packet to the Provisioning Services server, a fixed length buffer on the stack can be overflowed and arbitrary code can be executed.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/citrix_streamprocess.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "mog"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "70597"
+    ],
+    [
+      "ZDI",
+      "11-023"
+    ],
+    [
+      "URL",
+      "http://web.archive.org/web/20110123164820/http://secunia.com:80/advisories/42954/"
+    ],
+    [
+      "URL",
+      "http://support.citrix.com/article/CTX127149"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows XP SP3 / Windows Server 2003 SP2 / Windows Vista"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "CPORT",
+    "CHOST"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

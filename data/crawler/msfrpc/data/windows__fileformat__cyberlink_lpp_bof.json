@@ -1,0 +1,61 @@
+{
+  "Name": "CyberLink LabelPrint 2.5 Stack Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in CyberLink LabelPrint 2.5 and below. The vulnerability is triggered when opening a .lpp project file containing overly long string characters via open file menu. This results in overwriting a structured exception handler record and take over the application. This module has been tested on Windows 7 (64 bit), Windows 8.1 (64 bit), and Windows 10 (64 bit).",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/cyberlink_lpp_bof.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "modpr0be <tom@spentera.id>",
+    "f3ci <marie@spentera.id>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2017-14627"
+    ],
+    [
+      "EDB",
+      "42777"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "CyberLink LabelPrint <= 2.5 on Windows 7 (64 bit)"
+    ],
+    [
+      1,
+      "CyberLink LabelPrint <= 2.5 on Windows 8.1 x64"
+    ],
+    [
+      2,
+      "CyberLink LabelPrint <= 2.5 on Windows 10 x64 build 1803"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": {
+    "FILENAME": "msf.lpp",
+    "EXITFUNC": "seh",
+    "DisablePayloadHandler": true,
+    "PAYLOAD": "windows/meterpreter/reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

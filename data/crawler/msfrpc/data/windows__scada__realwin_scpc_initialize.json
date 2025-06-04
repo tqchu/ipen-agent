@@ -1,0 +1,71 @@
+{
+  "Name": "DATAC RealWin SCADA Server SCPC_INITIALIZE Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in DATAC Control International RealWin SCADA Server 2.0 (Build 6.1.8.10). By sending a specially crafted packet, an attacker may be able to execute arbitrary code.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/scada/realwin_scpc_initialize.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "Luigi Auriemma",
+    "MC <mc@metasploit.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "68812"
+    ],
+    [
+      "CVE",
+      "2010-4142"
+    ],
+    [
+      "URL",
+      "http://aluigi.altervista.org/adv/realwin_1-adv.txt"
+    ],
+    [
+      "URL",
+      "https://www.cisa.gov/uscert/ics/advisories/ICSA-10-313-01"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

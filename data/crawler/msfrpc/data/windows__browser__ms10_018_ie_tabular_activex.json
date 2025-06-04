@@ -1,0 +1,86 @@
+{
+  "Name": "MS10-018 Microsoft Internet Explorer Tabular Data Control ActiveX Memory Corruption",
+  "Description": "This module exploits a memory corruption vulnerability in the Internet Explorer Tabular Data ActiveX Control. Microsoft reports that version 5.01 and 6 of Internet Explorer are vulnerable. By specifying a long value as the \"DataURL\" parameter to this control, it is possible to write a NUL byte outside the bounds of an array. By targeting control flow data on the stack, an attacker can execute arbitrary code.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/ms10_018_ie_tabular_activex.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "Unknown",
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2010-0805"
+    ],
+    [
+      "OSVDB",
+      "63329"
+    ],
+    [
+      "BID",
+      "39025"
+    ],
+    [
+      "ZDI",
+      "10-034"
+    ],
+    [
+      "MSB",
+      "MS10-018"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic (Heap Spray)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

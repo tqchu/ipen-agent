@@ -1,0 +1,116 @@
+{
+  "Name": "Numara / BMC Track-It! FileStorageService Arbitrary File Upload",
+  "Description": "This module exploits an arbitrary file upload vulnerability in Numara / BMC Track-It! v8 to v11.X. The application exposes the FileStorageService .NET remoting service on port 9010 (9004 for version 8) which accepts unauthenticated uploads. This can be abused by a malicious user to upload a ASP or ASPX file to the web root leading to arbitrary code execution as NETWORK SERVICE or SYSTEM. This module has been tested successfully on versions 11.3.0.355, 10.0.51.135, 10.0.50.107, 10.0.0.143, 9.0.30.248 and 8.0.2.51.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/http/trackit_file_upload.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Pedro Ribeiro <pedrib@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2014-4872"
+    ],
+    [
+      "OSVDB",
+      "112741"
+    ],
+    [
+      "US-CERT-VU",
+      "121036"
+    ],
+    [
+      "URL",
+      "https://seclists.org/fulldisclosure/2014/Oct/34"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "Numara / BMC Track-It! v9 to v11.X - Windows"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "RPORT_REMOTING",
+    "SLEEP",
+    "TARGETURI"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 30
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

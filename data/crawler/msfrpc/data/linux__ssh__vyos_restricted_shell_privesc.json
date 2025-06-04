@@ -1,0 +1,68 @@
+{
+  "Name": "VyOS restricted-shell Escape and Privilege Escalation",
+  "Description": "This module exploits command injection vulnerabilities and an insecure default sudo configuration on VyOS versions 1.0.0 <= 1.1.8 to execute arbitrary system commands as root. VyOS features a `restricted-shell` system shell intended for use by low privilege users with operator privileges. This module exploits a vulnerability in the `telnet` command to break out of the restricted shell, then uses sudo to exploit a command injection vulnerability in `/opt/vyatta/bin/sudo-users/vyatta-show-lldp.pl` to execute commands with root privileges. This module has been tested successfully on VyOS 1.1.8 amd64 and VyOS 1.0.0 i386.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/ssh/vyos_restricted_shell_privesc.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "Rich Mirch",
+    "bcoles <bcoles@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2018-18556"
+    ],
+    [
+      "URL",
+      "https://blog.vyos.io/the-operator-level-is-proved-insecure-and-will-be-removed-in-the-next-releases"
+    ],
+    [
+      "URL",
+      "https://blog.mirch.io/2018/11/05/cve-2018-18556-vyos-privilege-escalation-via-sudo-pppd-for-operator-users/"
+    ],
+    [
+      "URL",
+      "https://github.com/mirchr/security-research/blob/master/vulnerabilities/VyOS/CVE-2018-18556.sh"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSH_IDENT",
+    "SSH_TIMEOUT",
+    "SSH_DEBUG",
+    "USERNAME",
+    "PASSWORD",
+    "Proxies",
+    "GatherProof"
+  ],
+  "DefaultOptions": {
+    "Payload": "cmd/unix/reverse_bash"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

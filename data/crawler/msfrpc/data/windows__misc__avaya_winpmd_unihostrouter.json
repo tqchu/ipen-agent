@@ -1,0 +1,72 @@
+{
+  "Name": "Avaya WinPMD UniteHostRouter Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in Avaya WinPMD. The vulnerability exists in the UniteHostRouter service, due to the insecure usage of memcpy when parsing specially crafted \"To:\" headers. The module has been tested successfully on Avaya WinPMD 3.8.2 over Windows XP SP3 and Windows 2003 SP2.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/avaya_winpmd_unihostrouter.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "AbdulAziz Hariri",
+    "Unknown",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "82764"
+    ],
+    [
+      "OSVDB",
+      "73269"
+    ],
+    [
+      "BID",
+      "47947"
+    ],
+    [
+      "EDB",
+      "18397"
+    ],
+    [
+      "URL",
+      "https://downloads.avaya.com/css/P8/documents/100140122"
+    ],
+    [
+      "URL",
+      "http://web.archive.org/web/20110527165515/http://secunia.com:80/advisories/44062"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Avaya WinPMD 3.8.2 / Windows XP SP3"
+    ],
+    [
+      1,
+      "Avaya WinPMD 3.8.2 / Windows 2003 SP2"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "CPORT",
+    "CHOST"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

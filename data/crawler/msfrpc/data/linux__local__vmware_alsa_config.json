@@ -1,0 +1,98 @@
+{
+  "Name": "VMware Workstation ALSA Config File Local Privilege Escalation",
+  "Description": "This module exploits a vulnerability in VMware Workstation Pro and Player on Linux which allows users to escalate their privileges by using an ALSA configuration file to load and execute a shared object as root when launching a virtual machine with an attached sound card. This module has been tested successfully on VMware Player version 12.5.0 on Debian Linux 8 Jessie.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/vmware_alsa_config.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Jann Horn",
+    "bcoles <bcoles@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2017-4915"
+    ],
+    [
+      "EDB",
+      "42045"
+    ],
+    [
+      "BID",
+      "98566"
+    ],
+    [
+      "URL",
+      "https://www.securitytracker.com/id/1038525"
+    ],
+    [
+      "URL",
+      "https://gist.github.com/bcoles/cd26a831473088afafefc93641e184a9"
+    ],
+    [
+      "URL",
+      "https://www.vmware.com/security/advisories/VMSA-2017-0009.html"
+    ],
+    [
+      "URL",
+      "https://bugs.chromium.org/p/project-zero/issues/detail?id=1142"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Linux x86"
+    ],
+    [
+      1,
+      "Linux x64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "WritableDir",
+    "Xdisplay",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "AppendExit": true,
+    "PrependFork": true,
+    "WfsDelay": 30,
+    "Payload": "linux/x64/meterpreter_reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

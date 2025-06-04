@@ -1,0 +1,61 @@
+{
+  "Name": "HT-MP3Player 1.0 HT3 File Parsing Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in HT-MP3Player 1.0. Arbitrary code execution could occur when parsing a specially crafted .HT3 file. NOTE: The player installation does not register the file type to be handled. Therefore, a user must take extra steps to load this file.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/ht_mp3player_ht3_bof.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "hack4love <hack4love@hotmail.com>",
+    "His0k4",
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2009-2485"
+    ],
+    [
+      "OSVDB",
+      "55449"
+    ],
+    [
+      "EDB",
+      "9034"
+    ],
+    [
+      "EDB",
+      "9038"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "HT-MP3Player 1.0"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "AllowWin32SEH": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

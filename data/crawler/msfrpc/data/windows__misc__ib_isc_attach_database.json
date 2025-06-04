@@ -1,0 +1,110 @@
+{
+  "Name": "Borland InterBase isc_attach_database() Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in Borland InterBase by sending a specially crafted attach request.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/ib_isc_attach_database.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "Ramon de C Valle <rcvalle@metasploit.com>",
+    "Adriano Lima <adriano@risesecurity.org>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2007-5243"
+    ],
+    [
+      "OSVDB",
+      "38607"
+    ],
+    [
+      "BID",
+      "25917"
+    ],
+    [
+      "URL",
+      "http://www.risesecurity.org/advisories/RISE-2007002.txt"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "Brute Force"
+    ],
+    [
+      1,
+      "Borland InterBase WI-V8.1.0.257"
+    ],
+    [
+      2,
+      "Borland InterBase WI-V8.0.0.123"
+    ],
+    [
+      3,
+      "Borland InterBase WI-V7.5.0.129 WI-V7.5.1.80"
+    ],
+    [
+      4,
+      "Borland InterBase WI-V7.0.1.1"
+    ],
+    [
+      5,
+      "Borland InterBase WI-V6.5.0.28"
+    ],
+    [
+      6,
+      "Borland InterBase WI-V6.0.1.6"
+    ],
+    [
+      7,
+      "Borland InterBase WI-V6.0.0.627 WI-V6.0.1.0 WI-O6.0.1.6 WI-O6.0.2.0"
+    ],
+    [
+      8,
+      "Borland InterBase WI-V5.5.0.742"
+    ],
+    [
+      9,
+      "Borland InterBase WI-V5.1.1.680"
+    ],
+    [
+      10,
+      "Debug"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,61 @@
+{
+  "Name": "AOL Desktop 9.6 RTX Buffer Overflow",
+  "Description": "This module exploits a vulnerability found in AOL Desktop 9.6's Tool\\rich.rct component. By supplying a long string of data in the hyperlink tag, rich.rct copies this data into a buffer using a strcpy function, which causes an overflow, and results arbitrary code execution.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/aol_desktop_linktag.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "sup3r",
+    "sickn3ss",
+    "sinn3r <sinn3r@metasploit.com>",
+    "mr_me <steventhomasseeley@gmail.com>",
+    "silent_dream"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "70741"
+    ],
+    [
+      "EDB",
+      "16085"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "AOL Desktop 9.6 on Windows XP SP3"
+    ],
+    [
+      1,
+      "AOL Desktop 9.6 on Windows XP SP3 - NX bypass"
+    ],
+    [
+      2,
+      "AOL Desktop 9.6 on Windows 7"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

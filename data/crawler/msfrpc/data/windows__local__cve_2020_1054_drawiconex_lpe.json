@@ -1,0 +1,82 @@
+{
+  "Name": "Microsoft Windows DrawIconEx OOB Write Local Privilege Elevation",
+  "Description": "This module exploits CVE-2020-1054, an out of bounds write reachable from DrawIconEx within win32k. The out of bounds write can be used to overwrite the pvbits of a SURFOBJ. By utilizing this vulnerability to execute controlled writes to kernel memory, an attacker can gain arbitrary code execution as the SYSTEM user. This module has been tested against a fully updated Windows 7 x64 SP1. Offsets within the exploit code may need to be adjusted to work with other versions of Windows.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/cve_2020_1054_drawiconex_lpe.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Netanel Ben-Simon",
+    "Yoav Alon",
+    "bee13oy",
+    "timwr"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2020-1054"
+    ],
+    [
+      "URL",
+      "https://cpr-zero.checkpoint.com/vulns/cprid-2153/"
+    ],
+    [
+      "URL",
+      "https://0xeb-bp.com/blog/2020/06/15/cve-2020-1054-analysis.html"
+    ],
+    [
+      "URL",
+      "https://github.com/DreamoneOnly/2020-1054/blob/master/x64_src/main.cpp"
+    ],
+    [
+      "URL",
+      "https://github.com/KaLendsi/CVE-2020-1054/blob/master/CVE-2020-1054/exploit.cpp"
+    ],
+    [
+      "URL",
+      "https://github.com/Iamgublin/CVE-2020-1054/blob/master/ConsoleApplication4.cpp"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows 7 x64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 30
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

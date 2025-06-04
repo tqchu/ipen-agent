@@ -1,0 +1,62 @@
+{
+  "Name": "ASUS infosvr Auth Bypass Command Execution",
+  "Description": "This module exploits an authentication bypass vulnerability in the infosvr service running on UDP port 9999 on various ASUS routers to execute arbitrary commands as root. This module launches the BusyBox Telnet daemon on the port specified in the TelnetPort option to gain an interactive remote shell. This module was tested successfully on an ASUS RT-N12E with firmware version 2.0.0.35. Numerous ASUS models are reportedly affected, but untested.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/misc/asus_infosvr_auth_bypass_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Friedrich Postelstorfer",
+    "jduck <jduck@metasploit.com>",
+    "bcoles <bcoles@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2014-9583"
+    ],
+    [
+      "EDB",
+      "35688"
+    ],
+    [
+      "URL",
+      "https://github.com/jduck/asus-cmd"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "CPORT",
+    "CHOST",
+    "TelnetPort",
+    "TelnetTimeout",
+    "TelnetBannerTimeout",
+    "CommandShellCleanupCommand"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

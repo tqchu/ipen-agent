@@ -1,0 +1,84 @@
+{
+  "Name": "IBM Lotus Domino iCalendar MAILTO Buffer Overflow",
+  "Description": "This module exploits a vulnerability found in IBM Lotus Domino iCalendar. By sending a long string of data as the \"ORGANIZER;mailto\" header, process \"nRouter.exe\" crashes due to a Cstrcpy() routine in nnotes.dll, which allows remote attackers to gain arbitrary code execution. Note: In order to trigger the vulnerable code path, a valid Domino mailbox account is needed.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/lotus/domino_icalendar_organizer.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "A. Plaskett",
+    "sinn3r <sinn3r@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2010-3407"
+    ],
+    [
+      "OSVDB",
+      "68040"
+    ],
+    [
+      "ZDI",
+      "10-177"
+    ],
+    [
+      "URL",
+      "http://labs.mwrinfosecurity.com/advisories/lotus_domino_ical_stack_buffer_overflow/"
+    ],
+    [
+      "URL",
+      "http://www-01.ibm.com/support/docview.wss?rs=475&uid=swg21446515"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Lotus Domino 8.5 on Windows 2000 SP4"
+    ],
+    [
+      1,
+      "Lotus Domino 8.5 on Windows Server 2003 SP0"
+    ],
+    [
+      2,
+      "Lotus Domino 8.5 on Windows Server 2003 SP2"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "MAILFROM",
+    "MAILTO"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

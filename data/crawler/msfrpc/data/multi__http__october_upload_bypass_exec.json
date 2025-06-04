@@ -1,0 +1,106 @@
+{
+  "Name": "October CMS Upload Protection Bypass Code Execution",
+  "Description": "This module exploits an Authenticated user with permission to upload and manage media contents can upload various files on the server. Application prevents the user from uploading PHP code by checking the file extension. It uses black-list based approach, as seen in octobercms/vendor/october/rain/src/Filesystem/ Definitions.php:blockedExtensions(). This module was tested on October CMS version v1.0.412 on Ubuntu.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/http/october_upload_bypass_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Anti R\u00e4is",
+    "Touhid M.Shaikh <touhidshaikh22@gmail.com>",
+    "SecureLayer7.net"
+  ],
+  "References": [
+    [
+      "EDB",
+      "41936"
+    ],
+    [
+      "URL",
+      "https://bitflipper.eu/finding/2017/04/october-cms-v10412-several-issues.html"
+    ],
+    [
+      "CVE",
+      "2017-1000119"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::PHP"
+  ],
+  "Arch": [
+    "php"
+  ],
+  "Targets": [
+    [
+      0,
+      "October CMS v1.0.412"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "TARGETURI",
+    "USERNAME",
+    "PASSWORD"
+  ],
+  "DefaultOptions": {
+    "SSL": false,
+    "PAYLOAD": "php/meterpreter/reverse_tcp",
+    "ENCODER": "php/base64"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

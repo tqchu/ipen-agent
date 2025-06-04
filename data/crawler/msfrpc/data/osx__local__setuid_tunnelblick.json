@@ -1,0 +1,80 @@
+{
+  "Name": "Setuid Tunnelblick Privilege Escalation",
+  "Description": "This module exploits a vulnerability in Tunnelblick 3.2.8 on Mac OS X. The vulnerability exists in the setuid openvpnstart, where an insufficient validation of path names allows execution of arbitrary shell scripts as root. This module has been tested successfully on Tunnelblick 3.2.8 build 2891.3099 over Mac OS X 10.7.5.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/osx/local/setuid_tunnelblick.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Jason A. Donenfeld",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2012-3485"
+    ],
+    [
+      "OSVDB",
+      "84706"
+    ],
+    [
+      "EDB",
+      "20443"
+    ],
+    [
+      "URL",
+      "http://blog.zx2c4.com/791"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::OSX"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Tunnelblick 3.2.8 / Mac OS X x86"
+    ],
+    [
+      1,
+      "Tunnelblick 3.2.8 / Mac OS X x64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "WritableDir",
+    "Tunnelblick"
+  ],
+  "DefaultOptions": {
+    "PrependSetresuid": true,
+    "WfsDelay": 2
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

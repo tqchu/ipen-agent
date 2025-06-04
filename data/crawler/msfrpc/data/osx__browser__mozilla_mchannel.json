@@ -1,0 +1,80 @@
+{
+  "Name": "Mozilla Firefox 3.6.16 mChannel Use-After-Free",
+  "Description": "This module exploits a use-after-free vulnerability in Mozilla Firefox 3.6.16. An OBJECT element, mChannel, can be freed via the OnChannelRedirect method of the nsIChannelEventSink Interface. mChannel becomes a dangling pointer and can be reused when setting the OBJECTs data attribute. This module has been tested on Mac OS X 10.6.6, 10.6.7, 10.6.8, 10.7.2 and 10.7.3.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/osx/browser/mozilla_mchannel.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "regenrecht",
+    "Rh0",
+    "argp <argp@census-labs.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2011-0065"
+    ],
+    [
+      "OSVDB",
+      "72085"
+    ],
+    [
+      "URL",
+      "https://bugzilla.mozilla.org/show_bug.cgi?id=634986"
+    ],
+    [
+      "URL",
+      "http://www.mozilla.org/security/announce/2011/mfsa2011-13.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::OSX"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Firefox 3.6.16 on Mac OS X (10.6.6, 10.6.7, 10.6.8, 10.7.2 and 10.7.3)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,61 @@
+{
+  "Name": "HP Network Node Manager I PMD Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in HP Network Node Manager I (NNMi). The vulnerability exists in the pmd service, due to the insecure usage of functions like strcpy and strcat while handling stack_option packets with user controlled data. In order to bypass ASLR this module uses a proto_tbl packet to leak an libov pointer from the stack and finally build the ROP chain to avoid NX.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/misc/hp_nnmi_pmd_bof.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "d(-_-)b",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2014-2624"
+    ],
+    [
+      "ZDI",
+      "14-305"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "HP NNMi 9.10 / CentOS 5"
+    ],
+    [
+      2,
+      "HP NNMi 9.20 / CentOS 6"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "CPORT",
+    "CHOST"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

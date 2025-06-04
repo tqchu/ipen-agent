@@ -1,0 +1,77 @@
+{
+  "Name": "Sambar 6 Search Results Buffer Overflow",
+  "Description": "This module exploits a buffer overflow found in the /search/results.stm application that comes with Sambar 6. This code is a direct port of Andrew Griffiths's SMUDGE exploit, the only changes made were to the nops and payload. This exploit causes the service to die, whether you provided the correct target or not.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/http/sambar6_search_results.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "hdm <x@hdm.io>",
+    "Andrew Griffiths <andrewg@felinemenace.org>",
+    "aushack <patrick@osisecurity.com.au>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2004-2086"
+    ],
+    [
+      "OSVDB",
+      "5786"
+    ],
+    [
+      "BID",
+      "9607"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "Windows 2000"
+    ],
+    [
+      2,
+      "Windows XP"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

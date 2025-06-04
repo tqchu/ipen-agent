@@ -1,0 +1,99 @@
+{
+  "Name": "Tuleap 9.6 Second-Order PHP Object Injection",
+  "Description": "This module exploits a Second-Order PHP Object Injection vulnerability in Tuleap <= 9.6 which could be abused by authenticated users to execute arbitrary PHP code with the permissions of the webserver. The vulnerability exists because of the User::getRecentElements() method is using the unserialize() function with data that can be arbitrarily manipulated by a user through the REST API interface. The exploit's POP chain abuses the __toString() method from the Mustache class to reach a call to eval() in the Transition_PostActionSubFactory::fetchPostActions() method.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/unix/webapp/tuleap_rest_unserialize_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "EgiX"
+  ],
+  "References": [
+    [
+      "URL",
+      "http://karmainsecurity.com/KIS-2017-02"
+    ],
+    [
+      "URL",
+      "https://tuleap.net/plugins/tracker/?aid=10118"
+    ],
+    [
+      "CVE",
+      "2017-7411"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::PHP"
+  ],
+  "Arch": [
+    "php"
+  ],
+  "Targets": [
+    [
+      0,
+      "Tuleap <= 9.6"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TARGETURI",
+    "USERNAME",
+    "PASSWORD",
+    "AID"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

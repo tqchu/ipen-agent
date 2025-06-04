@@ -1,0 +1,71 @@
+{
+  "Name": "Win32k NtGdiResetDC Use After Free Local Privilege Elevation",
+  "Description": "A use after free vulnerability exists in the `NtGdiResetDC()` function of Win32k which can be leveraged by an attacker to escalate privileges to those of `NT AUTHORITY\\SYSTEM`. The flaw exists due to the fact that this function calls `hdcOpenDCW()`, which performs a user mode callback. During this callback, attackers can call the `NtGdiResetDC()` function again with the same handle as before, which will result in the PDC object that is referenced by this handle being freed. The attacker can then replace the memory referenced by the handle with their own object, before passing execution back to the original `NtGdiResetDC()` call, which will now use the attacker's object without appropriate validation. This can then allow the attacker to manipulate the state of the kernel and, together with additional exploitation techniques, gain code execution as NT AUTHORITY\\SYSTEM. This module has been tested to work on Windows 10 x64 RS1 (build 14393) and RS5 (build 17763), however previous versions of Windows 10 will likely also work.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/cve_2021_40449.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "IronHusky",
+    "Costin Raiu",
+    "Boris Larin",
+    "Red Raindrop Team of Qi'anxin Threat Intelligence Center",
+    "KaLendsi",
+    "ly4k",
+    "Grant Willcox"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2021-40449"
+    ],
+    [
+      "URL",
+      "https://securelist.com/mysterysnail-attacks-with-windows-zero-day/104509/"
+    ],
+    [
+      "URL",
+      "https://mp.weixin.qq.com/s/AcFS0Yn9SDuYxFnzbBqhkQ"
+    ],
+    [
+      "URL",
+      "https://github.com/KaLendsi/CVE-2021-40449-Exploit"
+    ],
+    [
+      "URL",
+      "https://github.com/ly4k/CallbackHell"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows 10 x64 RS1 (build 14393) and RS5 (build 17763)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

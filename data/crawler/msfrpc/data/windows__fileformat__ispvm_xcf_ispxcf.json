@@ -1,0 +1,54 @@
+{
+  "Name": "Lattice Semiconductor ispVM System XCF File Handling Overflow",
+  "Description": "This module exploits a vulnerability found in ispVM System 18.0.2. Due to the way ispVM handles .xcf files, it is possible to cause a buffer overflow with a specially crafted file, when a long value is supplied for the version attribute of the ispXCF tag. It results in arbitrary code execution under the context of the user.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/ispvm_xcf_ispxcf.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Unknown",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "82000"
+    ],
+    [
+      "BID",
+      "53562"
+    ],
+    [
+      "URL",
+      "http://web.archive.org/web/20121014002756/http://secunia.com/advisories/48740/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "ispVM System 18.0.2 / Windows XP SP3 / Windows 7 SP1"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

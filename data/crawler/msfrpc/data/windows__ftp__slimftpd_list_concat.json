@@ -1,0 +1,68 @@
+{
+  "Name": "SlimFTPd LIST Concatenation Overflow",
+  "Description": "This module exploits a stack buffer overflow in the SlimFTPd server. The flaw is triggered when a LIST command is received with an overly-long argument. This vulnerability affects all versions of SlimFTPd prior to 3.16 and was discovered by Raphael Rigo.",
+  "License": "BSD License",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/ftp/slimftpd_list_concat.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "Fairuzan Roslan <riaf@mysec.org>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2005-2373"
+    ],
+    [
+      "OSVDB",
+      "18172"
+    ],
+    [
+      "BID",
+      "14339"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "SlimFTPd Server <= 3.16 Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "FTPUSER",
+    "FTPPASS",
+    "FTPTimeout",
+    "FTPDEBUG",
+    "PassiveMode"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,62 @@
+{
+  "Name": "Adobe Reader ToolButton Use After Free",
+  "Description": "This module exploits a use after free condition on Adobe Reader versions 11.0.2, 10.1.6 and 9.5.4 and prior. The vulnerability exists while handling the ToolButton object, where the cEnable callback can be used to early free the object memory. Later use of the object allows triggering the use after free condition. This module has been tested successfully on Adobe Reader 11.0.2, 10.0.4 and 9.5.0 on Windows XP SP3, as exploited in the wild in November, 2013.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/adobe_toolbutton.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Soroush Dalili",
+    "Unknown",
+    "sinn3r <sinn3r@metasploit.com>",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-3346"
+    ],
+    [
+      "OSVDB",
+      "96745"
+    ],
+    [
+      "ZDI",
+      "13-212"
+    ],
+    [
+      "URL",
+      "http://www.adobe.com/support/security/bulletins/apsb13-15.html"
+    ],
+    [
+      "URL",
+      "http://www.fireeye.com/blog/technical/cyber-exploits/2013/11/ms-windows-local-privilege-escalation-zero-day-in-the-wild.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows XP / Adobe Reader 9/10/11"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

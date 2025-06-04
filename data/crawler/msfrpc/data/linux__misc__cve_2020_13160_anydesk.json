@@ -1,0 +1,63 @@
+{
+  "Name": "AnyDesk GUI Format String Write",
+  "Description": "The AnyDesk GUI is vulnerable to a remotely exploitable format string vulnerability. By sending a specially crafted discovery packet, an attacker can corrupt the frontend process when it loads or refreshes. While the discovery service is always running, the GUI frontend must be started to trigger the vulnerability. On successful exploitation, code is executed within the context of the user who started the AnyDesk GUI.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/misc/cve_2020_13160_anydesk.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "scryh",
+    "Spencer McIntyre"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2020-13160"
+    ],
+    [
+      "URL",
+      "https://devel0pment.de/?p=1881"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Anydesk 5.5.2 Ubuntu 20.04 x64"
+    ],
+    [
+      1,
+      "Anydesk 5.5.2 Ubuntu 18.04 x64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "CPORT",
+    "CHOST",
+    "SRVHOST",
+    "SRVPORT"
+  ],
+  "DefaultOptions": {
+    "CPORT": 50001,
+    "PrependFork": true,
+    "WfsDelay": 10
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

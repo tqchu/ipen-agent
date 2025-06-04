@@ -1,0 +1,108 @@
+{
+  "Name": "Druva inSync inSyncCPHwnet64.exe RPC Type 5 Privilege Escalation",
+  "Description": "Druva inSync client for Windows exposes a network service on TCP port 6064 on the local network interface. inSync versions 6.6.3 and prior do not properly validate user-supplied program paths in RPC type 5 messages, allowing execution of arbitrary commands as SYSTEM. This module has been tested successfully on inSync versions 6.5.2r99097 and 6.6.3r102156 on Windows 7 SP1 (x64).",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/druva_insync_insynccphwnet64_rcp_type_5_priv_esc.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Chris Lyne",
+    "Matteo Malvica",
+    "bcoles <bcoles@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2019-3999"
+    ],
+    [
+      "CVE",
+      "2020-5752"
+    ],
+    [
+      "EDB",
+      "48400"
+    ],
+    [
+      "EDB",
+      "48505"
+    ],
+    [
+      "EDB",
+      "49211"
+    ],
+    [
+      "PACKETSTORM",
+      "157493"
+    ],
+    [
+      "PACKETSTORM",
+      "157802"
+    ],
+    [
+      "PACKETSTORM",
+      "160404"
+    ],
+    [
+      "URL",
+      "https://www.tenable.com/security/research/tra-2020-12"
+    ],
+    [
+      "URL",
+      "https://www.tenable.com/security/research/tra-2020-34"
+    ],
+    [
+      "URL",
+      "https://github.com/tenable/poc/blob/master/druva/inSync/druva_win_cphwnet64.py"
+    ],
+    [
+      "URL",
+      "https://www.matteomalvica.com/blog/2020/05/21/lpe-path-traversal/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "WritableDir",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "windows/meterpreter/reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

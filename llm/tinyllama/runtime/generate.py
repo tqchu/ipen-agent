@@ -36,8 +36,13 @@ print(f"Using device: {device}")
 
 print("Loading model...")
 model = TinyLlama.from_config(f"{args.ckpt}/config.json").to(device)
+
+
 with torch.no_grad():
     model.load_state_dict(load_state(args.ckpt), strict=True)
+
+model = torch.compile(model, backend="inductor")  # PyTorch 2.0
+
 model.eval() # Ensure model is in evaluation mode
 print("Model loaded.")
 
@@ -74,23 +79,23 @@ print("Type 'exit' or 'quit' for the user question to end.")
 pairs = [
     {
         "system": "You are a friendly travel advisor.",
-        "user": "What are the top three must-see attractions in Kyoto for first-time visitors?"
+        "user": "Answer in short. What are the top three must-see attractions in Kyoto for first-time visitors?"
     },
     {
         "system": "You are an expert in algorithms and data structures.",
-        "user": "Explain how Dijkstra’s algorithm works, step by step, on a small weighted graph."
+        "user": "Answer in short. Explain how Dijkstra’s algorithm works, step by step, on a small weighted graph."
     },
     {
         "system": "You are a creative writing assistant.",
-        "user": "Write a 200-word opening scene for a sci-fi story set on Mars."
+        "user": "Answer in short. Write a 200-word opening scene for a sci-fi story set on Mars."
     },
     {
         "system": "You are a financial analyst.",
-        "user": "Compare the historical performance of the S&P 500 and NASDAQ over the last decade."
+        "user": "Answer in short. Compare the historical performance of the S&P 500 and NASDAQ over the last decade."
     },
     {
         "system": "You are a cooking tutor.",
-        "user": "How do I make a classic French omelette with a soft, custardy interior?"
+        "user": "Answer in short. How do I make a classic French omelette with a soft, custardy interior?"
     }
 ]
 

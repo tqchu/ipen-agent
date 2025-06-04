@@ -1,0 +1,111 @@
+{
+  "Name": "ManageEngine ADManager Plus ChangePasswordAction Authenticated Command Injection",
+  "Description": "ManageEngine ADManager Plus prior to build 7181 is vulnerable to an authenticated command injection due to insufficient validation of user input when performing the ChangePasswordAction function before passing it into a string that is later used as an OS command to execute. By making a POST request to /api/json/admin/saveServerSettings with a params POST parameter containing a JSON array object that has a USERNAME or PASSWORD element containing a carriage return and newline, followed by the command the attacker wishes to execute, an attacker can gain RCE as the user running ADManager Plus, which will typically be the local administrator. Note that the attacker must be authenticated in order to send requests to /api/json/admin/saveServerSettings, so this vulnerability does require authentication to exploit. As this exploit modifies the HTTP proxy settings for the entire server, one cannot use fetch payloads with this exploit, since these will use HTTP connections that will be affected by the change in configuration.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/http/manageengine_admanager_plus_cve_2023_29084_auth_cmd_injection.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Simon Humbert",
+    "Dinh Hoang",
+    "Grant Willcox"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2023-29084"
+    ],
+    [
+      "URL",
+      "https://hnd3884.github.io/posts/CVE-2023-29084-Command-injection-in-ManageEngine-ADManager-plus/"
+    ],
+    [
+      "URL",
+      "https://www.zerodayinitiative.com/advisories/ZDI-23-438/"
+    ],
+    [
+      "URL",
+      "https://www.manageengine.com/products/ad-manager/admanager-kb/cve-2023-29084.html"
+    ],
+    [
+      "URL",
+      "https://www.manageengine.com/products/ad-manager/release-notes.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows Command"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "USERNAME",
+    "PASSWORD",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "RPORT": 8080
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

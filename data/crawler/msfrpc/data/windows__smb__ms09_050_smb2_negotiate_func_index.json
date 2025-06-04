@@ -1,0 +1,101 @@
+{
+  "Name": "MS09-050 Microsoft SRV2.SYS SMB Negotiate ProcessID Function Table Dereference",
+  "Description": "This module exploits an out of bounds function table dereference in the SMB request validation code of the SRV2.SYS driver included with Windows Vista, Windows 7 release candidates (not RTM), and Windows 2008 Server prior to R2. Windows Vista without SP1 does not seem affected by this flaw.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/smb/ms09_050_smb2_negotiate_func_index.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "Laurent Gaffie <laurent.gaffie@gmail.com>",
+    "hdm <x@hdm.io>",
+    "sf <stephen_fewer@harmonysecurity.com>"
+  ],
+  "References": [
+    [
+      "MSB",
+      "MS09-050"
+    ],
+    [
+      "CVE",
+      "2009-3103"
+    ],
+    [
+      "BID",
+      "36299"
+    ],
+    [
+      "OSVDB",
+      "57799"
+    ],
+    [
+      "URL",
+      "https://seclists.org/fulldisclosure/2009/Sep/0039.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows Vista SP1/SP2 and Server 2008 (x86)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "NTLM::UseNTLMv2",
+    "NTLM::UseNTLM2_session",
+    "NTLM::SendLM",
+    "NTLM::UseLMKey",
+    "NTLM::SendNTLM",
+    "NTLM::SendSPN",
+    "SMB::pipe_evasion",
+    "SMB::pipe_write_min_size",
+    "SMB::pipe_write_max_size",
+    "SMB::pipe_read_min_size",
+    "SMB::pipe_read_max_size",
+    "SMB::pad_data_level",
+    "SMB::pad_file_level",
+    "SMB::obscure_trans_pipe_level",
+    "SMBDirect",
+    "SMBUser",
+    "SMBPass",
+    "SMBDomain",
+    "SMBName",
+    "SMB::VerifySignature",
+    "SMB::ChunkSize",
+    "SMB::Native_OS",
+    "SMB::Native_LM",
+    "SMB::ProtocolVersion",
+    "SMB::AlwaysEncrypt",
+    "WAIT"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

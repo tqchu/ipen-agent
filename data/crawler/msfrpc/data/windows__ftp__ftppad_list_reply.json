@@ -1,0 +1,68 @@
+{
+  "Name": "FTPPad 1.2.0 Stack Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow FTPPad 1.2.0 ftp client. The overflow is triggered when the client connects to a FTP server which sends an overly long directory and filename in response to a LIST command. This will cause an access violation, and will eventually overwrite the saved extended instruction pointer. Payload can be found at EDX+5c and ESI+5c, so a little pivot/ sniper was needed to make this one work.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/ftp/ftppad_list_reply.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "corelanc0d3r"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "68714"
+    ],
+    [
+      "URL",
+      "http://www.corelan.be:8800/index.php/2010/10/12/death-of-an-ftp-client/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "XP SP3 Professional, English - shlwapi 6.00.2900.5912"
+    ],
+    [
+      1,
+      "XP SP3 Professional, German - shlwapi 6.00.2900.5912"
+    ],
+    [
+      2,
+      "XP SP3 Professional, English - shlwapi 6.00.2900.5512"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "PASVPORT"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

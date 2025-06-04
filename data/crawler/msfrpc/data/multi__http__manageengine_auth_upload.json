@@ -1,0 +1,114 @@
+{
+  "Name": "ManageEngine Multiple Products Authenticated File Upload",
+  "Description": "This module exploits a directory traversal vulnerability in ManageEngine ServiceDesk, AssetExplorer, SupportCenter and IT360 when uploading attachment files. The JSP that accepts the upload does not handle correctly '../' sequences, which can be abused to write to the file system. Authentication is needed to exploit this vulnerability, but this module will attempt to login using the default credentials for the administrator and guest accounts. Alternatively, you can provide a pre-authenticated cookie or a username / password. For IT360 targets, enter the RPORT of the ServiceDesk instance (usually 8400). All versions of ServiceDesk prior v9 build 9031 (including MSP but excluding v4), AssetExplorer, SupportCenter and IT360 (including MSP) are vulnerable. At the time of release of this module, only ServiceDesk v9 has been fixed in build 9031 and above. This module has been tested successfully in Windows and Linux on several versions.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/http/manageengine_auth_upload.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Pedro Ribeiro <pedrib@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2014-5301"
+    ],
+    [
+      "OSVDB",
+      "116733"
+    ],
+    [
+      "URL",
+      "https://seclists.org/fulldisclosure/2015/Jan/5"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Java"
+  ],
+  "Arch": [
+    "java"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "ServiceDesk Plus v5-v7.1 < b7016/AssetExplorer v4/SupportCenter v5-v7.9"
+    ],
+    [
+      2,
+      "ServiceDesk Plus/Plus MSP v7.1 >= b7016 - v9.0 < b9031/AssetExplorer v5-v6.1"
+    ],
+    [
+      3,
+      "IT360 v8-v10.4"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "JSESSIONID",
+    "IAMAGENTTICKET",
+    "USERNAME",
+    "PASSWORD",
+    "DOMAIN_NAME"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 30
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,75 @@
+{
+  "Name": "2021 Ubuntu Overlayfs LPE",
+  "Description": "This module exploits a vulnerability in Ubuntu's implementation of overlayfs. The vulnerability is the result of failing to verify the ability of a user to set the attributes in a running executable. Specifically, when Overlayfs sends the set attributes data to the underlying file system via `vfs_setxattr`, it fails to first verify the data by calling `cap_convert_nscap`. This vulnerability was patched by moving the call to `cap_convert_nscap` into the `vfs_setxattr` function that sets the attribute, forcing verification every time the `vfs_setxattr` is called rather than trusting the data was already verified.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/cve_2021_3493_overlayfs.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "ssd-disclosure",
+    "bwatters-r7"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2021-3493"
+    ],
+    [
+      "URL",
+      "https://ssd-disclosure.com/ssd-advisory-overlayfs-pe/"
+    ],
+    [
+      "URL",
+      "https://github.com/briskets/CVE-2021-3493"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "x86_64"
+    ],
+    [
+      1,
+      "aarch64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "COMPILE",
+    "COMPILER",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "WritableDir",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

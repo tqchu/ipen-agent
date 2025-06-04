@@ -1,0 +1,123 @@
+{
+  "Name": "Adobe Flash Player 11.3 Kern Table Parsing Integer Overflow",
+  "Description": "This module exploits a vulnerability found in the ActiveX component of Adobe Flash Player before 11.3.300.271. By supplying a specially crafted .otf font file with a large nTables value in the 'kern' header, it is possible to trigger an integer overflow, which results in remote code execution under the context of the user. This vulnerability has also been exploited in the wild in limited targeted attacks. Please note in order to ensure reliability, the exploit is forced to modify your URIPATH parameter to less than 3 characters, which may cause possible URIPATH collisions.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/adobe_flash_otf_font.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Alexander Gavrun",
+    "sinn3r <sinn3r@metasploit.com>",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2012-1535"
+    ],
+    [
+      "OSVDB",
+      "84607"
+    ],
+    [
+      "BID",
+      "55009"
+    ],
+    [
+      "URL",
+      "http://labs.alienvault.com/labs/index.php/2012/cve-2012-1535-adobe-flash-being-exploited-in-the-wild/"
+    ],
+    [
+      "URL",
+      "https://developer.apple.com/fonts/TTRefMan/RM06/Chap6.html"
+    ],
+    [
+      "URL",
+      "http://contagiodump.blogspot.com.es/2012/08/cve-2012-1535-samples-and-info.html"
+    ],
+    [
+      "URL",
+      "https://www.rapid7.com/blog/post/2012/08/17/adobe-flash-player-exploit-cve-2012-1535-now-available-for-metasploit"
+    ],
+    [
+      "URL",
+      "http://www.adobe.com/support/security/bulletins/apsb12-18.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "IE 6 on Windows XP SP3"
+    ],
+    [
+      2,
+      "IE 7 on Windows XP SP3"
+    ],
+    [
+      3,
+      "IE 8 on Windows XP SP3"
+    ],
+    [
+      4,
+      "IE 7 on Windows Vista SP2"
+    ],
+    [
+      5,
+      "IE 8 on Windows 7 SP1"
+    ],
+    [
+      6,
+      "IE 9 on Windows 7 SP1"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "ROP"
+  ],
+  "DefaultOptions": {
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

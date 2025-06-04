@@ -1,0 +1,65 @@
+{
+  "Name": "OpenTFTP SP 1.4 Error Packet Overflow",
+  "Description": "This module exploits a buffer overflow in OpenTFTP Server SP 1.4. The vulnerable condition triggers when the TFTP opcode is configured as an error packet, the TFTP service will then format the message using a sprintf() function, which causes an overflow, therefore allowing remote code execution under the context of SYSTEM. The offset (to EIP) is specific to how the TFTP was started (as a 'Stand Alone', or 'Service'). By default the target is set to 'Service' because that's the default configuration during OpenTFTP Server SP 1.4's installation.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/tftp/opentftp_error_code.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "tixxDZ",
+    "steponequit"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2008-2161"
+    ],
+    [
+      "OSVDB",
+      "44904"
+    ],
+    [
+      "BID",
+      "29111"
+    ],
+    [
+      "URL",
+      "http://downloads.securityfocus.com/vulnerabilities/exploits/29111.pl"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "OpenTFTP 1.4 Service"
+    ],
+    [
+      1,
+      "OpenTFTP 1.4 Stand Alone"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "CPORT",
+    "CHOST"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

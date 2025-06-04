@@ -1,0 +1,72 @@
+{
+  "Name": "Novell GroupWise Messenger Client Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in Novell's GroupWise Messenger Client. By sending a specially crafted HTTP response, an attacker may be able to execute arbitrary code.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/novell/groupwisemessenger_client.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "MC <mc@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2008-2703"
+    ],
+    [
+      "OSVDB",
+      "46041"
+    ],
+    [
+      "BID",
+      "29602"
+    ],
+    [
+      "URL",
+      "http://www.infobyte.com.ar/adv/ISR-17.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Novell GroupWise Messenger 2.0 Client"
+    ],
+    [
+      1,
+      "Novell GroupWise Messenger 1.0 Client"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "AllowWin32SEH": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

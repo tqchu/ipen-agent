@@ -1,0 +1,126 @@
+{
+  "Name": "Oracle Weblogic Server Deserialization RCE - AsyncResponseService ",
+  "Description": "An unauthenticated attacker with network access to the Oracle Weblogic Server T3 interface can send a malicious SOAP request to the interface WLS AsyncResponseService to execute code on the vulnerable host.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/misc/weblogic_deserialize_asyncresponseservice.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Andres Rodriguez - 2Secure (@acamro) <acamro@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2019-2725"
+    ],
+    [
+      "URL",
+      "http://www.cnvd.org.cn/webinfo/show/4999"
+    ],
+    [
+      "URL",
+      "https://www.oracle.com/technetwork/security-advisory/alert-cve-2019-2725-5466295.html"
+    ],
+    [
+      "URL",
+      "https://twitter.com/F5Labs/status/1120822404568244224"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::Windows",
+    "Msf::Module::Platform::Solaris"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Unix"
+    ],
+    [
+      1,
+      "Windows"
+    ],
+    [
+      2,
+      "Solaris"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "Powershell::persist",
+    "Powershell::prepend_sleep",
+    "Powershell::prepend_protections_bypass",
+    "Powershell::strip_comments",
+    "Powershell::strip_whitespace",
+    "Powershell::sub_vars",
+    "Powershell::sub_funcs",
+    "Powershell::exec_in_place",
+    "Powershell::exec_rc4",
+    "Powershell::remove_comspec",
+    "Powershell::noninteractive",
+    "Powershell::encode_final_payload",
+    "Powershell::encode_inner_payload",
+    "Powershell::wrap_double_quotes",
+    "Powershell::no_equals",
+    "Powershell::method",
+    "TARGETURI"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 12
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

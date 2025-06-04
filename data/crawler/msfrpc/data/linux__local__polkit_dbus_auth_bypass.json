@@ -1,0 +1,75 @@
+{
+  "Name": "Polkit D-Bus Authentication Bypass",
+  "Description": "A vulnerability exists within the polkit system service that can be leveraged by a local, unprivileged attacker to perform privileged operations. In order to leverage the vulnerability, the attacker invokes a method over D-Bus and kills the client process. This will occasionally cause the operation to complete without being subjected to all of the necessary authentication. The exploit module leverages this to add a new user with a sudo access and a known password. The new account is then leveraged to execute a payload with root privileges.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/polkit_dbus_auth_bypass.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Kevin Backhouse",
+    "Spencer McIntyre",
+    "jheysel-r7"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://github.blog/2021-06-10-privilege-escalation-polkit-root-on-linux-with-bug/"
+    ],
+    [
+      "CVE",
+      "2021-3560"
+    ],
+    [
+      "EDB",
+      "50011"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "USERNAME",
+    "PASSWORD",
+    "TIMEOUT",
+    "ITERATIONS",
+    "WritableDir",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

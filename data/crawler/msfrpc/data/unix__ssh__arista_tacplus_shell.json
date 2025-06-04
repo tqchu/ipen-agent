@@ -1,0 +1,63 @@
+{
+  "Name": "Arista restricted shell escape (with privesc)",
+  "Description": "This exploit module takes advantage of a poorly configured TACACS+ config, Arista's bash shell and TACACS+ read-only account to privilage escalate. A CVSS v3 base score of 9.8 has been assigned.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/unix/ssh/arista_tacplus_shell.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "Chris Anders"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2020-9015"
+    ],
+    [
+      "URL",
+      "http://www.securitybytes.me/posts/cve-2020-9015/"
+    ],
+    [
+      "URL",
+      "https://nvd.nist.gov/vuln/detail/CVE-2020-9015"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSH_IDENT",
+    "SSH_TIMEOUT",
+    "SSH_DEBUG",
+    "USERNAME",
+    "PASSWORD",
+    "Proxies",
+    "GatherProof"
+  ],
+  "DefaultOptions": {
+    "Payload": "linux/x86/shell_reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

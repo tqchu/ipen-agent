@@ -1,0 +1,67 @@
+{
+  "Name": "Sun Solaris Telnet Remote Authentication Bypass Vulnerability",
+  "Description": "This module exploits the argument injection vulnerability in the telnet daemon (in.telnetd) of Solaris 10 and 11.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/solaris/telnet/fuser.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "MC <mc@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2007-0882"
+    ],
+    [
+      "OSVDB",
+      "31881"
+    ],
+    [
+      "BID",
+      "22512"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Solaris",
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "USER"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

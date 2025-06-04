@@ -1,0 +1,100 @@
+{
+  "Name": "Win32k ConsoleControl Offset Confusion",
+  "Description": "A vulnerability exists within win32k that can be leveraged by an attacker to escalate privileges to those of NT AUTHORITY\\SYSTEM. The flaw exists in how the WndExtra field of a window can be manipulated into being treated as an offset despite being populated by an attacker-controlled value. This can be leveraged to achieve an out of bounds write operation, eventually leading to privilege escalation. This flaw was originally identified as CVE-2021-1732 and was patched by Microsoft on February 9th, 2021. In early 2022, a technique to bypass the patch was identified and assigned CVE-2022-21882. The root cause is is the same for both vulnerabilities. This exploit combines the patch bypass with the original exploit to function on a wider range of Windows 10 targets.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/cve_2022_21882_win32k.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "BITTER APT",
+    "JinQuan",
+    "MaDongZe",
+    "TuXiaoYi",
+    "LiHao",
+    "L4ys",
+    "KaLendsi",
+    "Spencer McIntyre"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2021-1732"
+    ],
+    [
+      "URL",
+      "https://ti.dbappsecurity.com.cn/blog/index.php/2021/02/10/windows-kernel-zero-day-exploit-is-used-by-bitter-apt-in-targeted-attack/"
+    ],
+    [
+      "URL",
+      "https://github.com/KaLendsi/CVE-2021-1732-Exploit"
+    ],
+    [
+      "URL",
+      "https://attackerkb.com/assessments/1a332300-7ded-419b-b717-9bf03ca2a14e"
+    ],
+    [
+      "URL",
+      "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-1732"
+    ],
+    [
+      "URL",
+      "https://www.fuzzysecurity.com/tutorials/expDev/22.html"
+    ],
+    [
+      "URL",
+      "https://www.geoffchappell.com/studies/windows/win32/user32/structs/wnd/index.htm"
+    ],
+    [
+      "URL",
+      "https://byteraptors.github.io/windows/exploitation/2020/06/03/exploitingcve2019-1458.html"
+    ],
+    [
+      "URL",
+      "https://www.trendmicro.com/en_us/research/16/l/one-bit-rule-system-analyzing-cve-2016-7255-exploit-wild.html"
+    ],
+    [
+      "CVE",
+      "2022-21882"
+    ],
+    [
+      "URL",
+      "https://github.com/L4ys/CVE-2022-21882"
+    ],
+    [
+      "URL",
+      "https://github.com/KaLendsi/CVE-2022-21882"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows 10 v1803-21H2 x64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

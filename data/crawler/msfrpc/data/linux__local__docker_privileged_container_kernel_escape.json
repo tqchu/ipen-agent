@@ -1,0 +1,61 @@
+{
+  "Name": "Docker Privileged Container Kernel Escape",
+  "Description": "This module performs a container escape onto the host as the daemon user. It takes advantage of the SYS_MODULE capability. If that exists and the linux headers are available to compile on the target, then we can escape onto the host.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/docker_privileged_container_kernel_escape.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Nick Cottrell <Rad10Logic>",
+    "Eran Ayalon",
+    "Ilan Sokol"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://www.cybereason.com/blog/container-escape-all-you-need-is-cap-capabilities"
+    ],
+    [
+      "URL",
+      "https://github.com/maK-/reverse-shell-access-kernel-module"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "KernelModuleName",
+    "WritableContainerDir",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "PrependFork": true,
+    "WfsDelay": 20
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

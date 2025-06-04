@@ -1,0 +1,56 @@
+{
+  "Name": "ScadaTEC ScadaPhone Stack Buffer Overflow",
+  "Description": "This module exploits a stack-based buffer overflow vulnerability in version 5.3.11.1230 of scadaTEC's ScadaPhone. In order for the command to be executed, an attacker must convince someone to load a specially crafted project zip file with ScadaPhone. By doing so, an attacker can execute arbitrary code as the victim user.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/scadaphone_zip.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "mr_me <steventhomasseeley@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2011-4535"
+    ],
+    [
+      "OSVDB",
+      "75375"
+    ],
+    [
+      "URL",
+      "http://www.scadatec.com/"
+    ],
+    [
+      "EDB",
+      "17817"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

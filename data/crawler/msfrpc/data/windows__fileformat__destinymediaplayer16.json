@@ -1,0 +1,61 @@
+{
+  "Name": "Destiny Media Player 1.61 PLS M3U Buffer Overflow",
+  "Description": "This module exploits a stack-based buffer overflow in the Destiny Media Player 1.61. An attacker must send the file to victim and the victim must open the file. File-->Open Playlist",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/destinymediaplayer16.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "Trancek <trancek@yashira.org>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2009-3429"
+    ],
+    [
+      "OSVDB",
+      "53249"
+    ],
+    [
+      "EDB",
+      "7651"
+    ],
+    [
+      "BID",
+      "33091"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Destiny Universal"
+    ],
+    [
+      1,
+      "Windows XP SP2 Spanish"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": {
+    "AllowWin32SEH": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

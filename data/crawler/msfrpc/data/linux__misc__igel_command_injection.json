@@ -1,0 +1,109 @@
+{
+  "Name": "IGEL OS Secure VNC/Terminal Command Injection RCE",
+  "Description": "This module exploits a command injection vulnerability in IGEL OS Secure Terminal and Secure Shadow services. Both Secure Terminal (telnet_ssl_connector - 30022/tcp) and Secure Shadow (vnc_ssl_connector - 5900/tcp) services are vulnerable.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/misc/igel_command_injection.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Rob Vinson",
+    "James Brytan",
+    "James Smith",
+    "Marisa Mack",
+    "Sergey Pashevkin",
+    "Steven Laura"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://kb.igel.com/securitysafety/en/isn-2021-01-igel-os-remote-command-execution-vulnerability-41449239.html"
+    ],
+    [
+      "URL",
+      "https://www.igel.com/wp-content/uploads/2021/02/lxos_11.04.270.txt"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Secure Terminal Service"
+    ],
+    [
+      1,
+      "Secure Shadow Service"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "CPORT",
+    "CHOST",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSLCert",
+    "SSLCompression",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "CMDSTAGER::FLAVOR",
+    "CMDSTAGER::DECODER",
+    "CMDSTAGER::TEMP",
+    "CMDSTAGER::URIPATH",
+    "CMDSTAGER::SSL",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "PrependFork": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

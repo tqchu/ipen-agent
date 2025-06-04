@@ -1,0 +1,73 @@
+{
+  "Name": "FreeSSHd 1.0.9 Key Exchange Algorithm String Buffer Overflow",
+  "Description": "This module exploits a simple stack buffer overflow in FreeSSHd 1.0.9. This flaw is due to a buffer overflow error when handling a specially crafted key exchange algorithm string received from an SSH client.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/ssh/freesshd_key_exchange.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "MC <mc@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2006-2407"
+    ],
+    [
+      "OSVDB",
+      "25463"
+    ],
+    [
+      "BID",
+      "17958"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows 2000 Pro SP4 English"
+    ],
+    [
+      1,
+      "Windows XP Pro SP0 English"
+    ],
+    [
+      2,
+      "Windows XP Pro SP1 English"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

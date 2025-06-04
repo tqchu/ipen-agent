@@ -1,0 +1,116 @@
+{
+  "Name": "InduSoft Web Studio ISSymbol.ocx InternationalSeparator() Heap Overflow",
+  "Description": "This module exploits a heap overflow found in InduSoft Web Studio <= 61.6.00.00 SP6. The overflow exists in the ISSymbol.ocx, and can be triggered with a long string argument for the InternationalSeparator() method of the ISSymbol control. This module uses the msvcr71.dll form the Java JRE6 to bypass ASLR.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/indusoft_issymbol_internationalseparator.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Alexander Gavrun",
+    "Dmitriy Pletnev",
+    "James Fitts <fitts.james@gmail.com>",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2011-0340"
+    ],
+    [
+      "OSVDB",
+      "72865"
+    ],
+    [
+      "BID",
+      "47596"
+    ],
+    [
+      "ZDI",
+      "12-168"
+    ],
+    [
+      "URL",
+      "http://web.archive.org/web/20110506063846/http://secunia.com:80/secunia_research/2011-37"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "IE 6 on Windows XP SP3"
+    ],
+    [
+      2,
+      "IE 7 on Windows XP SP3"
+    ],
+    [
+      3,
+      "IE 8 on Windows XP SP3"
+    ],
+    [
+      4,
+      "IE 7 on Windows Vista"
+    ],
+    [
+      5,
+      "IE 8 on Windows Vista"
+    ],
+    [
+      6,
+      "IE 8 on Windows 7"
+    ],
+    [
+      7,
+      "IE 9 on Windows 7"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "OBFUSCATE"
+  ],
+  "DefaultOptions": {
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

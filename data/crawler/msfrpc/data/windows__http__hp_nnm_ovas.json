@@ -1,0 +1,106 @@
+{
+  "Name": "HP OpenView NNM 7.53, 7.51 OVAS.EXE Pre-Authentication Stack Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in HP OpenView Network Node Manager versions 7.53 and earlier. Specifically this vulnerability is caused by a failure to properly handle user supplied input within the HTTP request including headers and the actual URL GET request. Exploitation is tricky due to character restrictions. It was necessary to utilize a egghunter shellcode which was alphanumeric encoded by muts in the original exploit. If you plan on using exploit this for a remote shell, you will likely want to migrate to a different process as soon as possible. Any connections get reset after a short period of time. This is probably some timeout handling code that causes this.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/http/hp_nnm_ovas.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "bannedit <bannedit@metasploit.com>",
+    "muts"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2008-1697"
+    ],
+    [
+      "OSVDB",
+      "43992"
+    ],
+    [
+      "BID",
+      "28569"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic Targeting"
+    ],
+    [
+      1,
+      "Windows 2003/zip.dll OpenView 7.53"
+    ],
+    [
+      2,
+      "Windows 2000/jvm.dll OpenView NNM 7.51"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 45,
+    "EXITFUNC": "thread",
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

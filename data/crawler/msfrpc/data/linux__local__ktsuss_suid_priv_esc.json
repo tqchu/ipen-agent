@@ -1,0 +1,89 @@
+{
+  "Name": "ktsuss suid Privilege Escalation",
+  "Description": "This module attempts to gain root privileges by exploiting a vulnerability in ktsuss versions 1.4 and prior. The ktsuss executable is setuid root and does not drop privileges prior to executing user specified commands, resulting in command execution with root privileges. This module has been tested successfully on: ktsuss 1.3 on SparkyLinux 6 (2019.08) (LXQT) (x64); and ktsuss 1.3 on SparkyLinux 5.8 (LXQT) (x64).",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/ktsuss_suid_priv_esc.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "John Lightsey",
+    "bcoles <bcoles@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2011-2921"
+    ],
+    [
+      "URL",
+      "https://www.openwall.com/lists/oss-security/2011/08/13/2"
+    ],
+    [
+      "URL",
+      "https://security.gentoo.org/glsa/201201-15"
+    ],
+    [
+      "URL",
+      "https://github.com/bcoles/local-exploits/blob/master/CVE-2011-2921/ktsuss-lpe.sh"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x86",
+    "x64",
+    "armle",
+    "aarch64",
+    "ppc",
+    "mipsle",
+    "mipsbe"
+  ],
+  "Targets": [
+    [
+      0,
+      "Auto"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "KTSUSS_PATH",
+    "WritableDir",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "AppendExit": true,
+    "PrependSetresuid": true,
+    "PrependSetresgid": true,
+    "PrependSetreuid": true,
+    "PrependSetuid": true,
+    "PrependFork": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

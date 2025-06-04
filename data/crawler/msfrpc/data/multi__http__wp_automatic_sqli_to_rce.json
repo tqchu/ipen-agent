@@ -1,0 +1,123 @@
+{
+  "Name": "WordPress wp-automatic Plugin SQLi Admin Creation",
+  "Description": "This module exploits an unauthenticated SQL injection vulnerability in the WordPress wp-automatic plugin (versions < 3.92.1) to achieve remote code execution (RCE). The vulnerability allows the attacker to inject and execute arbitrary SQL commands, which can be used to create a malicious administrator account. The password for the new account is hashed using MD5. Once the administrator account is created, the attacker can upload and execute a malicious plugin, leading to full control over the WordPress site.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/http/wp_automatic_sqli_to_rce.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Rafie Muhammad",
+    "Valentin Lobstein"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2024-27956"
+    ],
+    [
+      "WPVDB",
+      "53a51e79-a216-4ca3-ac2d-57098fd2ebb5"
+    ],
+    [
+      "URL",
+      "https://www.wordfence.com/threat-intel/vulnerabilities/wordpress-plugins/wp-automatic/automatic-3920-unauthenticated-sql-injection"
+    ],
+    [
+      "URL",
+      "https://patchstack.com/articles/critical-vulnerabilities-patched-in-wordpress-automatic-plugin/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::PHP",
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "php",
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "PHP In-Memory"
+    ],
+    [
+      1,
+      "Unix/Linux Command Shell"
+    ],
+    [
+      2,
+      "Windows Command Shell"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TARGETURI",
+    "WPCONTENTDIR",
+    "WPCHECK",
+    "SqliDelay",
+    "USERNAME",
+    "PASSWORD",
+    "EMAIL",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

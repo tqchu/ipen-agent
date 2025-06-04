@@ -1,0 +1,157 @@
+{
+  "Name": "Samba is_known_pipename() Arbitrary Module Load",
+  "Description": "This module triggers an arbitrary shared library load vulnerability in Samba versions 3.5.0 to 4.4.14, 4.5.10, and 4.6.4. This module requires valid credentials, a writeable folder in an accessible share, and knowledge of the server-side path of the writeable folder. In some cases, anonymous access combined with common filesystem locations can be used to automatically exploit this vulnerability.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/samba/is_known_pipename.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "steelo <knownsteelo@gmail.com>",
+    "hdm <x@hdm.io>",
+    "bcoles <bcoles@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2017-7494"
+    ],
+    [
+      "URL",
+      "https://www.samba.org/samba/security/CVE-2017-7494.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic (Interact)"
+    ],
+    [
+      1,
+      "Automatic (Command)"
+    ],
+    [
+      2,
+      "Linux x86"
+    ],
+    [
+      3,
+      "Linux x86_64"
+    ],
+    [
+      4,
+      "Linux ARM (LE)"
+    ],
+    [
+      5,
+      "Linux ARM64"
+    ],
+    [
+      6,
+      "Linux MIPS"
+    ],
+    [
+      7,
+      "Linux MIPSLE"
+    ],
+    [
+      8,
+      "Linux MIPS64"
+    ],
+    [
+      9,
+      "Linux MIPS64LE"
+    ],
+    [
+      10,
+      "Linux PPC"
+    ],
+    [
+      11,
+      "Linux PPC64"
+    ],
+    [
+      12,
+      "Linux PPC64 (LE)"
+    ],
+    [
+      13,
+      "Linux SPARC"
+    ],
+    [
+      14,
+      "Linux SPARC64"
+    ],
+    [
+      15,
+      "Linux s390x"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "DCERPC::max_frag_size",
+    "DCERPC::fake_bind_multi",
+    "DCERPC::fake_bind_multi_prepend",
+    "DCERPC::fake_bind_multi_append",
+    "DCERPC::smb_pipeio",
+    "DCERPC::ReadTimeout",
+    "NTLM::UseNTLMv2",
+    "NTLM::UseNTLM2_session",
+    "NTLM::SendLM",
+    "NTLM::UseLMKey",
+    "NTLM::SendNTLM",
+    "NTLM::SendSPN",
+    "SMB::pipe_evasion",
+    "SMB::pipe_write_min_size",
+    "SMB::pipe_write_max_size",
+    "SMB::pipe_read_min_size",
+    "SMB::pipe_read_max_size",
+    "SMB::pad_data_level",
+    "SMB::pad_file_level",
+    "SMB::obscure_trans_pipe_level",
+    "SMBDirect",
+    "SMBUser",
+    "SMBPass",
+    "SMBDomain",
+    "SMBName",
+    "SMB::VerifySignature",
+    "SMB::ChunkSize",
+    "SMB::Native_OS",
+    "SMB::Native_LM",
+    "SMB::ProtocolVersion",
+    "SMB::AlwaysEncrypt",
+    "SMB_SHARE_NAME",
+    "SMB_FOLDER"
+  ],
+  "DefaultOptions": {
+    "DCERPC::fake_bind_multi": false,
+    "SHELL": "/bin/sh"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

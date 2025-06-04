@@ -1,0 +1,79 @@
+{
+  "Name": "HP Data Protector Encrypted Communication Remote Command Execution",
+  "Description": "This module exploits a well known remote code execution exploit after establishing encrypted control communications with a Data Protector agent. This allows exploitation of Data Protector agents that have been configured to only use encrypted control communications. This exploit works by executing the payload with Microsoft PowerShell so will only work against Windows Vista or newer. Tested against Data Protector 9.0 installed on Windows Server 2008 R2.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/hp_dataprotector_encrypted_comms.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Jon Barg",
+    "Ian Lovering"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2016-2004"
+    ],
+    [
+      "URL",
+      "http://h20564.www2.hpe.com/hpsc/doc/public/display?docId=emr_na-c05085988"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "Powershell::persist",
+    "Powershell::prepend_sleep",
+    "Powershell::prepend_protections_bypass",
+    "Powershell::strip_comments",
+    "Powershell::strip_whitespace",
+    "Powershell::sub_vars",
+    "Powershell::sub_funcs",
+    "Powershell::exec_in_place",
+    "Powershell::exec_rc4",
+    "Powershell::remove_comspec",
+    "Powershell::noninteractive",
+    "Powershell::encode_final_payload",
+    "Powershell::encode_inner_payload",
+    "Powershell::wrap_double_quotes",
+    "Powershell::no_equals",
+    "Powershell::method"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 30,
+    "RPORT": 5555
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

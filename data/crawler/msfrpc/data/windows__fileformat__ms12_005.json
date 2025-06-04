@@ -1,0 +1,92 @@
+{
+  "Name": "MS12-005 Microsoft Office ClickOnce Unsafe Object Package Handling Vulnerability",
+  "Description": "This module exploits a vulnerability found in Microsoft Office's ClickOnce feature. When handling a Macro document, the application fails to recognize certain file extensions as dangerous executables, which can be used to bypass the warning message. This can allow attackers to trick victims into opening the malicious document, which will load up either a python or ruby payload, and finally, download and execute an executable.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/ms12_005.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Yorick Koster",
+    "sinn3r <sinn3r@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2012-0013"
+    ],
+    [
+      "OSVDB",
+      "78207"
+    ],
+    [
+      "MSB",
+      "MS12-005"
+    ],
+    [
+      "BID",
+      "51284"
+    ],
+    [
+      "URL",
+      "http://support.microsoft.com/default.aspx?scid=kb;EN-US;2584146"
+    ],
+    [
+      "URL",
+      "http://exploitshop.wordpress.com/2012/01/14/ms12-005-embedded-object-package-allow-arbitrary-code-execution/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Microsoft Office Word 2007/2010 on Windows 7"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "INIT_PAYLOAD",
+    "BODY"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread",
+    "DisablePayloadHandler": false
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,94 @@
+{
+  "Name": "MS04-007 Microsoft ASN.1 Library Bitstring Heap Overflow",
+  "Description": "This is an exploit for a previously undisclosed vulnerability in the bit string decoding code in the Microsoft ASN.1 library. This vulnerability is not related to the bit string vulnerability described in eEye advisory AD20040210-2. Both vulnerabilities were fixed in the MS04-007 patch. Windows 2000 SP4 Rollup 1 also patches this vulnerability. You are only allowed one attempt with this vulnerability. If the payload fails to execute, the LSASS system service will crash and the target system will automatically reboot itself in 60 seconds. If the payload succeeds, the system will no longer be able to process authentication requests, denying all attempts to login through SMB or at the console. A reboot is required to restore proper functioning of an exploited system. This exploit has been successfully tested with the win32/*/reverse_tcp payloads, however a few problems were encountered when using the equivalent bind payloads. Your mileage may vary.",
+  "License": "BSD License",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/smb/ms04_007_killbill.rb",
+  "Version": "",
+  "Rank": "low",
+  "Authors": [
+    "Solar Eclipse <solareclipse@phreedom.org>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2003-0818"
+    ],
+    [
+      "OSVDB",
+      "3902"
+    ],
+    [
+      "BID",
+      "9633"
+    ],
+    [
+      "MSB",
+      "MS04-007"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows 2000 SP2-SP4 + Windows XP SP0-SP1"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "NTLM::UseNTLMv2",
+    "NTLM::UseNTLM2_session",
+    "NTLM::SendLM",
+    "NTLM::UseLMKey",
+    "NTLM::SendNTLM",
+    "NTLM::SendSPN",
+    "SMB::pipe_evasion",
+    "SMB::pipe_write_min_size",
+    "SMB::pipe_write_max_size",
+    "SMB::pipe_read_min_size",
+    "SMB::pipe_read_max_size",
+    "SMB::pad_data_level",
+    "SMB::pad_file_level",
+    "SMB::obscure_trans_pipe_level",
+    "SMBDirect",
+    "SMBUser",
+    "SMBPass",
+    "SMBDomain",
+    "SMBName",
+    "SMB::VerifySignature",
+    "SMB::ChunkSize",
+    "SMB::Native_OS",
+    "SMB::Native_LM",
+    "SMB::AlwaysEncrypt",
+    "PROTO"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

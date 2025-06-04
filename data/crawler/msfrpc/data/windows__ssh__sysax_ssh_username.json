@@ -1,0 +1,73 @@
+{
+  "Name": "Sysax 5.53 SSH Username Buffer Overflow",
+  "Description": "This module exploits a vulnerability found in Sysax's SSH service. By supplying a long username, the SSH server will copy that data on the stack without proper bounds checking, therefore allowing remote code execution under the context of the user. Please note that previous versions (before 5.53) are also affected by this bug.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/ssh/sysax_ssh_username.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Craig Freyman",
+    "sinn3r <sinn3r@metasploit.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "79689"
+    ],
+    [
+      "URL",
+      "http://www.pwnag3.com/2012/02/sysax-multi-server-ssh-username-exploit.html"
+    ],
+    [
+      "EDB",
+      "18535"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Sysax 5.53 on Win XP SP3 / Win2k3 SP0"
+    ],
+    [
+      1,
+      "Sysax 5.53 on Win2K3 SP1/SP2"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "SSH_IDENT",
+    "SSH_TIMEOUT",
+    "SSH_DEBUG"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "seh"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

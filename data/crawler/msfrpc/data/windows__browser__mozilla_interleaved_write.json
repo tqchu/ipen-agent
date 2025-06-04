@@ -1,0 +1,91 @@
+{
+  "Name": "Mozilla Firefox Interleaved document.write/appendChild Memory Corruption",
+  "Description": "This module exploits a code execution vulnerability in Mozilla Firefox caused by interleaved calls to document.write and appendChild. This module was written based on a live exploit found in the wild.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/mozilla_interleaved_write.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "unknown",
+    "scriptjunkie"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2010-3765"
+    ],
+    [
+      "OSVDB",
+      "68905"
+    ],
+    [
+      "BID",
+      "15352"
+    ],
+    [
+      "EDB",
+      "15352"
+    ],
+    [
+      "URL",
+      "https://bugzilla.mozilla.org/show_bug.cgi?id=607222"
+    ],
+    [
+      "URL",
+      "http://www.mozilla.org/security/announce/2010/mfsa2010-73.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Firefox 3.6.8 - 3.6.11, Windows XP/Windows Server 2003"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "OBFUSCATE"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

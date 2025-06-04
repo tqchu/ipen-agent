@@ -1,0 +1,90 @@
+{
+  "Name": "Cisco AnyConnect VPN Client ActiveX URL Property Download and Execute",
+  "Description": "This module exploits a vulnerability in the Cisco AnyConnect VPN client vpnweb.ocx ActiveX control. This control is typically used to install the VPN client. An attacker can set the 'url' property which is where the control tries to locate the files needed to install the client. The control tries to download two files from the site specified within the 'url' property. One of these files it will be stored in a temporary directory and executed.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/cisco_anyconnect_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "bannedit <bannedit@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2011-2039"
+    ],
+    [
+      "OSVDB",
+      "72714"
+    ],
+    [
+      "URL",
+      "http://labs.idefense.com/intelligence/vulnerabilities/display.php?id=909"
+    ],
+    [
+      "URL",
+      "http://www.cisco.com/en/US/products/products_security_advisory09186a0080b80123.shtml"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

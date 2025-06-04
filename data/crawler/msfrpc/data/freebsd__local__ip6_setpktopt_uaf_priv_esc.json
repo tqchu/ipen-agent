@@ -1,0 +1,121 @@
+{
+  "Name": "FreeBSD ip6_setpktopt Use-After-Free Privilege Escalation",
+  "Description": "This module exploits a race and use-after-free vulnerability in the FreeBSD kernel IPv6 socket handling. A missing synchronization lock in the `IPV6_2292PKTOPTIONS` option handling in `setsockopt` permits racing `ip6_setpktopt` access to a freed `ip6_pktopts` struct. This exploit overwrites the `ip6po_pktinfo` pointer of a `ip6_pktopts` struct in freed memory to achieve arbitrary kernel read/write. This module has been tested successfully on: FreeBSD 9.0-RELEASE #0 (amd64); FreeBSD 9.1-RELEASE #0 r243825 (amd64); FreeBSD 9.2-RELEASE #0 r255898 (amd64); FreeBSD 9.3-RELEASE #0 r268512 (amd64); FreeBSD 12.0-RELEASE r341666 (amd64); and FreeBSD 12.1-RELEASE r354233 (amd64).",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/freebsd/local/ip6_setpktopt_uaf_priv_esc.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "Andy Nguyen",
+    "bcoles <bcoles@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2020-7457"
+    ],
+    [
+      "EDB",
+      "48644"
+    ],
+    [
+      "PACKETSTORM",
+      "158341"
+    ],
+    [
+      "URL",
+      "https://hackerone.com/reports/826026"
+    ],
+    [
+      "URL",
+      "https://bsdsec.net/articles/freebsd-announce-freebsd-security-advisory-freebsd-sa-20-20-ipv6"
+    ],
+    [
+      "URL",
+      "https://www.freebsd.org/security/patches/SA-20:20/ipv6.patch"
+    ],
+    [
+      "URL",
+      "https://github.com/freebsd/freebsd/blob/master/sys/netinet6/ip6_var.h"
+    ],
+    [
+      "URL",
+      "https://github.com/freebsd/freebsd/blob/master/sys/netinet6/ip6_output.c"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::BSD"
+  ],
+  "Arch": [
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "FreeBSD 9.0-RELEASE #0"
+    ],
+    [
+      2,
+      "FreeBSD 9.1-RELEASE #0 r243825"
+    ],
+    [
+      3,
+      "FreeBSD 9.2-RELEASE #0 r255898"
+    ],
+    [
+      4,
+      "FreeBSD 9.3-RELEASE #0 r268512"
+    ],
+    [
+      5,
+      "FreeBSD 12.0-RELEASE r341666"
+    ],
+    [
+      6,
+      "FreeBSD 12.1-RELEASE r354233"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "NUM_SPRAY",
+    "NUM_SPRAY_RACE",
+    "WritableDir",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "bsd/x64/shell_reverse_tcp",
+    "PrependFork": true,
+    "WfsDelay": 10
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

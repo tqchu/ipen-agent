@@ -1,0 +1,106 @@
+{
+  "Name": "Linux BPF doubleput UAF Privilege Escalation",
+  "Description": "Linux kernel 4.4 < 4.5.5 extended Berkeley Packet Filter (eBPF) does not properly reference count file descriptors, resulting in a use-after-free, which can be abused to escalate privileges. The target system must be compiled with `CONFIG_BPF_SYSCALL` and must not have `kernel.unprivileged_bpf_disabled` set to 1. Note, this module will overwrite the first few lines of `/etc/crontab` with a new cron job. The job will need to be manually removed. This module has been tested successfully on Ubuntu 16.04 (x64) kernel 4.4.0-21-generic (default kernel).",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/bpf_priv_esc.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "jannh <jannh@google.com>",
+    "h00die <mike@shorebreaksecurity.com>"
+  ],
+  "References": [
+    [
+      "BID",
+      "90309"
+    ],
+    [
+      "CVE",
+      "2016-4557"
+    ],
+    [
+      "EDB",
+      "39772"
+    ],
+    [
+      "URL",
+      "https://bugs.chromium.org/p/project-zero/issues/detail?id=808"
+    ],
+    [
+      "URL",
+      "https://usn.ubuntu.com/2965-1/"
+    ],
+    [
+      "URL",
+      "https://launchpad.net/bugs/1578705"
+    ],
+    [
+      "URL",
+      "http://changelogs.ubuntu.com/changelogs/pool/main/l/linux/linux_4.4.0-22.39/changelog"
+    ],
+    [
+      "URL",
+      "https://people.canonical.com/~ubuntu-security/cve/2016/CVE-2016-4557.html"
+    ],
+    [
+      "URL",
+      "https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=8358b02bf67d3a5d8a825070e1aa73f25fb2e4c7"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Linux x86"
+    ],
+    [
+      1,
+      "Linux x64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "COMPILE",
+    "MAXWAIT",
+    "WritableDir",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "linux/x64/meterpreter/reverse_tcp",
+    "PrependFork": true,
+    "WfsDelay": 60
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,106 @@
+{
+  "Name": "Net-SNMPd Write Access SNMP-EXTEND-MIB arbitrary code execution",
+  "Description": "This exploit module exploits the SNMP write access configuration ability of SNMP-EXTEND-MIB to configure MIB extensions and lead to remote code execution.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/snmp/net_snmpd_rw_access.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Steve Embling at InteliSecure"
+  ],
+  "References": [
+    [
+      "URL",
+      "http://net-snmp.sourceforge.net/docs/mibs/NET-SNMP-EXTEND-MIB.txt"
+    ],
+    [
+      "URL",
+      "https://medium.com/rangeforce/snmp-arbitrary-command-execution-19a6088c888e"
+    ],
+    [
+      "URL",
+      "https://digi.ninja/blog/snmp_to_shell.php"
+    ],
+    [
+      "URL",
+      "https://sourceforge.net/p/net-snmp/mailman/message/15735617/"
+    ]
+  ],
+  "Platform": [],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Linux x86"
+    ],
+    [
+      1,
+      "Linux x64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "CPORT",
+    "CHOST",
+    "COMMUNITY",
+    "VERSION",
+    "TIMEOUT",
+    "RETRIES",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "CMDSTAGER::FLAVOR",
+    "CMDSTAGER::DECODER",
+    "CMDSTAGER::TEMP",
+    "CMDSTAGER::URIPATH",
+    "CMDSTAGER::SSL",
+    "FILEPATH",
+    "CHUNKSIZE",
+    "SHELL"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

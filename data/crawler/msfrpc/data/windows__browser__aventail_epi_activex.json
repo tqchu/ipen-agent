@@ -1,0 +1,74 @@
+{
+  "Name": "SonicWALL Aventail epi.dll AuthCredential Format String",
+  "Description": "This module exploits a format string vulnerability within version 10.0.4.x and 10.5.1 of the SonicWALL Aventail SSL-VPN Endpoint Interrogator/Installer ActiveX control (epi.dll). By calling the 'AuthCredential' method with a specially crafted Unicode format string, an attacker can cause memory corruption and execute arbitrary code. Unfortunately, it does not appear to be possible to indirectly re-use existing stack data for more reliable exploitation. This is due to several particulars about this vulnerability. First, the format string must be a Unicode string, which uses two bytes per character. Second, the buffer is allocated on the stack using the 'alloca' function. As such, each additional format specifier (%x) will add four more bytes to the size allocated. This results in the inability to move the read pointer outside of the buffer. Further testing showed that using specifiers that pop more than four bytes does not help. Any number of format specifiers will result in accessing the same value within the buffer. NOTE: It may be possible to leverage the vulnerability to leak memory contents. However, that has not been fully investigated at this time.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/aventail_epi_activex.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Nikolas Sotiriu",
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "67286"
+    ],
+    [
+      "URL",
+      "http://sotiriu.de/adv/NSOADV-2010-005.txt"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "epi.dll v10.0.4.18 on Windows XP SP3"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,71 @@
+{
+  "Name": "Android Janus APK Signature bypass",
+  "Description": "This module exploits CVE-2017-13156 in Android to install a payload into another application. The payload APK will have the same signature and can be installed as an update, preserving the existing data. The vulnerability was fixed in the 5th December 2017 security patch, and was additionally fixed by the APK Signature scheme v2, so only APKs signed with the v1 scheme are vulnerable. Payload handler is disabled, and a multi/handler must be started first.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/android/local/janus.rb",
+  "Version": "",
+  "Rank": "manual",
+  "Authors": [
+    "GuardSquare",
+    "V-E-O",
+    "timwr",
+    "h00die"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2017-13156"
+    ],
+    [
+      "URL",
+      "https://www.guardsquare.com/en/blog/new-android-vulnerability-allows-attackers-modify-apps-without-affecting-their-signatures"
+    ],
+    [
+      "URL",
+      "https://github.com/V-E-O/PoC/tree/master/CVE-2017-13156"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Android"
+  ],
+  "Arch": [
+    "dalvik"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "PingbackRetries",
+    "PingbackSleep",
+    "PayloadUUIDSeed",
+    "PayloadUUIDRaw",
+    "PayloadUUIDName",
+    "PayloadUUIDTracking",
+    "PACKAGE",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "android/meterpreter/reverse_tcp",
+    "AndroidWakelock": false,
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

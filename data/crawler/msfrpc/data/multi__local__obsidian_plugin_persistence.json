@@ -1,0 +1,81 @@
+{
+  "Name": "Obsidian Plugin Persistence",
+  "Description": "This module searches for Obsidian vaults for a user, and uploads a malicious community plugin to the vault. The vaults must be opened with community plugins enabled (NOT restricted mode), but the plugin will be enabled automatically. Tested against Obsidian 1.7.7 on Kali, Ubuntu 22.04, and Windows 10.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/local/obsidian_plugin_persistence.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "h00die",
+    "Thomas Byrne"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://docs.obsidian.md/Plugins/Getting+started/Build+a+plugin"
+    ],
+    [
+      "URL",
+      "https://github.com/obsidianmd/obsidian-sample-plugin/tree/master"
+    ],
+    [
+      "URL",
+      "https://forum.obsidian.md/t/can-obsidian-plugins-have-malware/34491"
+    ],
+    [
+      "URL",
+      "https://help.obsidian.md/Extending+Obsidian/Plugin+security"
+    ],
+    [
+      "URL",
+      "https://thomas-byrne.co.uk/research/obsidian-malicious-plugins/obsidian-research/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::OSX",
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Auto"
+    ],
+    [
+      1,
+      "Linux"
+    ],
+    [
+      2,
+      "OSX"
+    ],
+    [
+      3,
+      "Windows"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "NAME",
+    "USER",
+    "CONFIG"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 90000,
+    "PrependMigrate": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

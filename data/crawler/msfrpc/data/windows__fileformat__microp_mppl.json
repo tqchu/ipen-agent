@@ -1,0 +1,54 @@
+{
+  "Name": "MicroP 0.1.1.1600 (MPPL File) Stack Buffer Overflow",
+  "Description": "This module exploits a vulnerability found in MicroP 0.1.1.1600. A stack-based buffer overflow occurs when the content of a .mppl file gets copied onto the stack, which overwrites the lpFileName parameter of a CreateFileA() function, and results arbitrary code execution under the context of the user.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/microp_mppl.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "James Fitts <fitts.james@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2010-5299"
+    ],
+    [
+      "OSVDB",
+      "73627"
+    ],
+    [
+      "EDB",
+      "14720"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows XP SP3 / Vista / 7"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,71 @@
+{
+  "Name": "Windows EPATHOBJ::pprFlattenRec Local Privilege Escalation",
+  "Description": "This module exploits a vulnerability on EPATHOBJ::pprFlattenRec due to the usage of uninitialized data which allows to corrupt memory. At the moment, the module has been tested successfully on Windows XP SP3, Windows 2003 SP1, and Windows 7 SP1.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/ppr_flatten_rec.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "Tavis Ormandy <taviso@cmpxchg8b.com>",
+    "progmboy <programmeboy@gmail.com>",
+    "Keebie4e",
+    "egypt <egypt@metasploit.com>",
+    "sinn3r <sinn3r@metasploit.com>",
+    "Ben Campbell <eat_meatballs@hotmail.co.uk>",
+    "juan vazquez <juan.vazquez@metasploit.com>",
+    "OJ Reeves"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-3660"
+    ],
+    [
+      "EDB",
+      "25912"
+    ],
+    [
+      "OSVDB",
+      "93539"
+    ],
+    [
+      "MSB",
+      "MS13-053"
+    ],
+    [
+      "URL",
+      "https://seclists.org/fulldisclosure/2013/May/91"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread",
+    "WfsDelay": 30
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,88 @@
+{
+  "Name": "Netfilter nft_set_elem_init Heap Overflow Privilege Escalation",
+  "Description": "An issue was discovered in the Linux kernel through 5.18.9. A type confusion bug in nft_set_elem_init (leading to a buffer overflow) could be used by a local attacker to escalate privileges. The attacker can obtain root access, but must start with an unprivileged user namespace to obtain CAP_NET_ADMIN access. The issue exists in nft_setelem_parse_data in net/netfilter/nf_tables_api.c.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/netfilter_nft_set_elem_init_privesc.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "Arthur Mongodin <amongodin <Arthur Mongodin <amongodin@randorisec.fr> (@_Aleknight_)>",
+    "Redouane NIBOUCHA <rniboucha@yahoo.fr>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2022-34918"
+    ],
+    [
+      "URL",
+      "https://nvd.nist.gov/vuln/detail/CVE-2022-34918"
+    ],
+    [
+      "URL",
+      "https://ubuntu.com/security/CVE-2022-34918"
+    ],
+    [
+      "URL",
+      "https://www.randorisec.fr/crack-linux-firewall/"
+    ],
+    [
+      "URL",
+      "https://github.com/randorisec/CVE-2022-34918-LPE-PoC"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Auto"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "COMPILE",
+    "COMPILER",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "MAX_TRIES",
+    "WritableDir",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "Payload": "linux/x64/shell_reverse_tcp",
+    "PrependSetresuid": true,
+    "PrependSetresgid": true,
+    "PrependFork": true,
+    "WfsDelay": 30
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,76 @@
+{
+  "Name": "System V Derived /bin/login Extraneous Arguments Buffer Overflow",
+  "Description": "This exploit connects to a system's modem over dialup and exploits a buffer overflow vulnerability in it's System V derived /bin/login. The vulnerability is triggered by providing a large number of arguments.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/dialup/multi/login/manyargs.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "I)ruid <druid@caughq.org>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2001-0797"
+    ],
+    [
+      "OSVDB",
+      "690"
+    ],
+    [
+      "OSVDB",
+      "691"
+    ],
+    [
+      "BID",
+      "3681"
+    ],
+    [
+      "URL",
+      "http://archives.neohapsis.com/archives/bugtraq/2002-10/0014.html"
+    ],
+    [
+      "URL",
+      "http://archives.neohapsis.com/archives/bugtraq/2004-12/0404.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "tty"
+  ],
+  "Targets": [
+    [
+      0,
+      "Solaris 2.6 - 8 (SPARC)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "BAUDRATE",
+    "DATABITS",
+    "DIALPREFIX",
+    "DIALSUFFIX",
+    "DIALTIMEOUT",
+    "DISPLAYMODEM",
+    "FLOWCONTROL",
+    "INITSTRING",
+    "NUMBER",
+    "PARITY",
+    "SERIALPORT",
+    "STOPBITS"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

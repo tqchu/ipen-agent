@@ -1,0 +1,149 @@
+{
+  "Name": "MS17-010 EternalBlue SMB Remote Windows Kernel Pool Corruption",
+  "Description": "This module is a port of the Equation Group ETERNALBLUE exploit, part of the FuzzBunch toolkit released by Shadow Brokers. There is a buffer overflow memmove operation in Srv!SrvOs2FeaToNt. The size is calculated in Srv!SrvOs2FeaListSizeToNt, with mathematical error where a DWORD is subtracted into a WORD. The kernel pool is groomed so that overflow is well laid-out to overwrite an SMBv1 buffer. Actual RIP hijack is later completed in srvnet!SrvNetWskReceiveComplete. This exploit, like the original may not trigger 100% of the time, and should be run continuously until triggered. It seems like the pool will get hot streaks and need a cool down period before the shells rain in again. The module will attempt to use Anonymous login, by default, to authenticate to perform the exploit. If the user supplies credentials in the SMBUser, SMBPass, and SMBDomain options it will use those instead. On some systems, this module may cause system instability and crashes, such as a BSOD or a reboot. This may be more likely with some payloads.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/smb/ms17_010_eternalblue.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "Equation Group",
+    "Shadow Brokers",
+    "sleepya",
+    "Sean Dillon <sean.dillon@risksense.com>",
+    "Dylan Davis <dylan.davis@risksense.com>",
+    "thelightcosine",
+    "wvu <wvu@metasploit.com>",
+    "agalway-r7",
+    "cdelafuente-r7",
+    "cdelafuente-r7",
+    "agalway-r7"
+  ],
+  "References": [
+    [
+      "MSB",
+      "MS17-010"
+    ],
+    [
+      "CVE",
+      "2017-0143"
+    ],
+    [
+      "CVE",
+      "2017-0144"
+    ],
+    [
+      "CVE",
+      "2017-0145"
+    ],
+    [
+      "CVE",
+      "2017-0146"
+    ],
+    [
+      "CVE",
+      "2017-0147"
+    ],
+    [
+      "CVE",
+      "2017-0148"
+    ],
+    [
+      "URL",
+      "https://github.com/RiskSense-Ops/MS17-010"
+    ],
+    [
+      "URL",
+      "https://risksense.com/wp-content/uploads/2018/05/White-Paper_Eternal-Blue.pdf"
+    ],
+    [
+      "EDB",
+      "42030"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic Target"
+    ],
+    [
+      1,
+      "Windows 7"
+    ],
+    [
+      2,
+      "Windows Embedded Standard 7"
+    ],
+    [
+      3,
+      "Windows Server 2008 R2"
+    ],
+    [
+      4,
+      "Windows 8"
+    ],
+    [
+      5,
+      "Windows 8.1"
+    ],
+    [
+      6,
+      "Windows Server 2012"
+    ],
+    [
+      7,
+      "Windows 10 Pro"
+    ],
+    [
+      8,
+      "Windows 10 Enterprise Evaluation"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "CheckModule",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "SMBUser",
+    "SMBPass",
+    "SMBDomain",
+    "VERIFY_TARGET",
+    "VERIFY_ARCH",
+    "ProcessName",
+    "GroomAllocations",
+    "MaxExploitAttempts",
+    "GroomDelta"
+  ],
+  "DefaultOptions": {
+    "CheckModule": "auxiliary/scanner/smb/smb_ms17_010",
+    "EXITFUNC": "thread",
+    "WfsDelay": 5
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

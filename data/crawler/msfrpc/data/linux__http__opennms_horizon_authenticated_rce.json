@@ -1,0 +1,106 @@
+{
+  "Name": "OpenNMS Horizon Authenticated RCE",
+  "Description": "This module exploits built-in functionality in OpenNMS Horizon in order to execute arbitrary commands as the opennms user. For versions 32.0.2 and higher, this module requires valid credentials for a user with ROLE_FILESYSTEM_EDITOR privileges and either ROLE_ADMIN or ROLE_REST. For versions 32.0.1 and lower, credentials are required for a user with ROLE_FILESYSTEM_EDITOR, ROLE_REST, and/or ROLE_ADMIN privileges. In that case, the module will automatically escalate privileges via CVE-2023-40315 or CVE-2023-0872 if necessary. This module has been successfully tested against OpenNMS version 31.0.7",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/http/opennms_horizon_authenticated_rce.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Erik Wynter"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2023-40315"
+    ],
+    [
+      "CVE",
+      "2023-0872"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "ARCH_CMD"
+  ],
+  "Targets": [
+    [
+      0,
+      "Linux"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TARGETURI",
+    "USERNAME",
+    "PASSWORD",
+    "PRIVESC_SAVE_DELAY",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "cmd/linux/http/x64/meterpreter/reverse_tcp",
+    "RPORT": 8980,
+    "SRVPORT": 8080,
+    "FETCH_COMMAND": "CURL",
+    "FETCH_FILENAME": "waLb",
+    "FETCH_WRITABLE_DIR": "/tmp",
+    "FETCH_SRVPORT": 8081,
+    "WfsDelay": 15
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

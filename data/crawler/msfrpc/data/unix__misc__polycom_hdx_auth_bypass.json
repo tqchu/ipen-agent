@@ -1,0 +1,72 @@
+{
+  "Name": "Polycom Command Shell Authorization Bypass",
+  "Description": "The login component of the Polycom Command Shell on Polycom HDX video endpoints, running software versions 3.0.5 and earlier, is vulnerable to an authorization bypass when simultaneous connections are made to the service, allowing remote network attackers to gain access to a sandboxed telnet prompt without authentication. Versions prior to 3.0.4 contain OS command injection in the ping command which can be used to execute arbitrary commands as root.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/unix/misc/polycom_hdx_auth_bypass.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Paul Haas <Paul.Haas@Security-Assessment.com>",
+    "h00die <mike@shorebreaksecurity.com>"
+  ],
+  "References": [
+    [
+      "URL",
+      "http://www.security-assessment.com/files/documents/advisory/Polycom%20HDX%20Telnet%20Authorization%20Bypass%20-%20RELEASE.pdf"
+    ],
+    [
+      "URL",
+      "http://blog.tempest.com.br/joao-paulo-campello/polycom-web-management-interface-os-command-injection.html"
+    ],
+    [
+      "EDB",
+      "24494"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "CBHOST",
+    "CBPORT",
+    "THREADS",
+    "MAX_CONNECTIONS"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "cmd/unix/reverse_openssl"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

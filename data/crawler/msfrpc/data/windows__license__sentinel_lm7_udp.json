@@ -1,0 +1,76 @@
+{
+  "Name": "SentinelLM UDP Buffer Overflow",
+  "Description": "This module exploits a simple stack buffer overflow in the Sentinel License Manager. The SentinelLM service is installed with a wide selection of products and seems particular popular with academic products. If the wrong target value is selected, the service will crash and not restart.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/license/sentinel_lm7_udp.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "hdm <x@hdm.io>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2005-0353"
+    ],
+    [
+      "OSVDB",
+      "14605"
+    ],
+    [
+      "BID",
+      "12742"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "SentinelLM 7.2.0.0 Windows NT 4.0 SP4/SP5/SP6"
+    ],
+    [
+      2,
+      "SentinelLM 7.2.0.0 Windows 2000 English"
+    ],
+    [
+      3,
+      "SentinelLM 7.2.0.0 Windows 2000 German"
+    ],
+    [
+      4,
+      "SentinelLM 7.2.0.0 Windows XP English SP0/SP1"
+    ],
+    [
+      5,
+      "SentinelLM 7.2.0.0 Windows 2003 English SP0"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "CPORT",
+    "CHOST"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

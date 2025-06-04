@@ -1,0 +1,91 @@
+{
+  "Name": "HPE iMC dbman RestartDB Unauthenticated RCE",
+  "Description": "This module exploits a remote command execution vulnerablity in Hewlett Packard Enterprise Intelligent Management Center before version 7.3 E0504P04. The dbman service allows unauthenticated remote users to restart a user-specified database instance (OpCode 10008), however the instance ID is not sanitized, allowing execution of arbitrary operating system commands as SYSTEM. This service listens on TCP port 2810 by default. This module has been tested successfully on iMC PLAT v7.2 (E0403) on Windows 7 SP1 (EN).",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/hp_imc_dbman_restartdb_unauth_rce.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "sztivi",
+    "Chris Lyne",
+    "bcoles <bcoles@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2017-5816"
+    ],
+    [
+      "EDB",
+      "43198"
+    ],
+    [
+      "ZDI",
+      "17-340"
+    ],
+    [
+      "BID",
+      "98469"
+    ],
+    [
+      "URL",
+      "https://h20564.www2.hpe.com/hpsc/doc/public/display?docId=emr_na-hpesbhf03745en_us"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "Powershell::persist",
+    "Powershell::prepend_sleep",
+    "Powershell::prepend_protections_bypass",
+    "Powershell::strip_comments",
+    "Powershell::strip_whitespace",
+    "Powershell::sub_vars",
+    "Powershell::sub_funcs",
+    "Powershell::exec_in_place",
+    "Powershell::exec_rc4",
+    "Powershell::remove_comspec",
+    "Powershell::noninteractive",
+    "Powershell::encode_final_payload",
+    "Powershell::encode_inner_payload",
+    "Powershell::wrap_double_quotes",
+    "Powershell::no_equals",
+    "Powershell::method"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 15
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

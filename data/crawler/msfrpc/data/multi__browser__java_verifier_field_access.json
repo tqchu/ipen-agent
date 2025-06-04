@@ -1,0 +1,130 @@
+{
+  "Name": "Java Applet Field Bytecode Verifier Cache Remote Code Execution",
+  "Description": "This module exploits a vulnerability in HotSpot bytecode verifier where an invalid optimization of GETFIELD/PUTFIELD/GETSTATIC/PUTSTATIC instructions leads to insufficient type checks. This allows a way to escape the JRE sandbox, and load additional classes in order to perform malicious operations.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/browser/java_verifier_field_access.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Stefan Cornelius",
+    "mihi",
+    "littlelightlittlefire",
+    "juan vazquez <juan.vazquez@metasploit.com>",
+    "sinn3r <sinn3r@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2012-1723"
+    ],
+    [
+      "OSVDB",
+      "82877"
+    ],
+    [
+      "BID",
+      "52161"
+    ],
+    [
+      "URL",
+      "http://schierlm.users.sourceforge.net/CVE-2012-1723.html"
+    ],
+    [
+      "URL",
+      "http://www.oracle.com/technetwork/topics/security/javacpujun2012-1515912.html"
+    ],
+    [
+      "URL",
+      "https://bugzilla.redhat.com/show_bug.cgi?id=829373"
+    ],
+    [
+      "URL",
+      "http://icedtea.classpath.org/hg/release/icedtea7-forest-2.1/hotspot/rev/253e7c32def9"
+    ],
+    [
+      "URL",
+      "http://icedtea.classpath.org/hg/release/icedtea7-forest-2.1/hotspot/rev/8f86ad60699b"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Java",
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::OSX",
+    "Msf::Module::Platform::Solaris",
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Generic (Java Payload)"
+    ],
+    [
+      1,
+      "Windows x86 (Native Payload)"
+    ],
+    [
+      2,
+      "Mac OS X PPC (Native Payload)"
+    ],
+    [
+      3,
+      "Mac OS X x86 (Native Payload)"
+    ],
+    [
+      4,
+      "Linux x86 (Native Payload)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

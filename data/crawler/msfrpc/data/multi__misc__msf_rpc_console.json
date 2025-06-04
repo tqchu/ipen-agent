@@ -1,0 +1,74 @@
+{
+  "Name": "Metasploit RPC Console Command Execution",
+  "Description": "This module connects to a specified Metasploit RPC server and uses the 'console.write' procedure to execute operating system commands. Valid credentials are required to access the RPC interface. This module has been tested successfully on Metasploit 4.15 on Kali 1.0.6; Metasploit 4.14 on Kali 2017.1; and Metasploit 4.14 on Windows 7 SP1.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/misc/msf_rpc_console.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "bcoles <bcoles@gmail.com>"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://help.rapid7.com/metasploit/Content/api/rpc/overview.html"
+    ],
+    [
+      "URL",
+      "https://community.rapid7.com/docs/DOC-1516"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Ruby",
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Ruby"
+    ],
+    [
+      1,
+      "Windows CMD"
+    ],
+    [
+      2,
+      "Unix CMD"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "USERNAME",
+    "PASSWORD"
+  ],
+  "DefaultOptions": {
+    "PrependFork": true,
+    "WfsDelay": 15
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

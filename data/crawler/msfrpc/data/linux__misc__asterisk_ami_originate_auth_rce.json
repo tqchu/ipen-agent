@@ -1,0 +1,69 @@
+{
+  "Name": "Asterisk AMI Originate Authenticated RCE",
+  "Description": "On Asterisk, prior to versions 18.24.2, 20.9.2, and 21.4.2 and certified-asterisk versions 18.9-cert11 and 20.7-cert2, an AMI user with 'write=originate' may change all configuration files in the '/etc/asterisk/' directory. Writing a new extension can be created which performs a system command to achieve RCE as the asterisk service user (typically asterisk). Default parking lot in FreePBX is called \"Default lot\" on the website interface, however its actually 'parkedcalls'. Tested against Asterisk 19.8.0 and 18.16.0 on Freepbx SNG7-PBX16-64bit-2302-1.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/misc/asterisk_ami_originate_auth_rce.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "Brendan Coles <bcoles@gmail.com>",
+    "h00die",
+    "NielsGaljaard"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://github.com/asterisk/asterisk/security/advisories/GHSA-c4cg-9275-6w44"
+    ],
+    [
+      "CVE",
+      "2024-42365"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Unix Command"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "USERNAME",
+    "PASSWORD",
+    "CONF",
+    "PARKINGLOT",
+    "EXTENSION",
+    "TIMEOUT",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

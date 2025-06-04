@@ -1,0 +1,75 @@
+{
+  "Name": "Microsoft Windows NtUserMNDragOver Local Privilege Elevation",
+  "Description": "This module exploits a NULL pointer dereference vulnerability in MNGetpItemFromIndex(), which is reachable via a NtUserMNDragOver() system call. The NULL pointer dereference occurs because the xxxMNFindWindowFromPoint() function does not effectively check the validity of the tagPOPUPMENU objects it processes before passing them on to MNGetpItemFromIndex(), where the NULL pointer dereference will occur. This module has been tested against Windows 7 x86 SP0 and SP1. Offsets within the solution may need to be adjusted to work with other versions of Windows, such as Windows Server 2008.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/ntusermndragover.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Cl\u00e9ment Lecigne",
+    "Grant Willcox",
+    "timwr"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2019-0808"
+    ],
+    [
+      "URL",
+      "https://github.com/exodusintel/CVE-2019-0808"
+    ],
+    [
+      "URL",
+      "https://github.com/ze0r/cve-2019-0808-poc"
+    ],
+    [
+      "URL",
+      "http://blogs.360.cn/post/RootCause_CVE-2019-0808_EN.html"
+    ],
+    [
+      "URL",
+      "https://blog.exodusintel.com/2019/05/17/windows-within-windows/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows 7 x86"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

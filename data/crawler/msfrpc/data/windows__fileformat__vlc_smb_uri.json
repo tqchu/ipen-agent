@@ -1,0 +1,59 @@
+{
+  "Name": "VideoLAN Client (VLC) Win32 smb:// URI Buffer Overflow",
+  "Description": "This module exploits a stack-based buffer overflow in the Win32AddConnection function of the VideoLAN VLC media player. Versions 0.9.9 through 1.0.1 are reportedly affected. This vulnerability is only present in Win32 builds of VLC. This payload was found to work with the windows/exec and windows/meterpreter/reverse_tcp payloads. However, the windows/meterpreter/reverse_ord_tcp was found not to work.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/vlc_smb_uri.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "BID",
+      "35500"
+    ],
+    [
+      "OSVDB",
+      "55509"
+    ],
+    [
+      "CVE",
+      "2009-2484"
+    ],
+    [
+      "URL",
+      "http://git.videolan.org/?p=vlc.git;a=commit;h=e60a9038b13b5eb805a76755efc5c6d5e080180f"
+    ],
+    [
+      "EDB",
+      "9029"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "vlc 0.9.9 on Windows XP SP3"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

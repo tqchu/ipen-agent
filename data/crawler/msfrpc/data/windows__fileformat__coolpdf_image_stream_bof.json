@@ -1,0 +1,62 @@
+{
+  "Name": "Cool PDF Image Stream Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in Cool PDF Reader prior to version 3.0.2.256. The vulnerability is triggered when opening a malformed PDF file that contains a specially crafted image stream. This module has been tested successfully on Cool PDF 3.0.2.256 over Windows XP SP3 and Windows 7 SP1.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/coolpdf_image_stream_bof.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Francis Provencher",
+    "Chris Gabriel",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2012-4914"
+    ],
+    [
+      "OSVDB",
+      "89349"
+    ],
+    [
+      "EDB",
+      "24463"
+    ],
+    [
+      "URL",
+      "http://www.protekresearchlab.com/index.php?option=com_content&view=article&id=70&Itemid=70"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Cool PDF 3.0.2.256 / Windows 7 SP1 / Windows XP SP3"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "PDF::Obfuscate",
+    "PDF::Method",
+    "PDF::Encoder",
+    "PDF::MultiFilter",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,107 @@
+{
+  "Name": "Oracle E-Business Suite (EBS) Unauthenticated Arbitrary File Upload",
+  "Description": "This module exploits an unauthenticated arbitrary file upload vulnerability in Oracle Web Applications Desktop Integrator, as shipped with Oracle EBS versions 12.2.3 through to 12.2.11, in order to gain remote code execution as the oracle user.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/http/oracle_ebs_rce_cve_2022_21587.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "sf <stephen_fewer@harmonysecurity.com>",
+    "HMs",
+    "l1k3beef"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2022-21587"
+    ],
+    [
+      "URL",
+      "https://attackerkb.com/topics/Bkij5kK1qK/cve-2022-21587/rapid7-analysis"
+    ],
+    [
+      "URL",
+      "https://blog.viettelcybersecurity.com/cve-2022-21587-oracle-e-business-suite-unauth-rce/"
+    ],
+    [
+      "URL",
+      "https://github.com/hieuminhnv/CVE-2022-21587-POC"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "java"
+  ],
+  "Targets": [
+    [
+      0,
+      "Oracle EBS on Linux (OVA Install)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "java/jsp_shell_reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

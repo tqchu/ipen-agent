@@ -1,0 +1,161 @@
+{
+  "Name": "EyesOfNetwork 5.1-5.3 AutoDiscovery Target Command Execution",
+  "Description": "This module exploits multiple vulnerabilities in EyesOfNetwork version 5.1, 5.2 and 5.3 in order to execute arbitrary commands as root. This module takes advantage of a command injection vulnerability in the `target` parameter of the AutoDiscovery functionality within the EON web interface in order to write an Nmap NSE script containing the payload to disk. It then starts an Nmap scan to activate the payload. This results in privilege escalation because the`apache` user can execute Nmap as root. Valid credentials for a user with administrative privileges are required. However, this module can bypass authentication via various methods, depending on the EON version. EON 5.3 is vulnerable to a hardcoded API key and two SQL injection exploits. EON 5.1 and 5.2 can only be exploited via SQL injection. This module has been successfully tested on EyesOfNetwork 5.1, 5.2 and 5.3.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/http/eyesofnetwork_autodiscovery_rce.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Cl\u00e9ment Billac",
+    "bcoles <bcoles@gmail.com>",
+    "Erik Wynter"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2020-8654"
+    ],
+    [
+      "CVE",
+      "2020-8655"
+    ],
+    [
+      "CVE",
+      "2020-8656"
+    ],
+    [
+      "CVE",
+      "2020-8657"
+    ],
+    [
+      "CVE",
+      "2020-9465"
+    ],
+    [
+      "EDB",
+      "48025"
+    ],
+    [
+      "URL",
+      "https://github.com/h4knet/eonrce"
+    ]
+  ],
+  "Platform": [],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Linux (x86)"
+    ],
+    [
+      1,
+      "Linux (x64)"
+    ],
+    [
+      2,
+      "Linux (cmd)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "CMDSTAGER::FLAVOR",
+    "CMDSTAGER::DECODER",
+    "CMDSTAGER::TEMP",
+    "CMDSTAGER::URIPATH",
+    "CMDSTAGER::SSL",
+    "SqliDelay",
+    "TARGETURI",
+    "SERVER_ADDR",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "RPORT": 443,
+    "SSL": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

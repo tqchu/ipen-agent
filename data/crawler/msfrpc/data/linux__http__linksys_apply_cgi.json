@@ -1,0 +1,120 @@
+{
+  "Name": "Linksys WRT54 Access Point apply.cgi Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in apply.cgi on the Linksys WRT54G and WRT54GS routers. According to iDefense who discovered this vulnerability, all WRT54G versions prior to 4.20.7 and all WRT54GS version prior to 1.05.2 may be affected.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/http/linksys_apply_cgi.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "Raphael Rigo <devel-metasploit@syscall.eu>",
+    "Julien Tinnes <julien@cr0.org>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2005-2799"
+    ],
+    [
+      "OSVDB",
+      "19389"
+    ],
+    [
+      "URL",
+      "http://labs.idefense.com/intelligence/vulnerabilities/display.php?id=305"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "mipsle"
+  ],
+  "Targets": [
+    [
+      0,
+      "Generic"
+    ],
+    [
+      1,
+      "Version 1.42.2"
+    ],
+    [
+      2,
+      "Version 2.02.6beta1"
+    ],
+    [
+      3,
+      "Version 2.02.7_ETSI"
+    ],
+    [
+      4,
+      "Version 3.03.6"
+    ],
+    [
+      5,
+      "Version 4.00.7"
+    ],
+    [
+      6,
+      "Version 4.20.06"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

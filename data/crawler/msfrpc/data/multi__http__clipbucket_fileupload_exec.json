@@ -1,0 +1,99 @@
+{
+  "Name": "ClipBucket beats_uploader Unauthenticated Arbitrary File Upload",
+  "Description": "This module exploits a vulnerability found in ClipBucket versions before 4.0.0 (Release 4902). A malicious file can be uploaded using an unauthenticated arbitrary file upload vulnerability. It is possible for an attacker to upload a malicious script to issue operating system commands. This issue is caused by improper session handling in /action/beats_uploader.php file. This module was tested on ClipBucket before 4.0.0 - Release 4902 on Windows 7 and Kali Linux.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/http/clipbucket_fileupload_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "www.sec-consult.com",
+    "Touhid M.Shaikh <admin@touhidshaikh.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2018-7665"
+    ],
+    [
+      "EDB",
+      "44250"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::PHP"
+  ],
+  "Arch": [
+    "php"
+  ],
+  "Targets": [
+    [
+      0,
+      "Clipbucket < 4.0.0 - Release 4902"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "TARGETURI"
+  ],
+  "DefaultOptions": {
+    "SSL": false,
+    "PAYLOAD": "php/meterpreter/reverse_tcp",
+    "Encoder": "php/base64"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

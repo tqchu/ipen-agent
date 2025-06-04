@@ -1,0 +1,126 @@
+{
+  "Name": "Linux BPF Sign Extension Local Privilege Escalation",
+  "Description": "Linux kernel prior to 4.14.8 contains a vulnerability in the Berkeley Packet Filter (BPF) verifier. The `check_alu_op` function performs incorrect sign extension which allows the verifier to be bypassed, leading to arbitrary kernel read/write. The target system must be compiled with BPF support and permit unprivileged access to BPF with `kernel.unprivileged_bpf_disabled` not set to 1. This module has been tested successfully on: Debian 9.0 kernel 4.9.0-3-amd64; Deepin 15.5 kernel 4.9.0-deepin13-amd64; ElementaryOS 0.4.1 kernel 4.8.0-52-generic; Fedora 24 kernel 4.5.5-300.fc24.x86_64; Fedora 25 kernel 4.8.6-300.fc25.x86_64; Fedora 26 kernel 4.11.8-300.fc26.x86_64; Fedora 27 kernel 4.13.9-300.fc27.x86_64; Gentoo 2.2 kernel 4.5.2-aufs-r; Linux Mint 17.3 kernel 4.4.0-89-generic; Linux Mint 18.0 kernel 4.8.0-58-generic; Linux Mint 18.3 kernel 4.13.0-16-generic; Mageia 6 kernel 4.9.35-desktop-1.mga6; Manjero 16.10 kernel 4.4.28-2-MANJARO; Solus 3 kernel 4.12.7-11.current; Ubuntu 14.04.1 kernel 4.4.0-89-generic; Ubuntu 16.04.2 kernel 4.8.0-45-generic; Ubuntu 16.04.3 kernel 4.10.0-28-generic; Ubuntu 17.04 kernel 4.10.0-19-generic; ZorinOS 12.1 kernel 4.8.0-39-generic.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/bpf_sign_extension_priv_esc.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "Jann Horn",
+    "bleidl",
+    "vnik",
+    "rlarabee",
+    "h00die",
+    "bcoles <bcoles@gmail.com>"
+  ],
+  "References": [
+    [
+      "BID",
+      "102288"
+    ],
+    [
+      "CVE",
+      "2017-16995"
+    ],
+    [
+      "EDB",
+      "44298"
+    ],
+    [
+      "EDB",
+      "45010"
+    ],
+    [
+      "URL",
+      "https://github.com/rlarabee/exploits/blob/master/cve-2017-16995/cve-2017-16995.c"
+    ],
+    [
+      "URL",
+      "https://github.com/brl/grlh/blob/master/get-rekt-linux-hardened.c"
+    ],
+    [
+      "URL",
+      "https://cyseclabs.com/exploits/upstream44.c"
+    ],
+    [
+      "URL",
+      "https://blog.aquasec.com/ebpf-vulnerability-cve-2017-16995-when-the-doorman-becomes-the-backdoor"
+    ],
+    [
+      "URL",
+      "https://ricklarabee.blogspot.com/2018/07/ebpf-and-analysis-of-get-rekt-linux.html"
+    ],
+    [
+      "URL",
+      "https://www.debian.org/security/2017/dsa-4073"
+    ],
+    [
+      "URL",
+      "https://usn.ubuntu.com/3523-2/"
+    ],
+    [
+      "URL",
+      "https://people.canonical.com/~ubuntu-security/cve/2017/CVE-2017-16995.html"
+    ],
+    [
+      "URL",
+      "https://bugs.chromium.org/p/project-zero/issues/detail?id=1454"
+    ],
+    [
+      "URL",
+      "http://openwall.com/lists/oss-security/2017/12/21/2"
+    ],
+    [
+      "URL",
+      "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=95a762e2c8c942780948091f8f2a4f32fce1ac6f"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Auto"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "COMPILE",
+    "COMPILER",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "WritableDir",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,102 @@
+{
+  "Name": "Quest KACE Systems Management Command Injection",
+  "Description": "This module exploits a command injection vulnerability in Quest KACE Systems Management Appliance version 8.0.318 (and possibly prior). The `download_agent_installer.php` file allows unauthenticated users to execute arbitrary commands as the web server user `www`. A valid Organization ID is required. The default value is `1`. A valid Windows agent version number must also be provided. If file sharing is enabled, the agent versions are available within the `\\kace.local\\client\\agent_provisioning\\windows_platform` Samba share. Additionally, various agent versions are listed on the KACE website. This module has been tested successfully on Quest KACE Systems Management Appliance K1000 version 8.0 (Build 8.0.318).",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/unix/http/quest_kace_systems_management_rce.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Leandro Barragan",
+    "Guido Leo",
+    "bcoles <bcoles@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2018-11138"
+    ],
+    [
+      "URL",
+      "https://support.quest.com/product-notification/noti-00000134"
+    ],
+    [
+      "URL",
+      "https://www.coresecurity.com/advisories/quest-kace-system-management-appliance-multiple-vulnerabilities"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "SERIAL",
+    "ORGANIZATION",
+    "AGENT_VERSION"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

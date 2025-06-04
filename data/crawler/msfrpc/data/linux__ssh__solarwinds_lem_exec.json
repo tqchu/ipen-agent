@@ -1,0 +1,57 @@
+{
+  "Name": "SolarWinds LEM Default SSH Password Remote Code Execution",
+  "Description": "This module exploits the default credentials of SolarWinds LEM. A menu system is encountered when the SSH service is accessed with the default username and password which is \"cmc\" and \"password\". By exploiting a vulnerability that exist on the menuing script, an attacker can escape from restricted shell. This module was tested against SolarWinds LEM v6.3.1.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/ssh/solarwinds_lem_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Mehmet Ince <mehmet@mehmetince.net>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2017-7722"
+    ],
+    [
+      "URL",
+      "http://pentest.blog/unexpected-journey-4-escaping-from-restricted-shell-and-gaining-root-access-to-solarwinds-log-event-manager-siem-product/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Python"
+  ],
+  "Arch": [
+    "python"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSH_IDENT",
+    "SSH_TIMEOUT",
+    "SSH_DEBUG",
+    "USERNAME",
+    "PASSWORD"
+  ],
+  "DefaultOptions": {
+    "Payload": "python/meterpreter/reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

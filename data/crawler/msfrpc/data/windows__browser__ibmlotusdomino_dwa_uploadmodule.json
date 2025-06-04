@@ -1,0 +1,80 @@
+{
+  "Name": "IBM Lotus Domino Web Access Upload Module Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in IBM Lotus Domino Web Access Upload Module. By sending an overly long string to the \"General_ServerName()\" property located in the dwa7w.dll and the inotes6w.dll control, an attacker may be able to execute arbitrary code.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/ibmlotusdomino_dwa_uploadmodule.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Elazar Broad <elazarb@earthlink.net>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2007-4474"
+    ],
+    [
+      "OSVDB",
+      "40954"
+    ],
+    [
+      "BID",
+      "26972"
+    ],
+    [
+      "EDB",
+      "4820"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows XP SP0-SP2 / IE 6.0 SP0-2 & IE 7.0 English"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,120 @@
+{
+  "Name": "HP NNM CGI webappmon.exe OvJavaLocale Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in HP OpenView Network Node Manager 7.53. By sending a request containing a cookie longer than 5120 bytes, an attacker can overflow a stack buffer and execute arbitrary code. The vulnerable code is within the OvWwwDebug function. The static-sized stack buffer is declared within this function. When the vulnerability is triggered, the stack trace looks like the following: #0 ... #1 sprintf_new(local_stack_buf, fmt, cookie); #2 OvWwwDebug(\" HTTP_COOKIE=%s\\n\", cookie); #3 ?OvWwwInit@@YAXAAHQAPADPBD@Z(x, x, x); #4 sub_405ee0(\"nnm\", \"webappmon\"); No validation is done on the cookie argument. There are no stack cookies, so exploitation is easily achieved by overwriting the saved return address or SEH frame. The original advisory detailed an attack vector using the \"OvJavaLocale\" cookie being passed in a request to \"webappmon.exe\". Further research shows that several different cookie values, as well as several different CGI applications, can be used. '",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/http/hp_nnm_webappmon_ovjavalocale.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "Nahuel Riva",
+    "sinn3r <sinn3r@metasploit.com>",
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2010-2709"
+    ],
+    [
+      "OSVDB",
+      "66932"
+    ],
+    [
+      "BID",
+      "42154"
+    ],
+    [
+      "URL",
+      "http://h20000.www2.hp.com/bizsupport/TechSupport/Document.jsp?objectID=c02446520"
+    ],
+    [
+      "URL",
+      "http://www.coresecurity.com/content/hp-nnm-ovjavalocale-buffer-overflow"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "HP OpenView Network Node Manager 7.53"
+    ],
+    [
+      2,
+      "HP OpenView Network Node Manager 7.53 (Windows 2003)"
+    ],
+    [
+      3,
+      "Debug Target"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "COOKIE",
+    "CGI"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "seh",
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

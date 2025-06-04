@@ -1,0 +1,74 @@
+{
+  "Name": "HP OpenView OmniBack II Command Execution",
+  "Description": "This module uses a vulnerability in the OpenView Omniback II service to execute arbitrary commands. This vulnerability was discovered by DiGiT and his code was used as the basis for this module. For Microsoft Windows targets, due to module limitations, use the \"unix/cmd/generic\" payload and set CMD to your command. You can only pass a small amount of characters (4) to the command line on Windows.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/misc/openview_omniback_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "hdm <x@hdm.io>",
+    "aushack <patrick@osisecurity.com.au>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2001-0311"
+    ],
+    [
+      "OSVDB",
+      "6018"
+    ],
+    [
+      "BID",
+      "11032"
+    ],
+    [
+      "URL",
+      "http://www.securiteam.com/exploits/6M00O150KG.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Unix"
+    ],
+    [
+      1,
+      "Windows"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

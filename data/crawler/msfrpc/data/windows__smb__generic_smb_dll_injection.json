@@ -1,0 +1,73 @@
+{
+  "Name": "Generic DLL Injection From Shared Resource",
+  "Description": "This is a general-purpose module for exploiting conditions where a DLL can be loaded from a specified SMB share. This module serves payloads as DLLs over an SMB service.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/smb/generic_smb_dll_injection.rb",
+  "Version": "",
+  "Rank": "manual",
+  "Authors": [
+    "Matthew Hall <hallm@sec-1.com>"
+  ],
+  "References": [
+    [
+      "CWE",
+      "114"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows x86"
+    ],
+    [
+      1,
+      "Windows x64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "CAINPWFILE",
+    "JOHNPWFILE",
+    "SHARE",
+    "FILE_NAME",
+    "FOLDER_NAME",
+    "SMBDomain",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

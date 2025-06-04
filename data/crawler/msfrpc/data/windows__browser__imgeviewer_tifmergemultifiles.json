@@ -1,0 +1,97 @@
+{
+  "Name": "Viscom Image Viewer CP Pro 8.0/Gold 6.0 ActiveX Control",
+  "Description": "This module exploits a stack based buffer overflow in the Active control file ImageViewer2.OCX by passing an overly long argument to an insecure TifMergeMultiFiles() method. Exploitation results in code execution with the privileges of the user who browsed to the exploit page. The victim will first be required to trust the publisher Viscom Software. This module has been designed to bypass DEP and ASLR under XP IE8, Vista and Win7 with Java support.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/imgeviewer_tifmergemultifiles.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Dr_IDE",
+    "TecR0c <roccogiovannicalvi@gmail.com>",
+    "mr_me <steventhomasseeley@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2010-5193"
+    ],
+    [
+      "OSVDB",
+      "78102"
+    ],
+    [
+      "EDB",
+      "15668"
+    ],
+    [
+      "URL",
+      "http://web.archive.org/web/20101204093821/http://secunia.com:80/advisories/42445"
+    ],
+    [
+      "URL",
+      "http://xforce.iss.net/xforce/xfdb/63666"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "Internet Explorer 6/7"
+    ],
+    [
+      2,
+      "Internet Explorer 8 with JRE"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "OBFUSCATE"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "DisablePayloadHandler": false,
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

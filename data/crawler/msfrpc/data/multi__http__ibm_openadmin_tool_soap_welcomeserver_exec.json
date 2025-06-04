@@ -1,0 +1,105 @@
+{
+  "Name": "IBM OpenAdmin Tool SOAP welcomeServer PHP Code Execution",
+  "Description": "This module exploits an unauthenticated remote PHP code execution vulnerability in IBM OpenAdmin Tool included with IBM Informix versions 11.5, 11.7, and 12.1. The 'welcomeServer' SOAP service does not properly validate user input in the 'new_home_page' parameter of the 'saveHomePage' method allowing arbitrary PHP code to be written to the config.php file. The config.php file is executed in most pages within the application, and accessible directly via the web root, resulting in code execution. This module has been tested successfully on IBM OpenAdmin Tool 3.14 on Informix 12.10 Developer Edition (SUSE Linux 11) virtual appliance.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/http/ibm_openadmin_tool_soap_welcomeserver_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "SecuriTeam",
+    "bcoles <bcoles@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2017-1092"
+    ],
+    [
+      "EDB",
+      "42091"
+    ],
+    [
+      "URL",
+      "https://www-01.ibm.com/support/docview.wss?uid=swg22002897"
+    ],
+    [
+      "URL",
+      "https://blogs.securiteam.com/index.php/archives/3210"
+    ],
+    [
+      "URL",
+      "https://seclists.org/fulldisclosure/2017/May/105"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::PHP"
+  ],
+  "Arch": [
+    "php"
+  ],
+  "Targets": [
+    [
+      0,
+      "Generic (PHP Payload)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TARGETURI"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

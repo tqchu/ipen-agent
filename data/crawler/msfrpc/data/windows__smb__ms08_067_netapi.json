@@ -1,0 +1,427 @@
+{
+  "Name": "MS08-067 Microsoft Server Service Relative Path Stack Corruption",
+  "Description": "This module exploits a parsing flaw in the path canonicalization code of NetAPI32.dll through the Server Service. This module is capable of bypassing NX on some operating systems and service packs. The correct target must be used to prevent the Server Service (along with a dozen others in the same process) from crashing. Windows XP targets seem to handle multiple successful exploitation events, but 2003 targets will often crash or hang on subsequent attempts. This is just the first version of this module, full support for NX bypass on 2003, along with other platforms, is still in development.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/smb/ms08_067_netapi.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "hdm <x@hdm.io>",
+    "Brett Moore <brett.moore@insomniasec.com>",
+    "frank2 <frank2@dc949.org>",
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2008-4250"
+    ],
+    [
+      "OSVDB",
+      "49243"
+    ],
+    [
+      "MSB",
+      "MS08-067"
+    ],
+    [
+      "URL",
+      "https://www.rapid7.com/db/vulnerabilities/dcerpc-ms-netapi-netpathcanonicalize-dos/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic Targeting"
+    ],
+    [
+      1,
+      "Windows 2000 Universal"
+    ],
+    [
+      2,
+      "Windows XP SP0/SP1 Universal"
+    ],
+    [
+      3,
+      "Windows 2003 SP0 Universal"
+    ],
+    [
+      4,
+      "Windows XP SP2 English (AlwaysOn NX)"
+    ],
+    [
+      5,
+      "Windows XP SP2 English (NX)"
+    ],
+    [
+      6,
+      "Windows XP SP3 English (AlwaysOn NX)"
+    ],
+    [
+      7,
+      "Windows XP SP3 English (NX)"
+    ],
+    [
+      8,
+      "Windows XP SP2 Arabic (NX)"
+    ],
+    [
+      9,
+      "Windows XP SP2 Chinese - Traditional / Taiwan (NX)"
+    ],
+    [
+      10,
+      "Windows XP SP2 Chinese - Simplified (NX)"
+    ],
+    [
+      11,
+      "Windows XP SP2 Chinese - Traditional (NX)"
+    ],
+    [
+      12,
+      "Windows XP SP2 Czech (NX)"
+    ],
+    [
+      13,
+      "Windows XP SP2 Danish (NX)"
+    ],
+    [
+      14,
+      "Windows XP SP2 German (NX)"
+    ],
+    [
+      15,
+      "Windows XP SP2 Greek (NX)"
+    ],
+    [
+      16,
+      "Windows XP SP2 Spanish (NX)"
+    ],
+    [
+      17,
+      "Windows XP SP2 Finnish (NX)"
+    ],
+    [
+      18,
+      "Windows XP SP2 French (NX)"
+    ],
+    [
+      19,
+      "Windows XP SP2 Hebrew (NX)"
+    ],
+    [
+      20,
+      "Windows XP SP2 Hungarian (NX)"
+    ],
+    [
+      21,
+      "Windows XP SP2 Italian (NX)"
+    ],
+    [
+      22,
+      "Windows XP SP2 Japanese (NX)"
+    ],
+    [
+      23,
+      "Windows XP SP2 Korean (NX)"
+    ],
+    [
+      24,
+      "Windows XP SP2 Dutch (NX)"
+    ],
+    [
+      25,
+      "Windows XP SP2 Norwegian (NX)"
+    ],
+    [
+      26,
+      "Windows XP SP2 Polish (NX)"
+    ],
+    [
+      27,
+      "Windows XP SP2 Portuguese - Brazilian (NX)"
+    ],
+    [
+      28,
+      "Windows XP SP2 Portuguese (NX)"
+    ],
+    [
+      29,
+      "Windows XP SP2 Russian (NX)"
+    ],
+    [
+      30,
+      "Windows XP SP2 Swedish (NX)"
+    ],
+    [
+      31,
+      "Windows XP SP2 Turkish (NX)"
+    ],
+    [
+      32,
+      "Windows XP SP3 Arabic (NX)"
+    ],
+    [
+      33,
+      "Windows XP SP3 Chinese - Traditional / Taiwan (NX)"
+    ],
+    [
+      34,
+      "Windows XP SP3 Chinese - Simplified (NX)"
+    ],
+    [
+      35,
+      "Windows XP SP3 Chinese - Traditional (NX)"
+    ],
+    [
+      36,
+      "Windows XP SP3 Czech (NX)"
+    ],
+    [
+      37,
+      "Windows XP SP3 Danish (NX)"
+    ],
+    [
+      38,
+      "Windows XP SP3 German (NX)"
+    ],
+    [
+      39,
+      "Windows XP SP3 Greek (NX)"
+    ],
+    [
+      40,
+      "Windows XP SP3 Spanish (NX)"
+    ],
+    [
+      41,
+      "Windows XP SP3 Finnish (NX)"
+    ],
+    [
+      42,
+      "Windows XP SP3 French (NX)"
+    ],
+    [
+      43,
+      "Windows XP SP3 Hebrew (NX)"
+    ],
+    [
+      44,
+      "Windows XP SP3 Hungarian (NX)"
+    ],
+    [
+      45,
+      "Windows XP SP3 Italian (NX)"
+    ],
+    [
+      46,
+      "Windows XP SP3 Japanese (NX)"
+    ],
+    [
+      47,
+      "Windows XP SP3 Korean (NX)"
+    ],
+    [
+      48,
+      "Windows XP SP3 Dutch (NX)"
+    ],
+    [
+      49,
+      "Windows XP SP3 Norwegian (NX)"
+    ],
+    [
+      50,
+      "Windows XP SP3 Polish (NX)"
+    ],
+    [
+      51,
+      "Windows XP SP3 Portuguese - Brazilian (NX)"
+    ],
+    [
+      52,
+      "Windows XP SP3 Portuguese (NX)"
+    ],
+    [
+      53,
+      "Windows XP SP3 Russian (NX)"
+    ],
+    [
+      54,
+      "Windows XP SP3 Swedish (NX)"
+    ],
+    [
+      55,
+      "Windows XP SP3 Turkish (NX)"
+    ],
+    [
+      56,
+      "Windows 2003 SP1 English (NO NX)"
+    ],
+    [
+      57,
+      "Windows 2003 SP1 English (NX)"
+    ],
+    [
+      58,
+      "Windows 2003 SP1 Japanese (NO NX)"
+    ],
+    [
+      59,
+      "Windows 2003 SP1 Spanish (NO NX)"
+    ],
+    [
+      60,
+      "Windows 2003 SP1 Spanish (NX)"
+    ],
+    [
+      61,
+      "Windows 2003 SP1 French (NO NX)"
+    ],
+    [
+      62,
+      "Windows 2003 SP1 French (NX)"
+    ],
+    [
+      63,
+      "Windows 2003 SP2 English (NO NX)"
+    ],
+    [
+      64,
+      "Windows 2003 SP2 English (NX)"
+    ],
+    [
+      65,
+      "Windows 2003 SP2 German (NO NX)"
+    ],
+    [
+      66,
+      "Windows 2003 SP2 German (NX)"
+    ],
+    [
+      67,
+      "Windows 2003 SP2 Portuguese (NX)"
+    ],
+    [
+      68,
+      "Windows 2003 SP2 Portuguese - Brazilian (NX)"
+    ],
+    [
+      69,
+      "Windows 2003 SP2 Spanish (NO NX)"
+    ],
+    [
+      70,
+      "Windows 2003 SP2 Spanish (NX)"
+    ],
+    [
+      71,
+      "Windows 2003 SP2 Japanese (NO NX)"
+    ],
+    [
+      72,
+      "Windows 2003 SP2 French (NO NX)"
+    ],
+    [
+      73,
+      "Windows 2003 SP2 French (NX)"
+    ],
+    [
+      74,
+      "Windows 2003 SP2 Chinese - Simplified (NX)"
+    ],
+    [
+      75,
+      "Windows 2003 SP2 Czech (NX)"
+    ],
+    [
+      76,
+      "Windows 2003 SP2 Dutch (NX)"
+    ],
+    [
+      77,
+      "Windows 2003 SP2 Hungarian (NX)"
+    ],
+    [
+      78,
+      "Windows 2003 SP2 Italian (NX)"
+    ],
+    [
+      79,
+      "Windows 2003 SP2 Russian (NX)"
+    ],
+    [
+      80,
+      "Windows 2003 SP2 Swedish (NX)"
+    ],
+    [
+      81,
+      "Windows 2003 SP2 Turkish (NX)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "DCERPC::max_frag_size",
+    "DCERPC::fake_bind_multi",
+    "DCERPC::fake_bind_multi_prepend",
+    "DCERPC::fake_bind_multi_append",
+    "DCERPC::smb_pipeio",
+    "DCERPC::ReadTimeout",
+    "NTLM::UseNTLMv2",
+    "NTLM::UseNTLM2_session",
+    "NTLM::SendLM",
+    "NTLM::UseLMKey",
+    "NTLM::SendNTLM",
+    "NTLM::SendSPN",
+    "SMB::pipe_evasion",
+    "SMB::pipe_write_min_size",
+    "SMB::pipe_write_max_size",
+    "SMB::pipe_read_min_size",
+    "SMB::pipe_read_max_size",
+    "SMB::pad_data_level",
+    "SMB::pad_file_level",
+    "SMB::obscure_trans_pipe_level",
+    "SMBDirect",
+    "SMBUser",
+    "SMBPass",
+    "SMBDomain",
+    "SMBName",
+    "SMB::VerifySignature",
+    "SMB::ChunkSize",
+    "SMB::Native_OS",
+    "SMB::Native_LM",
+    "SMB::AlwaysEncrypt",
+    "SMBPIPE"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

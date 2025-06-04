@@ -1,0 +1,80 @@
+{
+  "Name": "InduSoft Web Studio Arbitrary Upload Remote Code Execution",
+  "Description": "This module exploits a lack of authentication and authorization on the InduSoft Web Studio Remote Agent, that allows a remote attacker to write arbitrary files to the filesystem, by abusing the functions provided by the software. The module uses the Windows Management Instrumentation service to execute an arbitrary payload on vulnerable installations of InduSoft Web Studio on Windows pre Vista. It has been successfully tested on InduSoft Web Studio 6.1 SP6 over Windows XP SP3 and Windows 2003 SP2.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/scada/indusoft_webstudio_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Luigi Auriemma",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2011-4051"
+    ],
+    [
+      "OSVDB",
+      "77179"
+    ],
+    [
+      "BID",
+      "50675"
+    ],
+    [
+      "ZDI",
+      "11-330"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows XP / 2003"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

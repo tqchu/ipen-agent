@@ -1,0 +1,103 @@
+{
+  "Name": "Linux Kernel UDP Fragmentation Offset (UFO) Privilege Escalation",
+  "Description": "This module attempts to gain root privileges on Linux systems by abusing UDP Fragmentation Offload (UFO). This exploit targets only systems using Ubuntu (Trusty / Xenial) kernels 4.4.0-21 <= 4.4.0-89 and 4.8.0-34 <= 4.8.0-58, including Linux distros based on Ubuntu, such as Linux Mint. The target system must have unprivileged user namespaces enabled and SMAP disabled. Bypasses for SMEP and KASLR are included. Failed exploitation may crash the kernel. This module has been tested successfully on various Ubuntu and Linux Mint systems, including: Ubuntu 14.04.5 4.4.0-31-generic x64 Desktop; Ubuntu 16.04 4.8.0-53-generic; Linux Mint 17.3 4.4.0-89-generic; Linux Mint 18 4.8.0-58-generic",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/ufo_privilege_escalation.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "Andrey Konovalov",
+    "h00die",
+    "bcoles <bcoles@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2017-1000112"
+    ],
+    [
+      "EDB",
+      "43418"
+    ],
+    [
+      "BID",
+      "100262"
+    ],
+    [
+      "URL",
+      "https://seclists.org/oss-sec/2017/q3/277"
+    ],
+    [
+      "URL",
+      "https://github.com/xairy/kernel-exploits/blob/master/CVE-2017-1000112/poc.c"
+    ],
+    [
+      "URL",
+      "https://git.kernel.org/pub/scm/linux/kernel/git/davem/net.git/commit/?id=85f1bd9a7b5a79d5baa8bf44af19658f7bf77bfa"
+    ],
+    [
+      "URL",
+      "https://people.canonical.com/~ubuntu-security/cve/CVE-2017-1000112"
+    ],
+    [
+      "URL",
+      "https://securingtomorrow.mcafee.com/mcafee-labs/linux-kernel-vulnerability-can-lead-to-privilege-escalation-analyzing-cve-2017-1000112/"
+    ],
+    [
+      "URL",
+      "https://ricklarabee.blogspot.com/2017/12/adapting-poc-for-cve-2017-1000112-to.html"
+    ],
+    [
+      "URL",
+      "https://github.com/bcoles/kernel-exploits/commits/cve-2017-1000112"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Auto"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "COMPILE",
+    "WritableDir",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "linux/x64/meterpreter/reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

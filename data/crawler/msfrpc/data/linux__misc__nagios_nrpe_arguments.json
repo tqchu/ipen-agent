@@ -1,0 +1,72 @@
+{
+  "Name": "Nagios Remote Plugin Executor Arbitrary Command Execution",
+  "Description": "The Nagios Remote Plugin Executor (NRPE) is installed to allow a central Nagios server to actively poll information from the hosts it monitors. NRPE has a configuration option dont_blame_nrpe which enables command-line arguments to be provided remote plugins. When this option is enabled, even when NRPE makes an effort to sanitize arguments to prevent command execution, it is possible to execute arbitrary commands.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/misc/nagios_nrpe_arguments.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Rudolph Pereir",
+    "jwpari <jwpari@beersec.org>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-1362"
+    ],
+    [
+      "OSVDB",
+      "90582"
+    ],
+    [
+      "BID",
+      "58142"
+    ],
+    [
+      "URL",
+      "http://www.occamsec.com/vulnerabilities.html#nagios_metacharacter_vulnerability"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Nagios Remote Plugin Executor prior to 2.14"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "NRPECMD",
+    "NRPESSL"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,139 @@
+{
+  "Name": "Dlink DIR Routers Unauthenticated HNAP Login Stack Buffer Overflow",
+  "Description": "Several Dlink routers contain a pre-authentication stack buffer overflow vulnerability, which is exposed on the LAN interface on port 80. This vulnerability affects the HNAP SOAP protocol, which accepts arbitrarily long strings into certain XML parameters and then copies them into the stack. This exploit has been tested on the real devices DIR-818LW and 868L (rev. B), and it was tested using emulation on the DIR-822, 823, 880, 885, 890 and 895. Others might be affected, and this vulnerability is present in both MIPS and ARM devices. The MIPS devices are powered by Lextra RLX processors, which are crippled MIPS cores lacking a few load and store instructions. Because of this the payloads have to be sent unencoded, which can cause them to fail, although the bind shell seems to work well. For the ARM devices, the inline reverse tcp seems to work best. Check the reference links to see the vulnerable firmware versions.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/http/dlink_hnap_login_bof.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Pedro Ribeiro <pedrib@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2016-6563"
+    ],
+    [
+      "US-CERT-VU",
+      "677427"
+    ],
+    [
+      "URL",
+      "https://raw.githubusercontent.com/pedrib/PoC/master/advisories/dlink-hnap-login.txt"
+    ],
+    [
+      "URL",
+      "https://seclists.org/fulldisclosure/2016/Nov/38"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Dlink DIR-818 / 822 / 823 / 850 [MIPS]"
+    ],
+    [
+      1,
+      "Dlink DIR-868 (rev. B and C) / 880 / 885 / 890 / 895 [ARM]"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "SLEEP",
+    "SHELL",
+    "SHELLARG"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 10
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

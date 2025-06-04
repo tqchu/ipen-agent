@@ -1,0 +1,100 @@
+{
+  "Name": "Sophos Web Protection Appliance Interface Authenticated Arbitrary Command Execution",
+  "Description": "This module takes advantage of two vulnerabilities in order to gain remote code execution as root as an otherwise non-privileged authorized user. By taking advantage of a mass assignment vulnerability that allows an unprivileged authenticated user to change the administrator's password hash, the module updates the password to login as the admin to reach the second vulnerability. No server-side sanitization is done on values passed when configuring a static network interface. This allows an administrator user to run arbitrary commands in the context of the web application, which is root when configuring the network interface. This module will inadvertently delete any other users that may have been present as a side effect of changing the admin's password.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/http/sophos_wpa_iface_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Brandon Perry <bperry.volatile@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2014-2849"
+    ],
+    [
+      "CVE",
+      "2014-2850"
+    ],
+    [
+      "URL",
+      "http://www.zerodayinitiative.com/advisories/ZDI-14-069/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Sophos Web Protection Appliance 3.8.1.1"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "USERNAME",
+    "PASSWORD",
+    "TARGETURI"
+  ],
+  "DefaultOptions": {
+    "SSL": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

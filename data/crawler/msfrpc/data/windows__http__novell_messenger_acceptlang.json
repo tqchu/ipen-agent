@@ -1,0 +1,63 @@
+{
+  "Name": "Novell Messenger Server 2.0 Accept-Language Overflow",
+  "Description": "This module exploits a stack buffer overflow in Novell GroupWise Messenger Server v2.0. This flaw is triggered by any HTTP request with an Accept-Language header greater than 16 bytes. To overwrite the return address on the stack, we must first pass a memcpy() operation that uses pointers we supply. Due to the large list of restricted characters and the limitations of the current encoder modules, very few payloads are usable.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/http/novell_messenger_acceptlang.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "hdm <x@hdm.io>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2006-0992"
+    ],
+    [
+      "OSVDB",
+      "24617"
+    ],
+    [
+      "BID",
+      "17503"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Groupwise Messenger DClient.dll v10510.37"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

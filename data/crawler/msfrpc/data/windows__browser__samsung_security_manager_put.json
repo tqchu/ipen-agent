@@ -1,0 +1,85 @@
+{
+  "Name": "Samsung Security Manager 1.4 ActiveMQ Broker Service PUT Method Remote Code Execution",
+  "Description": "This is an exploit against Samsung Security Manager that bypasses the patch in ZDI-15-156 & ZDI-16-481 by exploiting the vulnerability against the client-side. This exploit has been tested successfully using IE, FireFox and Chrome by abusing a GET request XSS to bypass CORS and reach the vulnerable PUT. Finally a traversal is used in the PUT request to upload the code just where we want it and gain RCE as SYSTEM.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/samsung_security_manager_put.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "mr_me <mr_me@offensive-security.com>"
+  ],
+  "References": [
+    [
+      "URL",
+      "http://www.zerodayinitiative.com/advisories/ZDI-15-156/"
+    ],
+    [
+      "URL",
+      "http://www.zerodayinitiative.com/advisories/ZDI-16-481/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Samsung Security Manager 1.32 & 1.4 Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "OBFUSCATE"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

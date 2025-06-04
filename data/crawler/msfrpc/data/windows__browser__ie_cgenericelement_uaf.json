@@ -1,0 +1,108 @@
+{
+  "Name": "MS13-038 Microsoft Internet Explorer CGenericElement Object Use-After-Free Vulnerability",
+  "Description": "This module exploits a vulnerability found in Microsoft Internet Explorer. A use-after-free condition occurs when a CGenericElement object is freed, but a reference is kept on the Document and used again during rendering, an invalid memory that's controllable is used, and allows arbitrary code execution under the context of the user. Please note: This vulnerability has been exploited in the wild on 2013 May, in the compromise of the Department of Labor (DoL) Website.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/ie_cgenericelement_uaf.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "Unknown",
+    "EMH",
+    "juan vazquez <juan.vazquez@metasploit.com>",
+    "sinn3r <sinn3r@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-1347"
+    ],
+    [
+      "OSVDB",
+      "92993"
+    ],
+    [
+      "MSB",
+      "MS13-038"
+    ],
+    [
+      "US-CERT-VU",
+      "237655"
+    ],
+    [
+      "URL",
+      "http://blogs.technet.com/b/msrc/archive/2013/05/03/microsoft-releases-security-advisory-2847140.aspx"
+    ],
+    [
+      "URL",
+      "http://r-7.co/IE8-DOL"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "IE 8 on Windows XP SP3"
+    ],
+    [
+      2,
+      "IE 8 on Windows Vista"
+    ],
+    [
+      3,
+      "IE 8 on Windows Server 2003"
+    ],
+    [
+      4,
+      "IE 8 on Windows 7"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "OBFUSCATE"
+  ],
+  "DefaultOptions": {
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

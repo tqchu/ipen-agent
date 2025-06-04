@@ -1,0 +1,66 @@
+{
+  "Name": "CA BrightStor HSM Buffer Overflow",
+  "Description": "This module exploits one of the multiple stack buffer overflows in Computer Associates BrightStor HSM. By sending a specially crafted request, an attacker could overflow the buffer and execute arbitrary code.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/brightstor/hsmserver.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "toto"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2007-5082"
+    ],
+    [
+      "OSVDB",
+      "41363"
+    ],
+    [
+      "BID",
+      "25823"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "BrightStor HSM 11.5 Windows All"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,71 @@
+{
+  "Name": "Xdh / LinuxNet Perlbot / fBot IRC Bot Remote Code Execution",
+  "Description": "This module allows remote command execution on an IRC Bot developed by xdh. This perl bot was caught by Conor Patrick with his shellshock honeypot server and is categorized by Markus Zanke as an fBot (Fire & Forget - DDoS Bot). Matt Thayer also found this script which has a description of LinuxNet perlbot. The bot answers only based on the servername and nickname in the IRC message which is configured on the perl script thus you need to be an operator on the IRC network to spoof it and in order to exploit this bot or have at least the same ip to the config.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/misc/xdh_x_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Jay Turla",
+    "Conor Patrick",
+    "Matt Thayer"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://conorpp.com/blog/a-close-look-at-an-operating-botnet/"
+    ],
+    [
+      "URL",
+      "https://twitter.com/MrMookie/status/673389285676965889"
+    ],
+    [
+      "URL",
+      "https://www.alienvault.com/open-threat-exchange/blog/elasticzombie-botnet-exploiting-elasticsearch-vulnerabilities"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "xdh Botnet / LinuxNet perlbot"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "IRC_PASSWORD",
+    "NICK",
+    "CHANNEL"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

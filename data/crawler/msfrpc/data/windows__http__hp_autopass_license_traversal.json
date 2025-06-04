@@ -1,0 +1,118 @@
+{
+  "Name": "HP AutoPass License Server File Upload",
+  "Description": "This module exploits a code execution flaw in HP AutoPass License Server. It abuses two weaknesses in order to get its objective. First, the AutoPass application doesn't enforce authentication in the CommunicationServlet component. Second, it's possible to abuse a directory traversal when uploading files thorough the same component, allowing to upload an arbitrary payload embedded in a JSP. The module has been tested successfully on HP AutoPass License Server 8.01 as installed with HP Service Virtualization 3.50.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/http/hp_autopass_license_traversal.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "rgod <rgod@autistici.org>",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-6221"
+    ],
+    [
+      "ZDI",
+      "14-195"
+    ],
+    [
+      "BID",
+      "67989"
+    ],
+    [
+      "URL",
+      "https://h20566.www2.hp.com/portal/site/hpsc/public/kb/docDisplay/?docId=emr_na-c04333125"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Java"
+  ],
+  "Arch": [
+    "java"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows 2003 SP2 / HP AutoPass License Server 8.01 / HP Service Virtualization 3.50"
+    ],
+    [
+      1,
+      "Windows 2008 32 bits/ HP AutoPass License Server 8.01 / HP Service Virtualization 3.50"
+    ],
+    [
+      2,
+      "Windows 2008 64 bits/ HP AutoPass License Server 8.01 / HP Service Virtualization 3.50"
+    ],
+    [
+      3,
+      "Windows 2012 / HP AutoPass License Server 8.01 / HP Service Virtualization 3.50"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "TARGETURI",
+    "INSTALL_DEPTH",
+    "INSTALL_FOLDER",
+    "WEBAPPS_DEPTH"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

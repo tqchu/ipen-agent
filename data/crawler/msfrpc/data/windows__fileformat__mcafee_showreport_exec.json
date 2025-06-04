@@ -1,0 +1,93 @@
+{
+  "Name": "McAfee SaaS MyCioScan ShowReport Remote Command Execution",
+  "Description": "This module exploits a vulnerability found in McAfee Security-as-a-Service. The ShowReport() function (located in the myCIOScn.dll ActiveX component) fails to check the FileName argument, and passes it on to a ShellExecuteW() function, therefore allows any malicious attacker to execute any process that's on the local system. However, if the victim machine is connected to a remote share (or something similar), then it's also possible to execute arbitrary code. Please note that a custom template is required for the payload, because the default Metasploit template is detectable by McAfee -- any Windows binary, such as calc.exe or notepad.exe, should bypass McAfee fine.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/mcafee_showreport_exec.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "rgod",
+    "sinn3r <sinn3r@metasploit.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "78310"
+    ],
+    [
+      "BID",
+      "51397"
+    ],
+    [
+      "ZDI",
+      "12-012"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Internet Explorer"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "FILENAME",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "SHARENAME",
+    "TEMPLATE"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "none",
+    "DisablePayloadHandler": false
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

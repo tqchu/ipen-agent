@@ -1,0 +1,49 @@
+{
+  "Name": "AppLocker Execution Prevention Bypass",
+  "Description": "This module will generate a .NET service executable on the target and utilize InstallUtil to run the payload bypassing the AppLocker protection. Currently only the InstallUtil method is provided, but future methods can be added easily.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/applocker_bypass.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Casey Smith",
+    "OJ Reeves"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://gist.github.com/subTee/fac6af078937dda81e57"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "FileDropperDelay",
+    "AllowNoCleanup"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

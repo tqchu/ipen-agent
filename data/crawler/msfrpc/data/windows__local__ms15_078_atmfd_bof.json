@@ -1,0 +1,78 @@
+{
+  "Name": "MS15-078 Microsoft Windows Font Driver Buffer Overflow",
+  "Description": "This module exploits a pool based buffer overflow in the atmfd.dll driver when parsing a malformed font. The vulnerability was exploited by the hacking team and disclosed in the July data leak. This module has been tested successfully on vulnerable builds of Windows 8.1 x64.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/ms15_078_atmfd_bof.rb",
+  "Version": "",
+  "Rank": "manual",
+  "Authors": [
+    "Eugene Ching",
+    "Mateusz Jurczyk",
+    "Cedric Halbronn",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2015-2426"
+    ],
+    [
+      "CVE",
+      "2015-2433"
+    ],
+    [
+      "MSB",
+      "MS15-078"
+    ],
+    [
+      "MSB",
+      "MS15-080"
+    ],
+    [
+      "URL",
+      "https://github.com/vlad902/hacking-team-windows-kernel-lpe"
+    ],
+    [
+      "URL",
+      "https://www.nccgroup.trust/uk/about-us/newsroom-and-events/blogs/2015/september/exploiting-cve-2015-2426-and-how-i-ported-it-to-a-recent-windows-8.1-64-bit/"
+    ],
+    [
+      "URL",
+      "https://code.google.com/p/google-security-research/issues/detail?id=369"
+    ],
+    [
+      "URL",
+      "https://code.google.com/p/google-security-research/issues/detail?id=480"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows 8.1 x64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

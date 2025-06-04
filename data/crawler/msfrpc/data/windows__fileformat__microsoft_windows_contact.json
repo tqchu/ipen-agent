@@ -1,0 +1,67 @@
+{
+  "Name": "Microsoft Windows Contact File Format Arbitary Code Execution",
+  "Description": "This vulnerability allows remote attackers to execute arbitrary code on vulnerable installations of Microsoft Windows. User interaction is required to exploit this vulnerability in that the target must visit a malicious page or open a malicious file. The flaw is due to the processing of \".contact\" files <c:Url> node param which takes an expected website value, however if an attacker references an executable file it will run that instead without warning instead of performing expected web navigation. This is dangerous and would be unexpected to an end user. Executable files can live in a sub-directory so when the \".contact\" website link is clicked it traverses directories towards the executable and runs. Making matters worse is if the files are compressed then downloaded \"mark of the web\" (MOTW) may potentially not work as expected with certain archive utilitys. The \".\\\" chars allow directory traversal to occur in order to run the attackers supplied executable sitting unseen in the attackers directory. This advisory is a duplicate issue that currently affects Windows .VCF files, and released for the sake of completeness as it affects Windows .contact files as well.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/microsoft_windows_contact.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "John Page (aka hyp3rlinx)",
+    "Brenner Little"
+  ],
+  "References": [
+    [
+      "EDB",
+      "46188"
+    ],
+    [
+      "URL",
+      "http://hyp3rlinx.altervista.org/advisories/MICROSOFT-WINDOWS-CONTACT-FILE-INSUFFECIENT-UI-WARNING-WEBSITE-LINK-ARBITRARY-CODE-EXECUTION.txt"
+    ],
+    [
+      "ZDI",
+      "19-013"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "WEBSITE"
+  ],
+  "DefaultOptions": {
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

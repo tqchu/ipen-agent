@@ -1,0 +1,51 @@
+{
+  "Name": "WM Downloader 3.1.2.2 Buffer Overflow",
+  "Description": "This module exploits a buffer overflow in WM Downloader v3.1.2.2. When the application is used to import a specially crafted m3u file, a buffer overflow occurs allowing arbitrary code execution.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/wm_downloader_m3u.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "fdisk",
+    "dookie"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "66911"
+    ],
+    [
+      "EDB",
+      "14497"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "seh",
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

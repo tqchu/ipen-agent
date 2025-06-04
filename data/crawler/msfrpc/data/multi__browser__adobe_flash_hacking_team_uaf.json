@@ -1,0 +1,93 @@
+{
+  "Name": "Adobe Flash Player ByteArray Use After Free",
+  "Description": "This module exploits an use after free on Adobe Flash Player. The vulnerability, discovered by Hacking Team and made public as part of the July 2015 data leak, was described as an Use After Free while handling ByteArray objects. This module has been tested successfully on: Windows 7 SP1 (32-bit), IE11 and Adobe Flash 18.0.0.194, Windows 7 SP1 (32-bit), Firefox 38.0.5 and Adobe Flash 18.0.0.194, Windows 8.1 (32-bit), IE11 and Adobe Flash 18.0.0.194, Windows 8.1 (32-bit), Firefox and Adobe Flash 18.0.0.194, and Linux Mint \"Rebecca\" (32 bits), Firefox 33.0 and Adobe Flash 11.2.202.468.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/browser/adobe_flash_hacking_team_uaf.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "Unknown",
+    "juan vazquez <juan.vazquez@metasploit.com>",
+    "sinn3r <sinn3r@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2015-5119"
+    ],
+    [
+      "URL",
+      "https://helpx.adobe.com/security/products/flash-player/apsa15-03.html"
+    ],
+    [
+      "URL",
+      "http://blog.trendmicro.com/trendlabs-security-intelligence/unpatched-flash-player-flaws-more-pocs-found-in-hacking-team-leak/"
+    ],
+    [
+      "URL",
+      "https://twitter.com/w3bd3vil/status/618168863708962816"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows",
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows"
+    ],
+    [
+      1,
+      "Linux"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "JsObfuscate",
+    "JsIdentifiers",
+    "Retries",
+    "CookieName",
+    "CookieExpiration",
+    "Custom404"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

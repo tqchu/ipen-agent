@@ -1,0 +1,54 @@
+{
+  "Name": "Unreal Tournament 2004 \"secure\" Overflow (Win32)",
+  "Description": "This is an exploit for the GameSpy secure query in the Unreal Engine. This exploit only requires one UDP packet, which can be both spoofed and sent to a broadcast address. Usually, the GameSpy query server listens on port 7787, but you can manually specify the port as well. The RunServer.sh script will automatically restart the server upon a crash, giving us the ability to bruteforce the service and exploit it multiple times.",
+  "License": "BSD License",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/games/ut2004_secure.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "stinko <vinnie@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2004-0608"
+    ],
+    [
+      "OSVDB",
+      "7217"
+    ],
+    [
+      "BID",
+      "10570"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "UT2004 Build 3186"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "CPORT",
+    "CHOST"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

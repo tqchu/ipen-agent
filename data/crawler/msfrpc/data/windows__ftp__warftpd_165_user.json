@@ -1,0 +1,86 @@
+{
+  "Name": "War-FTPD 1.65 Username Overflow",
+  "Description": "This module exploits a buffer overflow found in the USER command of War-FTPD 1.65.",
+  "License": "BSD License",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/ftp/warftpd_165_user.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "Fairuzan Roslan <riaf@mysec.org>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "1999-0256"
+    ],
+    [
+      "OSVDB",
+      "875"
+    ],
+    [
+      "BID",
+      "10078"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "Windows 2000 SP0-SP4 English"
+    ],
+    [
+      2,
+      "Windows XP SP0-SP1 English"
+    ],
+    [
+      3,
+      "Windows XP SP2 English"
+    ],
+    [
+      4,
+      "Windows XP SP3 English"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "FTPUSER",
+    "FTPPASS",
+    "FTPTimeout",
+    "FTPDEBUG",
+    "PassiveMode"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

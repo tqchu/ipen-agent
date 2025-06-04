@@ -1,0 +1,97 @@
+{
+  "Name": "HP Data Protector 8.10 Remote Command Execution",
+  "Description": "This module exploits a remote command execution on HP Data Protector 8.10. Arbitrary commands can be executed by sending crafted requests with opcode 28 to the OmniInet service listening on the TCP/5555 port. Since there is a strict length limitation on the command, rundll32.exe is executed, and the payload is provided through a DLL by a fake SMB server. This module has been tested successfully on HP Data Protector 8.1 on Windows 7 SP1.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/hp_dataprotector_cmd_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Christian Ramirez",
+    "Henoch Barrera",
+    "Matthew Hall <hallm@sec-1.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2014-2623"
+    ],
+    [
+      "OSVDB",
+      "109069"
+    ],
+    [
+      "EDB",
+      "34066"
+    ],
+    [
+      "URL",
+      "https://h20564.www2.hp.com/hpsc/doc/public/display?docId=emr_na-c04373818"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "HP Data Protector 8.10 / Windows"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "CAINPWFILE",
+    "JOHNPWFILE",
+    "SHARE",
+    "FILE_NAME",
+    "SMBDomain",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "SMB_DELAY"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

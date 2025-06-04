@@ -1,0 +1,103 @@
+{
+  "Name": "ptrace Sudo Token Privilege Escalation",
+  "Description": "This module attempts to gain root privileges by blindly injecting into the session user's running shell processes and executing commands by calling `system()`, in the hope that the process has valid cached sudo tokens with root privileges. The system must have gdb installed and permit ptrace. This module has been tested successfully on: Debian 9.8 (x64); and CentOS 7.4.1708 (x64).",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/ptrace_sudo_token_priv_esc.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "chaignc",
+    "bcoles <bcoles@gmail.com>"
+  ],
+  "References": [
+    [
+      "EDB",
+      "46989"
+    ],
+    [
+      "URL",
+      "https://github.com/nongiach/sudo_inject"
+    ],
+    [
+      "URL",
+      "https://www.kernel.org/doc/Documentation/security/Yama.txt"
+    ],
+    [
+      "URL",
+      "http://man7.org/linux/man-pages/man2/ptrace.2.html"
+    ],
+    [
+      "URL",
+      "https://lwn.net/Articles/393012/"
+    ],
+    [
+      "URL",
+      "https://lwn.net/Articles/492667/"
+    ],
+    [
+      "URL",
+      "https://linux-audit.com/protect-ptrace-processes-kernel-yama-ptrace_scope/"
+    ],
+    [
+      "URL",
+      "https://blog.gdssecurity.com/labs/2017/9/5/linux-based-inter-process-code-injection-without-ptrace2.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x86",
+    "x64",
+    "armle",
+    "aarch64",
+    "ppc",
+    "mipsle",
+    "mipsbe"
+  ],
+  "Targets": [
+    [
+      0,
+      "Auto"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "TIMEOUT",
+    "WritableDir",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "PrependSetresuid": true,
+    "PrependSetresgid": true,
+    "PrependFork": true,
+    "WfsDelay": 30
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

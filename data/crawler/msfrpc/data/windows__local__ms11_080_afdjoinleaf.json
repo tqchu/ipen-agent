@@ -1,0 +1,72 @@
+{
+  "Name": "MS11-080 AfdJoinLeaf Privilege Escalation",
+  "Description": "This module exploits a flaw in the AfdJoinLeaf function of the afd.sys driver to overwrite data in kernel space. An address within the HalDispatchTable is overwritten and when triggered with a call to NtQueryIntervalProfile will execute shellcode. This module will elevate itself to SYSTEM, then inject the payload into another SYSTEM process before restoring its own token to avoid causing system instability.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/ms11_080_afdjoinleaf.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "Matteo Memelli",
+    "Spencer McIntyre"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2011-2005"
+    ],
+    [
+      "OSVDB",
+      "76232"
+    ],
+    [
+      "EDB",
+      "18176"
+    ],
+    [
+      "MSB",
+      "MS11-080"
+    ],
+    [
+      "URL",
+      "http://www.offensive-security.com/vulndev/ms11-080-voyage-into-ring-zero/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "Windows XP SP2 / SP3"
+    ],
+    [
+      2,
+      "Windows Server 2003 SP2"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

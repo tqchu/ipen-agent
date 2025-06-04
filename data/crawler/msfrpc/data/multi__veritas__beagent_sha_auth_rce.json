@@ -1,0 +1,106 @@
+{
+  "Name": "Veritas Backup Exec Agent Remote Code Execution",
+  "Description": "Veritas Backup Exec Agent supports multiple authentication schemes and SHA authentication is one of them. This authentication scheme is no longer used within Backup Exec versions, but hadn\u2019t yet been disabled. An attacker could remotely exploit the SHA authentication scheme to gain unauthorized access to the BE Agent and execute an arbitrary OS command on the host with NT AUTHORITY\\SYSTEM or root privileges depending on the platform. The vulnerability presents in 16.x, 20.x and 21.x versions of Backup Exec up to 21.2 (or up to and including Backup Exec Remote Agent revision 9.3)",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/veritas/beagent_sha_auth_rce.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Alexander Korotin <0xc0rs@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2021-27876"
+    ],
+    [
+      "CVE",
+      "2021-27877"
+    ],
+    [
+      "CVE",
+      "2021-27878"
+    ],
+    [
+      "URL",
+      "https://www.veritas.com/content/support/en_US/security/VTS21-001"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows",
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows"
+    ],
+    [
+      1,
+      "Linux"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSLCompression",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "CMDSTAGER::FLAVOR",
+    "CMDSTAGER::DECODER",
+    "CMDSTAGER::TEMP",
+    "CMDSTAGER::URIPATH",
+    "CMDSTAGER::SSL",
+    "SHELL",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "RPORT": 10000
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

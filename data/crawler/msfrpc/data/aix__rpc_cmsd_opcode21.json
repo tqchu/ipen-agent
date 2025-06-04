@@ -1,0 +1,76 @@
+{
+  "Name": "AIX Calendar Manager Service Daemon (rpc.cmsd) Opcode 21 Buffer Overflow",
+  "Description": "This module exploits a buffer overflow vulnerability in opcode 21 handled by rpc.cmsd on AIX. By making a request with a long string passed to the first argument of the \"rtable_create\" RPC, a stack based buffer overflow occurs. This leads to arbitrary code execution. NOTE: Unsuccessful attempts may cause inetd/portmapper to enter a state where further attempts are not possible.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/aix/rpc_cmsd_opcode21.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "Rodrigo Rubira Branco (BSDaemon)",
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2009-3699"
+    ],
+    [
+      "OSVDB",
+      "58726"
+    ],
+    [
+      "BID",
+      "36615"
+    ],
+    [
+      "URL",
+      "https://web.archive.org/web/20091013155835/http://labs.idefense.com/intelligence/vulnerabilities/display.php?id=825"
+    ],
+    [
+      "URL",
+      "https://web.archive.org/web/20221204155746/http://aix.software.ibm.com/aix/efixes/security/cmsd_advisory.asc"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::AIX"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "IBM AIX Version 5.1"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "ONCRPC::tcp_request_fragmentation",
+    "TIMEOUT",
+    "BruteWait",
+    "BruteStep"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

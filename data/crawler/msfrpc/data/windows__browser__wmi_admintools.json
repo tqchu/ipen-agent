@@ -1,0 +1,99 @@
+{
+  "Name": "Microsoft WMI Administration Tools ActiveX Buffer Overflow",
+  "Description": "This module exploits a memory trust issue in the Microsoft WMI Administration tools ActiveX control. When processing a specially crafted HTML page, the WEBSingleView.ocx ActiveX Control (1.50.1131.0) will treat the 'lCtxHandle' parameter to the 'AddContextRef' and 'ReleaseContext' methods as a trusted pointer. It makes an indirect call via this pointer which leads to arbitrary code execution. This exploit utilizes a combination of heap spraying and the .NET 2.0 'mscorie.dll' module to bypass DEP and ASLR. This module does not opt-in to ASLR. As such, this module should be reliable on all Windows versions. The WMI Administrative Tools are a standalone download & install (linked in the references).",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/wmi_admintools.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "WooYun",
+    "MC <mc@metasploit.com>",
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "69942"
+    ],
+    [
+      "CVE",
+      "2010-3973"
+    ],
+    [
+      "BID",
+      "45546"
+    ],
+    [
+      "URL",
+      "http://wooyun.org/bug.php?action=view&id=1006"
+    ],
+    [
+      "URL",
+      "http://web.archive.org/web/20101228043011/http://secunia.com:80/advisories/42693"
+    ],
+    [
+      "URL",
+      "http://www.microsoft.com/downloads/en/details.aspx?FamilyID=6430f853-1120-48db-8cc5-f2abdc3ed314"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "Windows Universal"
+    ],
+    [
+      2,
+      "Debug Target (Crash)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

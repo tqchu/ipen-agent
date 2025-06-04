@@ -1,0 +1,90 @@
+{
+  "Name": "TRENDnet SecurView Internet Camera UltraMJCam OpenFileDlg Buffer Overflow",
+  "Description": "This module exploits a vulnerability found in TRENDnet SecurView Internet Camera's ActiveX control. By supplying a long string of data as the sFilter argument of the OpenFileDlg() function, it is possible to trigger a buffer overflow condition due to WideCharToMultiByte (which converts unicode back to) overwriting the stack more than it should, which results arbitrary code execution under the context of the user.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/ultramjcam_openfiledig_bof.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "rgod",
+    "sinn3r <sinn3r@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2012-4876"
+    ],
+    [
+      "OSVDB",
+      "80661"
+    ],
+    [
+      "EDB",
+      "18675"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "IE 6 on Windows XP SP3"
+    ],
+    [
+      2,
+      "IE 7 on Windows XP SP3"
+    ],
+    [
+      3,
+      "IE 7 on Windows Vista"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "seh",
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

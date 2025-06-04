@@ -1,0 +1,75 @@
+{
+  "Name": "Tectia SSH USERAUTH Change Request Password Reset Vulnerability",
+  "Description": "This module exploits a vulnerability in Tectia SSH server for Unix-based platforms. The bug is caused by a SSH2_MSG_USERAUTH_PASSWD_CHANGEREQ request before password authentication, allowing any remote user to bypass the login routine, and then gain access as root.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/unix/ssh/tectia_passwd_changereq.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "kingcope",
+    "bperry",
+    "sinn3r <sinn3r@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2012-5975"
+    ],
+    [
+      "EDB",
+      "23082"
+    ],
+    [
+      "OSVDB",
+      "88103"
+    ],
+    [
+      "URL",
+      "https://seclists.org/fulldisclosure/2012/Dec/12"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Unix-based Tectia SSH 6.3 or prior"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "SSH_IDENT",
+    "SSH_TIMEOUT",
+    "SSH_DEBUG",
+    "USERNAME"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,93 @@
+{
+  "Name": "Generic Payload Handler",
+  "Description": "This module is a stub that provides all of the features of the Metasploit payload system to exploits that have been launched outside of the framework.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/handler.rb",
+  "Version": "",
+  "Rank": "manual",
+  "Authors": [
+    "hdm <x@hdm.io>",
+    "bcook-r7"
+  ],
+  "References": [],
+  "Platform": [
+    "Msf::Module::Platform::Android",
+    "Msf::Module::Platform::Apple_iOS",
+    "Msf::Module::Platform::BSD",
+    "Msf::Module::Platform::Java",
+    "Msf::Module::Platform::JavaScript",
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::OSX",
+    "Msf::Module::Platform::NodeJS",
+    "Msf::Module::Platform::PHP",
+    "Msf::Module::Platform::Python",
+    "Msf::Module::Platform::Ruby",
+    "Msf::Module::Platform::Solaris",
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::Windows",
+    "Msf::Module::Platform::Mainframe",
+    "Msf::Module::Platform::Multi"
+  ],
+  "Arch": [
+    "x86",
+    "x86_64",
+    "x64",
+    "mips",
+    "mipsle",
+    "mipsbe",
+    "mips64",
+    "mips64le",
+    "ppc",
+    "ppce500v2",
+    "ppc64",
+    "ppc64le",
+    "cbea",
+    "cbea64",
+    "sparc",
+    "sparc64",
+    "armle",
+    "armbe",
+    "aarch64",
+    "cmd",
+    "php",
+    "tty",
+    "java",
+    "ruby",
+    "dalvik",
+    "python",
+    "nodejs",
+    "firefox",
+    "zarch",
+    "r",
+    "riscv32be",
+    "riscv32le",
+    "riscv64be",
+    "riscv64le",
+    "loongarch64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Wildcard Target"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "ExitOnSession",
+    "ListenerTimeout"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "generic/shell_reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,82 @@
+{
+  "Name": "Serv-U FTPD MDTM Overflow",
+  "Description": "This is an exploit for the Serv-U\\'s MDTM command timezone overflow. It has been heavily tested against versions 4.0.0.4/4.1.0.0/4.1.0.3/5.0.0.0 with success against nt4/2k/xp/2k3. I have also had success against version 3, but only tested 1 version/os. The bug is in all versions prior to 5.0.0.4, but this exploit will not work against versions not listed above. You only get one shot, but it should be OS/SP independent. This exploit is a single hit, the service dies after the shellcode finishes execution.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/ftp/servu_mdtm.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "spoonm <spoonm@no$email.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2004-0330"
+    ],
+    [
+      "OSVDB",
+      "4073"
+    ],
+    [
+      "URL",
+      "http://archives.neohapsis.com/archives/bugtraq/2004-02/0654.html"
+    ],
+    [
+      "BID",
+      "9751"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Serv-U Uber-Leet Universal ServUDaemon.exe"
+    ],
+    [
+      1,
+      "Serv-U 4.0.0.4/4.1.0.0/4.1.0.3 ServUDaemon.exe"
+    ],
+    [
+      2,
+      "Serv-U 5.0.0.0 ServUDaemon.exe"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "FTPUSER",
+    "FTPPASS",
+    "FTPTimeout",
+    "FTPDEBUG",
+    "PassiveMode",
+    "SEHOffset",
+    "ForceDoubling"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

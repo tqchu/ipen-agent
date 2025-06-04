@@ -1,0 +1,95 @@
+{
+  "Name": "glibc '$ORIGIN' Expansion Privilege Escalation",
+  "Description": "This module attempts to gain root privileges on Linux systems by abusing a vulnerability in the GNU C Library (glibc) dynamic linker. glibc `ld.so` versions before 2.11.3, and 2.12.x before 2.12.2 does not properly restrict use of the `LD_AUDIT` environment variable when loading setuid executables which allows control over the `$ORIGIN` library search path resulting in execution of arbitrary shared objects. This module opens a file descriptor to the specified suid executable via a hard link, then replaces the hard link with a shared object before instructing the linker to execute the file descriptor, resulting in arbitrary code execution. The specified setuid binary must be readable and located on the same file system partition as the specified writable directory. This module has been tested successfully on: glibc 2.5 on CentOS 5.4 (x86_64); glibc 2.5 on CentOS 5.5 (x86_64); glibc 2.12 on Fedora 13 (i386); and glibc 2.5-49 on RHEL 5.5 (x86_64). Some versions of `ld.so`, such as the version shipped with Ubuntu 14, hit a failed assertion in `dl_open_worker` causing exploitation to fail.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/glibc_origin_expansion_priv_esc.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Tavis Ormandy",
+    "bcoles <bcoles@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2010-3847"
+    ],
+    [
+      "BID",
+      "44154"
+    ],
+    [
+      "EDB",
+      "15274"
+    ],
+    [
+      "URL",
+      "https://seclists.org/fulldisclosure/2010/Oct/257"
+    ],
+    [
+      "URL",
+      "https://www.ubuntu.com/usn/usn-1009-1"
+    ],
+    [
+      "URL",
+      "https://security-tracker.debian.org/tracker/CVE-2010-3847"
+    ],
+    [
+      "URL",
+      "https://access.redhat.com/security/cve/CVE-2010-3847"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "Linux x86"
+    ],
+    [
+      2,
+      "Linux x64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "SUID_EXECUTABLE",
+    "WritableDir"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,70 @@
+{
+  "Name": "freeFTPd PASS Command Buffer Overflow",
+  "Description": "freeFTPd 1.0.10 and below contains an overflow condition that is triggered as user-supplied input is not properly validated when handling a specially crafted PASS command. This may allow a remote attacker to cause a buffer overflow, resulting in a denial of service or allow the execution of arbitrary code. freeFTPd must have an account set to authorization anonymous user account.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/ftp/freeftpd_pass.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Wireghoul",
+    "TecR0c <roccogiovannicalvi@gmail.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "96517"
+    ],
+    [
+      "EDB",
+      "27747"
+    ],
+    [
+      "BID",
+      "61905"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "freeFTPd 1.0.10 and below on Windows Desktop Version"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "FTPUSER",
+    "FTPTimeout",
+    "FTPDEBUG",
+    "PassiveMode"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

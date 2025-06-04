@@ -1,0 +1,78 @@
+{
+  "Name": "GIMP script-fu Server Buffer Overflow",
+  "Description": "This module exploits a buffer overflow in the script-fu server component on GIMP <= 2.6.12. By sending a specially crafted packet, an attacker may be able to achieve remote code execution under the context of the user. This module has been tested on GIMP for Windows from installers provided by Jernej Simoncic.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/gimp_script_fu.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Joseph Sheridan",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2012-2763"
+    ],
+    [
+      "OSVDB",
+      "82429"
+    ],
+    [
+      "BID",
+      "53741"
+    ],
+    [
+      "EDB",
+      "18956"
+    ],
+    [
+      "URL",
+      "http://www.reactionpenetrationtesting.co.uk/advisories/scriptfu-buffer-overflow-GIMP-2.6.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "GIMP 2.6.10 (no DEP) / Windows XP SP3 / Windows 7 SP1"
+    ],
+    [
+      1,
+      "GIMP 2.6.1 (no DEP) / Windows XP SP3 / Windows 7 SP1"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

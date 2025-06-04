@@ -1,0 +1,71 @@
+{
+  "Name": "ClamAV Milter Blackhole-Mode Remote Code Execution",
+  "Description": "This module exploits a flaw in the Clam AntiVirus suite 'clamav-milter' (Sendmail mail filter). Versions prior to v0.92.2 are vulnerable. When implemented with black hole mode enabled, it is possible to execute commands remotely due to an insecure popen call.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/unix/smtp/clamav_milter_blackhole.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "aushack <patrick@osisecurity.com.au>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2007-4560"
+    ],
+    [
+      "OSVDB",
+      "36909"
+    ],
+    [
+      "BID",
+      "25439"
+    ],
+    [
+      "EDB",
+      "4761"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "MAILFROM",
+    "MAILTO"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

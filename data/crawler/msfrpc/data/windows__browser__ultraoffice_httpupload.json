@@ -1,0 +1,80 @@
+{
+  "Name": "Ultra Shareware Office Control ActiveX HttpUpload Buffer Overflow",
+  "Description": "This module exploits a stack-based buffer overflow in Ultra Shareware's Office Control. When processing the 'HttpUpload' method, the arguments are concatenated together to form a command line to run a bundled version of cURL. If the command fails to run, a stack-based buffer overflow occurs when building the error message. This is due to the use of sprintf() without proper bounds checking. NOTE: Due to input restrictions, this exploit uses a heap-spray to get the payload into memory unmodified.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/ultraoffice_httpupload.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "shinnai",
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2008-3878"
+    ],
+    [
+      "OSVDB",
+      "47866"
+    ],
+    [
+      "BID",
+      "30861"
+    ],
+    [
+      "EDB",
+      "6318"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

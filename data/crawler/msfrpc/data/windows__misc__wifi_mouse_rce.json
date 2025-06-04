@@ -1,0 +1,114 @@
+{
+  "Name": "Wifi Mouse RCE",
+  "Description": "The WiFi Mouse (Mouse Server) from Necta LLC contains an auth bypass as the authentication is completely implemented entirely on the client side. By utilizing this vulnerability, is possible to open a program on the server (cmd.exe in our case) and type commands that will be executed as the user running WiFi Mouse (Mouse Server), resulting in remote code execution. Tested against versions 1.8.3.4 (current as of module writing) and 1.8.2.3.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/wifi_mouse_rce.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "h00die",
+    "REDHATAUGUST",
+    "H4RK3NZ0"
+  ],
+  "References": [
+    [
+      "EDB",
+      "50972"
+    ],
+    [
+      "EDB",
+      "49601"
+    ],
+    [
+      "CVE",
+      "2022-3218"
+    ],
+    [
+      "URL",
+      "http://wifimouse.necta.us/"
+    ],
+    [
+      "URL",
+      "https://github.com/H4rk3nz0/PenTesting/blob/main/Exploits/wifi%20mouse/wifi-mouse-server-rce.py"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x64",
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "stager"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSLCert",
+    "SSLCompression",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "CMDSTAGER::FLAVOR",
+    "CMDSTAGER::DECODER",
+    "CMDSTAGER::TEMP",
+    "CMDSTAGER::URIPATH",
+    "CMDSTAGER::SSL",
+    "SLEEP",
+    "LINEMAX"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "windows/shell/reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

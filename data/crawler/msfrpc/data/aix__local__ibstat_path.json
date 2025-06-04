@@ -1,0 +1,74 @@
+{
+  "Name": "ibstat $PATH Privilege Escalation",
+  "Description": "This module exploits the trusted $PATH environment variable of the SUID binary \"ibstat\".",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/aix/local/ibstat_path.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Kristian Erik Hermansen",
+    "Sagi Shahar <sagi.shahar@mwrinfosecurity.com>",
+    "Kostas Lintovois <kostas.lintovois@mwrinfosecurity.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-4011"
+    ],
+    [
+      "OSVDB",
+      "95420"
+    ],
+    [
+      "BID",
+      "61287"
+    ],
+    [
+      "URL",
+      "http://www-01.ibm.com/support/docview.wss?uid=isg1IV43827"
+    ],
+    [
+      "URL",
+      "http://www-01.ibm.com/support/docview.wss?uid=isg1IV43756"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::AIX"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "IBM AIX Version 6.1"
+    ],
+    [
+      1,
+      "IBM AIX Version 7.1"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "IBSTAT_PATH",
+    "WritableDir",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

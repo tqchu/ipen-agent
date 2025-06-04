@@ -1,0 +1,46 @@
+{
+  "Name": "Windows Manage Memory Payload Injection",
+  "Description": "This module will inject a payload into memory of a process. If a payload isn't selected, then it'll default to a reverse x86 TCP meterpreter. If the PID datastore option isn't specified, then it'll inject into notepad.exe instead.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/payload_inject.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Carlos Perez <carlos_perez@darkoperator.com>",
+    "sinn3r <sinn3r@metasploit.com>"
+  ],
+  "References": [],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "PID",
+    "PPID",
+    "AUTOUNHOOK",
+    "WAIT_UNHOOK"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

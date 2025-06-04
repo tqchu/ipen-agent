@@ -1,0 +1,64 @@
+{
+  "Name": "LANDesk Management Suite 8.7 Alert Service Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in LANDesk Management Suite 8.7. By sending an overly long string to the Alert Service, a buffer is overwritten and arbitrary code can be executed.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/landesk_aolnsrvr.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "MC <mc@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2007-1674"
+    ],
+    [
+      "OSVDB",
+      "34964"
+    ],
+    [
+      "URL",
+      "http://www.tippingpoint.com/security/advisories/TSRT-07-04.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Alerting Proxy 2000/2003/XP"
+    ],
+    [
+      1,
+      "Alerting Proxy 2003 SP1-2 (NX support)"
+    ],
+    [
+      2,
+      "Alerting Proxy XP SP2 (NX support)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "CPORT",
+    "CHOST"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

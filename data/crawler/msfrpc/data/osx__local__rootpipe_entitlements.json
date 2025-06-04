@@ -1,0 +1,68 @@
+{
+  "Name": "Apple OS X Entitlements Rootpipe Privilege Escalation",
+  "Description": "This module exploits the rootpipe vulnerability and bypasses Apple's initial fix for the issue by injecting code into a process with the 'admin.writeconfig' entitlement.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/osx/local/rootpipe_entitlements.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "Emil Kvarnhammar",
+    "joev <joev@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2015-3673"
+    ],
+    [
+      "URL",
+      "https://truesecdev.wordpress.com/2015/07/01/exploiting-rootpipe-again/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::OSX"
+  ],
+  "Arch": [
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Mac OS X 10.9-10.10.3"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "WRITABLEDIR"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "osx/x64/shell_reverse_tcp",
+    "PrependSetreuid": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

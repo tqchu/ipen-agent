@@ -1,0 +1,68 @@
+{
+  "Name": "Windows Unquoted Service Path Privilege Escalation",
+  "Description": "This module exploits a logic flaw due to how the lpApplicationName parameter is handled. When the lpApplicationName contains a space, the file name is ambiguous. Take this file path as example: C:\\program files\\hello.exe; The Windows API will try to interpret this as two possible paths: C:\\program.exe, and C:\\program files\\hello.exe, and then execute all of them. To some software developers, this is an unexpected behavior, which becomes a security problem if an attacker is able to place a malicious executable in one of these unexpected paths, sometimes escalate privileges if run as SYSTEM. Some software such as OpenVPN 2.1.1, OpenSSH Server 5, and others have the same problem. The offensive technique is also described in Writing Secure Code (2nd Edition), Chapter 23, in the section \"Calling Processes Security\" on page 676. This technique was previously called Trusted Service Path, but is more commonly known as Unquoted Service Path. The service exploited won't start until the payload written to disk is removed.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/unquoted_service_path.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "sinn3r <sinn3r@metasploit.com>",
+    "h00die"
+  ],
+  "References": [
+    [
+      "URL",
+      "http://msdn.microsoft.com/en-us/library/windows/desktop/ms682425(v=vs.85).aspx"
+    ],
+    [
+      "URL",
+      "http://www.microsoft.com/learning/en/us/book.aspx?id=5957&locale=en-us"
+    ],
+    [
+      "URL",
+      "https://medium.com/@SumitVerma101/windows-privilege-escalation-part-1-unquoted-service-path-c7a011a8d8ae"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 300
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

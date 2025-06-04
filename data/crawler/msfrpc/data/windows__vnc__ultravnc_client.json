@@ -1,0 +1,71 @@
+{
+  "Name": "UltraVNC 1.0.1 Client Buffer Overflow",
+  "Description": "This module exploits a buffer overflow in UltraVNC Win32 Viewer 1.0.1 Release.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/vnc/ultravnc_client.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "MC <mc@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2006-1652"
+    ],
+    [
+      "OSVDB",
+      "24456"
+    ],
+    [
+      "BID",
+      "17378"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows 2000 SP4 English"
+    ],
+    [
+      1,
+      "Windows XP SP2 English"
+    ],
+    [
+      2,
+      "Windows 2003 SP1 English"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

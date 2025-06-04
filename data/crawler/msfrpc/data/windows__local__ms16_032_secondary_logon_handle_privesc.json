@@ -1,0 +1,85 @@
+{
+  "Name": "MS16-032 Secondary Logon Handle Privilege Escalation",
+  "Description": "This module exploits the lack of sanitization of standard handles in Windows' Secondary Logon Service. The vulnerability is known to affect versions of Windows 7-10 and 2k8-2k12 32 and 64 bit. This module will only work against those versions of Windows with Powershell 2.0 or later and systems with two or more CPU cores.",
+  "License": "BSD License",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/ms16_032_secondary_logon_handle_privesc.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "James Forshaw",
+    "b33f",
+    "khr0x40sh"
+  ],
+  "References": [
+    [
+      "MSB",
+      "MS16-032"
+    ],
+    [
+      "CVE",
+      "2016-0099"
+    ],
+    [
+      "URL",
+      "https://twitter.com/FuzzySec/status/723254004042612736"
+    ],
+    [
+      "URL",
+      "https://googleprojectzero.blogspot.co.uk/2016/03/exploiting-leaked-thread-handle.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows x86"
+    ],
+    [
+      1,
+      "Windows x64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "Powershell::persist",
+    "Powershell::prepend_sleep",
+    "Powershell::prepend_protections_bypass",
+    "Powershell::strip_comments",
+    "Powershell::strip_whitespace",
+    "Powershell::sub_vars",
+    "Powershell::sub_funcs",
+    "Powershell::exec_in_place",
+    "Powershell::exec_rc4",
+    "Powershell::remove_comspec",
+    "Powershell::noninteractive",
+    "Powershell::encode_final_payload",
+    "Powershell::encode_inner_payload",
+    "Powershell::wrap_double_quotes",
+    "Powershell::no_equals",
+    "Powershell::method",
+    "Powershell::Post::timeout",
+    "Powershell::Post::log_output",
+    "Powershell::Post::dry_run",
+    "Powershell::Post::force_wow64",
+    "W_PATH"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 30,
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

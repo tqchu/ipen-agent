@@ -1,0 +1,81 @@
+{
+  "Name": "MS02-018 Microsoft IIS 4.0 .HTR Path Overflow",
+  "Description": "This exploits a buffer overflow in the ISAPI ISM.DLL used to process HTR scripting in IIS 4.0. This module works against Windows NT 4 Service Packs 3, 4, and 5. The server will continue to process requests until the payload being executed has exited. If you've set EXITFUNC to 'seh', the server will continue processing requests, but you will have trouble terminating a bind shell. If you set EXITFUNC to thread, the server will crash upon exit of the bind shell. The payload is alpha-numerically encoded without a NOP sled because otherwise the data gets mangled by the filters.",
+  "License": "BSD License",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/iis/ms02_018_htr.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "stinko <vinnie@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "1999-0874"
+    ],
+    [
+      "OSVDB",
+      "3325"
+    ],
+    [
+      "BID",
+      "307"
+    ],
+    [
+      "URL",
+      "http://www.eeye.com/html/research/advisories/AD19990608.html"
+    ],
+    [
+      "MSB",
+      "MS02-018"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows NT 4.0 SP3"
+    ],
+    [
+      1,
+      "Windows NT 4.0 SP4"
+    ],
+    [
+      2,
+      "Windows NT 4.0 SP5"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": {
+    "AllowWin32SEH": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

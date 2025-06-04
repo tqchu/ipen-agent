@@ -1,0 +1,80 @@
+{
+  "Name": "Opera historysearch XSS",
+  "Description": "Certain constructs are not escaped correctly by Opera's History Search results. These can be used to inject scripts into the page, which can then be used to modify configuration settings and execute arbitrary commands. Affects Opera versions between 9.50 and 9.61.",
+  "License": "BSD License",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/browser/opera_historysearch.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Roberto Suggi",
+    "Aviv Raff <avivra@gmail.com>",
+    "egypt <egypt@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2008-4696"
+    ],
+    [
+      "OSVDB",
+      "49472"
+    ],
+    [
+      "BID",
+      "31869"
+    ],
+    [
+      "URL",
+      "http://www.opera.com/support/kb/view/903/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Opera < 9.61 Unix Cmd"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

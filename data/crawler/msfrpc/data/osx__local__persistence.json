@@ -1,0 +1,73 @@
+{
+  "Name": "Mac OS X Persistent Payload Installer",
+  "Description": "This module provides a persistent boot payload by creating a launch item, which can be a LaunchAgent or a LaunchDaemon. LaunchAgents run with user level permissions and are triggered upon login by a plist entry in ~/Library/LaunchAgents. LaunchDaemons run with elevated privilleges, and are launched before user login by a plist entry in the ~/Library/LaunchDaemons directory. In either case the plist entry specifies an executable that will be run before or at login.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/osx/local/persistence.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Marcin 'Icewall' Noga <marcin@icewall.pl>",
+    "joev <joev@metasploit.com>"
+  ],
+  "References": [],
+  "Platform": [
+    "Msf::Module::Platform::OSX",
+    "Msf::Module::Platform::Python",
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Mac OS X x64 (Native Payload)"
+    ],
+    [
+      1,
+      "Mac OS X x86 (Native Payload for 10.14 and earlier)"
+    ],
+    [
+      2,
+      "Mac OS X Apple Sillicon"
+    ],
+    [
+      3,
+      "Python payload"
+    ],
+    [
+      4,
+      "Command payload"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "BACKDOOR_PATH",
+    "KEEPALIVE",
+    "RUN_NOW",
+    "LAUNCH_ITEM"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,71 @@
+{
+  "Name": "MDaemon WorldClient form2raw.cgi Stack Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in Alt-N MDaemon SMTP server for versions 6.8.5 and earlier. When WorldClient HTTP server is installed (default), a CGI script is provided to accept html FORM based emails and deliver via MDaemon.exe, by writing the CGI output to the Raw Queue. When X-FromCheck is enabled (also default), the temporary form2raw.cgi data is copied by MDaemon.exe and a stack based overflow occurs when an excessively long From field is specified. The RawQueue is processed every 1 minute by default, to a maximum of 60 minutes. Keep this in mind when choosing payloads or setting WfsDelay... You'll need to wait. Furthermore, this exploit uses a direct memory jump into a nopsled (which isn't very reliable). Once the payload is written into the Raw Queue by Form2Raw, MDaemon will continue to crash/execute the payload until the CGI output is manually deleted from the queue in C:\\MDaemon\\RawFiles\\*.raw.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/http/mdaemon_worldclient_form2raw.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "aushack <patrick@osisecurity.com.au>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2003-1200"
+    ],
+    [
+      "OSVDB",
+      "3255"
+    ],
+    [
+      "BID",
+      "9317"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "Universal MDaemon.exe"
+    ],
+    [
+      1,
+      "Debugging test"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

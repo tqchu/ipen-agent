@@ -1,0 +1,73 @@
+{
+  "Name": "vCenter Sudo Privilege Escalation",
+  "Description": "VMware vCenter Server < 7.0.3 update R and < 8.0.2 update D contains multiple local privilege escalation vulnerabilities due to misconfiguration of sudo. An authenticated local user with non-administrative privileges may exploit these issues to elevate privileges to root on vCenter Server Appliance. Tested against VMware vCenter Server Appliance 8.0.0.10000 20519528",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/vcenter_sudo_lpe.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "h00die",
+    "Matei \"Mal\" Badanoiu"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/24453"
+    ],
+    [
+      "URL",
+      "https://github.com/mbadanoiu/CVE-2024-37081/blob/main/VMware%20vCenter%20-%20CVE-2024-37081.pdf"
+    ],
+    [
+      "CVE",
+      "2024-37081"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Auto"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "WritableDir",
+    "TIMEOUT",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

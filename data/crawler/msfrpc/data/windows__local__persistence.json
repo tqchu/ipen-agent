@@ -1,0 +1,61 @@
+{
+  "Name": "Windows Persistent Registry Startup Payload Installer",
+  "Description": "This module will install a payload that is executed during boot. It will be executed either at user logon or system startup via the registry value in \"CurrentVersion\\Run\" (depending on privilege and selected method).",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/persistence.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Carlos Perez <carlos_perez@darkoperator.com>",
+    "g0tmi1k"
+  ],
+  "References": [],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "DELAY",
+    "STARTUP",
+    "VBS_NAME",
+    "EXE_NAME",
+    "REG_NAME",
+    "PATH",
+    "HANDLER",
+    "EXEC_AFTER"
+  ],
+  "DefaultOptions": {
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

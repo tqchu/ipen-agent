@@ -1,0 +1,67 @@
+{
+  "Name": "ContentKeeper Web Remote Command Execution",
+  "Description": "This module exploits the ContentKeeper Web Appliance. Versions prior to 125.10 are affected. This module exploits a combination of weaknesses to enable remote command execution as the Apache user. By setting SkipEscalation to false, this module will attempt to setuid the bash shell.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/unix/http/contentkeeperweb_mimencode.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "aushack <patrick@osisecurity.com.au>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "54551"
+    ],
+    [
+      "OSVDB",
+      "54552"
+    ],
+    [
+      "URL",
+      "http://www.aushack.com/200904-contentkeeper.txt"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "OVERWRITE",
+    "SkipEscalation"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,51 @@
+{
+  "Name": "i-FTP Schedule Buffer Overflow",
+  "Description": "This module exploits a stack-based buffer overflow vulnerability in i-Ftp v2.20, caused by a long time value set for scheduled download. By persuading the victim to place a specially-crafted Schedule.xml file in the i-FTP folder, a remote attacker could execute arbitrary code on the system or cause the application to crash. This module has been tested successfully on Windows XP SP3.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/iftp_schedule_bof.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "metacom",
+    "Gabor Seljan"
+  ],
+  "References": [
+    [
+      "EDB",
+      "35177"
+    ],
+    [
+      "OSVDB",
+      "114279"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows XP SP3"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

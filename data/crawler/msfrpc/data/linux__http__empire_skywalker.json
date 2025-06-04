@@ -1,0 +1,122 @@
+{
+  "Name": "PowerShellEmpire Arbitrary File Upload (Skywalker)",
+  "Description": "A vulnerability existed in the new Empire (maintained by BC Security) prior to commit e73e883 (<v5.9.3) or the original PowerShellEmpire server prior to commit f030cf62 which would allow an arbitrary file to be written to an attacker controlled location with the permissions of the Empire server. This exploit will write the payload to /tmp/ directory followed by a cron.d file to execute the payload.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/http/empire_skywalker.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Spencer McIntyre",
+    "Erik Daguerre",
+    "ACE-Responder",
+    "Takahiro Yokoyama"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2024-6127"
+    ],
+    [
+      "URL",
+      "https://blog.harmj0y.net/empire/empire-fails/"
+    ],
+    [
+      "URL",
+      "https://aceresponder.com/blog/exploiting-empire-c2-framework"
+    ],
+    [
+      "URL",
+      "https://github.com/ACE-Responder/Empire-C2-RCE-PoC/tree/main"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::Python"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Python"
+    ],
+    [
+      1,
+      "Linux x86"
+    ],
+    [
+      2,
+      "Linux x64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "TARGETURI",
+    "STAGE0_URI",
+    "STAGE1_URI",
+    "PROFILE",
+    "CVE",
+    "STAGE_PATH",
+    "AGENT",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 75
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

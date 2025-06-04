@@ -1,0 +1,120 @@
+{
+  "Name": "SaltStack Salt Master/Minion Unauthenticated RCE",
+  "Description": "This module exploits unauthenticated access to the runner() and _send_pub() methods in the SaltStack Salt master's ZeroMQ request server, for versions 2019.2.3 and earlier and 3000.1 and earlier, to execute code as root on either the master or on select minions. VMware vRealize Operations Manager versions 7.5.0 through 8.1.0, as well as Cisco Modeling Labs Corporate Edition (CML) and Cisco Virtual Internet Routing Lab Personal Edition (VIRL-PE), for versions 1.2, 1.3, 1.5, and 1.6 in certain configurations, are known to be affected by the Salt vulnerabilities. Tested against SaltStack Salt 2019.2.3 and 3000.1 on Ubuntu 18.04, as well as Vulhub's Docker image.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/misc/saltstack_salt_unauth_rce.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "F-Secure",
+    "wvu <wvu@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2020-11651"
+    ],
+    [
+      "CVE",
+      "2020-11652"
+    ],
+    [
+      "URL",
+      "https://labs.f-secure.com/advisories/saltstack-authorization-bypass"
+    ],
+    [
+      "URL",
+      "https://community.saltstack.com/blog/critical-vulnerabilities-update-cve-2020-11651-and-cve-2020-11652/"
+    ],
+    [
+      "URL",
+      "https://www.vmware.com/security/advisories/VMSA-2020-0009.html"
+    ],
+    [
+      "URL",
+      "https://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-salt-2vx545AG"
+    ],
+    [
+      "URL",
+      "https://github.com/saltstack/salt/blob/master/tests/integration/master/test_clear_funcs.py"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Python",
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "python",
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Master (Python payload)"
+    ],
+    [
+      1,
+      "Master (Unix command)"
+    ],
+    [
+      2,
+      "Minions (Python payload)"
+    ],
+    [
+      3,
+      "Minions (Unix command)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "CheckModule",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSLCert",
+    "SSLCompression",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "ROOT_KEY",
+    "MINIONS"
+  ],
+  "DefaultOptions": {
+    "CheckModule": "auxiliary/gather/saltstack_salt_root_key"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

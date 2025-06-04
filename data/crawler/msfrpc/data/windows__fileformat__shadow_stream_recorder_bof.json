@@ -1,0 +1,59 @@
+{
+  "Name": "Shadow Stream Recorder 3.0.1.7 Buffer Overflow",
+  "Description": "This module exploits a buffer overflow in Shadow Stream Recorder 3.0.1.7. Using the application to open a specially crafted asx file, a buffer overflow may occur to allow arbitrary code execution under the context of the user.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/shadow_stream_recorder_bof.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "AlpHaNiX <alpha@hacker.bz>",
+    "b0telh0 <me@gotgeek.com.br>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2009-1641"
+    ],
+    [
+      "OSVDB",
+      "81487"
+    ],
+    [
+      "EDB",
+      "11957"
+    ],
+    [
+      "BID",
+      "34864"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

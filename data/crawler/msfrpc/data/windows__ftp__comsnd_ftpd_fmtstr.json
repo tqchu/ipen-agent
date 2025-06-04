@@ -1,0 +1,74 @@
+{
+  "Name": "ComSndFTP v1.3.7 Beta USER Format String (Write4) Vulnerability",
+  "Description": "This module exploits the ComSndFTP FTP Server version 1.3.7 beta by sending a specially crafted format string specifier as a username. The crafted username is sent to the server to overwrite the hardcoded function pointer from Ws2_32.dll!WSACleanup. Once this function pointer is triggered, the code bypasses dep and then repairs the pointer to execute arbitrary code. The SEH exit function is preferred so that the administrators are not left with an unhandled exception message. When using the meterpreter payload, the process will never die, allowing for continuous exploitation.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/ftp/comsnd_ftpd_fmtstr.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "ChaoYi Huang <ChaoYi.Huang@connect.polyu.hk>",
+    "rick2600 <rick2600@corelan.be>",
+    "mr_me <mr_me@corelan.be>",
+    "corelanc0d3r <peter.ve@corelan.be>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "82798"
+    ],
+    [
+      "EDB",
+      "19024"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "Windows XP SP3 - English"
+    ],
+    [
+      2,
+      "Windows Server 2003 - English"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "seh"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

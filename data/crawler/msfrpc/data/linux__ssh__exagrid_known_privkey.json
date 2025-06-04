@@ -1,0 +1,59 @@
+{
+  "Name": "ExaGrid Known SSH Key and Default Password",
+  "Description": "ExaGrid ships a public/private key pair on their backup appliances to allow passwordless authentication to other ExaGrid appliances. Since the private key is easily retrievable, an attacker can use it to gain unauthorized remote access as root. Additionally, this module will attempt to use the default password for root, 'inflection'.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/ssh/exagrid_known_privkey.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "egypt <egypt@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2016-1560"
+    ],
+    [
+      "CVE",
+      "2016-1561"
+    ],
+    [
+      "URL",
+      "https://www.rapid7.com/blog/post/2016/04/07/r7-2016-04-exagrid-backdoor-ssh-keys-and-hardcoded-credentials"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSH_IDENT",
+    "SSH_TIMEOUT",
+    "SSH_DEBUG"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "cmd/unix/interact"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

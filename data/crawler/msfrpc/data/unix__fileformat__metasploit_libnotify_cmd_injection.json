@@ -1,0 +1,51 @@
+{
+  "Name": "Metasploit Libnotify Plugin Arbitrary Command Execution",
+  "Description": "This module exploits a shell command injection vulnerability in the libnotify plugin. This vulnerability affects Metasploit versions 5.0.79 and earlier.",
+  "License": "GNU Public License v2.0",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/unix/fileformat/metasploit_libnotify_cmd_injection.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "pasta <jaguinaga@faradaysec.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2020-7350"
+    ],
+    [
+      "URL",
+      "https://github.com/rapid7/metasploit-framework/issues/13026"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "cmd/unix/reverse_python"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

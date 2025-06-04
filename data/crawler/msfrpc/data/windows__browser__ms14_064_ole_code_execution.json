@@ -1,0 +1,139 @@
+{
+  "Name": "MS14-064 Microsoft Internet Explorer Windows OLE Automation Array Remote Code Execution",
+  "Description": "This module exploits the Windows OLE Automation array vulnerability, CVE-2014-6332. The vulnerability is known to affect Internet Explorer 3.0 until version 11 within Windows 95 up to Windows 10, and no patch for Windows XP. However, this exploit will only target Windows XP and Windows 7 box due to the Powershell limitation. Windows XP by defaults supports VBS, therefore it is used as the attack vector. On other newer Windows systems, the exploit will try using Powershell instead.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/ms14_064_ole_code_execution.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "Robert Freeman",
+    "yuange",
+    "Rik van Duijn",
+    "Wesley Neelen",
+    "GradiusX <francescomifsud@gmail.com>",
+    "b33f",
+    "sinn3r <sinn3r@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2014-6332"
+    ],
+    [
+      "MSB",
+      "MS14-064"
+    ],
+    [
+      "OSVDB",
+      "114533"
+    ],
+    [
+      "EDB",
+      "35229"
+    ],
+    [
+      "EDB",
+      "35308"
+    ],
+    [
+      "URL",
+      "http://securityintelligence.com/ibm-x-force-researcher-finds-significant-vulnerability-in-microsoft-windows"
+    ],
+    [
+      "URL",
+      "https://forsec.nl/2014/11/cve-2014-6332-internet-explorer-msf-module"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows XP"
+    ],
+    [
+      1,
+      "Windows 7"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "JsObfuscate",
+    "JsIdentifiers",
+    "Retries",
+    "CookieName",
+    "CookieExpiration",
+    "Custom404",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "Powershell::persist",
+    "Powershell::prepend_sleep",
+    "Powershell::prepend_protections_bypass",
+    "Powershell::strip_comments",
+    "Powershell::strip_whitespace",
+    "Powershell::sub_vars",
+    "Powershell::sub_funcs",
+    "Powershell::exec_in_place",
+    "Powershell::exec_rc4",
+    "Powershell::remove_comspec",
+    "Powershell::noninteractive",
+    "Powershell::encode_final_payload",
+    "Powershell::encode_inner_payload",
+    "Powershell::wrap_double_quotes",
+    "Powershell::no_equals",
+    "Powershell::method",
+    "TRYUAC",
+    "AllowPowershellPrompt"
+  ],
+  "DefaultOptions": {
+    "HTTP::compression": "gzip",
+    "Powershell::wrap_double_quotes": false
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

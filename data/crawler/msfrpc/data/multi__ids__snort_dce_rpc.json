@@ -1,0 +1,87 @@
+{
+  "Name": "Snort 2 DCE/RPC Preprocessor Buffer Overflow",
+  "Description": "This module allows remote attackers to execute arbitrary code by exploiting the Snort service via crafted SMB traffic. The vulnerability is due to a boundary error within the DCE/RPC preprocessor when reassembling SMB Write AndX requests, which may result a stack-based buffer overflow with a specially crafted packet sent on a network that is monitored by Snort. Vulnerable versions include Snort 2.6.1, 2.7 Beta 1 and SourceFire IDS 4.1, 4.5 and 4.6. Any host on the Snort network may be used as the remote host. The remote host does not need to be running the SMB service for the exploit to be successful.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/ids/snort_dce_rpc.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "Neel Mehta",
+    "Trirat Puttaraksa",
+    "Carsten Maartmann-Moe <carsten@carmaa.com>",
+    "0a29406d9794e4f9b30b3c5d6702c708"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "32094"
+    ],
+    [
+      "CVE",
+      "2006-5276"
+    ],
+    [
+      "URL",
+      "http://web.archive.org/web/20070221235015/http://www.snort.org/docs/advisory-2007-02-19.html"
+    ],
+    [
+      "URL",
+      "http://sf-freedom.blogspot.com/2007/02/snort-261-dcerpc-preprocessor-remote.html"
+    ],
+    [
+      "URL",
+      "http://downloads.securityfocus.com/vulnerabilities/exploits/22616-linux.py"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows",
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows Universal"
+    ],
+    [
+      1,
+      "Redhat 8"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "INTERFACE",
+    "RHOSTS",
+    "SECRET",
+    "GATEWAY_PROBE_HOST",
+    "GATEWAY_PROBE_PORT",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "RHOST",
+    "SHOST"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

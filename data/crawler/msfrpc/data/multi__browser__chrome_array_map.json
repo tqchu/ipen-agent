@@ -1,0 +1,85 @@
+{
+  "Name": "Google Chrome 72 and 73 Array.map exploit",
+  "Description": "This module exploits an issue in Chrome 73.0.3683.86 (64 bit). The exploit corrupts the length of a float in order to modify the backing store of a typed array. The typed array can then be used to read and write arbitrary memory. The exploit then uses WebAssembly in order to allocate a region of RWX memory, which is then replaced with the payload. The payload is executed within the sandboxed renderer process, so the browser must be run with the --no-sandbox option for the payload to work correctly.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/browser/chrome_array_map.rb",
+  "Version": "",
+  "Rank": "manual",
+  "Authors": [
+    "dmxcsnsbh",
+    "Istv\u00e1n Kurucsai",
+    "timwr"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2019-5825"
+    ],
+    [
+      "URL",
+      "https://bugs.chromium.org/p/chromium/issues/detail?id=941743"
+    ],
+    [
+      "URL",
+      "https://github.com/exodusintel/Chromium-941743"
+    ],
+    [
+      "URL",
+      "https://blog.exodusintel.com/2019/09/09/patch-gapping-chrome/"
+    ],
+    [
+      "URL",
+      "https://lordofpwn.kr/cve-2019-5825-v8-exploit/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows",
+    "Msf::Module::Platform::OSX"
+  ],
+  "Arch": [
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "DEBUG_EXPLOIT"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

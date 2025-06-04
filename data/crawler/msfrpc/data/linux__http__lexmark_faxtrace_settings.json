@@ -1,0 +1,104 @@
+{
+  "Name": "Lexmark Device Embedded Web Server RCE",
+  "Description": "A unauthenticated Remote Code Execution vulnerability exists in the embedded webserver in certain Lexmark devices through 2023-02-19. The vulnerability is only exposed if, when setting up the printer or device, the user selects \"Set up Later\" when asked if they would like to add an Admin user. If no Admin user is created the endpoint `/cgi-bin/fax_change_faxtrace_settings` is accessible without authentication. The endpoint allows the user to configure a number of different fax settings. A number of the configurable parameters on the page (ex. `FT_Custom_lbtrace`) fail to be sanitized properly before being used in an bash eval statement: `eval \"$cmd\" > /dev/null`, allowing for an unauthenticated user to run arbitrary commands.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/http/lexmark_faxtrace_settings.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "James Horseman",
+    "Zach Hanley",
+    "jheysel-r7"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://github.com/horizon3ai/CVE-2023-26067"
+    ],
+    [
+      "URL",
+      "https://publications.lexmark.com/publications/security-alerts/CVE-2023-26068.pdf"
+    ],
+    [
+      "URL",
+      "https://www.horizon3.ai/lexmark-command-injection-vulnerability-zdi-can-19470-pwn2own-toronto-2022/"
+    ],
+    [
+      "CVE",
+      "2023-26068"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Unix (In-Memory)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "SLEEP",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

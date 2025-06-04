@@ -1,0 +1,93 @@
+{
+  "Name": "Background Intelligent Transfer Service Arbitrary File Move Privilege Elevation Vulnerability",
+  "Description": "This module exploits CVE-2020-0787, an arbitrary file move vulnerability in outdated versions of the Background Intelligent Transfer Service (BITS), to overwrite C:\\Windows\\System32\\WindowsCoreDeviceInfo.dll with a malicious DLL containing the attacker's payload. To achieve code execution as the SYSTEM user, the Update Session Orchestrator service is then started, which will result in the malicious WindowsCoreDeviceInfo.dll being run with SYSTEM privileges due to a DLL hijacking issue within the Update Session Orchestrator Service. Note that presently this module only works on Windows 10 and Windows Server 2016 and later as the Update Session Orchestrator Service was only introduced in Windows 10. Note that only Windows 10 has been tested, so your mileage may vary on Windows Server 2016 and later.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/cve_2020_0787_bits_arbitrary_file_move.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "itm4n",
+    "gwillcox-r7"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2020-0787"
+    ],
+    [
+      "URL",
+      "https://itm4n.github.io/cve-2020-0787-windows-bits-eop/"
+    ],
+    [
+      "URL",
+      "https://github.com/itm4n/BitsArbitraryFileMove"
+    ],
+    [
+      "URL",
+      "https://attackerkb.com/assessments/e61cfec0-d766-4e7e-89f7-5aad2460afb8"
+    ],
+    [
+      "URL",
+      "https://googleprojectzero.blogspot.com/2018/04/windows-exploitation-tricks-exploiting.html"
+    ],
+    [
+      "URL",
+      "https://itm4n.github.io/usodllloader-part1/"
+    ],
+    [
+      "URL",
+      "https://itm4n.github.io/usodllloader-part2/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows DLL Dropper"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "OVERWRITE_DLL",
+    "JOB_WAIT_TIME",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread",
+    "PAYLOAD": "windows/x64/meterpreter/reverse_tcp",
+    "WfsDelay": 900
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

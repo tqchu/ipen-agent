@@ -1,0 +1,118 @@
+{
+  "Name": "WordPress W3 Total Cache PHP Code Execution",
+  "Description": "This module exploits a PHP Code Injection vulnerability against WordPress plugin W3 Total Cache for versions up to and including 0.9.2.8. WP Super Cache 1.2 or older is also reported as vulnerable. The vulnerability is due to the handling of certain macros such as mfunc, which allows arbitrary PHP code injection. A valid post ID is needed in order to add the malicious comment. If the POSTID option isn't specified, then the module will automatically find or bruteforce one. Also, if anonymous comments aren't allowed, then a valid username and password must be provided. In addition, the \"A comment is held for moderation\" option on WordPress must be unchecked for successful exploitation. This module has been tested against WordPress 3.5 and W3 Total Cache 0.9.2.3 on a Ubuntu 10.04 system.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/unix/webapp/wp_total_cache_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Unknown",
+    "juan vazquez <juan.vazquez@metasploit.com>",
+    "hdm <x@hdm.io>",
+    "Christian Mehlmauer <FireFart@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-2010"
+    ],
+    [
+      "OSVDB",
+      "92652"
+    ],
+    [
+      "BID",
+      "59316"
+    ],
+    [
+      "URL",
+      "http://wordpress.org/support/topic/pwn3d"
+    ],
+    [
+      "URL",
+      "http://www.acunetix.com/blog/web-security-zone/wp-plugins-remote-code-execution/"
+    ],
+    [
+      "WPVDB",
+      "6622"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::PHP"
+  ],
+  "Arch": [
+    "php"
+  ],
+  "Targets": [
+    [
+      0,
+      "Wordpress 3.5"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TARGETURI",
+    "WPCONTENTDIR",
+    "WPCHECK",
+    "POSTID",
+    "USERNAME",
+    "PASSWORD",
+    "MIN_POST_ID",
+    "MAX_POST_ID"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

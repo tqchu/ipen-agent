@@ -1,0 +1,74 @@
+{
+  "Name": "Zabbix Server Arbitrary Command Execution",
+  "Description": "This module abuses the \"Command\" trap in Zabbix Server to execute arbitrary commands without authentication. By default the Node ID \"0\" is used, if it doesn't work, the Node ID is leaked from the error message and exploitation retried. According to the vendor versions prior to 1.6.9 are vulnerable. The vulnerability has been successfully tested on Zabbix Server 1.6.7 on Ubuntu 10.04.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/misc/zabbix_server_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Nicob <nicob@nicob.net>",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2009-4498"
+    ],
+    [
+      "OSVDB",
+      "60965"
+    ],
+    [
+      "BID",
+      "37989"
+    ],
+    [
+      "EDB",
+      "10432"
+    ],
+    [
+      "URL",
+      "https://support.zabbix.com/browse/ZBX-1030"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Zabbix 1.6.7"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,76 @@
+{
+  "Name": "SquirrelMail PGP Plugin Command Execution (SMTP)",
+  "Description": "This module exploits a command execution vulnerability in the PGP plugin of SquirrelMail. This flaw was found while quickly grepping the code after release of some information at http://www.wslabi.com/. Later, iDefense published an advisory .... Reading an email in SquirrelMail with the PGP plugin activated is enough to compromise the underlying server. Only \"cmd/unix/generic\" payloads were tested.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/unix/webapp/squirrelmail_pgp_plugin.rb",
+  "Version": "",
+  "Rank": "manual",
+  "Authors": [
+    "Nicob <nicob@nicob.net>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2003-0990"
+    ],
+    [
+      "OSVDB",
+      "3178"
+    ],
+    [
+      "URL",
+      "http://labs.idefense.com/intelligence/vulnerabilities/display.php?id=330"
+    ],
+    [
+      "URL",
+      "http://www.wslabi.com/wabisabilabi/initPublishedBid.do?"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "SquirrelMail PGP plugin < 2.1"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "RHOST",
+    "DATE",
+    "MAILFROM",
+    "MAILTO",
+    "SUBJECT",
+    "USERNAME",
+    "PASSWORD",
+    "DOMAIN"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

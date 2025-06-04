@@ -1,0 +1,66 @@
+{
+  "Name": "AdobeCollabSync Buffer Overflow Adobe Reader X Sandbox Bypass",
+  "Description": "This module exploits a vulnerability on Adobe Reader X Sandbox. The vulnerability is due to a sandbox rule allowing a Low Integrity AcroRd32.exe process to write register values which can be used to trigger a buffer overflow on the AdobeCollabSync component, allowing to achieve Medium Integrity Level privileges from a Low Integrity AcroRd32.exe process. This module has been tested successfully on Adobe Reader X 10.1.4 over Windows 7 SP1.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/adobe_sandbox_adobecollabsync.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "Felipe Andres Manzano",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-2730"
+    ],
+    [
+      "OSVDB",
+      "93355"
+    ],
+    [
+      "URL",
+      "http://blog.binamuse.com/2013/05/adobe-reader-x-collab-sandbox-bypass.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "Adobe Reader X 10.1.4 / Windows 7 SP1"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

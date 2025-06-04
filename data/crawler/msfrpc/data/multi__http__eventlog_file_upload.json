@@ -1,0 +1,129 @@
+{
+  "Name": "ManageEngine Eventlog Analyzer Arbitrary File Upload",
+  "Description": "This module exploits a file upload vulnerability in ManageEngine Eventlog Analyzer. The vulnerability exists in the agentUpload servlet which accepts unauthenticated file uploads and handles zip file contents in an insecure way. By combining both weaknesses a remote attacker can achieve remote code execution. This module has been tested successfully on versions v7.0 - v9.9 b9002 in Windows and Linux. Versions between 7.0 and < 8.1 are only exploitable via EAR deployment in the JBoss server, while versions 8.1+ are only exploitable via a JSP upload.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/http/eventlog_file_upload.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "h0ng10",
+    "Pedro Ribeiro <pedrib@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2014-6037"
+    ],
+    [
+      "OSVDB",
+      "110642"
+    ],
+    [
+      "URL",
+      "https://www.mogwaisecurity.de/advisories/MSA-2014-01.txt"
+    ],
+    [
+      "URL",
+      "https://seclists.org/fulldisclosure/2014/Aug/86"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Java",
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "Eventlog Analyzer v7.0 - v8.0 / Java universal"
+    ],
+    [
+      2,
+      "Eventlog Analyzer v8.1 - v9.9 b9002 / Windows"
+    ],
+    [
+      3,
+      "Eventlog Analyzer v8.1 - v9.9 b9002 / Linux"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "SLEEP"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 5
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,151 @@
+{
+  "Name": "Fritz!Box Webcm Unauthenticated Command Injection",
+  "Description": "Different Fritz!Box devices are vulnerable to an unauthenticated OS command injection. This module was tested on a Fritz!Box 7270 from the LAN side. The vendor reported the following devices vulnerable: 7570, 7490, 7390, 7360, 7340, 7330, 7272, 7270, 7170 Annex A A/CH, 7170 Annex B English, 7170 Annex A English, 7140, 7113, 6840 LTE, 6810 LTE, 6360 Cable, 6320 Cable, 5124, 5113, 3390, 3370, 3272, 3270",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/http/fritzbox_echo_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Unknown",
+    "Fabian Braeunlein <fabian@breaking.systems>",
+    "Michael Messner <devnull@s3cur1ty.de>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2014-9727"
+    ],
+    [
+      "OSVDB",
+      "103289"
+    ],
+    [
+      "BID",
+      "65520"
+    ],
+    [
+      "URL",
+      "http://www.kapple.de/?p=75"
+    ],
+    [
+      "URL",
+      "https://www.speckmarschall.de/hoere.htm"
+    ],
+    [
+      "URL",
+      "http://pastebin.com/GnMKGmZ2"
+    ],
+    [
+      "URL",
+      "http://www.avm.de/en/Sicherheit/update_list.html"
+    ],
+    [
+      "URL",
+      "http://breaking.systems/blog/2014/04/avm-fritzbox-root-rce-from-patch-to-metasploit-module-ii"
+    ]
+  ],
+  "Platform": [],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "MIPS Little Endian"
+    ],
+    [
+      1,
+      "MIPS Big Endian"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "CMDSTAGER::TEMP",
+    "CMDSTAGER::URIPATH",
+    "CMDSTAGER::SSL"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

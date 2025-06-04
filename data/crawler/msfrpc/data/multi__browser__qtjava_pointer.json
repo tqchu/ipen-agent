@@ -1,0 +1,89 @@
+{
+  "Name": "Apple QTJava toQTPointer() Arbitrary Memory Access",
+  "Description": "This module exploits an arbitrary memory access vulnerability in the Quicktime for Java API provided with Quicktime 7.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/browser/qtjava_pointer.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "hdm <x@hdm.io>",
+    "kf <kf_list@digitalmunition.com>",
+    "ddz <ddz@theta44.org>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2007-2175"
+    ],
+    [
+      "OSVDB",
+      "34178"
+    ],
+    [
+      "BID",
+      "23608"
+    ],
+    [
+      "ZDI",
+      "07-023"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows",
+    "Msf::Module::Platform::OSX"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Quicktime 7 on Windows x86"
+    ],
+    [
+      1,
+      "Quicktime 7 on Mac OS X PPC"
+    ],
+    [
+      2,
+      "Quicktime 7 on Mac OS X x86"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

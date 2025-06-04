@@ -1,0 +1,115 @@
+{
+  "Name": "Pandora FMS authenticated command injection leading to RCE via LDAP using default DB password",
+  "Description": "Pandora FMS is a monitoring solution that provides full observability for your organization's technology. This module exploits an command injection vulnerability in the LDAP authentication mechanism of Pandora FMS. You need have admin access at the Pandora FMS Web application in order to execute this RCE. This access can be achieved leveraging a default password vulnerability in Pandora FMS that allows an attacker to access the Pandora FMS MySQL database, create a new admin user and gain administrative access to the Pandora FMS Web application. This attack can be remotely executed over the WAN as long as the MySQL services are exposed to the outside world. This issue affects Community, Free and Enterprise editions: from v7.0NG.718 through <= v7.0NG.777.4",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/http/pandora_fms_auth_rce_cve_2024_11320.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "h00die-gr3y <h00die.gr3y@gmail.com>",
+    "Askar mhaskar"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2024-11320"
+    ],
+    [
+      "URL",
+      "https://pandorafms.com/en/security/common-vulnerabilities-and-exposures/"
+    ],
+    [
+      "URL",
+      "https://attackerkb.com/topics/CsDUaLijbT/cve-2024-11320"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::PHP"
+  ],
+  "Arch": [
+    "cmd",
+    "php"
+  ],
+  "Targets": [
+    [
+      0,
+      "PHP Command"
+    ],
+    [
+      1,
+      "Unix/Linux Command"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TARGETURI",
+    "DB_USER",
+    "DB_PASSWORD",
+    "DB_NAME",
+    "DB_PORT",
+    "USERNAME",
+    "PASSWORD",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "SSL": true,
+    "RPORT": 443
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

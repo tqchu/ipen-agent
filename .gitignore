@@ -5,3 +5,5 @@ exploits/
 backup_exploits/
 .idea/
 vulnerabilities*
+*.patch
+*.safetensors

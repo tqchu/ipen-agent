@@ -1,0 +1,70 @@
+{
+  "Name": "Kloxo Local Privilege Escalation",
+  "Description": "Version 6.1.12 and earlier of Kloxo contain two setuid root binaries such as lxsuexec and lxrestart, allow local privilege escalation to root from uid 48, Apache by default on CentOS 5.8, the operating system supported by Kloxo. This module has been tested successfully with Kloxo 6.1.12 and 6.1.6.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/kloxo_lxsuexec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "HTP",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "EDB",
+      "25406"
+    ],
+    [
+      "OSVDB",
+      "93287"
+    ],
+    [
+      "URL",
+      "http://roothackers.net/showthread.php?tid=92"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "Kloxo 6.1.12"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup"
+  ],
+  "DefaultOptions": {
+    "PrependSetuid": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

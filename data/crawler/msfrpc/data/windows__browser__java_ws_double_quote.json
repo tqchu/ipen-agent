@@ -1,0 +1,99 @@
+{
+  "Name": "Sun Java Web Start Double Quote Injection",
+  "Description": "This module exploits a flaw in the Web Start component of the Sun Java Runtime Environment. Parameters initial-heap-size and max-heap-size in a JNLP file can contain a double quote which is not properly sanitized when creating the command line for javaw.exe. This allows the injection of the -XXaltjvm option to load a jvm.dll from a remote UNC path into the java process. Thus an attacker can execute arbitrary code in the context of a browser user. This flaw was fixed in Oct. 2012 and affects JRE <= 1.6.35 and <= 1.7.07. In order for this module to work, it must be run as root on a server that does not serve SMB (In most cases, this means non-Windows hosts). Additionally, the target host must have the WebClient service (WebDAV Mini-Redirector) enabled. Alternatively, a UNC path containing a jvm.dll can be specified, bypassing the Windows limitation for the Metasploit host.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/java_ws_double_quote.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Rh0 <rh0@z1p.biz>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2012-1533"
+    ],
+    [
+      "OSVDB",
+      "86348"
+    ],
+    [
+      "BID",
+      "56046"
+    ],
+    [
+      "URL",
+      "http://www.oracle.com/technetwork/topics/security/javacpuoct2012-1515924.html"
+    ],
+    [
+      "URL",
+      "http://pastebin.com/eUucVage "
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "Java Runtime 1.6.31 to 1.6.35 and 1.7.03 to 1.7.07 on Windows x86"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "UNCPATH"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

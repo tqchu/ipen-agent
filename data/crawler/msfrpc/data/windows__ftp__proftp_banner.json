@@ -1,0 +1,63 @@
+{
+  "Name": "ProFTP 2.9 Banner Remote Buffer Overflow",
+  "Description": "This module exploits a buffer overflow in the ProFTP 2.9 client that is triggered through an excessively long welcome message.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/ftp/proftp_banner.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "His0k4 <his0k4.hlm@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2009-3976"
+    ],
+    [
+      "OSVDB",
+      "57394"
+    ],
+    [
+      "URL",
+      "http://www.labtam-inc.com/index.php?act=products&pid=1"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "seh"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

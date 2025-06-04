@@ -1,0 +1,73 @@
+{
+  "Name": "Mercur Messaging 2005 IMAP Login Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in Atrium Mercur IMAP 5.0 SP3. Since the room for shellcode is small, using the reverse ordinal payloads yields the best results.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/imap/mercur_login.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "MC <mc@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2006-1255"
+    ],
+    [
+      "OSVDB",
+      "23950"
+    ],
+    [
+      "BID",
+      "17138"
+    ],
+    [
+      "URL",
+      "http://archives.neohapsis.com/archives/fulldisclosure/2006-03/1104.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows 2000 Pro SP4 English"
+    ],
+    [
+      1,
+      "Windows XP Pro SP2 English"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

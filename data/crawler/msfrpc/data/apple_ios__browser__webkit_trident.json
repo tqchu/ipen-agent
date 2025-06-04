@@ -1,0 +1,126 @@
+{
+  "Name": "WebKit not_number defineProperties UAF",
+  "Description": "This module exploits a UAF vulnerability in WebKit's JavaScriptCore library.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/apple_ios/browser/webkit_trident.rb",
+  "Version": "",
+  "Rank": "manual",
+  "Authors": [
+    "qwertyoruiop",
+    "siguza",
+    "tihmstar",
+    "benjamin-42",
+    "timwr"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2016-4655"
+    ],
+    [
+      "CVE",
+      "2016-4656"
+    ],
+    [
+      "CVE",
+      "2016-4657"
+    ],
+    [
+      "BID",
+      "92651"
+    ],
+    [
+      "BID",
+      "92652"
+    ],
+    [
+      "BID",
+      "92653"
+    ],
+    [
+      "URL",
+      "https://blog.lookout.com/trident-pegasus"
+    ],
+    [
+      "URL",
+      "https://citizenlab.ca/2016/08/million-dollar-dissident-iphone-zero-day-nso-group-uae/"
+    ],
+    [
+      "URL",
+      "https://www.blackhat.com/docs/eu-16/materials/eu-16-Bazaliy-Mobile-Espionage-in-the-Wild-Pegasus-and-Nation-State-Level-Attacks.pdf"
+    ],
+    [
+      "URL",
+      "https://github.com/Siguza/PhoenixNonce"
+    ],
+    [
+      "URL",
+      "https://jndok.github.io/2016/10/04/pegasus-writeup/"
+    ],
+    [
+      "URL",
+      "https://sektioneins.de/en/blog/16-09-02-pegasus-ios-kernel-vulnerability-explained.html"
+    ],
+    [
+      "URL",
+      "https://github.com/benjamin-42/Trident"
+    ],
+    [
+      "URL",
+      "http://blog.tihmstar.net/2018/01/modern-post-exploitation-techniques.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Apple_iOS"
+  ],
+  "Arch": [
+    "aarch64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "apple_ios/aarch64/meterpreter_reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

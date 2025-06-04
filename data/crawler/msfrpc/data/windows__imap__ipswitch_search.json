@@ -1,0 +1,71 @@
+{
+  "Name": "Ipswitch IMail IMAP SEARCH Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in Ipswitch IMail Server 2006.1 IMAP SEARCH verb. By sending an overly long string, an attacker can overwrite the buffer and control program execution. In order for this module to be successful, the IMAP user must have at least one message.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/imap/ipswitch_search.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "MC <mc@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2007-3925"
+    ],
+    [
+      "OSVDB",
+      "36219"
+    ],
+    [
+      "BID",
+      "24962"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows 2000 Pro SP4 English"
+    ],
+    [
+      1,
+      "Windows 2003 SP0 English"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "IMAPUSER",
+    "IMAPPASS"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

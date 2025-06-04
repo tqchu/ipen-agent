@@ -1,0 +1,123 @@
+{
+  "Name": "vTiger CRM SOAP AddEmailAttachment Arbitrary File Upload",
+  "Description": "vTiger CRM allows a user to bypass authentication when requesting SOAP services. In addition, arbitrary file upload is possible through the AddEmailAttachment SOAP service. By combining both vulnerabilities an attacker can upload and execute PHP code. This module has been tested successfully on vTiger CRM v5.4.0 over Ubuntu 10.04 and Windows 2003 SP2.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/http/vtiger_soap_upload.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Egidio Romano",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-3214"
+    ],
+    [
+      "CVE",
+      "2013-3215"
+    ],
+    [
+      "OSVDB",
+      "95902"
+    ],
+    [
+      "OSVDB",
+      "95903"
+    ],
+    [
+      "BID",
+      "61558"
+    ],
+    [
+      "BID",
+      "61559"
+    ],
+    [
+      "EDB",
+      "27279"
+    ],
+    [
+      "URL",
+      "http://karmainsecurity.com/KIS-2013-07"
+    ],
+    [
+      "URL",
+      "http://karmainsecurity.com/KIS-2013-08"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::PHP"
+  ],
+  "Arch": [
+    "php"
+  ],
+  "Targets": [
+    [
+      0,
+      "vTigerCRM v5.4.0"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "TARGETURI"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

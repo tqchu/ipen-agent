@@ -1,0 +1,88 @@
+{
+  "Name": "NetTerm NetFTPD USER Buffer Overflow",
+  "Description": "This module exploits a vulnerability in the NetTerm NetFTPD application. This package is part of the NetTerm package. This module uses the USER command to trigger the overflow.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/ftp/netterm_netftpd_user.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "hdm <x@hdm.io>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2005-1323"
+    ],
+    [
+      "OSVDB",
+      "15865"
+    ],
+    [
+      "URL",
+      "https://seclists.org/lists/fulldisclosure/2005/Apr/0578.html"
+    ],
+    [
+      "BID",
+      "13396"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "NetTerm NetFTPD Universal"
+    ],
+    [
+      1,
+      "Windows 2000 English"
+    ],
+    [
+      2,
+      "Windows XP English SP0/SP1"
+    ],
+    [
+      3,
+      "Windows 2003 English"
+    ],
+    [
+      4,
+      "Windows NT 4.0 SP4/SP5/SP6"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "FTPUSER",
+    "FTPPASS",
+    "FTPTimeout",
+    "FTPDEBUG",
+    "PassiveMode"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

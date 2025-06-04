@@ -1,0 +1,91 @@
+{
+  "Name": "PsExec via Current User Token",
+  "Description": "This module uploads an executable file to the victim system, creates a share containing that executable, creates a remote service on each target system using a UNC path to that file, and finally starts the service(s). The result is similar to psexec but with the added benefit of using the session's current authentication token instead of having to know a password or hash.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/current_user_psexec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "egypt <egypt@metasploit.com>",
+    "jabra"
+  ],
+  "References": [
+    [
+      "CVE",
+      "1999-0504"
+    ],
+    [
+      "OSVDB",
+      "3106"
+    ],
+    [
+      "URL",
+      "http://technet.microsoft.com/en-us/sysinternals/bb897553.aspx"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "Powershell::persist",
+    "Powershell::prepend_sleep",
+    "Powershell::prepend_protections_bypass",
+    "Powershell::strip_comments",
+    "Powershell::strip_whitespace",
+    "Powershell::sub_vars",
+    "Powershell::sub_funcs",
+    "Powershell::exec_in_place",
+    "Powershell::exec_rc4",
+    "Powershell::remove_comspec",
+    "Powershell::noninteractive",
+    "Powershell::encode_final_payload",
+    "Powershell::encode_inner_payload",
+    "Powershell::wrap_double_quotes",
+    "Powershell::no_equals",
+    "Powershell::method",
+    "INTERNAL_ADDRESS",
+    "NAME",
+    "DISPNAME",
+    "TECHNIQUE",
+    "RHOSTS",
+    "KERBEROS"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 10
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

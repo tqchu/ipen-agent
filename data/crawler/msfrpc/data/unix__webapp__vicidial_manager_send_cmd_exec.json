@@ -1,0 +1,122 @@
+{
+  "Name": "VICIdial Manager Send OS Command Injection",
+  "Description": "The file agc/manager_send.php in the VICIdial web application uses unsanitized user input as part of a command that is executed using the PHP passthru() function. A valid username, password and session are needed to access the injection point. Fortunately, VICIdial has two built-in accounts with default passwords and the manager_send.php file has a SQL injection vulnerability that can be used to bypass the session check as long as at least one session has been created at some point in time. In case there isn't any valid session, the user can provide astGUIcient credentials in order to create one. The results of the injected commands are returned as part of the response from the web server. Affected versions include 2.7RC1, 2.7, and 2.8-403a. Other versions are likely affected as well. The default credentials used by Vicidial are VDCL/donotedit and VDAD/donotedit.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/unix/webapp/vicidial_manager_send_cmd_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Adam Caudill <adam@adamcaudill.com>",
+    "AverageSecurityGuy <stephen@averagesecurityguy.info>",
+    "sinn3r <sinn3r@metasploit.com>",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-4467"
+    ],
+    [
+      "CVE",
+      "2013-4468"
+    ],
+    [
+      "OSVDB",
+      "98903"
+    ],
+    [
+      "OSVDB",
+      "98902"
+    ],
+    [
+      "BID",
+      "63340"
+    ],
+    [
+      "BID",
+      "63288"
+    ],
+    [
+      "URL",
+      "http://www.openwall.com/lists/oss-security/2013/10/23/10"
+    ],
+    [
+      "URL",
+      "http://adamcaudill.com/2013/10/23/vicidial-multiple-vulnerabilities/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "CMD"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "USERNAME",
+    "PASSWORD",
+    "USER_ASTGUI",
+    "PASS_ASTGUI",
+    "PHONE_USER_ASTGUI",
+    "PHONE_PASSWORD_ASTGUI"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

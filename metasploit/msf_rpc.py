@@ -1,7 +1,12 @@
+import logging
 import time
-from pymetasploit3.msfrpc import MsfRpcClient, PayloadModule
+from pymetasploit3.msfrpc import MsfRpcClient, PayloadModule, MsfRpcError
 
 from cache.metasploit_cache import MetasploitCache
+
+logger = logging.getLogger(__name__)
+logging.basicConfig(level=logging.INFO)
+
 
 def wait_for_job_completion(job_info, client):
     if job_info is not None:
@@ -18,6 +23,7 @@ def wait_for_job_completion(job_info, client):
             else:
                 time.sleep(1)
 
+
 class ExploitResult:
     def __init__(self, success=False, session_id=None, session_type=None, output="", error=None):
         self.success = success
@@ -29,6 +35,7 @@ class ExploitResult:
     def __repr__(self):
         return (f"ExploitResult(success={self.success}, session_id={self.session_id}, "
                 f"session_type={self.session_type}, output={self.output}, error={self.error})")
+
 
 class MsfRpcController:
     """
@@ -56,7 +63,7 @@ class MsfRpcController:
         if MsfRpcClient is None:
             raise ImportError("pymetasploit3 not installed. Please install pymetasploit3 to use Metasploit RPC.")
         # Connect to the Metasploit RPC server
-        self.client = MsfRpcClient(password, host=host, port=port, ssl=ssl)
+        self.client = MsfRpcClient(password, server=host, port=port, ssl=ssl)
         # Once connected, we can use self.client.modules, self.client.sessions, etc.
         # Example: self.client.modules.exploits, self.client.modules.auxiliary
         # Ensure the connection is authenticated
@@ -69,7 +76,75 @@ class MsfRpcController:
         """
         Retrieve a list of all exploit module names available in Metasploit.
         """
-        return self.client.modules.exploits
+        try:
+            exploits  = self.client.modules.exploits
+            logger.info(f"Fetched {len(exploits)} exploit module paths")
+        except MsfRpcError as e:
+            logger.error(f"Error listing exploits: {e}")
+            return []
+
+        return exploits
+
+    def get_module_info(self, module_path: str) -> dict:
+        """
+        Returns the JSON metadata for a single module, e.g.:
+        {
+          "Name": "Windows XP SMB ms08_067...",
+          "DisclosureDate": "2008-10-23",
+          "Author": ["hdm", "steven..."],
+          "References": [["CVE", "2008-4250"], ["BID", "27620"]],
+          "Platform": "windows",
+          "Arch": ["x86"],
+          "Targets": [
+             ["Windows XP SP0/SP1", {...}],
+             ["Windows 2000 SP4", {...}],
+             ...
+          ],
+          "DefaultOptions": {"RPORT": 445, "SMBPIPE": "BROWSER"},
+          "Payload": {...},
+          "SessionTypes": ["meterpreter"],
+          "Check": "def check; ... end",           # Ruby code string
+          "Exploit": "def exploit; ... end",       # Ruby code string
+          "Post": ["Post::Windows::Gather::Credentials", ...],
+          ...
+        }
+        """
+        try:
+            # Load the exploit module object
+            mod = self.client.modules.use("exploit", module_path)
+
+            # Build a dict by reading known attributes off the `mod` object
+            info = {
+                "Name": getattr(mod, "name", ""),
+                "Description": getattr(mod, "description", ""),
+                "License": getattr(mod, "license", ""),
+                "Filepath": getattr(mod, "filepath", ""),
+                "Version": getattr(mod, "version", ""),
+                "Rank": getattr(mod, "rank", None),
+                "Authors": getattr(mod, "authors", []),
+                "References": getattr(mod, "references", []),
+                "Platform": getattr(mod, "platform", ""),
+                "Arch": getattr(mod, "arch", []),
+                # Convert the `targets` dict { index: name, ... } into a list of [index, name]
+                "Targets": [[idx, name] for idx, name in getattr(mod, "targets", {}).items()],
+                # `options` is a dict of all datastore options; `default_options` holds those defaults
+                "Options": getattr(mod, "options", {}),
+                "DefaultOptions": getattr(mod, "default_options", {}),
+                # Some modules expose payload platforms/archs directly
+                "PayloadPlatforms": getattr(mod, "payload_platforms", []),
+                "PayloadArchs": getattr(mod, "payload_archs", []),
+                "SessionTypes": getattr(mod, "session_types", []),
+                # In many cases, the raw Ruby code for check/exploit is exposed as attributes
+                "CheckMethod": getattr(mod, "check", ""),
+                "ExploitMethod": getattr(mod, "exploit", ""),
+                "PostMixins": getattr(mod, "post", []),
+            }
+
+            return info
+
+        except Exception as e:
+            logger.warning(f"Failed to fetch info for module {module_path}: {e}")
+            return {}
 
     def list_auxiliary_modules(self) -> list:
         """

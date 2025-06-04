@@ -1,0 +1,91 @@
+{
+  "Name": "Microsoft OWC Spreadsheet msDataSourceObject Memory Corruption",
+  "Description": "This module exploits a memory corruption vulnerability within versions 10 and 11 of the Office Web Component Spreadsheet ActiveX control. This module was based on an exploit found in the wild.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/ms09_043_owc_msdso.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "unknown",
+    "hdm <x@hdm.io>",
+    "Ahmed Obied",
+    "DSR! <xchwarze@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2009-1136"
+    ],
+    [
+      "OSVDB",
+      "55806"
+    ],
+    [
+      "MSB",
+      "MS09-043"
+    ],
+    [
+      "URL",
+      "http://ahmed.obied.net/software/code/exploits/ie_owc.py"
+    ],
+    [
+      "EDB",
+      "9163"
+    ],
+    [
+      "URL",
+      "https://web.archive.org/web/20090716143635/http://xeye.us/blog/2009/07/one-0day/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows XP SP0-SP3 / IE 6.0 SP0-2 & IE 7.0"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

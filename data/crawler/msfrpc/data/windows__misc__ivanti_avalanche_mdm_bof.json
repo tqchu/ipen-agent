@@ -1,0 +1,68 @@
+{
+  "Name": "Ivanti Avalanche MDM Buffer Overflow",
+  "Description": "This module exploits a buffer overflow condition in Ivanti Avalanche MDM versions before v6.4.1. An attacker can send a specially crafted message to the Wavelink Avalanche Manager, which could result in arbitrary code execution with the NT/AUTHORITY SYSTEM permissions. This vulnerability occurs during the processing of 3/5/8/100/101/102 item data types. The program tries to copy the item data using `qmemcopy` to a fixed size data buffer on stack. Upon successful exploitation the attacker gains full access to the target system. This vulnerability has been tested against Ivanti Avalanche MDM v6.4.0.0 on Windows 10.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/ivanti_avalanche_mdm_bof.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Ege BALCI egebalci <Ege BALCI egebalci@pm.me>",
+    "A researcher at Tenable"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2023-32560"
+    ],
+    [
+      "URL",
+      "https://www.tenable.com/security/research/tra-2023-27"
+    ],
+    [
+      "URL",
+      "https://forums.ivanti.com/s/article/Avalanche-Vulnerabilities-Addressed-in-6-4-1"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "Ivanti Avalanche <= v6.4.0.0"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

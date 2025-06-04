@@ -1,0 +1,57 @@
+{
+  "Name": "X11 Keyboard Command Injection",
+  "Description": "This module exploits open X11 servers by connecting and registering a virtual keyboard. The virtual keyboard is used to open an xterm or gnome terminal and type and execute the specified payload.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/unix/x11/x11_keyboard_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "xistence <xistence@0x90.nl>"
+  ],
+  "References": [],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "xterm (Generic)"
+    ],
+    [
+      1,
+      "gnome-terminal (Ubuntu)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "TIME_WAIT"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

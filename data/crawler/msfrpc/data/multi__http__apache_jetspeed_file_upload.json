@@ -1,0 +1,111 @@
+{
+  "Name": "Apache Jetspeed Arbitrary File Upload",
+  "Description": "This module exploits the unsecured User Manager REST API and a ZIP file path traversal in Apache Jetspeed-2, version 2.3.0 and unknown earlier versions, to upload and execute a shell. Note: this exploit will create, use, and then delete a new admin user. Warning: in testing, exploiting the file upload clobbered the web interface beyond repair. No workaround has been found yet. Use this module at your own risk. No check will be implemented.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/http/apache_jetspeed_file_upload.rb",
+  "Version": "",
+  "Rank": "manual",
+  "Authors": [
+    "Andreas Lindh",
+    "wvu <wvu@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2016-0710"
+    ],
+    [
+      "CVE",
+      "2016-0709"
+    ],
+    [
+      "URL",
+      "http://haxx.ml/post/140552592371/remote-code-execution-in-apache-jetspeed-230-and"
+    ],
+    [
+      "URL",
+      "https://portals.apache.org/jetspeed-2/security-reports.html#CVE-2016-0709"
+    ],
+    [
+      "URL",
+      "https://portals.apache.org/jetspeed-2/security-reports.html#CVE-2016-0710"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "java"
+  ],
+  "Targets": [
+    [
+      0,
+      "Apache Jetspeed <= 2.3.0 (Linux)"
+    ],
+    [
+      1,
+      "Apache Jetspeed <= 2.3.0 (Windows)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "FileDropperDelay",
+    "AllowNoCleanup"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,75 @@
+{
+  "Name": "Service Persistence",
+  "Description": "This module will create a service on the box, and mark it for auto-restart. We need enough access to write service files and potentially restart services Targets: System V: CentOS <= 5 Debian <= 6 Kali 2.0 Ubuntu <= 9.04 Upstart: CentOS 6 Fedora >= 9, < 15 Ubuntu >= 9.10, <= 14.10 systemd: CentOS 7 Debian >= 7, <=8 Fedora >= 15 Ubuntu >= 15.04 Note: System V won't restart the service if it dies, only an init change (reboot etc) will restart it.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/service_persistence.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "h00die <mike@shorebreaksecurity.com>",
+    "Cale Black"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://www.digitalocean.com/community/tutorials/how-to-configure-a-linux-service-to-start-automatically-after-a-crash-or-reboot-part-1-practical-examples"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Auto"
+    ],
+    [
+      1,
+      "System V"
+    ],
+    [
+      2,
+      "Upstart"
+    ],
+    [
+      3,
+      "openrc"
+    ],
+    [
+      4,
+      "systemd"
+    ],
+    [
+      5,
+      "systemd user"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "BACKDOOR_PATH",
+    "SHELL_NAME",
+    "SERVICE",
+    "EnableService"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 5
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

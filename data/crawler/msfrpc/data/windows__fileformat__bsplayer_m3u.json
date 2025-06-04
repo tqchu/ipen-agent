@@ -1,0 +1,55 @@
+{
+  "Name": "BS.Player 2.57 Buffer Overflow (Unicode SEH)",
+  "Description": "This module exploits a buffer overflow in BS.Player 2.57. When the playlist import is used to import a specially crafted m3u file, a buffer overflow occurs allowing arbitrary code execution.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/bsplayer_m3u.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "C4SS!0 G0M3S",
+    "Chris Gabriel"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "82528"
+    ],
+    [
+      "EDB",
+      "15934"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows XP"
+    ],
+    [
+      1,
+      "Windows 7"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

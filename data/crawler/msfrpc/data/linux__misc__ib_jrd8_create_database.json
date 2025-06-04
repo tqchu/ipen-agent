@@ -1,0 +1,70 @@
+{
+  "Name": "Borland InterBase jrd8_create_database() Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in Borland InterBase by sending a specially crafted create request.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/misc/ib_jrd8_create_database.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "Ramon de C Valle <rcvalle@metasploit.com>",
+    "Adriano Lima <adriano@risesecurity.org>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2007-5243"
+    ],
+    [
+      "OSVDB",
+      "38606"
+    ],
+    [
+      "BID",
+      "25917"
+    ],
+    [
+      "URL",
+      "http://www.risesecurity.org/advisories/RISE-2007002.txt"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "Borland InterBase LI-V8.0.0.53 LI-V8.0.0.54 LI-V8.1.0.253"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

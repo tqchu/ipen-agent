@@ -1,0 +1,60 @@
+{
+  "Name": "Xion Audio Player 1.0.126 Unicode Stack Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in Xion Audio Player prior to version 1.0.126. The vulnerability is triggered when opening a malformed M3U file that contains an overly long string. This results in overwriting a structured exception handler record.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/xion_m3u_sehbof.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "hadji samir <s-dz@hotmail.fr>",
+    "corelanc0d3r <peter.ve@corelan.be>",
+    "digital1",
+    "jduck <jduck@metasploit.com>",
+    "m_101"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "66912"
+    ],
+    [
+      "EDB",
+      "14517"
+    ],
+    [
+      "EDB",
+      "14633"
+    ],
+    [
+      "EDB",
+      "15598"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Xion Audio Player v1.0.126 XP Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "TARGETPATH"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

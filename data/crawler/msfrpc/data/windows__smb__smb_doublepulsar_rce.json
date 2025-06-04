@@ -1,0 +1,140 @@
+{
+  "Name": "SMB DOUBLEPULSAR Remote Code Execution",
+  "Description": "This module executes a Metasploit payload against the Equation Group's DOUBLEPULSAR implant for SMB as popularly deployed by ETERNALBLUE. While this module primarily performs code execution against the implant, the \"Neutralize implant\" target allows you to disable the implant.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/smb/smb_doublepulsar_rce.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "Equation Group",
+    "Shadow Brokers",
+    "zerosum0x0",
+    "Luke Jennings",
+    "wvu <wvu@metasploit.com>",
+    "Jacob Robles"
+  ],
+  "References": [
+    [
+      "MSB",
+      "MS17-010"
+    ],
+    [
+      "CVE",
+      "2017-0143"
+    ],
+    [
+      "CVE",
+      "2017-0144"
+    ],
+    [
+      "CVE",
+      "2017-0145"
+    ],
+    [
+      "CVE",
+      "2017-0146"
+    ],
+    [
+      "CVE",
+      "2017-0147"
+    ],
+    [
+      "CVE",
+      "2017-0148"
+    ],
+    [
+      "URL",
+      "https://zerosum0x0.blogspot.com/2017/04/doublepulsar-initial-smb-backdoor-ring.html"
+    ],
+    [
+      "URL",
+      "https://countercept.com/blog/analyzing-the-doublepulsar-kernel-dll-injection-technique/"
+    ],
+    [
+      "URL",
+      "https://www.countercept.com/blog/doublepulsar-usermode-analysis-generic-reflective-dll-loader/"
+    ],
+    [
+      "URL",
+      "https://github.com/countercept/doublepulsar-detection-script"
+    ],
+    [
+      "URL",
+      "https://github.com/countercept/doublepulsar-c2-traffic-decryptor"
+    ],
+    [
+      "URL",
+      "https://gist.github.com/msuiche/50a36710ee59709d8c76fa50fc987be1"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Execute payload (x64)"
+    ],
+    [
+      1,
+      "Neutralize implant"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "NTLM::UseNTLMv2",
+    "NTLM::UseNTLM2_session",
+    "NTLM::SendLM",
+    "NTLM::UseLMKey",
+    "NTLM::SendNTLM",
+    "NTLM::SendSPN",
+    "SMB::pipe_evasion",
+    "SMB::pipe_write_min_size",
+    "SMB::pipe_write_max_size",
+    "SMB::pipe_read_min_size",
+    "SMB::pipe_read_max_size",
+    "SMB::pad_data_level",
+    "SMB::pad_file_level",
+    "SMB::obscure_trans_pipe_level",
+    "SMBDirect",
+    "SMBUser",
+    "SMBPass",
+    "SMBDomain",
+    "SMBName",
+    "SMB::VerifySignature",
+    "SMB::ChunkSize",
+    "SMB::Native_OS",
+    "SMB::Native_LM",
+    "SMB::AlwaysEncrypt",
+    "DefangedMode",
+    "ProcessName"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

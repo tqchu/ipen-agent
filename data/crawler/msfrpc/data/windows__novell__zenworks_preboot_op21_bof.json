@@ -1,0 +1,75 @@
+{
+  "Name": "Novell ZENworks Configuration Management Preboot Service 0x21 Buffer Overflow",
+  "Description": "This module exploits a remote buffer overflow in the ZENworks Configuration Management 10 SP2. The vulnerability exists in the Preboot service and can be triggered by sending a specially crafted packet with the opcode 0x21 (PROXY_CMD_FTP_FILE) to port 998/TCP. The module has been successfully tested on Novell ZENworks Configuration Management 10 SP2 and Windows Server 2003 SP2 (DEP bypass).",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/novell/zenworks_preboot_op21_bof.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Stephen Fewer",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2012-2215"
+    ],
+    [
+      "OSVDB",
+      "65361"
+    ],
+    [
+      "BID",
+      "40486"
+    ],
+    [
+      "ZDI",
+      "10-090"
+    ],
+    [
+      "URL",
+      "http://www.novell.com/support/kb/doc.php?id=7005572"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Novell ZENworks Configuration Management 10 SP2 / Windows 2003 SP2"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

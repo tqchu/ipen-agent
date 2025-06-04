@@ -1,0 +1,79 @@
+{
+  "Name": "Delta Electronics Delta Industrial Automation COMMGR 1.08 Stack Buffer Overflow",
+  "Description": "This module exploits a stack based buffer overflow in Delta Electronics Delta Industrial Automation COMMGR 1.08. The vulnerability exists in COMMGR.exe when handling specially crafted packets. This module has been tested successfully on Delta Electronics Delta Industrial Automation COMMGR 1.08 over Windows XP SP3, Windows 7 SP1, and Windows 8.1.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/scada/delta_ia_commgr_bof.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "ZDI",
+    "t4rkd3vilz",
+    "hubertwslin"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2018-10594"
+    ],
+    [
+      "BID",
+      "104529"
+    ],
+    [
+      "ZDI",
+      "18-586"
+    ],
+    [
+      "ZDI",
+      "18-588"
+    ],
+    [
+      "EDB",
+      "44965"
+    ],
+    [
+      "URL",
+      "https://ics-cert.us-cert.gov/advisories/ICSA-18-172-01"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "COMMGR 1.08 / Windows Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

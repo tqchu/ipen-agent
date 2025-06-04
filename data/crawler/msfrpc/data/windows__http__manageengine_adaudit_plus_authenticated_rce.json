@@ -1,0 +1,105 @@
+{
+  "Name": "ManageEngine ADAudit Plus Authenticated File Write RCE",
+  "Description": "This module exploits security issues in ManageEngine ADAudit Plus prior to 7006 that allow authenticated users to execute arbitrary code by creating a custom alert profile and leveraging its custom alert script component. The module first runs a few checks to test the provided credentials, retrieve the configured domain(s) and obtain the build number of the target ADAudit Plus server. If the credentials are valid and the target is vulnerable, the module creates an alert profile that will be triggered for any failed login attempt to the configured domain. For versions prior to build 7004, the payload is directly inserted in the custom alert script component of the alert profile. For versions 7004 and 7005, the module leverages an arbitrary file write vulnerability (CVE-2021-42847) to create a Powershell script in the alert_scripts directory that contains the payload. The name of this script is then provided as the value for the custom alert script component of the alert profile. This module requires valid credentials for an account with the privileges to create alert scripts. It has been successfully tested against ManageEngine ADAudit Plus builds 7003 and 7005 running on Windows Server 2012 R2. Successful exploitation will result in RCE as the user running ManageEngine ADAudit Plus, which will typically be the local administrator.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/http/manageengine_adaudit_plus_authenticated_rce.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Moon",
+    "Erik Wynter"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2021-42847"
+    ],
+    [
+      "URL",
+      "https://pitstop.manageengine.com/portal/en/community/topic/fix-released-for-a-vulnerability-in-manageengine-adaudit-plus"
+    ],
+    [
+      "URL",
+      "https://www.manageengine.com/products/active-directory-audit/adaudit-plus-release-notes.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows Command"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TARGETURI",
+    "USERNAME",
+    "PASSWORD",
+    "AUTH_DOMAIN",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "RPORT": 8081,
+    "WfsDelay": 5
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

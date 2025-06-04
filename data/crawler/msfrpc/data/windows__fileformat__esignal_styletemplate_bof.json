@@ -1,0 +1,64 @@
+{
+  "Name": "eSignal and eSignal Pro File Parsing Buffer Overflow in QUO",
+  "Description": "The software is unable to handle the \"<StyleTemplate>\" files (even those original included in the program) like those with the registered extensions QUO, SUM and POR. Successful exploitation of this vulnerability may take up to several seconds due to the use of egghunter. Also, DEP bypass is unlikely due to the limited space for payload. This vulnerability affects versions 10.6.2425.1208 and earlier.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/esignal_styletemplate_bof.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Luigi Auriemma",
+    "TecR0c <tecr0c@tecninja.net>",
+    "mr_me <steventhomasseeley@gmai.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2011-3494"
+    ],
+    [
+      "OSVDB",
+      "75456"
+    ],
+    [
+      "BID",
+      "49600"
+    ],
+    [
+      "URL",
+      "http://aluigi.altervista.org/adv/esignal_1-adv.txt"
+    ],
+    [
+      "EDB",
+      "17837"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Win XP SP3 / Windows Vista / Windows 7"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

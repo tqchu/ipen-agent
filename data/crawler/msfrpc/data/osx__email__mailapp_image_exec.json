@@ -1,0 +1,104 @@
+{
+  "Name": "Mail.app Image Attachment Command Execution",
+  "Description": "This module exploits a command execution vulnerability in the Mail.app application shipped with Mac OS X 10.5.0. This flaw was patched in 10.4 in March of 2007, but reintroduced into the final release of 10.5.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/osx/email/mailapp_image_exec.rb",
+  "Version": "",
+  "Rank": "manual",
+  "Authors": [
+    "hdm <x@hdm.io>",
+    "kf <kf_list@digitalmunition.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2006-0395"
+    ],
+    [
+      "CVE",
+      "2007-6165"
+    ],
+    [
+      "OSVDB",
+      "40875"
+    ],
+    [
+      "BID",
+      "26510"
+    ],
+    [
+      "BID",
+      "16907"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::OSX"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "Mail.app - Command Payloads"
+    ],
+    [
+      2,
+      "Mail.app - Binary Payloads (x86)"
+    ],
+    [
+      3,
+      "Mail.app - Binary Payloads (ppc)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "RHOST",
+    "DATE",
+    "MAILFROM",
+    "MAILTO",
+    "SUBJECT",
+    "USERNAME",
+    "PASSWORD",
+    "DOMAIN",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

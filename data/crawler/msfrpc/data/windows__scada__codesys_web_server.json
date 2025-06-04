@@ -1,0 +1,90 @@
+{
+  "Name": "SCADA 3S CoDeSys CmpWebServer Stack Buffer Overflow",
+  "Description": "This module exploits a remote stack buffer overflow vulnerability in 3S-Smart Software Solutions product CoDeSys Scada Web Server Version 1.1.9.9. This vulnerability affects versions 3.4 SP4 Patch 2 and earlier.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/scada/codesys_web_server.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Luigi Auriemma",
+    "Celil UNUVER",
+    "TecR0c <roccogiovannicalvi@gmail.com>",
+    "sinn3r <sinn3r@metasploit.com>",
+    "Michael Coppola"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2011-5007"
+    ],
+    [
+      "OSVDB",
+      "77387"
+    ],
+    [
+      "URL",
+      "http://aluigi.altervista.org/adv/codesys_1-adv.txt"
+    ],
+    [
+      "EDB",
+      "18187"
+    ],
+    [
+      "URL",
+      "https://www.cisa.gov/uscert/ics/alerts/ICS-ALERT-11-336-01A"
+    ],
+    [
+      "URL",
+      "https://www.cisa.gov/uscert/ics/advisories/ICSA-12-006-01"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "CoDeSys v2.3 on Windows XP SP3"
+    ],
+    [
+      2,
+      "CoDeSys v3.4 SP4 Patch 2 on Windows XP SP3"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "DisablePayloadHandler": false
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

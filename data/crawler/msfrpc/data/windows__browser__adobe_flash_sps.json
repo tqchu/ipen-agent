@@ -1,0 +1,104 @@
+{
+  "Name": "Adobe Flash Player MP4 SequenceParameterSetNALUnit Buffer Overflow",
+  "Description": "This module exploits a vulnerability found in Adobe Flash Player's Flash10u.ocx component. When processing a MP4 file (specifically the Sequence Parameter Set), Flash will see if pic_order_cnt_type is equal to 1, which sets the num_ref_frames_in_pic_order_cnt_cycle field, and then blindly copies data in offset_for_ref_frame on the stack, which allows arbitrary remote code execution under the context of the user. Numerous reports also indicate that this vulnerability has been exploited in the wild.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/adobe_flash_sps.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Alexander Gavrun",
+    "Unknown",
+    "sinn3r <sinn3r@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2011-2140"
+    ],
+    [
+      "OSVDB",
+      "74439"
+    ],
+    [
+      "BID",
+      "49083"
+    ],
+    [
+      "ZDI",
+      "11-276"
+    ],
+    [
+      "URL",
+      "http://www.kahusecurity.com/2011/cve-2011-2140-caught-in-the-wild/"
+    ],
+    [
+      "URL",
+      "http://www.adobe.com/support/security/bulletins/apsb11-21.html"
+    ],
+    [
+      "URL",
+      "http://0x1byte.blogspot.com/2011/11/analysis-of-cve-2011-2140-adobe-flash.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "IE 6 on Windows XP SP3"
+    ],
+    [
+      2,
+      "IE 7 on Windows XP SP3 / Vista"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "OBFUSCATE"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "seh",
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

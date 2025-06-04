@@ -1,0 +1,102 @@
+{
+  "Name": "Windows ANI LoadAniIcon() Chunk Size Stack Buffer Overflow (HTTP)",
+  "Description": "This module exploits a buffer overflow vulnerability in the LoadAniIcon() function in USER32.dll. The flaw can be triggered through Internet Explorer 6 and 7 by using the CURSOR style sheet directive to load a malicious .ANI file. The module can also exploit Mozilla Firefox by using a UNC path in a moz-icon URL and serving the .ANI file over WebDAV. The vulnerable code in USER32.dll will catch any exceptions that occur while the invalid cursor is loaded, causing the exploit to silently fail when the wrong target has been chosen. This vulnerability was discovered by Alexander Sotirov of Determina and was rediscovered, in the wild, by McAfee.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/ms07_017_ani_loadimage_chunksize.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "hdm <x@hdm.io>",
+    "skape <mmiller@hick.org>",
+    "Solar Eclipse <solareclipse@phreedom.org>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2007-0038"
+    ],
+    [
+      "OSVDB",
+      "33629"
+    ],
+    [
+      "BID",
+      "23194"
+    ],
+    [
+      "MSB",
+      "MS07-017"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "(Automatic) IE6, IE7 and Firefox on Windows NT, 2000, XP, 2003 and Vista"
+    ],
+    [
+      1,
+      "IE6 on Windows NT, 2000, XP, 2003 (all languages)"
+    ],
+    [
+      2,
+      "IE7 on Windows XP SP2, 2003 SP1, SP2 (all languages)"
+    ],
+    [
+      3,
+      "IE7 and Firefox on Windows Vista (all languages)"
+    ],
+    [
+      4,
+      "Firefox on Windows XP (English)"
+    ],
+    [
+      5,
+      "Firefox on Windows 2003 (English)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

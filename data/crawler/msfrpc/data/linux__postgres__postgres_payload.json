@@ -1,0 +1,59 @@
+{
+  "Name": "PostgreSQL for Linux Payload Execution",
+  "Description": "On some default Linux installations of PostgreSQL, the postgres service account may write to the /tmp directory, and may source UDF Shared Libraries from there as well, allowing execution of arbitrary code. This module compiles a Linux shared object file, uploads it to the target host via the UPDATE pg_largeobject method of binary injection, and creates a UDF (user defined function) from that shared object. Because the payload is run as the shared object's constructor, it does not need to conform to specific Postgres API versions.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/postgres/postgres_payload.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "midnitesnake",
+    "egypt <egypt@metasploit.com>",
+    "todb <todb@metasploit.com>",
+    "lucipher"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2007-3280"
+    ],
+    [
+      "URL",
+      "http://www.leidecker.info/pgshell/Having_Fun_With_PostgreSQL.txt"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Linux x86"
+    ],
+    [
+      1,
+      "Linux x86_64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "DATABASE",
+    "USERNAME",
+    "PASSWORD",
+    "SESSION"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

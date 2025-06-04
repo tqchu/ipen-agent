@@ -1,0 +1,77 @@
+{
+  "Name": "GDB Server Remote Payload Execution",
+  "Description": "This module attempts to execute an arbitrary payload on a loose gdbserver service.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/gdb/gdb_server_exec.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "joev <joev@metasploit.com>"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://github.com/rapid7/metasploit-framework/pull/3691"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::OSX"
+  ],
+  "Arch": [
+    "x86",
+    "x64",
+    "armle",
+    "aarch64"
+  ],
+  "Targets": [
+    [
+      0,
+      "x86"
+    ],
+    [
+      1,
+      "x86_64"
+    ],
+    [
+      2,
+      "ARMLE"
+    ],
+    [
+      3,
+      "AARCH64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "EXE_FILE"
+  ],
+  "DefaultOptions": {
+    "PrependFork": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

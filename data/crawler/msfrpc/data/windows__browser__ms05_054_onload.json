@@ -1,0 +1,87 @@
+{
+  "Name": "MS05-054 Microsoft Internet Explorer JavaScript OnLoad Handler Remote Code Execution",
+  "Description": "This bug is triggered when the browser handles a JavaScript 'onLoad' handler in conjunction with an improperly initialized 'window()' JavaScript function. This exploit results in a call to an address lower than the heap. The javascript prompt() places our shellcode near where the call operand points to. We call prompt() multiple times in separate iframes to place our return address. We hide the prompts in a popup window behind the main window. We spray the heap a second time with our shellcode and point the return address to the heap. I use a fairly high address to make this exploit more reliable. IE will crash when the exploit completes. Also, please note that Internet Explorer must allow popups in order to continue exploitation.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/ms05_054_onload.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Benjamin Tobias Franz",
+    "Stuart Pearson",
+    "Sam Sharps"
+  ],
+  "References": [
+    [
+      "MSB",
+      "MS05-054"
+    ],
+    [
+      "CVE",
+      "2005-1790"
+    ],
+    [
+      "OSVDB",
+      "17094"
+    ],
+    [
+      "BID",
+      "13799"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Internet Explorer 6 on Windows XP"
+    ],
+    [
+      1,
+      "Internet Explorer 6 Windows 2000"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

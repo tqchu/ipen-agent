@@ -1,0 +1,83 @@
+{
+  "Name": "Exim GHOST (glibc gethostbyname) Buffer Overflow",
+  "Description": "This module remotely exploits CVE-2015-0235, aka GHOST, a heap-based buffer overflow in the GNU C Library's gethostbyname functions on x86 and x86_64 GNU/Linux systems that run the Exim mail server.",
+  "License": "BSD License",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/smtp/exim_gethostbyname_bof.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "Unknown"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2015-0235"
+    ],
+    [
+      "US-CERT-VU",
+      "967332"
+    ],
+    [
+      "OSVDB",
+      "117579"
+    ],
+    [
+      "BID",
+      "72325"
+    ],
+    [
+      "URL",
+      "https://www.qualys.com/research/security-advisories/GHOST-CVE-2015-0235.txt"
+    ],
+    [
+      "URL",
+      "https://community.qualys.com/blogs/laws-of-vulnerabilities/2015/01/27/the-ghost-vulnerability"
+    ],
+    [
+      "URL",
+      "http://r-7.co/1CAnMc0"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "SENDER_HOST_ADDRESS",
+    "FORCE_EXPLOIT"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

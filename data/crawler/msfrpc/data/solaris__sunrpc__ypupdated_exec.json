@@ -1,0 +1,71 @@
+{
+  "Name": "Solaris ypupdated Command Execution",
+  "Description": "This exploit targets a weakness in the way the ypupdated RPC application uses the command shell when handling a MAP UPDATE request. Extra commands may be launched through this command shell, which runs as root on the remote host, by passing commands in the format '|<command>'. Vulnerable systems include Solaris 2.7, 8, 9, and 10, when ypupdated is started with the '-i' command-line option.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/solaris/sunrpc/ypupdated_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "I)ruid <druid@caughq.org>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "1999-0209"
+    ],
+    [
+      "OSVDB",
+      "11517"
+    ],
+    [
+      "BID",
+      "1749"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Solaris",
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "ONCRPC::tcp_request_fragmentation",
+    "TIMEOUT",
+    "HOSTNAME",
+    "GID",
+    "UID"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

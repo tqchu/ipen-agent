@@ -1,0 +1,92 @@
+{
+  "Name": "Apple iTunes 10 Extended M3U Stack Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in iTunes 10.4.0.80 to 10.6.1.7. When opening an extended .m3u file containing an \"#EXTINF:\" tag description, iTunes will copy the content after \"#EXTINF:\" without appropriate checking from a heap buffer to a stack buffer, writing beyond the stack buffer's boundary, which allows code execution under the context of the user. Please note before using this exploit, you must have precise knowledge of the victim machine's QuickTime version (if installed), and then select your target accordingly. In addition, even though this exploit can be used as remote, you should be aware the victim's browser behavior when opening an itms link. For example, IE/Firefox/Opera by default will ask the user for permission before launching the itms link by iTunes. Chrome will ask for permission, but also spits a warning. Safari would be an ideal target, because it will open the link without any user interaction.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/itunes_extm3u_bof.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Rh0 <rh0@z1p.biz>",
+    "sinn3r <sinn3r@metasploit.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "83220"
+    ],
+    [
+      "EDB",
+      "19322"
+    ],
+    [
+      "URL",
+      "http://pastehtml.com/view/c25uhk4ab.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "iTunes 10.4.0.80 to 10.6.1.7 with QuickTime 7.69 on XP SP3"
+    ],
+    [
+      1,
+      "iTunes 10.4.0.80 to 10.6.1.7 with QuickTime 7.70 on XP SP3"
+    ],
+    [
+      2,
+      "iTunes 10.4.0.80 to 10.6.1.7 with QuickTime 7.71 on XP SP3"
+    ],
+    [
+      3,
+      "iTunes 10.4.0.80 to 10.6.1.7 with QuickTime 7.72 on XP SP3"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

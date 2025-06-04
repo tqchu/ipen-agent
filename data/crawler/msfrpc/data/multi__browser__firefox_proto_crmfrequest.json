@@ -1,0 +1,93 @@
+{
+  "Name": "Firefox 5.0 - 15.0.1 __exposedProps__ XCS Code Execution",
+  "Description": "On versions of Firefox from 5.0 to 15.0.1, the InstallTrigger global, when given invalid input, would throw an exception that did not have an __exposedProps__ property set. By re-setting this property on the exception object's prototype, the chrome-based defineProperty method is made available. With the defineProperty method, functions belonging to window and document can be overridden with a function that gets called from chrome-privileged context. From here, another vulnerability in the crypto.generateCRMFRequest function is used to \"peek\" into the context's private scope. Since the window does not have a chrome:// URL, the insecure parts of Components.classes are not available, so instead the AddonManager API is invoked to silently install a malicious plugin.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/browser/firefox_proto_crmfrequest.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Mariusz Mlynski",
+    "moz_bug_r_a4",
+    "joev <joev@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2012-3993"
+    ],
+    [
+      "URL",
+      "https://bugzilla.mozilla.org/show_bug.cgi?id=768101"
+    ],
+    [
+      "CVE",
+      "2013-1710"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Java",
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::OSX",
+    "Msf::Module::Platform::Solaris",
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Universal (Javascript XPCOM Shell)"
+    ],
+    [
+      1,
+      "Native Payload"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "JsObfuscate",
+    "JsIdentifiers",
+    "Retries",
+    "CookieName",
+    "CookieExpiration",
+    "Custom404",
+    "ADDONNAME",
+    "AutoUninstall",
+    "CONTENT"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

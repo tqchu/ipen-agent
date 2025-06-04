@@ -1,0 +1,102 @@
+{
+  "Name": "Remote Control Collection RCE",
+  "Description": "This module utilizes the Remote Control Server's, part of the Remote Control Collection by Steppschuh, protocol to deploy a payload and run it from the server. This module will only deploy a payload if the server is set without a password (default). Tested against 3.1.1.12, current at the time of module writing",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/remote_control_collection_rce.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "h00die",
+    "H4rk3nz0"
+  ],
+  "References": [
+    [
+      "URL",
+      "http://remote-control-collection.com"
+    ],
+    [
+      "URL",
+      "https://github.com/H4rk3nz0/PenTesting/blob/main/Exploits/remote%20control%20collection/remote-control-collection-rce.py"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x64",
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "default"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "CPORT",
+    "CHOST",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "SLEEP",
+    "PATH",
+    "CLIENTNAME",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "windows/shell/reverse_tcp",
+    "WfsDelay": 5,
+    "Autocheck": false
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

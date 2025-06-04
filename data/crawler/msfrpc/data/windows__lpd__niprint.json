@@ -1,0 +1,75 @@
+{
+  "Name": "NIPrint LPD Request Overflow",
+  "Description": "This module exploits a stack buffer overflow in the Network Instrument NIPrint LPD service. Inspired by Immunity's VisualSploit :-)",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/lpd/niprint.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "hdm <x@hdm.io>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2003-1141"
+    ],
+    [
+      "OSVDB",
+      "2774"
+    ],
+    [
+      "BID",
+      "8968"
+    ],
+    [
+      "URL",
+      "http://www.immunitysec.com/documentation/vs_niprint.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "NIPrint3.EXE (TDS:0x3a045ff2)"
+    ],
+    [
+      1,
+      "Windows XP SP3"
+    ],
+    [
+      2,
+      "Windows 7 x64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

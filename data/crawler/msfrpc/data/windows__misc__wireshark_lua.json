@@ -1,0 +1,93 @@
+{
+  "Name": "Wireshark console.lua Pre-Loading Script Execution",
+  "Description": "This module exploits a vulnerability in Wireshark 1.6 or less. When opening a pcap file, Wireshark will actually check if there's a 'console.lua' file in the same directory, and then parse/execute the script if found. Versions affected by this vulnerability: 1.6.0 to 1.6.1, 1.4.0 to 1.4.8",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/wireshark_lua.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Haifei Li",
+    "sinn3r <sinn3r@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2011-3360"
+    ],
+    [
+      "OSVDB",
+      "75347"
+    ],
+    [
+      "URL",
+      "https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=6136"
+    ],
+    [
+      "URL",
+      "http://technet.microsoft.com/en-us/security/msvr/msvr11-014"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Wireshark 1.6.1 or less"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "SHARENAME",
+    "FILENAME"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "none"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

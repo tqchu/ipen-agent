@@ -1,0 +1,103 @@
+{
+  "Name": "HP Application Lifecycle Management XGO.ocx ActiveX SetShapeNodeType() Remote Code Execution",
+  "Description": "This module exploits a vulnerability within the XGO.ocx ActiveX Control installed with the HP Application Lifecycle Manager Client. The vulnerability exists in the SetShapeNodeType method, which allows the user to specify memory that will be used as an object, through the node parameter. It allows to control the dereference and use of a function pointer. This module has been successfully tested with HP Application Lifecycle Manager 11.50 and requires JRE 6 in order to bypass DEP and ASLR.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/hp_alm_xgo_setshapenodetype_exec.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "rgod <rgod@autistici.org>",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "85152"
+    ],
+    [
+      "BID",
+      "55272"
+    ],
+    [
+      "ZDI",
+      "12-170"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "IE 7 on Windows XP SP3"
+    ],
+    [
+      2,
+      "IE 8 on Windows XP SP3"
+    ],
+    [
+      3,
+      "IE 7 on Windows Vista"
+    ],
+    [
+      4,
+      "IE 8 on Windows Vista"
+    ],
+    [
+      5,
+      "IE 8 on Windows 7"
+    ],
+    [
+      6,
+      "IE 9 on Windows 7"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "OBFUSCATE"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread",
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

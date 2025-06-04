@@ -1,0 +1,72 @@
+{
+  "Name": "7-Technologies IGSS IGSSdataServer.exe Stack Buffer Overflow",
+  "Description": "This module exploits a vulnerability in the igssdataserver.exe component of 7-Technologies IGSS up to version 9.00.00 b11063. While processing a ListAll command, the application fails to do proper bounds checking before copying data into a small buffer on the stack. This causes a buffer overflow and allows to overwrite a structured exception handling record on the stack, allowing for unauthenticated remote code execution. Also, after the payload exits, IGSSdataServer.exe should automatically recover.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/scada/igss9_igssdataserver_listall.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "Luigi Auriemma",
+    "Lincoln",
+    "corelanc0d3r <peter.ve@corelan.be>",
+    "sinn3r <sinn3r@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2011-1567"
+    ],
+    [
+      "OSVDB",
+      "72353"
+    ],
+    [
+      "URL",
+      "http://aluigi.altervista.org/adv/igss_2-adv.txt"
+    ],
+    [
+      "URL",
+      "https://www.cisa.gov/uscert/ics/advisories/ICSA-11-132-01A"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows XP SP3/2003 Server R2 SP2 (DEP Bypass)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

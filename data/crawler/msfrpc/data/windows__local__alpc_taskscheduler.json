@@ -1,0 +1,62 @@
+{
+  "Name": "Microsoft Windows ALPC Task Scheduler Local Privilege Elevation",
+  "Description": "On vulnerable versions of Windows the alpc endpoint method SchRpcSetSecurity implemented by the task scheduler service can be used to write arbitrary DACLs to `.job` files located in `c:\\windows\\tasks` because the scheduler does not use impersonation when checking this location. Since users can create files in the `c:\\windows\\tasks` folder, a hardlink can be created to a file the user has read access to. After creating a hardlink, the vulnerability can be triggered to set the DACL on the linked file. WARNING: The PrintConfig.dll (%windir%\\system32\\driverstor\\filerepository\\prnms003*) on the target host will be overwritten when the exploit runs. This module has been tested against Windows 10 Pro x64.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/alpc_taskscheduler.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "SandboxEscaper",
+    "bwatters-r7",
+    "asoto-r7",
+    "Jacob Robles"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2018-8440"
+    ],
+    [
+      "URL",
+      "https://github.com/SandboxEscaper/randomrepo/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows 10 x64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,135 @@
+{
+  "Name": "VMware vCenter Server Unauthenticated OVA File Upload RCE",
+  "Description": "This module exploits an unauthenticated OVA file upload and path traversal in VMware vCenter Server to write a JSP payload to a web-accessible directory. Fixed versions are 6.5 Update 3n, 6.7 Update 3l, and 7.0 Update 1c. Note that later vulnerable versions of the Linux appliance aren't exploitable via the webshell technique. Furthermore, writing an SSH public key to /home/vsphere-ui/.ssh/authorized_keys works, but the user's non-existent password expires 90 days after install, rendering the technique nearly useless against production environments. You'll have the best luck targeting older versions of the Linux appliance. The Windows target should work ubiquitously.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/http/vmware_vcenter_uploadova_rce.rb",
+  "Version": "",
+  "Rank": "manual",
+  "Authors": [
+    "Mikhail Klyuchnikov",
+    "wvu <wvu@metasploit.com>",
+    "mr_me",
+    "Viss"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2021-21972"
+    ],
+    [
+      "URL",
+      "https://www.vmware.com/security/advisories/VMSA-2021-0002.html"
+    ],
+    [
+      "URL",
+      "https://swarm.ptsecurity.com/unauth-rce-vmware/"
+    ],
+    [
+      "URL",
+      "https://twitter.com/jas502n/status/1364810720261496843"
+    ],
+    [
+      "URL",
+      "https://twitter.com/_0xf4n9x_/status/1364905040876503045"
+    ],
+    [
+      "URL",
+      "https://twitter.com/HackingLZ/status/1364636303606886403"
+    ],
+    [
+      "URL",
+      "https://kb.vmware.com/s/article/2143838"
+    ],
+    [
+      "URL",
+      "https://nmap.org/nsedoc/scripts/vmware-version.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "java"
+  ],
+  "Targets": [
+    [
+      0,
+      "VMware vCenter Server <= 6.7 Update 1b (Linux)"
+    ],
+    [
+      1,
+      "VMware vCenter Server <= 6.7 Update 3j (Windows)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "CheckModule",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "TARGETURI",
+    "SprayAndPrayMin",
+    "SprayAndPrayMax",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "SSL": true,
+    "PAYLOAD": "java/jsp_shell_reverse_tcp",
+    "CheckModule": "auxiliary/scanner/vmware/esx_fingerprint"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

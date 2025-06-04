@@ -1,0 +1,63 @@
+{
+  "Name": "Canon Driver Privilege Escalation",
+  "Description": "Canon TR150 print drivers versions 3.71.2.10 and below allow local users to read/write files within the \"CanonBJ\" directory and its subdirectories. By overwriting the DLL at C:\\ProgramData\\CanonBJ\\IJPrinter\\CNMWINDOWS\\Canon TR150 series\\LanguageModules\\040C\\CNMurGE.dll with a malicious DLL at the right time whilst running the C:\\Windows\\System32\\Printing_Admin_Scripts\\en-US\\prnmngr.vbs script to install a new printer, a timing issue can be exploited to cause the PrintIsolationHost.exe program, which runs as NT AUTHORITY\\SYSTEM, to successfully load the malicious DLL. Successful exploitation will grant attackers code execution as the NT AUTHORITY\\SYSTEM user. This module leverages the prnmngr.vbs script to add and delete printers. Multiple runs of this module may be required given successful exploitation is time-sensitive.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/canon_driver_privesc.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Jacob Baines",
+    "Shelby Pace"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2021-38085"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

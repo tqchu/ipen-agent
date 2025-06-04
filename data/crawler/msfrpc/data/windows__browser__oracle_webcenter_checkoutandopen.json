@@ -1,0 +1,97 @@
+{
+  "Name": "Oracle WebCenter Content CheckOutAndOpen.dll ActiveX Remote Code Execution",
+  "Description": "This module exploits a vulnerability found in the Oracle WebCenter Content CheckOutAndOpenControl ActiveX. This vulnerability exists in openWebdav(), where user controlled input is used to call ShellExecuteExW(). This module abuses the control to execute an arbitrary HTA from a remote location. This module has been tested successfully with the CheckOutAndOpenControl ActiveX installed with Oracle WebCenter Content 11.1.1.6.0.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/oracle_webcenter_checkoutandopen.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "rgod <rgod@autistici.org>",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-1559"
+    ],
+    [
+      "OSVDB",
+      "92386"
+    ],
+    [
+      "BID",
+      "59122"
+    ],
+    [
+      "URL",
+      "http://www.oracle.com/technetwork/topics/security/cpuapr2013-1899555.html"
+    ],
+    [
+      "ZDI",
+      "13-094"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC"
+  ],
+  "DefaultOptions": {
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,51 @@
+{
+  "Name": "Loadbalancer.org Enterprise VA SSH Private Key Exposure",
+  "Description": "Loadbalancer.org ships a public/private key pair on Enterprise virtual appliances version 7.5.2 that allows passwordless authentication to any other LB Enterprise box. Since the key is easily retrievable, an attacker can use it to gain unauthorized remote access as root.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/ssh/loadbalancerorg_enterprise_known_privkey.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "xistence <xistence@0x90.nl>"
+  ],
+  "References": [
+    [
+      "PACKETSTORM",
+      "125754"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSH_IDENT",
+    "SSH_TIMEOUT",
+    "SSH_DEBUG"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "cmd/unix/interact"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,111 @@
+{
+  "Name": "MS13-022 Microsoft Silverlight ScriptObject Unsafe Memory Access",
+  "Description": "This module exploits a vulnerability in Microsoft Silverlight. The vulnerability exists on the Initialize() method from System.Windows.Browser.ScriptObject, which access memory in an unsafe manner. Since it is accessible for untrusted code (user controlled) it's possible to dereference arbitrary memory which easily leverages to arbitrary code execution. In order to bypass DEP/ASLR a second vulnerability is used, in the public WriteableBitmap class from System.Windows.dll. This module has been tested successfully on IE6 - IE10, Windows XP SP3 / Windows 7 SP1.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/ms13_022_silverlight_script_object.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "James Forshaw",
+    "Vitaliy Toropov",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-0074"
+    ],
+    [
+      "CVE",
+      "2013-3896"
+    ],
+    [
+      "OSVDB",
+      "91147"
+    ],
+    [
+      "OSVDB",
+      "98223"
+    ],
+    [
+      "BID",
+      "58327"
+    ],
+    [
+      "BID",
+      "62793"
+    ],
+    [
+      "MSB",
+      "MS13-022"
+    ],
+    [
+      "MSB",
+      "MS13-087"
+    ],
+    [
+      "PACKETSTORM",
+      "123731"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows x86/x64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "JsObfuscate",
+    "JsIdentifiers",
+    "Retries",
+    "CookieName",
+    "CookieExpiration",
+    "Custom404"
+  ],
+  "DefaultOptions": {
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate",
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

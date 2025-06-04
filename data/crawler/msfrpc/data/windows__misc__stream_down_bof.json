@@ -1,0 +1,86 @@
+{
+  "Name": "CoCSoft StreamDown 6.8.0 Buffer Overflow",
+  "Description": "Stream Down 6.8.0 seh based buffer overflow triggered when processing the server response packet. During the overflow a structured exception handler is overwritten.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/stream_down_bof.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "Fady Mohamed Osman <fady.mohamed.osman@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2011-5052"
+    ],
+    [
+      "OSVDB",
+      "78043"
+    ],
+    [
+      "BID",
+      "51190"
+    ],
+    [
+      "URL",
+      "http://www.dark-masters.tk/"
+    ],
+    [
+      "URL",
+      "http://web.archive.org/web/20121024141958/http://secunia.com/advisories/47343"
+    ],
+    [
+      "EDB",
+      "18283"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "StreamDown 6.8.0"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "seh",
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

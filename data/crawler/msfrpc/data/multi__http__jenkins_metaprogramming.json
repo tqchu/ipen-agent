@@ -1,0 +1,167 @@
+{
+  "Name": "Jenkins ACL Bypass and Metaprogramming RCE",
+  "Description": "This module exploits a vulnerability in Jenkins dynamic routing to bypass the Overall/Read ACL and leverage Groovy metaprogramming to download and execute a malicious JAR file. When the \"Java Dropper\" target is selected, the original entry point based on classLoader.parseClass is used, which requires the use of Groovy metaprogramming to achieve RCE. When the \"Unix In-Memory\" target is selected, a newer, higher-level, and more universal entry point based on GroovyShell.parse is used. This permits the use of in-memory arbitrary command execution. The ACL bypass gadget is specific to Jenkins <= 2.137 and will not work on later versions of Jenkins. Tested against Jenkins 2.137 and Pipeline: Groovy Plugin 2.61.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/http/jenkins_metaprogramming.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Orange Tsai",
+    "Mikhail Egorov",
+    "George Noseevich",
+    "wvu <wvu@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2018-1000861"
+    ],
+    [
+      "CVE",
+      "2019-1003000"
+    ],
+    [
+      "CVE",
+      "2019-1003001"
+    ],
+    [
+      "CVE",
+      "2019-1003002"
+    ],
+    [
+      "CVE",
+      "2019-1003005"
+    ],
+    [
+      "CVE",
+      "2019-1003029"
+    ],
+    [
+      "EDB",
+      "46427"
+    ],
+    [
+      "URL",
+      "https://jenkins.io/security/advisory/2019-01-08/"
+    ],
+    [
+      "URL",
+      "https://blog.orange.tw/2019/01/hacking-jenkins-part-1-play-with-dynamic-routing.html"
+    ],
+    [
+      "URL",
+      "https://blog.orange.tw/2019/02/abusing-meta-programming-for-unauthenticated-rce.html"
+    ],
+    [
+      "URL",
+      "https://github.com/adamyordan/cve-2019-1003000-jenkins-rce-poc"
+    ],
+    [
+      "URL",
+      "https://twitter.com/orange_8361/status/1126829648552312832"
+    ],
+    [
+      "URL",
+      "https://github.com/orangetw/awesome-jenkins-rce-2019"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::Java"
+  ],
+  "Arch": [
+    "cmd",
+    "java"
+  ],
+  "Targets": [
+    [
+      0,
+      "Unix In-Memory"
+    ],
+    [
+      1,
+      "Java Dropper"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "TARGETURI",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

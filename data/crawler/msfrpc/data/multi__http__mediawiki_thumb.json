@@ -1,0 +1,110 @@
+{
+  "Name": "MediaWiki Thumb.php Remote Command Execution",
+  "Description": "MediaWiki 1.22.x before 1.22.2, 1.21.x before 1.21.5 and 1.19.x before 1.19.11, when DjVu or PDF file upload support is enabled, allows remote unauthenticated users to execute arbitrary commands via shell metacharacters. If no target file is specified this module will attempt to log in with the provided credentials to upload a file (.DjVu) to use for exploitation.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/http/mediawiki_thumb.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Netanel Rubin",
+    "Brandon Perry",
+    "Ben Harris",
+    "Ben Campbell <eat_meatballs@hotmail.co.uk>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2014-1610"
+    ],
+    [
+      "OSVDB",
+      "102630"
+    ],
+    [
+      "URL",
+      "http://www.checkpoint.com/threatcloud-central/articles/2014-01-28-tc-researchers-discover.html"
+    ],
+    [
+      "URL",
+      "https://bugzilla.wikimedia.org/show_bug.cgi?id=60339"
+    ]
+  ],
+  "Platform": [],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic PHP-CLI"
+    ],
+    [
+      1,
+      "Linux CMD"
+    ],
+    [
+      2,
+      "Windows CMD"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TARGETURI",
+    "FILENAME",
+    "USERNAME",
+    "PASSWORD"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,155 @@
+{
+  "Name": "VMWare Aria Operations for Networks (vRealize Network Insight) SSH Private Key Exposure",
+  "Description": "VMWare Aria Operations for Networks (vRealize Network Insight) versions 6.0.0 through 6.10.0 do not randomize the SSH keys on virtual machine initialization. Since the key is easily retrievable, an attacker can use it to gain unauthorized remote access as the \"support\" (root) user.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/ssh/vmware_vrni_known_privkey.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "h00die",
+    "SinSinology",
+    "Harsh Jaiswal ( <Harsh Jaiswal (@rootxharsh)>",
+    "Rahul Maini ( <Rahul Maini (@iamnoooob)>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2023-34039"
+    ],
+    [
+      "URL",
+      "https://github.com/sinsinology/CVE-2023-34039"
+    ],
+    [
+      "URL",
+      "https://summoning.team/blog/vmware-vrealize-network-insight-rce-cve-2023-34039/"
+    ],
+    [
+      "URL",
+      "https://www.vmware.com/security/advisories/VMSA-2023-0018.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "6.0_platform"
+    ],
+    [
+      1,
+      "6.0_proxy"
+    ],
+    [
+      2,
+      "6.1_platform"
+    ],
+    [
+      3,
+      "6.1_proxy"
+    ],
+    [
+      4,
+      "6.2_collector"
+    ],
+    [
+      5,
+      "6.2_platform"
+    ],
+    [
+      6,
+      "6.3_collector"
+    ],
+    [
+      7,
+      "6.3_platform"
+    ],
+    [
+      8,
+      "6.4_collector"
+    ],
+    [
+      9,
+      "6.4_platform"
+    ],
+    [
+      10,
+      "6.5_collector"
+    ],
+    [
+      11,
+      "6.5_platform"
+    ],
+    [
+      12,
+      "6.6_collector"
+    ],
+    [
+      13,
+      "6.6_platform"
+    ],
+    [
+      14,
+      "6.7_collector"
+    ],
+    [
+      15,
+      "6.7_platform"
+    ],
+    [
+      16,
+      "6.8_collector"
+    ],
+    [
+      17,
+      "6.8_platform"
+    ],
+    [
+      18,
+      "6.9_collector"
+    ],
+    [
+      19,
+      "6.9_platform"
+    ],
+    [
+      20,
+      "6.10_collector"
+    ],
+    [
+      21,
+      "6.10_platform"
+    ],
+    [
+      22,
+      "All"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSH_IDENT",
+    "SSH_TIMEOUT",
+    "SSH_DEBUG",
+    "STOP_ON_SUCCESS"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "cmd/unix/interact"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

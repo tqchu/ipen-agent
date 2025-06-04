@@ -1,0 +1,103 @@
+{
+  "Name": "Computer Associates ARCserve REPORTREMOTEEXECUTECML Buffer Overflow",
+  "Description": "This module exploits a buffer overflow in Computer Associates BrightStor ARCserve r11.5 (build 3884). By sending a specially crafted RPC request to opcode 0x342, an attacker could overflow the buffer and execute arbitrary code. In order to successfully exploit this vulnerability, you will need set the hostname argument (HNAME).",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/brightstor/ca_arcserve_342.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "Nahuel Cayento Riva",
+    "MC <mc@metasploit.com>"
+  ],
+  "References": [
+    [
+      "BID",
+      "31684"
+    ],
+    [
+      "OSVDB",
+      "49468"
+    ],
+    [
+      "CVE",
+      "2008-4397"
+    ],
+    [
+      "URL",
+      "http://crackinglandia.blogspot.com/2009/10/el-colador-de-ca-computer-associates.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Computer Associates BrightStor ARCserve r11.5 (build 3884)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "DCERPC::max_frag_size",
+    "DCERPC::fake_bind_multi",
+    "DCERPC::fake_bind_multi_prepend",
+    "DCERPC::fake_bind_multi_append",
+    "DCERPC::smb_pipeio",
+    "DCERPC::ReadTimeout",
+    "NTLM::UseNTLMv2",
+    "NTLM::UseNTLM2_session",
+    "NTLM::SendLM",
+    "NTLM::UseLMKey",
+    "NTLM::SendNTLM",
+    "NTLM::SendSPN",
+    "SMB::pipe_evasion",
+    "SMB::pipe_write_min_size",
+    "SMB::pipe_write_max_size",
+    "SMB::pipe_read_min_size",
+    "SMB::pipe_read_max_size",
+    "SMB::pad_data_level",
+    "SMB::pad_file_level",
+    "SMB::obscure_trans_pipe_level",
+    "SMBDirect",
+    "SMBUser",
+    "SMBPass",
+    "SMBDomain",
+    "SMBName",
+    "SMB::VerifySignature",
+    "SMB::ChunkSize",
+    "SMB::Native_OS",
+    "SMB::Native_LM",
+    "SMB::ProtocolVersion",
+    "SMB::AlwaysEncrypt",
+    "DynamicSehRecord",
+    "HNAME"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

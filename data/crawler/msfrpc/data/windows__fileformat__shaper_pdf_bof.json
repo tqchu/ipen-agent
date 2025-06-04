@@ -1,0 +1,51 @@
+{
+  "Name": "PDF Shaper Buffer Overflow",
+  "Description": "PDF Shaper is prone to a security vulnerability when processing PDF files. The vulnerability appears when we use Convert PDF to Image and use a specially crafted PDF file. This module has been tested successfully on Win XP, Win 7, Win 8, Win 10.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/shaper_pdf_bof.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "metacom27 <metacom27@gmail.com - twitter.com/m3tac0m>",
+    "metacom"
+  ],
+  "References": [
+    [
+      "EDB",
+      "37760"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "<Win Xp, Win 7, Win 8, Win 10 / PDF Shaper v.3.5 and v.3.6>"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "PDF::Obfuscate",
+    "PDF::Method",
+    "PDF::Encoder",
+    "PDF::MultiFilter",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

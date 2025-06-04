@@ -1,0 +1,97 @@
+{
+  "Name": "KeyHelp ActiveX LaunchTriPane Remote Code Execution Vulnerability",
+  "Description": "This module exploits a code execution vulnerability in the KeyScript ActiveX control from keyhelp.ocx. It is packaged in several products or GE, such as Proficy Historian 4.5, 4.0, 3.5, and 3.1, Proficy HMI/SCADA 5.1 and 5.0, Proficy Pulse 1.0, Proficy Batch Execution 5.6, and SI7 I/O Driver between 7.20 and 7.42. When the control is installed with these products, the function \"LaunchTriPane\" will use ShellExecute to launch \"hh.exe\", with user controlled data as parameters. Because of this, the \"-decompile\" option can be abused to write arbitrary files on the remote system. Code execution can be achieved by first uploading the payload to the remote machine, and then upload another mof file, which enables Windows Management Instrumentation service to execute it. Please note that this module currently only works for Windows before Vista. On the other hand, the target host must have the WebClient service (WebDAV Mini-Redirector) enabled. It is enabled and automatically started by default on Windows XP SP3",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/keyhelp_launchtripane_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "rgod <rgod@autistici.org>",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2012-2516"
+    ],
+    [
+      "OSVDB",
+      "83311"
+    ],
+    [
+      "BID",
+      "55265"
+    ],
+    [
+      "ZDI",
+      "12-169"
+    ],
+    [
+      "URL",
+      "http://support.ge-ip.com/support/index?page=kbchannel&id=S:KB14863"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

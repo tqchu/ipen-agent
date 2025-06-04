@@ -1,0 +1,77 @@
+{
+  "Name": "Lexmark Driver Privilege Escalation",
+  "Description": "Various Lexmark Universal Printer drivers as listed at advisory TE953 allow low-privileged authenicated users to elevate their privileges to SYSTEM on affected Windows systems by modifying the XML file at C:\\ProgramData\\<driver name>\\Universal Color Laser.gdl to replace the DLL path to unires.dll with a malicious DLL path. When C:\\Windows\\System32\\Printing_Admin_Scripts\\en-US\\prnmngr.vbs is then used to add the printer to the affected system, PrintIsolationHost.exe, a Windows process running as NT AUTHORITY\\SYSTEM, will inspect the C:\\ProgramData\\<driver name>\\Universal Color Laser.gdl file and will load the malicious DLL from the path specified in the file. This which will result in the malicious DLL executing as NT AUTHORITY\\SYSTEM. Once this module is finished, it will use the prnmngr.vbs script to remove the printer it added.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/lexmark_driver_privesc.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Jacob Baines",
+    "Shelby Pace",
+    "Grant Willcox"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2021-35449"
+    ],
+    [
+      "URL",
+      "http://support.lexmark.com/index?page=content&id=TE953"
+    ],
+    [
+      "URL",
+      "https://github.com/jacob-baines/concealed_position"
+    ],
+    [
+      "URL",
+      "https://media.defcon.org/DEF%20CON%2029/DEF%20CON%2029%20presentations/Jacob%20Baines%20-%20Bring%20Your%20Own%20Print%20Driver%20Vulnerability.pdf"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "DRIVERNAME",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

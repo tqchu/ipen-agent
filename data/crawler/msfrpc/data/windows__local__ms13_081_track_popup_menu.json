@@ -1,0 +1,70 @@
+{
+  "Name": "Windows TrackPopupMenuEx Win32k NULL Page",
+  "Description": "This module exploits a vulnerability in win32k.sys where under specific conditions TrackPopupMenuEx will pass a NULL pointer to the MNEndMenuState procedure. This module has been tested successfully on Windows 7 SP0 and Windows 7 SP1.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/ms13_081_track_popup_menu.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "Seth Gibson",
+    "Dan Zentner",
+    "Matias Soler",
+    "Spencer McIntyre"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-3881"
+    ],
+    [
+      "OSVDB",
+      "98212"
+    ],
+    [
+      "BID",
+      "62830"
+    ],
+    [
+      "MSB",
+      "MS13-081"
+    ],
+    [
+      "URL",
+      "http://endgame.com/news/microsoft-win32k-null-page-vulnerability-technical-analysis.html"
+    ],
+    [
+      "URL",
+      "http://immunityproducts.blogspot.com/2013/11/exploiting-cve-2013-3881-win32k-null.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows 7 SP0/SP1"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

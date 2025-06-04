@@ -1,0 +1,112 @@
+{
+  "Name": "WatchGuard XTM Firebox Unauthenticated Remote Command Execution",
+  "Description": "This module exploits a buffer overflow at the administration interface (8080 or 4117) of WatchGuard Firebox and XTM appliances which is built from a cherrypy python backend sending XML-RPC requests to a C binary called wgagent using pre-authentication endpoint /agent/login. This vulnerability impacts Fireware OS before 12.7.2_U2, 12.x before 12.1.3_U8, and 12.2.x through 12.5.x before 12.5.9_U2. Successful exploitation results in remote code execution as user nobody.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/http/watchguard_firebox_unauth_rce_cve_2022_26318.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "h00die-gr3y <h00die.gr3y@gmail.com>",
+    "Charles Fol (Ambionics Security)",
+    "Dylan Pindur (AssetNote)",
+    "Misterxid"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2022-26318"
+    ],
+    [
+      "URL",
+      "https://www.ambionics.io/blog/hacking-watchguard-firewalls"
+    ],
+    [
+      "URL",
+      "https://www.assetnote.io/resources/research/diving-deeper-into-watchguard-pre-auth-rce-cve-2022-26318"
+    ],
+    [
+      "URL",
+      "https://github.com/misterxid/watchguard_cve-2022-26318"
+    ],
+    [
+      "URL",
+      "https://attackerkb.com/topics/t8Nrnu99ZE/cve-2022-26318"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic (Reverse Python Interactive Shell)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TARGETURI",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "SSL": true,
+    "RPORT": 8080
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,165 @@
+{
+  "Name": "SugarCRM unauthenticated Remote Code Execution (RCE)",
+  "Description": "This module exploits CVE-2023-22952, a Remote Code Execution (RCE) vulnerability in SugarCRM 11.0 Enterprise, Professional, Sell, Serve, and Ultimate versions prior to 11.0.5 and SugarCRM 12.0 Enterprise, Sell, and Serve versions prior to 12.0.2. The vulnerability occurs due to a lack of appropriate validation when uploading a malicious PNG file with embedded PHP code to the /cache/images/ directory on the web server using the vulnerable endpoint /index.php?module=EmailTemplates&action=AttachFiles. Once uploaded to the server, depending on server configuration, the attacker can access the malicious PNG file via HTTP or HTTPS, thereby executing the malicious PHP code and gaining access to the system. This vulnerability does not require authentication because there is a missing authentication check in the loadUser() method in include/MVC/SugarApplication.php. After a failed login, the session does not get destroyed and hence the attacker can continue to send valid requests to the application. Because of this, any remote attacker, regardless of authentication, can exploit this vulnerability to gain access to the underlying operating system as the user that the web services are running as (typically www-data).",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/http/sugarcrm_webshell_cve_2023_22952.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "Sw33t.0day",
+    "h00die-gr3y <h00die.gr3y@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2023-22952"
+    ],
+    [
+      "URL",
+      "https://seclists.org/fulldisclosure/2022/Dec/31"
+    ],
+    [
+      "URL",
+      "https://support.sugarcrm.com/Resources/Security/sugarcrm-sa-2023-001/"
+    ],
+    [
+      "URL",
+      "https://sugarclub.sugarcrm.com/engage/b/sugar-news/posts/jan-5-2023-security-vulnerability-update"
+    ],
+    [
+      "URL",
+      "https://attackerkb.com/topics/E486ui94II/cve-2023-22952"
+    ],
+    [
+      "PACKETSTORM",
+      "170346"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::PHP"
+  ],
+  "Arch": [
+    "cmd",
+    "php",
+    "x64",
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "PHP"
+    ],
+    [
+      1,
+      "Unix Command"
+    ],
+    [
+      2,
+      "Linux Dropper"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "CMDSTAGER::FLAVOR",
+    "CMDSTAGER::DECODER",
+    "CMDSTAGER::TEMP",
+    "CMDSTAGER::URIPATH",
+    "CMDSTAGER::SSL",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "TARGETURI",
+    "WEBSHELL",
+    "COMMAND"
+  ],
+  "DefaultOptions": {
+    "SSL": false,
+    "RPORT": 80
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,73 @@
+{
+  "Name": "MS11-006 Microsoft Windows CreateSizedDIBSECTION Stack Buffer Overflow",
+  "Description": "This module exploits a stack-based buffer overflow in the handling of thumbnails within .MIC files and various Office documents. When processing a thumbnail bitmap containing a negative 'biClrUsed' value, a stack-based buffer overflow occurs. This leads to arbitrary code execution. In order to trigger the vulnerable code, the folder containing the document must be viewed using the \"Thumbnails\" view.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/ms11_006_createsizeddibsection.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "Moti & Xu Hao",
+    "Yaniv Miron aka Lament of ilhack",
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2010-3970"
+    ],
+    [
+      "OSVDB",
+      "70263"
+    ],
+    [
+      "MSB",
+      "MS11-006"
+    ],
+    [
+      "BID",
+      "45662"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "Windows 2000 SP0/SP4 English"
+    ],
+    [
+      2,
+      "Windows XP SP3 English"
+    ],
+    [
+      3,
+      "Crash Target for Debugging"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "seh",
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

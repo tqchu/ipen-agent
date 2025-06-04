@@ -1,0 +1,50 @@
+{
+  "Name": "Aviosoft Digital TV Player Professional 1.0 Stack Buffer Overflow",
+  "Description": "This module exploits a vulnerability found in Aviosoft Digital TV Player Pro version 1.x. An overflow occurs when the process copies the content of a playlist file on to the stack, which may result arbitrary code execution under the context of the user.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/aviosoft_plf_buf.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "modpr0be",
+    "sinn3r <sinn3r@metasploit.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "77043"
+    ],
+    [
+      "EDB",
+      "18096"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Aviosoft DTV Player 1.0.1.2"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "seh"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

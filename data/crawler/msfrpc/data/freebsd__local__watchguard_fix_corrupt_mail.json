@@ -1,0 +1,61 @@
+{
+  "Name": "Watchguard XCS FixCorruptMail Local Privilege Escalation",
+  "Description": "This module exploits a vulnerability in the Watchguard XCS 'FixCorruptMail' script called by root's crontab which can be exploited to run a command as root within 3 minutes.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/freebsd/local/watchguard_fix_corrupt_mail.rb",
+  "Version": "",
+  "Rank": "manual",
+  "Authors": [
+    "Daniel Jensen <daniel.jensen@security-assessment.com>"
+  ],
+  "References": [
+    [
+      "URL",
+      "http://security-assessment.com/files/documents/advisory/Watchguard-XCS-final.pdf"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::BSD"
+  ],
+  "Arch": [
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Watchguard XCS 9.2/10.0"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 180
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

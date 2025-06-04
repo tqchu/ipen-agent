@@ -1,0 +1,66 @@
+{
+  "Name": "HP-UX LPD Command Execution",
+  "Description": "This exploit abuses an unpublished vulnerability in the HP-UX LPD service. This flaw allows an unauthenticated attacker to execute arbitrary commands with the privileges of the root user. The LPD service is only exploitable when the address of the attacking system can be resolved by the target. This vulnerability was silently patched with the buffer overflow flaws addressed in HP Security Bulletin HPSBUX0208-213.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/hpux/lpd/cleanup_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "hdm <x@hdm.io>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2002-1473"
+    ],
+    [
+      "OSVDB",
+      "9638"
+    ],
+    [
+      "URL",
+      "http://archives.neohapsis.com/archives/hp/2002-q3/0064.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::HPUX",
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic Target"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

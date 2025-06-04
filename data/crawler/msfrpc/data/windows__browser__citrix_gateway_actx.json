@@ -1,0 +1,91 @@
+{
+  "Name": "Citrix Gateway ActiveX Control Stack Based Buffer Overflow Vulnerability",
+  "Description": "This module exploits a stack based buffer overflow in the Citrix Gateway ActiveX control. Exploitation of this vulnerability requires user interaction. The victim must click a button in a dialog to begin a scan. This is typical interaction that users should be accustom to. Exploitation results in code execution with the privileges of the user who browsed to the exploit page.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/citrix_gateway_actx.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Michal Trojnara",
+    "bannedit <bannedit@metasploit.com>",
+    "sinn3r <sinn3r@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2011-2882"
+    ],
+    [
+      "OSVDB",
+      "74191"
+    ],
+    [
+      "URL",
+      "https://labs.idefense.com/verisign/intelligence/2009/vulnerabilities/display.php?id=929"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "IE 6 on Windows XP SP3"
+    ],
+    [
+      2,
+      "IE 7 on Windows XP SP3"
+    ],
+    [
+      3,
+      "IE 7 on Windows Vista"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,120 @@
+{
+  "Name": "Easy File Management Web Server Stack Buffer Overflow",
+  "Description": "Easy File Management Web Server v4.0 and v5.3 contains a stack buffer overflow condition that is triggered as user-supplied input is not properly validated when handling the UserID cookie. This may allow a remote attacker to execute arbitrary code.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/http/efs_fmws_userid_bof.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "superkojiman",
+    "Julien Ahrens",
+    "TecR0c <roccogiovannicalvi@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2014-3791"
+    ],
+    [
+      "OSVDB",
+      "107241"
+    ],
+    [
+      "EDB",
+      "33610"
+    ],
+    [
+      "BID",
+      "67542"
+    ],
+    [
+      "URL",
+      "http://www.cnnvd.org.cn/vulnerability/show/cv_id/2014050536"
+    ],
+    [
+      "URL",
+      "http://www.web-file-management.com/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic Targeting"
+    ],
+    [
+      1,
+      "Efmws 5.3 Universal"
+    ],
+    [
+      2,
+      "Efmws 4.0 Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TARGETURI"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

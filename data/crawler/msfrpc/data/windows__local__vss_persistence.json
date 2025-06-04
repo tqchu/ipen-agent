@@ -1,0 +1,72 @@
+{
+  "Name": "Persistent Payload in Windows Volume Shadow Copy",
+  "Description": "This module will attempt to create a persistent payload in a new volume shadow copy. This is based on the VSSOwn Script originally posted by Tim Tomes and Mark Baggett. This module has been tested successfully on Windows 7. In order to achieve persistence through the RUNKEY option, the user should need password in order to start session on the target machine.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/vss_persistence.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Jedediah Rodriguez <Jedi.rodriguez@gmail.com>"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://web.archive.org/web/20201111212952/https://securityweekly.com/2011/11/02/safely-dumping-hashes-from-liv/"
+    ],
+    [
+      "URL",
+      "http://www.irongeek.com/i.php?page=videos/hack3rcon2/tim-tomes-and-mark-baggett-lurking-in-the-shadows"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Microsoft Windows"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "SMBUser",
+    "SMBPass",
+    "SMBDomain",
+    "RHOST",
+    "TIMEOUT",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "ScheduleRunAs",
+    "ScheduleObfuscationTechnique",
+    "VOLUME",
+    "EXECUTE",
+    "SCHTASK",
+    "RUNKEY",
+    "DELAY",
+    "RPATH"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

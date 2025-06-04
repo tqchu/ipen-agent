@@ -1,0 +1,73 @@
+{
+  "Name": "FutureSoft TFTP Server 2000 Transfer-Mode Overflow",
+  "Description": "This module exploits a stack buffer overflow in the FutureSoft TFTP Server 2000 product. By sending an overly long transfer-mode string, we were able to overwrite both the SEH and the saved EIP. A subsequent write-exception that will occur allows the transferring of execution to our shellcode via the overwritten SEH. This module has been tested against Windows 2000 Professional and for some reason does not seem to work against Windows 2000 Server (could not trigger the overflow at all).",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/tftp/futuresoft_transfermode.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "MC <mc@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2005-1812"
+    ],
+    [
+      "OSVDB",
+      "16954"
+    ],
+    [
+      "BID",
+      "13821"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "Windows 2000 Pro English ALL"
+    ],
+    [
+      2,
+      "Windows XP Pro SP0/SP1 English"
+    ],
+    [
+      3,
+      "Windows NT SP5/SP6a English"
+    ],
+    [
+      4,
+      "Windows 2003 Server English"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "CPORT",
+    "CHOST",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

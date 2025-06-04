@@ -1,0 +1,78 @@
+{
+  "Name": "Apple OS X iTunes 8.1.1 ITMS Overflow",
+  "Description": "This modules exploits a stack-based buffer overflow in iTunes itms:// URL parsing. It is accessible from the browser and in Safari, itms urls will be opened in iTunes automatically. Because iTunes is multithreaded, only vfork-based payloads should be used.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/browser/itms_overflow.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "Will Drewry <redpig@dataspill.org>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2009-0950"
+    ],
+    [
+      "OSVDB",
+      "54833"
+    ],
+    [
+      "URL",
+      "http://support.apple.com/kb/HT3592"
+    ],
+    [
+      "URL",
+      "http://redpig.dataspill.org/2009/05/drive-by-attack-for-itunes-811.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::OSX"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "OS X"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

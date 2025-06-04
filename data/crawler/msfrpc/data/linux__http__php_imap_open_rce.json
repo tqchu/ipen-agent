@@ -1,0 +1,138 @@
+{
+  "Name": "php imap_open Remote Code Execution",
+  "Description": "The imap_open function within php, if called without the /norsh flag, will attempt to preauthenticate an IMAP session. On Debian based systems, including Ubuntu, rsh is mapped to the ssh binary. Ssh's ProxyCommand option can be passed from imap_open to execute arbitrary commands. While many custom applications may use imap_open, this exploit works against the following applications: e107 v2, prestashop, SuiteCRM, as well as Custom, which simply prints the exploit strings for use. Prestashop exploitation requires the admin URI, and administrator credentials. suiteCRM/e107 require administrator credentials. Fixed in php 5.6.39.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/http/php_imap_open_rce.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "Anton Lopanitsyn",
+    "Twoster",
+    "h00die",
+    "Paolo Serracino",
+    "Pietro Minniti",
+    "Damiano Proietti"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://web.archive.org/web/20181118213536/https://antichat.com/threads/463395"
+    ],
+    [
+      "URL",
+      "https://github.com/Bo0oM/PHP_imap_open_exploit"
+    ],
+    [
+      "EDB",
+      "45865"
+    ],
+    [
+      "EDB",
+      "46136"
+    ],
+    [
+      "URL",
+      "https://bugs.php.net/bug.php?id=76428"
+    ],
+    [
+      "CVE",
+      "2018-19518"
+    ],
+    [
+      "CVE",
+      "2018-1000859"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "prestashop"
+    ],
+    [
+      1,
+      "suitecrm"
+    ],
+    [
+      2,
+      "e107v2"
+    ],
+    [
+      3,
+      "Horde IMP H3"
+    ],
+    [
+      4,
+      "custom"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TARGETURI",
+    "USERNAME",
+    "PASSWORD"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "cmd/unix/reverse_netcat",
+    "WfsDelay": 120
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

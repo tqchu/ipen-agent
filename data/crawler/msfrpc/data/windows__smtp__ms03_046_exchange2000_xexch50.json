@@ -1,0 +1,77 @@
+{
+  "Name": "MS03-046 Exchange 2000 XEXCH50 Heap Overflow",
+  "Description": "This is an exploit for the Exchange 2000 heap overflow. Due to the nature of the vulnerability, this exploit is not very reliable. This module has been tested against Exchange 2000 SP0 and SP3 running a Windows 2000 system patched to SP4. It normally takes between one and 100 connection attempts to successfully obtain a shell. This exploit is *very* unreliable.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/smtp/ms03_046_exchange2000_xexch50.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "hdm <x@hdm.io>",
+    "aushack <patrick@osisecurity.com.au>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2003-0714"
+    ],
+    [
+      "BID",
+      "8838"
+    ],
+    [
+      "OSVDB",
+      "2674"
+    ],
+    [
+      "MSB",
+      "MS03-046"
+    ],
+    [
+      "EDB",
+      "113"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Exchange 2000"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "MAILFROM",
+    "MAILTO",
+    "ATTEMPTS"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "seh"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

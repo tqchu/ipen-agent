@@ -1,0 +1,98 @@
+{
+  "Name": "MS11-093 Microsoft Windows OLE Object File Handling Remote Code Execution",
+  "Description": "This module exploits a type confusion vulnerability in the OLE32 component of Windows XP SP3. The vulnerability exists in the CPropertyStorage::ReadMultiple function. A Visio document with a specially crafted Summary Information Stream embedded allows to get remote code execution through Internet Explorer, on systems with Visio Viewer installed.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/ms11_093_ole32.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Luigi Auriemma",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "MSB",
+      "MS11-093"
+    ],
+    [
+      "CVE",
+      "2011-3400"
+    ],
+    [
+      "OSVDB",
+      "77663"
+    ],
+    [
+      "BID",
+      "50977"
+    ],
+    [
+      "URL",
+      "http://aluigi.org/adv/ole32_1-adv.txt"
+    ],
+    [
+      "URL",
+      "http://www.verisigninc.com/en_US/products-and-services/network-intelligence-availability/idefense/public-vulnerability-reports/articles/index.xhtml?id=966"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "IE 6 on Windows XP SP3 / Visio Viewer 2010"
+    ],
+    [
+      2,
+      "IE 7 on Windows XP SP3 / Visio Viewer 2010"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "OBFUSCATE"
+  ],
+  "DefaultOptions": {
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

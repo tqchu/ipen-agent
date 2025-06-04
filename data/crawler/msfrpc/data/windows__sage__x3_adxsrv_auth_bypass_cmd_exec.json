@@ -1,0 +1,90 @@
+{
+  "Name": "Sage X3 Administration Service Authentication Bypass Command Execution",
+  "Description": "This module leverages an authentication bypass exploit within Sage X3 AdxSrv's administration protocol to execute arbitrary commands as SYSTEM against a Sage X3 Server running an available AdxAdmin service.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/sage/x3_adxsrv_auth_bypass_cmd_exec.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "Jonathan Peterson <deadjakk@shell.rip>",
+    "Aaron Herndon"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2020-7387"
+    ],
+    [
+      "CVE",
+      "2020-7388"
+    ],
+    [
+      "URL",
+      "https://www.rapid7.com/blog/post/2021/07/07/cve-2020-7387-7390-multiple-sage-x3-vulnerabilities/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "cmd",
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows Command"
+    ],
+    [
+      1,
+      "Windows DLL"
+    ],
+    [
+      2,
+      "Windows Executable"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

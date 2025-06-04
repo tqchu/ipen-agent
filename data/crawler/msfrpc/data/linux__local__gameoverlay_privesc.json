@@ -1,0 +1,93 @@
+{
+  "Name": "GameOver(lay) Privilege Escalation and Container Escape",
+  "Description": "This module exploits the use of unsafe functions in a number of Ubuntu kernels utilizing vunerable versions of overlayfs. To mitigate CVE-2021-3493 the Linux kernel added a call to vfs_setxattr during ovl_do_setxattr. Due to independent changes to the kernel by the Ubuntu development team __vfs_setxattr_noperm is called during ovl_do_setxattr without calling the intermediate safety function vfs_setxattr. Ultimatly this module allows for root access to be achieved by writing setuid capabilities to a file which are not sanitized after being unioned with the upper mounted directory.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/gameoverlay_privesc.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "g1vi",
+    "h00die",
+    "bwatters-r7",
+    "gardnerapp"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://www.crowdstrike.com/blog/crowdstrike-discovers-new-container-exploit/"
+    ],
+    [
+      "URL",
+      "https://github.com/g1vi/CVE-2023-2640-CVE-2023-32629"
+    ],
+    [
+      "URL",
+      "https://www.cvedetails.com/cve/CVE-2023-2640/"
+    ],
+    [
+      "URL",
+      "https://www.cvedetails.com/cve/CVE-2023-32629/"
+    ],
+    [
+      "URL",
+      "https://www.wiz.io/blog/ubuntu-overlayfs-vulnerability"
+    ],
+    [
+      "CVE",
+      "2023-32629"
+    ],
+    [
+      "CVE",
+      "2023-2640"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Linux_Binary"
+    ],
+    [
+      1,
+      "Linux_Command"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "WritableDir",
+    "PayloadFileName",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

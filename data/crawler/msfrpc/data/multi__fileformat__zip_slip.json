@@ -1,0 +1,64 @@
+{
+  "Name": "Generic Zip Slip Traversal Vulnerability",
+  "Description": "This is a generic arbitrary file overwrite technique, which typically results in remote command execution. This targets a simple yet widespread vulnerability that has been seen affecting a variety of popular products including HP, Amazon, Apache, Cisco, etc. The idea is that often archive extraction libraries have no mitigations against directory traversal attacks. If an application uses it, there is a risk when opening an archive that is maliciously modified, and result in the embedded payload to be written to an arbitrary location (such as a web root), and result in remote code execution.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/fileformat/zip_slip.rb",
+  "Version": "",
+  "Rank": "manual",
+  "Authors": [
+    "Snyk",
+    "sinn3r <sinn3r@metasploit.com>",
+    "ggkitsas"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://snyk.io/research/zip-slip-vulnerability"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::Windows",
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Manually determined"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FTYPE",
+    "TARGETPAYLOADPATH"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread",
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

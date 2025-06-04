@@ -1,0 +1,84 @@
+{
+  "Name": "Microsoft UPnP Local Privilege Elevation Vulnerability",
+  "Description": "This exploit uses two vulnerabilities to execute a command as an elevated user. The first (CVE-2019-1405) uses the UPnP Device Host Service to elevate to NT AUTHORITY\\LOCAL SERVICE The second (CVE-2019-1322) leverages the Update Orchestrator Service to elevate from NT AUTHORITY\\LOCAL SERVICE to NT AUTHORITY\\SYSTEM.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/comahawk.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "NCC Group",
+    "hoangprod",
+    "bwatters-r7"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2019-1322"
+    ],
+    [
+      "CVE",
+      "2019-1405"
+    ],
+    [
+      "EDB",
+      "47684"
+    ],
+    [
+      "URL",
+      "https://github.com/apt69/COMahawk"
+    ],
+    [
+      "URL",
+      "https://www.nccgroup.trust/uk/about-us/newsroom-and-events/blogs/2019/november/cve-2019-1405-and-cve-2019-1322-elevation-to-system-via-the-upnp-device-host-service-and-the-update-orchestrator-service/"
+    ],
+    [
+      "URL",
+      "https://fortiguard.com/threat-signal-report/3243/new-proof-of-concept-combining-cve-2019-1322-and-cve-2019-1405-developed-1"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows x64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "EXPLOIT_NAME",
+    "PAYLOAD_NAME",
+    "WRITABLE_DIR",
+    "EXPLOIT_TIMEOUT",
+    "EXECUTE_DELAY"
+  ],
+  "DefaultOptions": {
+    "DisablePayloadHandler": false
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

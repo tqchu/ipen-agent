@@ -1,0 +1,52 @@
+{
+  "Name": "Metasploit msfd Remote Code Execution",
+  "Description": "Metasploit's msfd-service makes it possible to get a msfconsole-like interface over a TCP socket. If this socket is accessible on a remote interface, an attacker can execute commands on the victim's machine. If msfd is running with higher privileges than the current local user, this module can also be used for privilege escalation. In that case, port forwarding on the compromised host can be used. Code execution is achieved with the msfconsole command: irb -e 'CODE'.",
+  "License": "BSD License",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/misc/msfd_rce_remote.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Robin Stenvi <robin.stenvi@gmail.com>"
+  ],
+  "References": [],
+  "Platform": [
+    "Msf::Module::Platform::Ruby"
+  ],
+  "Arch": [
+    "ruby"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

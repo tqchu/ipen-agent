@@ -1,0 +1,97 @@
+{
+  "Name": "Netcore Router Udp 53413 Backdoor",
+  "Description": "Routers manufactured by Netcore, a popular brand for networking equipment in China, have a wide-open backdoor that can be fairly easily exploited by attackers. These products are also sold under the Netis brand name outside of China. This backdoor allows cyber criminals to easily run arbitrary code on these routers, rendering it vulnerable as a security device. Some models include a non-standard echo command which doesn't honor -e, and are therefore not currently exploitable with Metasploit. See URLs or module markdown for additional options.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/misc/netcore_udp_53413_backdoor.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Nixawk",
+    "h00die <mike@shorebreaksecurity.com>"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://www.seebug.org/vuldb/ssvid-90227"
+    ],
+    [
+      "URL",
+      "http://blog.trendmicro.com/trendlabs-security-intelligence/netis-routers-leave-wide-open-backdoor/"
+    ],
+    [
+      "URL",
+      "https://github.com/h00die/MSF-Testing-Scripts/blob/master/netis_backdoor.py"
+    ]
+  ],
+  "Platform": [],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "MIPS Little Endian"
+    ],
+    [
+      1,
+      "MIPS Big Endian"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "CPORT",
+    "CHOST",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "CMDSTAGER::FLAVOR",
+    "CMDSTAGER::DECODER",
+    "CMDSTAGER::TEMP",
+    "CMDSTAGER::URIPATH",
+    "CMDSTAGER::SSL",
+    "TIMEOUT"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

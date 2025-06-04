@@ -1,0 +1,58 @@
+{
+  "Name": "VariCAD 2010-2.05 EN (DWB File) Stack Buffer Overflow",
+  "Description": "This module exploits a stack-based buffer overflow in VariCAD 2010-2.05 EN. An attacker must send the file to victim and the victim must open the file.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/varicad_dwb.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "n00b",
+    "dookie",
+    "MC <mc@metasploit.com>",
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "63067"
+    ],
+    [
+      "BID",
+      "38815"
+    ],
+    [
+      "EDB",
+      "11789"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

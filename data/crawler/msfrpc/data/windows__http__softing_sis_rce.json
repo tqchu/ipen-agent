@@ -1,0 +1,134 @@
+{
+  "Name": "Softing Secure Integration Server v1.22 Remote Code Execution",
+  "Description": "This module chains two vulnerabilities (CVE-2022-1373 and CVE-2022-2334) to achieve authenticated remote code execution against Softing Secure Integration Server v1.22. In CVE-2022-1373, the restore configuration feature is vulnerable to a directory traversal vulnerablity when processing zip files. When using the \"restore configuration\" feature to upload a zip file containing a path traversal file which is a dll called ..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\Windows\\System32\\wbem\\wbemcomn.dll. This causes the file C:\\Windows\\System32\\wbem\\wbemcomn.dll to be created and executed upon touching the disk. In CVE-2022-2334, the planted wbemcomn.dll is used in a DLL hijacking attack when Softing Secure Integration Server restarts upon restoring configuration, which allows us to execute arbitrary code on the target system. The chain demonstrated in Pwn2Own used a signature instead of a password. The signature was acquired by running an ARP spoofing attack against the local network where the Softing SIS server was located. A username is also required for signature authentication. A custom DLL can be provided to use in the exploit instead of using the default MSF-generated one. Refer to the module documentation for more details.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/http/softing_sis_rce.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Chris Anastasio (muffin) of Incite Team",
+    "Steven Seeley (mr_me) of Incite Team",
+    "Imran E. Dawoodjee <imrandawoodjee.infosec@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2022-1373"
+    ],
+    [
+      "CVE",
+      "2022-2334"
+    ],
+    [
+      "ZDI",
+      "22-1154"
+    ],
+    [
+      "ZDI",
+      "22-1156"
+    ],
+    [
+      "URL",
+      "https://industrial.softing.com/fileadmin/psirt/downloads/syt-2022-5.html"
+    ],
+    [
+      "URL",
+      "https://ide0x90.github.io/softing-sis-122-rce/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows x64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "SIGNATURE",
+    "USERNAME",
+    "PASSWORD",
+    "DLLPATH",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "RPORT": 8099,
+    "SSL": false,
+    "EXITFUNC": "thread",
+    "WfsDelay": 300
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

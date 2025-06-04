@@ -1,0 +1,66 @@
+{
+  "Name": "Adobe Reader for Android addJavascriptInterface Exploit",
+  "Description": "Adobe Reader versions less than 11.2.0 exposes insecure native interfaces to untrusted javascript in a PDF. This module embeds the browser exploit from android/webview_addjavascriptinterface into a PDF to get a command shell on vulnerable versions of Reader.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/android/fileformat/adobe_reader_pdf_js_interface.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "Yorick Koster",
+    "joev <joev@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2014-0514"
+    ],
+    [
+      "EDB",
+      "32884"
+    ],
+    [
+      "OSVDB",
+      "105781"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Android"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Android ARM"
+    ],
+    [
+      1,
+      "Android MIPSLE"
+    ],
+    [
+      2,
+      "Android X86"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "PDF::Obfuscate",
+    "PDF::Method",
+    "PDF::Encoder",
+    "PDF::MultiFilter"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "android/meterpreter/reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

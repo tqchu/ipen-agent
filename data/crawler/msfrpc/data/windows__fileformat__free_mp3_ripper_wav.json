@@ -1,0 +1,62 @@
+{
+  "Name": "Free MP3 CD Ripper 1.1 WAV File Stack Buffer Overflow",
+  "Description": "This module exploits a stack based buffer overflow found in Free MP3 CD Ripper 1.1. The overflow is triggered when an unsuspecting user opens a malicious WAV file.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/free_mp3_ripper_wav.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "Richard Leahy",
+    "X-h4ck",
+    "Tiago Henriques",
+    "James Fitts <fitts.james@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2011-5165"
+    ],
+    [
+      "OSVDB",
+      "63349"
+    ],
+    [
+      "EDB",
+      "11975"
+    ],
+    [
+      "EDB",
+      "17727"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows XP SP3 EN"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

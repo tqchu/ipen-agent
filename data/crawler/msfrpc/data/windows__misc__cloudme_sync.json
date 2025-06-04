@@ -1,0 +1,63 @@
+{
+  "Name": "CloudMe Sync v1.10.9",
+  "Description": "This module exploits a stack-based buffer overflow vulnerability in CloudMe Sync v1.10.9 client application. This module has been tested successfully on Windows 7 SP1 x86.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/cloudme_sync.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "hyp3rlinx",
+    "Daniel Teixeira"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2018-6892"
+    ],
+    [
+      "EDB",
+      "44027"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "CloudMe Sync v1.10.9"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

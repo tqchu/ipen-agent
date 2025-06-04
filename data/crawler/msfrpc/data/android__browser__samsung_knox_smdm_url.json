@@ -1,0 +1,82 @@
+{
+  "Name": "Samsung Galaxy KNOX Android Browser RCE",
+  "Description": "A vulnerability exists in the KNOX security component of the Samsung Galaxy firmware that allows a remote webpage to install an APK with arbitrary permissions by abusing the 'smdm://' protocol handler registered by the KNOX component. The vulnerability has been confirmed in the Samsung Galaxy S4, S5, Note 3, and Ace 4.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/android/browser/samsung_knox_smdm_url.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Andre Moulu",
+    "jduck <jduck@metasploit.com>",
+    "joev <joev@metasploit.com>"
+  ],
+  "References": [
+    [
+      "URL",
+      "http://blog.quarkslab.com/abusing-samsung-knox-to-remotely-install-a-malicious-application-story-of-a-half-patched-vulnerability.html"
+    ],
+    [
+      "OSVDB",
+      "114590"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Android"
+  ],
+  "Arch": [
+    "dalvik"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "JsIdentifiers",
+    "Retries",
+    "CookieName",
+    "CookieExpiration",
+    "Custom404",
+    "APK_VERSION"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "android/meterpreter/reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

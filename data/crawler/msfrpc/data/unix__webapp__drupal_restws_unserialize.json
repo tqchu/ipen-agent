@@ -1,0 +1,122 @@
+{
+  "Name": "Drupal RESTful Web Services unserialize() RCE",
+  "Description": "This module exploits a PHP unserialize() vulnerability in Drupal RESTful Web Services by sending a crafted request to the /node REST endpoint. As per SA-CORE-2019-003, the initial remediation was to disable POST, PATCH, and PUT, but Ambionics discovered that GET was also vulnerable (albeit cached). Cached nodes can be exploited only once. Drupal updated SA-CORE-2019-003 with PSA-2019-02-22 to notify users of this alternate vector. Drupal < 8.5.11 and < 8.6.10 are vulnerable.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/unix/webapp/drupal_restws_unserialize.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Jasper Mattsson",
+    "Charles Fol",
+    "Rotem Reiss",
+    "wvu <wvu@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2019-6340"
+    ],
+    [
+      "URL",
+      "https://www.drupal.org/sa-core-2019-003"
+    ],
+    [
+      "URL",
+      "https://www.drupal.org/psa-2019-02-22"
+    ],
+    [
+      "URL",
+      "https://www.ambionics.io/blog/drupal8-rce"
+    ],
+    [
+      "URL",
+      "https://github.com/ambionics/phpggc"
+    ],
+    [
+      "URL",
+      "https://twitter.com/jcran/status/1099206271901798400"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::PHP",
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "php",
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "PHP In-Memory"
+    ],
+    [
+      1,
+      "Unix In-Memory"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TARGETURI",
+    "METHOD",
+    "NODE",
+    "DUMP_OUTPUT",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

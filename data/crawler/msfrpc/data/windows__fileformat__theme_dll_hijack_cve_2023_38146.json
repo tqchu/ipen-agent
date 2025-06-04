@@ -1,0 +1,79 @@
+{
+  "Name": "Themebleed- Windows 11 Themes Arbitrary Code Execution CVE-2023-38146",
+  "Description": "When an unpatched Windows 11 host loads a theme file referencing an msstyles file, Windows loads the msstyles file, and if that file's PACKME_VERSION is `999`, it then attempts to load an accompanying dll file ending in `_vrf.dll` Before loading that file, it verifies that the file is signed. It does this by opening the file for reading and verifying the signature before opening the file for execution. Because this action is performed in two discrete operations, it opens the procedure for a time of check to time of use vulnerability. By embedding a UNC file path to an SMB server we control, the SMB server can serve a legitimate, signed dll when queried for the read, but then serve a different file of the same name when the host intends to load/execute the dll.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/theme_dll_hijack_cve_2023_38146.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "gabe_k",
+    "bwatters-r7",
+    "Spencer McIntyre"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2023-38146"
+    ],
+    [
+      "URL",
+      "https://exploits.forsale/themebleed/"
+    ],
+    [
+      "URL",
+      "https://github.com/gabe-k/themebleed/tree/main"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "CAINPWFILE",
+    "JOHNPWFILE",
+    "SHARE",
+    "SMBDomain",
+    "STYLE_FILE",
+    "STYLE_FILE_NAME",
+    "THEME_FILE_NAME"
+  ],
+  "DefaultOptions": {
+    "DisablePayloadHandler": false
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

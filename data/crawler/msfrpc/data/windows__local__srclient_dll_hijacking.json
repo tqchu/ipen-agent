@@ -1,0 +1,65 @@
+{
+  "Name": "Windows Server 2012 SrClient DLL hijacking",
+  "Description": "All editions of Windows Server 2012 (but not 2012 R2) are vulnerable to DLL hijacking due to the way TiWorker.exe will try to call the non-existent `SrClient.dll` file when Windows Update checks for updates. This issue can be leveraged for privilege escalation if %PATH% includes directories that are writable by low-privileged users. The attack can be triggered by any low-privileged user and does not require a system reboot. This module has been successfully tested on Windows Server 2012 (x64).",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/srclient_dll_hijacking.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Erik Wynter"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://blog.vonahi.io/srclient-dll-hijacking"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows Server 2012 (x64)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "WRITABLE_PATH_DIR",
+    "STEALTH_ONLY",
+    "WAIT_FOR_TIWORKER",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "Wfsdelay": 60,
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

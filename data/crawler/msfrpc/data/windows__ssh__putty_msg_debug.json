@@ -1,0 +1,75 @@
+{
+  "Name": "PuTTY Buffer Overflow",
+  "Description": "This module exploits a buffer overflow in the PuTTY SSH client that is triggered through a validation error in SSH.c. This vulnerability affects versions 0.53 and earlier.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/ssh/putty_msg_debug.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "MC <mc@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2002-1359"
+    ],
+    [
+      "OSVDB",
+      "8044"
+    ],
+    [
+      "URL",
+      "http://www.rapid7.com/advisories/R7-0009.html"
+    ],
+    [
+      "BID",
+      "6407"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows 2000 SP4 English"
+    ],
+    [
+      1,
+      "Windows XP SP2 English"
+    ],
+    [
+      2,
+      "Windows 2003 SP1 English"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

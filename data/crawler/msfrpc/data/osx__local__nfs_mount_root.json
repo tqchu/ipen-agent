@@ -1,0 +1,60 @@
+{
+  "Name": "Mac OS X NFS Mount Privilege Escalation Exploit",
+  "Description": "This exploit leverages a stack buffer overflow vulnerability to escalate privileges. The vulnerable function nfs_convert_old_nfs_args does not verify the size of a user-provided argument before copying it to the stack. As a result, by passing a large size as an argument, a local user can overwrite the stack with arbitrary content. Mac OS X Lion Kernel <= xnu-1699.32.7 except xnu-1699.24.8 are affected.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/osx/local/nfs_mount_root.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Kenzley Alphonse",
+    "joev <joev@metasploit.com>"
+  ],
+  "References": [
+    [
+      "EDB",
+      "32813"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::OSX"
+  ],
+  "Arch": [
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Mac OS X 10.7 Lion x64 (Native Payload)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

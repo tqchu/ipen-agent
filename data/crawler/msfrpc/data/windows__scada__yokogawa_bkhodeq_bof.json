@@ -1,0 +1,68 @@
+{
+  "Name": "Yokogawa CENTUM CS 3000 BKHOdeq.exe Buffer Overflow",
+  "Description": "This module exploits a stack based buffer overflow in Yokogawa CENTUM CS 3000. The vulnerability exists in the service BKHOdeq.exe when handling specially crafted packets. This module has been tested successfully on Yokogawa CENTUM CS 3000 R3.08.50 over Windows XP SP3 and Windows 2003 SP2.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/scada/yokogawa_bkhodeq_bof.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "juan vazquez <juan.vazquez@metasploit.com>",
+    "Redsadic <julian.vilas@gmail.com>"
+  ],
+  "References": [
+    [
+      "URL",
+      "http://www.yokogawa.com/dcs/security/ysar/YSAR-14-0001E.pdf"
+    ],
+    [
+      "URL",
+      "https://www.rapid7.com/blog/post/2014/03/10/yokogawa-centum-cs3000-vulnerabilities"
+    ],
+    [
+      "CVE",
+      "2014-0783"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Yokogawa CENTUM CS 3000 R3.08.50 / Windows [ XP SP3 / 2003 SP2 ]"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread",
+    "WfsDelay": 10
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

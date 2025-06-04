@@ -1,0 +1,72 @@
+{
+  "Name": "NTP Daemon readvar Buffer Overflow",
+  "Description": "This module exploits a stack based buffer overflow in the ntpd and xntpd service. By sending an overly long 'readvar' request it is possible to execute code remotely. As the stack is corrupted, this module uses the Egghunter technique.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/ntp/ntp_overflow.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "aushack <patrick@osisecurity.com.au>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2001-0414"
+    ],
+    [
+      "OSVDB",
+      "805"
+    ],
+    [
+      "BID",
+      "2540"
+    ],
+    [
+      "US-CERT-VU",
+      "970472"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "RedHat Linux 7.0 ntpd 4.0.99j"
+    ],
+    [
+      1,
+      "RedHat Linux 7.0 ntpd 4.0.99j w/debug"
+    ],
+    [
+      2,
+      "RedHat Linux 7.0 ntpd 4.0.99k"
+    ],
+    [
+      3,
+      "Debugging"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "CPORT",
+    "CHOST"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

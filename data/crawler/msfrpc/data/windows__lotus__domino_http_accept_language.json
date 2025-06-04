@@ -1,0 +1,124 @@
+{
+  "Name": "IBM Lotus Domino Web Server Accept-Language Stack Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in IBM Lotus Domino Web Server prior to version 7.0.3FP1 and 8.0.1. This flaw is triggered by any HTTP request with an Accept-Language header greater than 114 bytes.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/lotus/domino_http_accept_language.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "Fairuzan Roslan <riaf@mysec.org>",
+    "Earl Marcus klks <Earl Marcus klks@mysec.org>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2008-2240"
+    ],
+    [
+      "OSVDB",
+      "45415"
+    ],
+    [
+      "BID",
+      "29310"
+    ],
+    [
+      "URL",
+      "http://www-01.ibm.com/support/docview.wss?uid=swg21303057"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "Lotus Domino 7.0 on Windows 2003 SP1 English(NX)"
+    ],
+    [
+      2,
+      "Lotus Domino 7.0 on Windows 2003 SP2 English(NX)"
+    ],
+    [
+      3,
+      "Lotus Domino 7.0 on Windows 2003/2000/XP English(NO NX)"
+    ],
+    [
+      4,
+      "Lotus Domino 8.0 on Windows 2003 SP1 English(NX)"
+    ],
+    [
+      5,
+      "Lotus Domino 8.0 on Windows 2003 SP2 English(NX)"
+    ],
+    [
+      6,
+      "Lotus Domino 8.0 on Windows 2003/2000/XP English(NO NX)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

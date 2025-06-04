@@ -1,0 +1,166 @@
+{
+  "Name": "Microsoft Windows RRAS Service MIBEntryGet Overflow",
+  "Description": "This module exploits an overflow in the Windows Routing and Remote Access Service (RRAS) to execute code as SYSTEM. The RRAS DCERPC endpoint is accessible to unauthenticated users via SMBv1 browser named pipe on Windows Server 2003 and Windows XP hosts; however, this module targets Windows Server 2003 only. Since the service is hosted inside svchost.exe, a failed exploit attempt can cause other system services to fail as well. The module has been successfully tested on: Windows Server 2003 SP0 (x86); Windows Server 2003 SP1 (x86); Windows Server 2003 SP2 (x86); and Windows Server 2003 R2 SP2 (x86).",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/smb/smb_rras_erraticgopher.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "Equation Group",
+    "Shadow Brokers",
+    "V\u00edctor Portal",
+    "bcoles <bcoles@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2017-8461"
+    ],
+    [
+      "CWE",
+      "119"
+    ],
+    [
+      "BID",
+      "99012"
+    ],
+    [
+      "EDB",
+      "41929"
+    ],
+    [
+      "PACKETSTORM",
+      "147593"
+    ],
+    [
+      "URL",
+      "https://www.securitytracker.com/id/1038701"
+    ],
+    [
+      "URL",
+      "https://github.com/x0rz/EQGRP_Lost_in_Translation/blob/master/windows/exploits/Erraticgopher-1.0.1.0.xml"
+    ],
+    [
+      "URL",
+      "https://support.microsoft.com/en-us/topic/microsoft-security-advisory-4025685-guidance-for-older-platforms-june-13-2017-05151e8a-bd7f-f769-43df-38d2c24f96cd"
+    ],
+    [
+      "URL",
+      "https://docs.microsoft.com/en-us/previous-versions/windows/desktop/legacy/aa374540(v=vs.85)"
+    ],
+    [
+      "URL",
+      "https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-rrasm/ebc5c709-36d8-4520-a0ac-6f36d2d6c0b2"
+    ],
+    [
+      "URL",
+      "https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-rrasm/5dca234b-bea4-4e67-958e-5459a32a7b71"
+    ],
+    [
+      "URL",
+      "https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-rrasm/4305d67f-9273-49fe-a067-909b6ae8a341"
+    ],
+    [
+      "URL",
+      "https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-rrasm/3ca0723e-36ea-448a-a97e-1906dd3d07a6"
+    ],
+    [
+      "URL",
+      "https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-rrasm/dda988f0-4cce-4ffe-b8c9-d5199deafba5"
+    ],
+    [
+      "URL",
+      "https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-rrasm/169e435d-a975-4c1c-bf41-55fd2bd76125"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "Windows Server 2003 SP0 (English)"
+    ],
+    [
+      2,
+      "Windows Server 2003 SP1 (English) (NX)"
+    ],
+    [
+      3,
+      "Windows Server 2003 SP2 (English) (NX)"
+    ],
+    [
+      4,
+      "Windows Server 2003 R2 SP2 (English) (NX)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "DCERPC::max_frag_size",
+    "DCERPC::fake_bind_multi",
+    "DCERPC::fake_bind_multi_prepend",
+    "DCERPC::fake_bind_multi_append",
+    "DCERPC::smb_pipeio",
+    "DCERPC::ReadTimeout",
+    "NTLM::UseNTLMv2",
+    "NTLM::UseNTLM2_session",
+    "NTLM::SendLM",
+    "NTLM::UseLMKey",
+    "NTLM::SendNTLM",
+    "NTLM::SendSPN",
+    "SMB::pipe_evasion",
+    "SMB::pipe_write_min_size",
+    "SMB::pipe_write_max_size",
+    "SMB::pipe_read_min_size",
+    "SMB::pipe_read_max_size",
+    "SMB::pad_data_level",
+    "SMB::pad_file_level",
+    "SMB::obscure_trans_pipe_level",
+    "SMBDirect",
+    "SMBUser",
+    "SMBPass",
+    "SMBDomain",
+    "SMBName",
+    "SMB::VerifySignature",
+    "SMB::ChunkSize",
+    "SMB::Native_OS",
+    "SMB::Native_LM",
+    "SMB::AlwaysEncrypt",
+    "SMBPIPE"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread",
+    "PAYLOAD": "windows/shell/reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

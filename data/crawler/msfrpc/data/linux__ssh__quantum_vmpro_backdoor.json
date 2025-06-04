@@ -1,0 +1,53 @@
+{
+  "Name": "Quantum vmPRO Backdoor Command",
+  "Description": "This module abuses a backdoor command in Quantum vmPRO. Any user, even one without admin privileges, can get access to the restricted SSH shell. By using the hidden backdoor \"shell-escape\" command it's possible to drop to a real root bash shell. This module has been tested successfully on Quantum vmPRO 3.1.2.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/ssh/quantum_vmpro_backdoor.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "xistence <xistence@0x90.nl>"
+  ],
+  "References": [
+    [
+      "PACKETSTORM",
+      "125760"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Quantum vmPRO 3.1.2"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSH_IDENT",
+    "SSH_TIMEOUT",
+    "SSH_DEBUG",
+    "USER",
+    "PASS"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

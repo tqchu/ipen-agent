@@ -1,0 +1,136 @@
+{
+  "Name": "Chaos RAT XSS to RCE",
+  "Description": "CHAOS v5.0.8 is a free and open-source Remote Administration Tool that allows generated binaries to control remote operating systems. The webapp contains a remote command execution vulnerability which can be triggered by an authenticated user when generating a new executable. The webapp also contains an XSS vulnerability within the view of a returned command being executed on an agent. Execution can happen through one of three routes: 1. Provided credentials can be used to execute the RCE directly 2. A JWT token from an agent can be provided to emulate a compromised host. If a logged in user attempts to execute a command on the host the returned value contains an xss payload. 3. Similar to technique 2, an agent executable can be provided and the JWT token can be extracted. Verified against CHAOS 7d5b20ad7e58e5b525abdcb3a12514b88e87cef2 running in a docker container.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/http/chaos_rat_xss_to_rce.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "h00die",
+    "chebuya"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://github.com/chebuya/CVE-2024-30850-chaos-rat-rce-poc"
+    ],
+    [
+      "URL",
+      "https://github.com/tiagorlampert/CHAOS"
+    ],
+    [
+      "CVE",
+      "2024-31839"
+    ],
+    [
+      "CVE",
+      "2024-30850"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic Target"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "USERNAME",
+    "PASSWORD",
+    "TARGETURI",
+    "JWT",
+    "AGENT",
+    "AGENT_HOSTNAME",
+    "AGENT_USERNAME",
+    "AGENT_USERID",
+    "AGENT_OS",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 3600,
+    "URIPATH": "/"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

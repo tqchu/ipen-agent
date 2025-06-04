@@ -1,0 +1,54 @@
+{
+  "Name": "Lenovo Diagnostics Driver IOCTL memmove",
+  "Description": "Incorrect access control for the Lenovo Diagnostics Driver allows a low-privileged user the ability to issue device IOCTLs to perform arbitrary physical/virtual memory read/write.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/cve_2022_3699_lenovo_diagnostics_driver.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "alfarom256",
+    "jheysel-r7"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2022-3699"
+    ],
+    [
+      "URL",
+      "https://github.com/alfarom256/CVE-2022-3699/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows x64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

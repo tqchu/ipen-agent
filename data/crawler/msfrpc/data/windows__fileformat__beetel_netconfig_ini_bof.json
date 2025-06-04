@@ -1,0 +1,50 @@
+{
+  "Name": "Beetel Connection Manager NetConfig.ini Buffer Overflow",
+  "Description": "This module exploits a stack-based buffer overflow in Beetel Connection Manager. The vulnerability exists in the parsing of the UserName parameter in the NetConfig.ini file. The module has been tested successfully against version PCW_BTLINDV1.0.0B04 on Windows XP SP3 and Windows 7 SP1.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/beetel_netconfig_ini_bof.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "metacom",
+    "wvu <wvu@metasploit.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "98714"
+    ],
+    [
+      "EDB",
+      "28969"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "PCW_BTLINDV1.0.0B04 (WinXP SP3, Win7 SP1)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "DynamicSehRecord",
+    "SECTION"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,131 @@
+{
+  "Name": "Apache Struts includeParams Remote Code Execution",
+  "Description": "This module exploits a remote command execution vulnerability in Apache Struts versions < 2.3.14.2. A specifically crafted request parameter can be used to inject arbitrary OGNL code into the stack bypassing Struts and OGNL library protections. When targeting an action which requires interaction through GET, the payload should be split, taking into account the URI limits. In this case, if the rendered JSP has more than one point of injection, it could result in payload corruption. This should happen only when the payload is larger than the URI length.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/http/struts_include_params.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "Eric Kobrin",
+    "Douglas Rodrigues",
+    "Richard Hicks <scriptmonkey.blog@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-2115"
+    ],
+    [
+      "CVE",
+      "2013-1966"
+    ],
+    [
+      "OSVDB",
+      "93645"
+    ],
+    [
+      "URL",
+      "https://cwiki.apache.org/confluence/display/WW/S2-014"
+    ],
+    [
+      "URL",
+      "http://struts.apache.org/development/2.x/docs/s2-013.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Java",
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows Universal"
+    ],
+    [
+      1,
+      "Linux Universal"
+    ],
+    [
+      2,
+      "Java Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "PARAMETER",
+    "TARGETURI",
+    "HTTPMETHOD",
+    "CHECK_SLEEPTIME"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

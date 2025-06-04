@@ -1,0 +1,65 @@
+{
+  "Name": "Cisco UCS Director default scpuser password",
+  "Description": "This module abuses a known default password on Cisco UCS Director. The 'scpuser' has the password of 'scpuser', and allows an attacker to login to the virtual appliance via SSH. This module has been tested with Cisco UCS Director virtual machines 6.6.0 and 6.7.0. Note that Cisco also mentions in their advisory that their IMC Supervisor and UCS Director Express are also affected by these vulnerabilities, but this module was not tested with those products.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/ssh/cisco_ucs_scpuser.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Pedro Ribeiro <pedrib@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2019-1935"
+    ],
+    [
+      "URL",
+      "https://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-20190821-imcs-usercred"
+    ],
+    [
+      "URL",
+      "https://seclists.org/fulldisclosure/2019/Aug/36"
+    ],
+    [
+      "URL",
+      "https://raw.githubusercontent.com/pedrib/PoC/master/advisories/Cisco/cisco-ucs-rce.txt"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Cisco UCS Director < 6.7.2.0"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSH_IDENT",
+    "SSH_TIMEOUT",
+    "SSH_DEBUG",
+    "USERNAME",
+    "PASSWORD"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

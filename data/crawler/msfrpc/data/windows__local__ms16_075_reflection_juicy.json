@@ -1,0 +1,84 @@
+{
+  "Name": "Windows Net-NTLMv2 Reflection DCOM/RPC (Juicy)",
+  "Description": "This module utilizes the Net-NTLMv2 reflection between DCOM/RPC to achieve a SYSTEM handle for elevation of privilege. It requires a CLSID string. Windows 10 after version 1803, (April 2018 update, build 17134) and all versions of Windows Server 2019 are not vulnerable.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/ms16_075_reflection_juicy.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "FoxGloveSec",
+    "breenmachine",
+    "decoder",
+    "ohpe",
+    "phra",
+    "lupman"
+  ],
+  "References": [
+    [
+      "MSB",
+      "MS16-075"
+    ],
+    [
+      "CVE",
+      "2016-3225"
+    ],
+    [
+      "URL",
+      "http://blog.trendmicro.com/trendlabs-security-intelligence/an-analysis-of-a-windows-kernel-mode-vulnerability-cve-2014-4113/"
+    ],
+    [
+      "URL",
+      "https://foxglovesecurity.com/2016/09/26/rotten-potato-privilege-escalation-from-service-accounts-to-system/"
+    ],
+    [
+      "URL",
+      "https://github.com/breenmachine/RottenPotatoNG"
+    ],
+    [
+      "URL",
+      "https://decoder.cloud/2017/12/23/the-lonely-potato/"
+    ],
+    [
+      "URL",
+      "https://ohpe.it/juicy-potato/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "CLSID",
+    "RpcServerHost",
+    "RpcServerPort",
+    "ListeningAddress",
+    "ListeningPort",
+    "LogFile"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "none",
+    "WfsDelay": "20"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

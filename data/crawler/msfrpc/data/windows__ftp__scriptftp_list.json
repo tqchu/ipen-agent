@@ -1,0 +1,72 @@
+{
+  "Name": "ScriptFTP LIST Remote Buffer Overflow",
+  "Description": "AmmSoft's ScriptFTP client is susceptible to a remote buffer overflow vulnerability that is triggered when processing a sufficiently long filename during a FTP LIST command resulting in overwriting the exception handler. Social engineering of executing a specially crafted ftp file by double click will result in connecting to our malicious server and perform arbitrary code execution which allows the attacker to gain the same rights as the user running ScriptFTP. This vulnerability affects versions 3.3 and earlier.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/ftp/scriptftp_list.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "modpr0be",
+    "TecR0c <roccogiovannicalvi@gmail.com>",
+    "mr_me <steventhomasseeley@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2011-3976"
+    ],
+    [
+      "OSVDB",
+      "75633"
+    ],
+    [
+      "EDB",
+      "17876"
+    ],
+    [
+      "US-CERT-VU",
+      "440219"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows XP SP3 / Windows Vista"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "PASVPORT",
+    "FILENAME"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread",
+    "DisablePayloadHandler": false
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

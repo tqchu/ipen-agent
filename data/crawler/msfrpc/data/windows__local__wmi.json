@@ -1,0 +1,76 @@
+{
+  "Name": "Windows Management Instrumentation (WMI) Remote Command Execution",
+  "Description": "This module executes powershell on the remote host using the current user credentials or those supplied. Instead of using PSEXEC over TCP port 445 we use the WMIC command to start a Remote Procedure Call on TCP port 135 and an ephemeral port. Set ReverseListenerComm to tunnel traffic through that session. The result is similar to psexec but with the added benefit of using the session's current authentication token instead of having to know a password or hash. The remote host must be configured to allow remote Windows Management Instrumentation.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/wmi.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Ben Campbell <eat_meatballs@hotmail.co.uk>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "1999-0504"
+    ],
+    [
+      "OSVDB",
+      "3106"
+    ],
+    [
+      "URL",
+      "http://passing-the-hash.blogspot.co.uk/2013/07/WMIS-PowerSploit-Shells.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "Powershell::persist",
+    "Powershell::prepend_sleep",
+    "Powershell::prepend_protections_bypass",
+    "Powershell::strip_comments",
+    "Powershell::strip_whitespace",
+    "Powershell::sub_vars",
+    "Powershell::sub_funcs",
+    "Powershell::exec_in_place",
+    "Powershell::exec_rc4",
+    "Powershell::remove_comspec",
+    "Powershell::noninteractive",
+    "Powershell::encode_final_payload",
+    "Powershell::encode_inner_payload",
+    "Powershell::wrap_double_quotes",
+    "Powershell::no_equals",
+    "Powershell::method",
+    "SMBUser",
+    "SMBPass",
+    "SMBDomain",
+    "TIMEOUT",
+    "RHOSTS",
+    "ReverseListenerComm"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread",
+    "WfsDelay": "15"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

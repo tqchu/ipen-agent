@@ -1,0 +1,77 @@
+{
+  "Name": "CA BrightStor ArcServe Media Service Stack Buffer Overflow",
+  "Description": "This exploit targets a stack buffer overflow in the MediaSrv RPC service of CA BrightStor ARCserve. By sending a specially crafted SUNRPC request, an attacker can overflow a stack buffer and execute arbitrary code.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/brightstor/mediasrv_sunrpc.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "toto"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2007-2139"
+    ],
+    [
+      "OSVDB",
+      "35326"
+    ],
+    [
+      "BID",
+      "23635"
+    ],
+    [
+      "ZDI",
+      "07-022"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "BrightStor Arcserve 9.0 (?) - 11.5 SP2 (Windows 2000)"
+    ],
+    [
+      1,
+      "BrightStor Arcserve 9.0 (?) - 11.5 SP2 (Windows 2003)"
+    ],
+    [
+      2,
+      "BrightStor Arcserve 11.1 - 11.5 SP2 (Windows All - NX Support)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "ONCRPC::tcp_request_fragmentation",
+    "TIMEOUT"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

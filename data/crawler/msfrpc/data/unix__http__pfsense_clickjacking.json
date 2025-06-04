@@ -1,0 +1,79 @@
+{
+  "Name": "Clickjacking Vulnerability In CSRF Error Page pfSense",
+  "Description": "This module exploits a Clickjacking vulnerability in pfSense <= 2.4.1. pfSense is a free and open source firewall and router. It was found that the pfSense WebGUI is vulnerable to Clickjacking. By tricking an authenticated admin into interacting with a specially crafted webpage it is possible for an attacker to execute arbitrary code in the WebGUI. Since the WebGUI runs as the root user, this will result in a full compromise of the pfSense instance.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/unix/http/pfsense_clickjacking.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Yorick Koster"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2017-1000479"
+    ],
+    [
+      "URL",
+      "https://securify.nl/en/advisory/SFY20171101/clickjacking-vulnerability-in-csrf-error-page-pfsense.html"
+    ],
+    [
+      "URL",
+      "https://doc.pfsense.org/index.php/2.4.2_New_Features_and_Changes"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::PHP"
+  ],
+  "Arch": [
+    "php"
+  ],
+  "Targets": [
+    [
+      0,
+      "pfSense <= 2.4.1"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "TARGETURI"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

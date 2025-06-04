@@ -1,0 +1,152 @@
+{
+  "Name": "SaltStack Salt API Unauthenticated RCE through wheel_async client",
+  "Description": "This module leverages an authentication bypass and directory traversal vulnerabilities in Saltstack Salt's REST API to execute commands remotely on the `master` as the root user. Every 60 seconds, `salt-master` service performs a maintenance process check that reloads and executes all the `grains` on the `master`, including custom grain modules in the Extension Module directory. So, this module simply creates a Python script at this location and waits for it to be executed. The time interval is set to 60 seconds by default but can be changed in the `master` configuration file with the `loop_interval` option. Note that, if an administrator executes commands locally on the `master`, the maintenance process check will also be performed. It has been fixed in the following installation packages: 3002.5, 3001.6 and 3000.8. Also, a patch is available for the following versions: 3002.2, 3001.4, 3000.6, 2019.2.8, 2019.2.5, 2018.3.5, 2017.7.8, 2016.11.10, 2016.11.6, 2016.11.5, 2016.11.3, 2016.3.8, 2016.3.6, 2016.3.4, 2015.8.13 and 2015.8.10. This module has been tested successfully against versions 3001.4, 3002 and 3002.2 on Ubuntu 18.04.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/http/saltstack_salt_wheel_async_rce.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Alex Seymour",
+    "Christophe De La Fuente"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2021-25281"
+    ],
+    [
+      "CVE",
+      "2021-25282"
+    ],
+    [
+      "URL",
+      "https://saltproject.io/security_announcements/active-saltstack-cve-release-2021-feb-25/"
+    ],
+    [
+      "URL",
+      "https://github.com/Immersive-Labs-Sec/CVE-2021-25281/blob/main/cve-2021-25281.py"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "cmd",
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Unix Command"
+    ],
+    [
+      1,
+      "Linux Dropper"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "CMDSTAGER::FLAVOR",
+    "CMDSTAGER::DECODER",
+    "CMDSTAGER::TEMP",
+    "CMDSTAGER::URIPATH",
+    "CMDSTAGER::SSL",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "TARGETURI",
+    "EXTMODSDIR",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 90,
+    "SSL": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

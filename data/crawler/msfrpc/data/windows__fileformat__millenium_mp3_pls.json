@@ -1,0 +1,57 @@
+{
+  "Name": "Millenium MP3 Studio 2.0 (PLS File) Stack Buffer Overflow",
+  "Description": "This module exploits a stack-based buffer overflow in Millenium MP3 Studio 2.0. An attacker must send the file to victim and the victim must open the file. Alternatively it may be possible to execute code remotely via an embedded PLS file within a browser, when the PLS extension is registered to Millenium MP3 Studio. This functionality has not been tested in this module.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/millenium_mp3_pls.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "Molotov",
+    "dookie",
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "56574"
+    ],
+    [
+      "EDB",
+      "9618"
+    ],
+    [
+      "EDB",
+      "10240"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

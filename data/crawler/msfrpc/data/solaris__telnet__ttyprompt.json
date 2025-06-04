@@ -1,0 +1,68 @@
+{
+  "Name": "Solaris in.telnetd TTYPROMPT Buffer Overflow",
+  "Description": "This module uses a buffer overflow in the Solaris 'login' application to bypass authentication in the telnet daemon.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/solaris/telnet/ttyprompt.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "MC <mc@metasploit.com>",
+    "cazz <bmc@shmoo.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2001-0797"
+    ],
+    [
+      "OSVDB",
+      "690"
+    ],
+    [
+      "BID",
+      "5531"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Solaris",
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "USER"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,62 @@
+{
+  "Name": "Desktop Linux Password Stealer and Privilege Escalation",
+  "Description": "This module steals the user password of an administrative user on a desktop Linux system when it is entered for unlocking the screen or for doing administrative actions using PolicyKit. Then, it escalates to root privileges using sudo and the stolen user password. It exploits the design weakness that there is no trusted channel for transferring the password from the keyboard to the actual password verification against the shadow file (which is running as root since /etc/shadow is only readable to the root user). Both screensavers (xscreensaver/gnome-screensaver) and PolicyKit use a component running under the current user account to query for the password and then pass it to a setuid-root binary to do the password verification. Therefore, it is possible to inject a password stealer after compromising the user account. Since sudo requires only the user password (and not the root password of the system), stealing the user password of an administrative user directly allows escalating to root privileges. Please note, you have to start a handler as a background job before running this exploit since the exploit will only create a shell when the user actually enters the password (which may be hours after launching the exploit). Using exploit/multi/handler with the option ExitOnSession set to false should do the job.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/desktop_privilege_escalation.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Jakob Lell"
+  ],
+  "References": [],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Linux x86"
+    ],
+    [
+      1,
+      "Linux x86_64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "WritableDir"
+  ],
+  "DefaultOptions": {
+    "PrependSetresuid": true,
+    "PrependFork": true,
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

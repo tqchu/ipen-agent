@@ -1,0 +1,62 @@
+{
+  "Name": "BACnet OPC Client Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in SCADA Engine BACnet OPC Client v1.0.24. When the BACnet OPC Client parses a specially crafted csv file, arbitrary code may be executed.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/bacnet_csv.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "Jeremy Brown",
+    "MC <mc@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2010-4740"
+    ],
+    [
+      "OSVDB",
+      "68096"
+    ],
+    [
+      "BID",
+      "43289"
+    ],
+    [
+      "URL",
+      "https://www.cisa.gov/uscert/ics/advisories/ICSA-10-264-01"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows XP SP3 English"
+    ],
+    [
+      1,
+      "Windows 2000 SP4 English"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

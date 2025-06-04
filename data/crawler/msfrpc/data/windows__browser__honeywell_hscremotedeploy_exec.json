@@ -1,0 +1,96 @@
+{
+  "Name": "Honeywell HSC Remote Deployer ActiveX Remote Code Execution",
+  "Description": "This module exploits a vulnerability found in the Honeywell HSC Remote Deployer ActiveX. This control can be abused by using the LaunchInstaller() function to execute an arbitrary HTA from a remote location. This module has been tested successfully with the HSC Remote Deployer ActiveX installed with Honeywell EBI R410.1.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/honeywell_hscremotedeploy_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-0108"
+    ],
+    [
+      "OSVDB",
+      "90583"
+    ],
+    [
+      "BID",
+      "58134"
+    ],
+    [
+      "URL",
+      "https://www.rapid7.com/blog/post/2013/03/11/cve-2013-0108-honeywell-ebi"
+    ],
+    [
+      "URL",
+      "http://ics-cert.us-cert.gov/pdf/ICSA-13-053-02.pdf"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC"
+  ],
+  "DefaultOptions": {
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

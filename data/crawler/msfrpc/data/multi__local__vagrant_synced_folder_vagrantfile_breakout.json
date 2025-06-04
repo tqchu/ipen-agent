@@ -1,0 +1,92 @@
+{
+  "Name": "Vagrant Synced Folder Vagrantfile Breakout",
+  "Description": "This module exploits a default Vagrant synced folder (shared folder) to append a Ruby payload to the Vagrant project Vagrantfile config file. By default, unless a Vagrant project explicitly disables shared folders, Vagrant mounts the project directory on the host as a writable 'vagrant' directory on the guest virtual machine. This directory includes the project Vagrantfile configuration file. Ruby code within the Vagrantfile is loaded and executed when a user runs any vagrant command from the project directory on the host, leading to execution of Ruby code on the host.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/local/vagrant_synced_folder_vagrantfile_breakout.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "HashiCorp",
+    "bcoles <bcoles@gmail.com>"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://www.vagrantup.com/docs/synced-folders"
+    ],
+    [
+      "URL",
+      "https://www.virtualbox.org/manual/ch04.html#sharedfolders"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Ruby"
+  ],
+  "Arch": [
+    "x86",
+    "x86_64",
+    "x64",
+    "mips",
+    "mipsle",
+    "mipsbe",
+    "mips64",
+    "mips64le",
+    "ppc",
+    "ppce500v2",
+    "ppc64",
+    "ppc64le",
+    "cbea",
+    "cbea64",
+    "sparc",
+    "sparc64",
+    "armle",
+    "armbe",
+    "aarch64",
+    "cmd",
+    "php",
+    "tty",
+    "java",
+    "ruby",
+    "dalvik",
+    "python",
+    "nodejs",
+    "firefox",
+    "zarch",
+    "r",
+    "riscv32be",
+    "riscv32le",
+    "riscv64be",
+    "riscv64le",
+    "loongarch64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Ruby Code"
+    ],
+    [
+      1,
+      "Unix Command"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "VAGRANTFILE_PATH",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

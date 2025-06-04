@@ -1,0 +1,115 @@
+{
+  "Name": "Cisco RV340 SSL VPN Unauthenticated Remote Code Execution",
+  "Description": "This module exploits a stack buffer overflow in the Cisco RV series routers SSL VPN functionality. The default SSL VPN configuration is exploitable, with no authentication required and works over the Internet! The stack is executable and no ASLR is in place, which makes exploitation easier. Successful execution of this module results in a reverse root shell. A custom payload is used as Metasploit does not have ARMLE null free shellcode. This vulnerability was presented by the Flashback Team in Pwn2Own Austin 2021 and OffensiveCon 2022. For more information check the referenced advisory. This module has been tested in firmware versions 1.0.03.15 and above and works with around 65% reliability. The service restarts automatically so you can keep trying until you pwn it. Only the RV340 router was tested, but other RV series routers should work out of the box.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/misc/cisco_rv340_sslvpn.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "Pedro Ribeiro <pedrib@gmail.com>",
+    "Radek Domanski <radek.domanski@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2022-20699"
+    ],
+    [
+      "URL",
+      "https://www.youtube.com/watch?v=O1uK_b1Tmts"
+    ],
+    [
+      "URL",
+      "https://github.com/pedrib/PoC/blob/master/advisories/Pwn2Own/Austin_2021/flashback_connects/flashback_connects.md"
+    ],
+    [
+      "URL",
+      "https://github.com/rdomanski/Exploits_and_Advisories/blob/master/advisories/Pwn2Own/Austin2021/flashback_connects/flashback_connects.md"
+    ],
+    [
+      "URL",
+      "https://www.cisco.com/c/en/us/support/docs/csa/cisco-sa-smb-mult-vuln-KA9PK6D.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "armle"
+  ],
+  "Targets": [
+    [
+      0,
+      "Cisco RV340 Firmware Version <= 1.0.03.24"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "VHOST",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "linux/armle/shell_reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

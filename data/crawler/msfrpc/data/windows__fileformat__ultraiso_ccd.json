@@ -1,0 +1,64 @@
+{
+  "Name": "UltraISO CCD File Parsing Buffer Overflow",
+  "Description": "This module exploits a stack-based buffer overflow in EZB Systems, Inc's UltraISO. When processing .CCD files, data is read from file into a fixed-size stack buffer. Since no bounds checking is done, a buffer overflow can occur. Attackers can execute arbitrary code by convincing their victim to open an CCD file. NOTE: A file with the same base name, but the extension of \"img\" must also exist. Opening either file will trigger the vulnerability, but the files must both exist.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/ultraiso_ccd.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2009-1260"
+    ],
+    [
+      "OSVDB",
+      "53275"
+    ],
+    [
+      "BID",
+      "34363"
+    ],
+    [
+      "BID",
+      "38613"
+    ],
+    [
+      "EDB",
+      "8343"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows Universal - Double-Click/Command Line Open Method"
+    ],
+    [
+      1,
+      "Windows Universal - File->Open + Toolbar Open Methods"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,56 @@
+{
+  "Name": "Fat Player Media Player 0.6b0 Buffer Overflow",
+  "Description": "This module exploits a buffer overflow in Fat Player 0.6b. When the application is used to import a specially crafted wav file, a buffer overflow occurs allowing arbitrary code execution.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/fatplayer_wav.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "James Fitts <fitts.james@gmail.com>",
+    "dookie"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2009-4962"
+    ],
+    [
+      "OSVDB",
+      "57343"
+    ],
+    [
+      "EDB",
+      "15279"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "seh",
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,58 @@
+{
+  "Name": "Windows NTUserMessageCall Win32k Kernel Pool Overflow (Schlamperei)",
+  "Description": "This module leverages a kernel pool overflow in Win32k which allows local privilege escalation. The kernel shellcode nulls the ACL for the winlogon.exe process (a SYSTEM process). This allows any unprivileged process to freely migrate to winlogon.exe, achieving privilege escalation. This exploit was used in pwn2own 2013 by MWR to break out of chrome's sandbox. NOTE: when a meterpreter session started by this exploit exits, winlogin.exe is likely to crash.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/ms13_053_schlamperei.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "Nils",
+    "Jon",
+    "Donato Capitella <donato.capitella@mwrinfosecurity.com>",
+    "Ben Campbell <ben.campbell@mwrinfosecurity.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-1300"
+    ],
+    [
+      "MSB",
+      "MS13-053"
+    ],
+    [
+      "URL",
+      "https://labs.mwrinfosecurity.com/blog/2013/09/06/mwr-labs-pwn2own-2013-write-up---kernel-exploit/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows 7 SP0/SP1"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

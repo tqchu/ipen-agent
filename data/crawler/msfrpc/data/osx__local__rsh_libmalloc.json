@@ -1,0 +1,70 @@
+{
+  "Name": "Mac OS X 10.9.5 / 10.10.5 - rsh/libmalloc Privilege Escalation",
+  "Description": "This module writes to the sudoers file without root access by exploiting rsh and malloc log files. Makes sudo require no password, giving access to su even if root is disabled. Works on OS X 10.9.5 to 10.10.5 (patched on 10.11).",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/osx/local/rsh_libmalloc.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "rebel",
+    "shandelman116"
+  ],
+  "References": [
+    [
+      "EDB",
+      "38371"
+    ],
+    [
+      "CVE",
+      "2015-5889"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::OSX",
+    "Msf::Module::Platform::Python"
+  ],
+  "Arch": [
+    "x64",
+    "python"
+  ],
+  "Targets": [
+    [
+      0,
+      "Mac OS X 10.9.5-10.10.5"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "WaitTime",
+    "WritableDir"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "osx/x64/shell_reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

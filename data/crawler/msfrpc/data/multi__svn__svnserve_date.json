@@ -1,0 +1,83 @@
+{
+  "Name": "Subversion Date Svnserve",
+  "Description": "This is an exploit for the Subversion date parsing overflow. This exploit is for the svnserve daemon (svn:// protocol) and will not work for Subversion over webdav (http[s]://). This exploit should never crash the daemon, and should be safe to do multi-hits. **WARNING** This exploit seems to (not very often, I've only seen it during testing) corrupt the subversion database, so be careful!",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/svn/svnserve_date.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "spoonm <spoonm@no$email.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2004-0397"
+    ],
+    [
+      "OSVDB",
+      "6301"
+    ],
+    [
+      "BID",
+      "10386"
+    ],
+    [
+      "URL",
+      "http://lists.netsys.com/pipermail/full-disclosure/2004-May/021737.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::BSD",
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "Linux Bruteforce"
+    ],
+    [
+      2,
+      "FreeBSD Bruteforce"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "BruteWait",
+    "BruteStep",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URL",
+    "RetLength",
+    "IgnoreErrors"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

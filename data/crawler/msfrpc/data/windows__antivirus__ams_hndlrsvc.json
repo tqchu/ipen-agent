@@ -1,0 +1,81 @@
+{
+  "Name": "Symantec System Center Alert Management System (hndlrsvc.exe) Arbitrary Command Execution",
+  "Description": "Symantec System Center Alert Management System is prone to a remote command-injection vulnerability because the application fails to properly sanitize user-supplied input. This is part of Symantec AntiVirus Corporate Edition 8.0 - 10.1.7.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/antivirus/ams_hndlrsvc.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "MC <mc@metasploit.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "66807"
+    ],
+    [
+      "BID",
+      "41959"
+    ],
+    [
+      "CVE",
+      "2010-0111"
+    ],
+    [
+      "URL",
+      "http://www.foofus.net/~spider/code/AMS2_072610.txt"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "CMD",
+    "LHOST"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

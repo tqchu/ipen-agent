@@ -1,0 +1,63 @@
+{
+  "Name": "Code Reviewer",
+  "Description": "Reviews code",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/fileformat/visual_studio_vsix_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "h00die"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://medium.com/@VakninHai/the-hidden-risks-of-visual-studio-extensions-a-new-avenue-for-persistence-attacks-e56722c048f1"
+    ],
+    [
+      "URL",
+      "https://code.visualstudio.com/api/get-started/your-first-extension"
+    ],
+    [
+      "URL",
+      "https://code.visualstudio.com/api/references/activation-events"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::NodeJS"
+  ],
+  "Arch": [
+    "nodejs"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "NAME",
+    "DESCRIPTION",
+    "VERSION",
+    "README"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread",
+    "DisablePayloadHandler": false,
+    "FILENAME": "extension.vsix",
+    "WfsDelay": 3600,
+    "payload": "nodejs/shell_reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

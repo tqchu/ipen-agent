@@ -1,0 +1,96 @@
+{
+  "Name": "Local Privilege Escalation in polkits pkexec",
+  "Description": "A bug exists in the polkit pkexec binary in how it processes arguments. If the binary is provided with no arguments, it will continue to process environment variables as argument variables, but without any security checking. By using the execve call we can specify a null argument list and populate the proper environment variables. This exploit is architecture independent.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/cve_2021_4034_pwnkit_lpe_pkexec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Qualys Security",
+    "Andris Raugulis",
+    "Dhiraj Mishra",
+    "bwatters-r7"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2021-4034"
+    ],
+    [
+      "URL",
+      "https://www.whitesourcesoftware.com/resources/blog/polkit-pkexec-vulnerability-cve-2021-4034/"
+    ],
+    [
+      "URL",
+      "https://www.qualys.com/2022/01/25/cve-2021-4034/pwnkit.txt"
+    ],
+    [
+      "URL",
+      "https://github.com/arthepsy/CVE-2021-4034"
+    ],
+    [
+      "URL",
+      "https://www.ramanean.com/script-to-detect-polkit-vulnerability-in-redhat-linux-systems-pwnkit/"
+    ],
+    [
+      "URL",
+      "https://github.com/cyberark/PwnKit-Hunter/blob/main/CVE-2021-4034_Finder.py"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "x86_64"
+    ],
+    [
+      1,
+      "x86"
+    ],
+    [
+      2,
+      "aarch64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "WRITABLE_DIR",
+    "PKEXEC_PATH",
+    "FinalDir",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "PrependSetgid": true,
+    "PrependSetuid": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

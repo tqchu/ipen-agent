@@ -1,0 +1,50 @@
+{
+  "Name": "Razer Synapse rzpnk.sys ZwOpenProcess",
+  "Description": "A vulnerability exists in the latest version of Razer Synapse (v2.20.15.1104 as of the day of disclosure) which can be leveraged locally by a malicious application to elevate its privileges to those of NT_AUTHORITY\\SYSTEM. The vulnerability lies in a specific IOCTL handler in the rzpnk.sys driver that passes a PID specified by the user to ZwOpenProcess. This can be issued by an application to open a handle to an arbitrary process with the necessary privileges to allocate, read and write memory in the specified process. This exploit leverages this vulnerability to open a handle to the winlogon process (which runs as NT_AUTHORITY\\SYSTEM) and infect it by installing a hook to execute attacker controlled shellcode. This hook is then triggered on demand by calling user32!LockWorkStation(), resulting in the attacker's payload being executed with the privileges of the infected winlogon process. In order for the issued IOCTL to work, the RazerIngameEngine.exe process must not be running. This exploit will check if it is, and attempt to kill it as necessary. The vulnerable software can be found here: https://www.razerzone.com/synapse/. No Razer hardware needs to be connected in order to leverage this vulnerability. This exploit is not opsec-safe due to the user being logged out as part of the exploitation process.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/razer_zwopenprocess.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Spencer McIntyre"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2017-9769"
+    ],
+    [
+      "URL",
+      "https://warroom.securestate.com/cve-2017-9769/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows x64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread",
+    "WfsDelay": 20
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

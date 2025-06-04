@@ -1,0 +1,106 @@
+{
+  "Name": "Docker cgroups Container Escape",
+  "Description": "This exploit module takes advantage of a Docker image which has either the privileged flag, or SYS_ADMIN Linux capability. If the host kernel is vulnerable, its possible to escape the Docker image and achieve root on the host operating system. A vulnerability was found in the Linux kernel's cgroup_release_agent_write in the kernel/cgroup/cgroup-v1.c function. This flaw, under certain circumstances, allows the use of the cgroups v1 release_agent feature to escalate privileges and bypass the namespace isolation unexpectedly. More simply put, cgroups v1 has a feature called release_agent that runs a program when a process in the cgroup terminates. If notify_on_release is enabled, the kernel runs the release_agent binary as root. By editing the release_agent file, an attacker can execute their own binary with elevated privileges, taking control of the system. However, the release_agent file is owned by root, so only a user with root access can modify it.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/docker_cgroup_escape.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "h00die",
+    "Yiqi Sun",
+    "Kevin Wang",
+    "T1erno"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=24f6008564183aa120d07c03d9289519c2fe02af"
+    ],
+    [
+      "URL",
+      "https://blog.trailofbits.com/2019/07/19/understanding-docker-container-escapes/"
+    ],
+    [
+      "URL",
+      "https://github.com/T1erno/CVE-2022-0492-Docker-Breakout-Checker-and-PoC"
+    ],
+    [
+      "URL",
+      "https://github.com/PaloAltoNetworks/can-ctr-escape-cve-2022-0492"
+    ],
+    [
+      "URL",
+      "https://github.com/SofianeHamlaoui/CVE-2022-0492-Checker/blob/main/escape-check.sh"
+    ],
+    [
+      "URL",
+      "https://pwning.systems/posts/escaping-containers-for-fun/"
+    ],
+    [
+      "URL",
+      "https://ajxchapman.github.io/containers/2020/11/19/privileged-container-escape.html"
+    ],
+    [
+      "URL",
+      "https://book.hacktricks.xyz/linux-hardening/privilege-escalation/docker-security/docker-breakout-privilege-escalation"
+    ],
+    [
+      "URL",
+      "https://unit42.paloaltonetworks.com/cve-2022-0492-cgroups/"
+    ],
+    [
+      "CVE",
+      "2022-0492"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "BINARY"
+    ],
+    [
+      1,
+      "CMD"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "WritableDir",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "linux/x64/meterpreter/reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,66 @@
+{
+  "Name": "Intrasrv 1.0 Buffer Overflow",
+  "Description": "This module exploits a boundary condition error in Intrasrv Simple Web Server 1.0. The web interface does not validate the boundaries of an HTTP request string prior to copying the data to an insufficiently sized buffer. Successful exploitation leads to arbitrary remote code execution in the context of the application.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/http/intrasrv_bof.rb",
+  "Version": "",
+  "Rank": "manual",
+  "Authors": [
+    "xis_one",
+    "PsychoSpy <neinwechter@gmail.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "94097"
+    ],
+    [
+      "EDB",
+      "18397"
+    ],
+    [
+      "BID",
+      "60229"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "v1.0 - XP / Win7"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

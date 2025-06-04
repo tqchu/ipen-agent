@@ -1,0 +1,73 @@
+{
+  "Name": "HPLIP hpssd.py From Address Arbitrary Command Execution",
+  "Description": "This module exploits a command execution vulnerable in the hpssd.py daemon of the Hewlett-Packard Linux Imaging and Printing Project. According to MITRE, versions 1.x and 2.x before 2.7.10 are vulnerable. This module was written and tested using the Fedora 6 Linux distribution. On the test system, the daemon listens on localhost only and runs with root privileges. Although the configuration shows the daemon is to listen on port 2207, it actually listens on a dynamic port. NOTE: If the target system does not have a 'sendmail' command installed, this vulnerability cannot be exploited.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/misc/hplip_hpssd_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2007-5208"
+    ],
+    [
+      "OSVDB",
+      "41693"
+    ],
+    [
+      "BID",
+      "26054"
+    ],
+    [
+      "URL",
+      "https://bugzilla.redhat.com/show_bug.cgi?id=319921"
+    ],
+    [
+      "URL",
+      "https://bugzilla.redhat.com/attachment.cgi?id=217201&action=edit"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic (hplip-1.6.7-4.i386.rpm)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

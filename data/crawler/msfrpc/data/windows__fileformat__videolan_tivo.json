@@ -1,0 +1,57 @@
+{
+  "Name": "VideoLAN VLC TiVo Buffer Overflow",
+  "Description": "This module exploits a buffer overflow in VideoLAN VLC 0.9.4. By creating a malicious TY file, a remote attacker could overflow a buffer and execute arbitrary code.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/videolan_tivo.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "MC <mc@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2008-4654"
+    ],
+    [
+      "OSVDB",
+      "49181"
+    ],
+    [
+      "BID",
+      "31813"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "VideoLAN VLC 0.9.4 (XP SP3 English)"
+    ],
+    [
+      1,
+      "VideoLAN VLC 0.9.2 (XP SP3 English)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

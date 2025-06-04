@@ -1,0 +1,67 @@
+{
+  "Name": "Mac OS X mDNSResponder UPnP Location Overflow",
+  "Description": "This module exploits a buffer overflow that occurs when processing specially crafted requests set to mDNSResponder. All Mac OS X systems between version 10.4 and 10.4.9 (without the 2007-005 patch) are affected.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/osx/mdns/upnp_location.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "ddz <ddz@theta44.org>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "35142"
+    ],
+    [
+      "CVE",
+      "2007-2386"
+    ],
+    [
+      "BID",
+      "24144"
+    ],
+    [
+      "URL",
+      "http://support.apple.com/kb/TA24732"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::OSX"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "10.4.8 x86"
+    ],
+    [
+      1,
+      "10.4.0 PPC"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "CPORT",
+    "CHOST",
+    "LHOST",
+    "SRVPORT"
+  ],
+  "DefaultOptions": {
+    "SRVPORT": 1900,
+    "RPORT": 0
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

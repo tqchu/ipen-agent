@@ -1,0 +1,62 @@
+{
+  "Name": "Microsoft Windows SMB Direct Session Takeover",
+  "Description": "This module will intercept direct SMB authentication requests to another host, gaining access to an authenticated SMB session if successful. If the connecting user is an administrator and network logins are allowed to the target machine, this module will execute an arbitrary payload. To exploit this, the target system must try to autheticate to another host on the local area network. SMB Direct Session takeover is a combination of previous attacks. This module is dependent on an external ARP spoofer. The builtin ARP spoofer was not providing sufficient host discovery. Bettercap v1.6.2 was used during the development of this module. The original SMB relay attack was first reported by Sir Dystic on March 31st, 2001 at @lanta.con in Atlanta, Georgia.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/smb/smb_shadow.rb",
+  "Version": "",
+  "Rank": "manual",
+  "Authors": [
+    "usiegl00"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://strontium.io/blog/introducing-windows-10-smb-shadow-attack"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "INTERFACE",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "SHARE",
+    "DefangedMode",
+    "DisableFwd",
+    "ConfirmServerDialect"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

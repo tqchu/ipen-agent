@@ -1,0 +1,66 @@
+{
+  "Name": "TrendMicro Control Manger CmdProcessor.exe Stack Buffer Overflow",
+  "Description": "This module exploits a vulnerability in the CmdProcessor.exe component of Trend Micro Control Manger up to version 5.5. The specific flaw exists within CmdProcessor.exe service running on TCP port 20101. The vulnerable function is the CGenericScheduler::AddTask function of cmdHandlerRedAlertController.dll. When processing a specially crafted IPC packet, controlled data is copied into a 256-byte stack buffer. This can be exploited to execute remote code under the context of the user.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/trendmicro_cmdprocessor_addtask.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "Luigi Auriemma",
+    "Blue"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2011-5001"
+    ],
+    [
+      "OSVDB",
+      "77585"
+    ],
+    [
+      "ZDI",
+      "11-345"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows 2003 Server SP2 (DEP Bypass)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

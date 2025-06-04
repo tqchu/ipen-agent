@@ -1,0 +1,107 @@
+{
+  "Name": "F5 BIG-IP iControl CSRF File Write SOAP API",
+  "Description": "This module exploits a cross-site request forgery (CSRF) vulnerability in F5 Big-IP's iControl interface to write an arbitrary file to the filesystem. While any file can be written to any location as root, the exploitability is limited by SELinux; the vast majority of writable locations are unavailable. By default, we write to a script that executes at reboot, which means the payload will execute the next time the server boots. An alternate target - Login - will add a backdoor that executes next time a user logs in interactively. This overwrites a file, but we restore it when we get a session Note that because this is a CSRF vulnerability, it starts a web server, but an authenticated administrator must visit the site, which redirects them to the target.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/http/f5_icontrol_soap_csrf_rce_cve_2022_41622.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Ron Bowes"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2022-41622"
+    ],
+    [
+      "URL",
+      "https://github.com/rbowes-r7/refreshing-soap-exploit"
+    ],
+    [
+      "URL",
+      "https://www.rapid7.com/blog/post/2022/11/16/cve-2022-41622-and-cve-2022-41800-fixed-f5-big-ip-and-icontrol-rest-vulnerabilities-and-exposures/"
+    ],
+    [
+      "URL",
+      "https://support.f5.com/csp/article/K97843387"
+    ],
+    [
+      "URL",
+      "https://support.f5.com/csp/article/K94221585"
+    ],
+    [
+      "URL",
+      "https://support.f5.com/csp/article/K05403841"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Restart"
+    ],
+    [
+      1,
+      "Login"
+    ],
+    [
+      2,
+      "Custom"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "TARGET_HOST",
+    "TARGET_URI",
+    "TARGET_SSL",
+    "FILENAME"
+  ],
+  "DefaultOptions": {
+    "RPORT": 443,
+    "SSL": true,
+    "Payload": "cmd/unix/python/meterpreter/reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

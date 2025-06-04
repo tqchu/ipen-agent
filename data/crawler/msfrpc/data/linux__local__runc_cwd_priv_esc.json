@@ -1,0 +1,88 @@
+{
+  "Name": "runc (docker) File Descriptor Leak Privilege Escalation",
+  "Description": "All versions of runc <=1.1.11, as used by containerization technologies such as Docker engine, and Kubernetes are vulnerable to an arbitrary file write. Due to a file descriptor leak it is possible to mount the host file system with the permissions of runc (typically root). Successfully tested on Ubuntu 22.04 with runc 1.1.7-0ubuntu1~22.04.1 and runc 1.1.11 using Docker build. Successfully tested on Debian 12.4.0 with runc 1.1.11 using Docker build. Successfully tested on Arch Linux 12/1/2024 with runc 1.1.10-1 using Docker build.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/runc_cwd_priv_esc.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "h00die",
+    "SickMcNugget",
+    "jheysel-r7",
+    "Rory McNamara"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://snyk.io/blog/cve-2024-21626-runc-process-cwd-container-breakout/"
+    ],
+    [
+      "URL",
+      "https://github.com/opencontainers/runc/security/advisories/GHSA-xr7r-f8xq-vfvv"
+    ],
+    [
+      "URL",
+      "https://security-tracker.debian.org/tracker/CVE-2024-21626"
+    ],
+    [
+      "URL",
+      "https://ubuntu.com/security/CVE-2024-21626"
+    ],
+    [
+      "CVE",
+      "2024-21626"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Auto"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "WritableDir",
+    "DOCKERIMAGE",
+    "FILEDESCRIPTOR",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread",
+    "PAYLOAD": "linux/x64/meterpreter/reverse_tcp",
+    "MeterpreterTryToFork": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,100 @@
+{
+  "Name": "MS10-018 Microsoft Internet Explorer DHTML Behaviors Use After Free",
+  "Description": "This module exploits a use-after-free vulnerability within the DHTML behaviors functionality of Microsoft Internet Explorer versions 6 and 7. This bug was discovered being used in-the-wild and was previously known as the \"iepeers\" vulnerability. The name comes from Microsoft's suggested workaround to block access to the iepeers.dll file. According to Nico Waisman, \"The bug itself is when trying to persist an object using the setAttribute, which end up calling VariantChangeTypeEx with both the source and the destination being the same variant. So if you send as a variant an IDISPATCH the algorithm will try to do a VariantClear of the destination before using it. This will end up on a call to PlainRelease which deref the reference and clean the object.\" NOTE: Internet Explorer 8 and Internet Explorer 5 are not affected.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/ms10_018_ie_behaviors.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "unknown",
+    "Trancer <mtrancer@gmail.com>",
+    "Nanika",
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2010-0806"
+    ],
+    [
+      "OSVDB",
+      "62810"
+    ],
+    [
+      "BID",
+      "38615"
+    ],
+    [
+      "URL",
+      "https://web.archive.org/web/20100929225343/http://www.avertlabs.com/research/blog/index.php/2010/03/09/targeted-internet-explorer-0day-attack-announced-cve-2010-0806/"
+    ],
+    [
+      "URL",
+      "https://web.archive.org/web/20120627174253/http://eticanicomana.blogspot.com/2010/03/aleatory-persitent-threat.html"
+    ],
+    [
+      "MSB",
+      "MS10-018"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "(Automatic) IE6, IE7 on Windows NT, 2000, XP, 2003 and Vista"
+    ],
+    [
+      1,
+      "IE 6 SP0-SP2 (onclick)"
+    ],
+    [
+      2,
+      "IE 7.0 (marquee)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,70 @@
+{
+  "Name": "Vermillion FTP Daemon PORT Command Memory Corruption",
+  "Description": "This module exploits an out-of-bounds array access in the Arcane Software Vermillion FTP server. By sending a specially crafted FTP PORT command, an attacker can corrupt stack memory and execute arbitrary code. This particular issue is caused by processing data bound by attacker controlled input while writing into a 4 byte stack buffer. Unfortunately, the writing that occurs is not a simple byte copy. Processing is done using a source ptr (p) and a destination pointer (q). The vulnerable function walks the input string and continues while the source byte is non-null. If a comma is encountered, the function increments the destination pointer. If an ascii digit [0-9] is encountered, the following occurs: *q = (*q * 10) + (*p - '0'); All other input characters are ignored in this loop. As a consequence, an attacker must craft input such that modifications to the current values on the stack result in usable values. In this exploit, the low two bytes of the return address are adjusted to point at the location of a 'call edi' instruction within the binary. This was chosen since 'edi' points at the source buffer when the function returns. NOTE: This server can be installed as a service using \"vftpd.exe install\". If so, the service does not restart automatically, giving an attacker only one attempt.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/ftp/vermillion_ftpd_port.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "62163"
+    ],
+    [
+      "EDB",
+      "11293"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic Targeting"
+    ],
+    [
+      1,
+      "vftpd 1.31 - Windows XP SP3 English"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "FTPUSER",
+    "FTPPASS",
+    "FTPTimeout",
+    "FTPDEBUG",
+    "PassiveMode"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,168 @@
+{
+  "Name": "Microsoft Windows Authenticated User Code Execution",
+  "Description": "This module uses a valid administrator username and password (or password hash) to execute an arbitrary payload. This module is similar to the \"psexec\" utility provided by SysInternals. This module is now able to clean up after itself. The service created by this tool uses a randomly chosen name and description.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/smb/psexec.rb",
+  "Version": "",
+  "Rank": "manual",
+  "Authors": [
+    "hdm <x@hdm.io>",
+    "Royce Davis <rdavis@accuvant.com>",
+    "RageLtMan <rageltman@sempervictus>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "1999-0504"
+    ],
+    [
+      "OSVDB",
+      "3106"
+    ],
+    [
+      "URL",
+      "http://technet.microsoft.com/en-us/sysinternals/bb897553.aspx"
+    ],
+    [
+      "URL",
+      "https://www.optiv.com/blog/owning-computers-without-shell-access"
+    ],
+    [
+      "URL",
+      "http://sourceforge.net/projects/smbexec/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "PowerShell"
+    ],
+    [
+      2,
+      "Native upload"
+    ],
+    [
+      3,
+      "MOF upload"
+    ],
+    [
+      4,
+      "Command"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "DCERPC::max_frag_size",
+    "DCERPC::fake_bind_multi",
+    "DCERPC::fake_bind_multi_prepend",
+    "DCERPC::fake_bind_multi_append",
+    "DCERPC::smb_pipeio",
+    "DCERPC::ReadTimeout",
+    "NTLM::UseNTLMv2",
+    "NTLM::UseNTLM2_session",
+    "NTLM::SendLM",
+    "NTLM::UseLMKey",
+    "NTLM::SendNTLM",
+    "NTLM::SendSPN",
+    "SMB::pipe_evasion",
+    "SMB::pipe_write_min_size",
+    "SMB::pipe_write_max_size",
+    "SMB::pipe_read_min_size",
+    "SMB::pipe_read_max_size",
+    "SMB::pad_data_level",
+    "SMB::pad_file_level",
+    "SMB::obscure_trans_pipe_level",
+    "SMBDirect",
+    "SMBUser",
+    "SMBPass",
+    "SMBDomain",
+    "SMBName",
+    "SMB::VerifySignature",
+    "SMB::ChunkSize",
+    "SMB::Native_OS",
+    "SMB::Native_LM",
+    "SMB::ProtocolVersion",
+    "SMB::AlwaysEncrypt",
+    "KrbCacheMode",
+    "SMB::Auth",
+    "SMB::Rhostname",
+    "DomainControllerRhost",
+    "SMB::Krb5Ccname",
+    "SMB::KrbOfferedEncryptionTypes",
+    "SERVICE_NAME",
+    "SERVICE_DISPLAY_NAME",
+    "SERVICE_DESCRIPTION",
+    "SERVICE_PERSIST",
+    "CMD::DELAY",
+    "Powershell::persist",
+    "Powershell::prepend_sleep",
+    "Powershell::prepend_protections_bypass",
+    "Powershell::strip_comments",
+    "Powershell::strip_whitespace",
+    "Powershell::sub_vars",
+    "Powershell::sub_funcs",
+    "Powershell::exec_in_place",
+    "Powershell::exec_rc4",
+    "Powershell::remove_comspec",
+    "Powershell::noninteractive",
+    "Powershell::encode_final_payload",
+    "Powershell::encode_inner_payload",
+    "Powershell::wrap_double_quotes",
+    "Powershell::no_equals",
+    "Powershell::method",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "SESSION",
+    "SMBSHARE",
+    "ALLOW_GUEST",
+    "SERVICE_FILENAME",
+    "PSH_PATH",
+    "SERVICE_STUB_ENCODER"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 10,
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

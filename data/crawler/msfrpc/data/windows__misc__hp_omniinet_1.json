@@ -1,0 +1,88 @@
+{
+  "Name": "HP OmniInet.exe MSG_PROTOCOL Buffer Overflow",
+  "Description": "This module exploits a stack-based buffer overflow in the Hewlett-Packard OmniInet NT Service. By sending a specially crafted MSG_PROTOCOL (0x010b) packet, a remote attacker may be able to execute arbitrary code with elevated privileges. This service is installed with HP OpenView Data Protector, HP Application Recovery Manager and potentially other products. This exploit has been tested against versions 6.1, 6.0, and 5.50 of Data Protector. and versions 6.0 and 6.1 of Application Recovery Manager. NOTE: There are actually two consecutive wcscpy() calls in the program (which may be why ZDI considered them two separate issues). However, this module only exploits the first one.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/hp_omniinet_1.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "EgiX <n0b0d13s@gmail.com>",
+    "Fairuzan Roslan <riaf@mysec.org>",
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2007-2280"
+    ],
+    [
+      "BID",
+      "37396"
+    ],
+    [
+      "OSVDB",
+      "61206"
+    ],
+    [
+      "ZDI",
+      "09-099"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic Targeting"
+    ],
+    [
+      1,
+      "HP OpenView Storage Data Protector A.05.50: INET, internal build 330"
+    ],
+    [
+      2,
+      "HP OpenView Storage Data Protector A.06.00: INET, internal build 331"
+    ],
+    [
+      3,
+      "HP StorageWorks Application Recovery Manager A.06.00: INET, internal build 81"
+    ],
+    [
+      4,
+      "HP Application Recovery Manager software A.06.10: INET, internal build 282"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "seh"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

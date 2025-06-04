@@ -1,0 +1,80 @@
+{
+  "Name": "RARLAB WinRAR ACE Format Input Validation Remote Code Execution",
+  "Description": "In WinRAR versions prior to and including 5.61, there is path traversal vulnerability when crafting the filename field of the ACE format (in UNACEV2.dll). When the filename field is manipulated with specific patterns, the destination (extraction) folder is ignored, thus treating the filename as an absolute path. This module will attempt to extract a payload to the startup folder of the current user. It is limited such that we can only go back one folder. Therefore, for this exploit to work properly, the user must extract the supplied RAR file from one folder within the user profile folder (e.g. Desktop or Downloads). User restart is required to gain a shell.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/winrar_ace.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Nadav Grossman",
+    "Imran E. Dawoodjee <imrandawoodjee.infosec@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2018-20250"
+    ],
+    [
+      "EDB",
+      "46552"
+    ],
+    [
+      "BID",
+      "106948"
+    ],
+    [
+      "URL",
+      "https://research.checkpoint.com/extracting-code-execution-from-winrar/"
+    ],
+    [
+      "URL",
+      "https://apidoc.roe.ch/acefile/latest/"
+    ],
+    [
+      "URL",
+      "http://www.hugi.scene.org/online/coding/hugi%2012%20-%20coace.htm"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "RARLAB WinRAR <= 5.61"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "CUSTFILE",
+    "FILE_LIST"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "windows/meterpreter/reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

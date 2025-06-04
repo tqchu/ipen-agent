@@ -1,0 +1,80 @@
+{
+  "Name": "AOL Instant Messenger goaway Overflow",
+  "Description": "This module exploits a flaw in the handling of AOL Instant Messenger's 'goaway' URI handler. An attacker can execute arbitrary code by supplying an overly sized buffer as the 'message' parameter. This issue is known to affect AOL Instant Messenger 5.5.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/aim_goaway.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "skape <mmiller@hick.org>",
+    "thief <thief@hick.org>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2004-0636"
+    ],
+    [
+      "OSVDB",
+      "8398"
+    ],
+    [
+      "BID",
+      "10889"
+    ],
+    [
+      "URL",
+      "http://www.idefense.com/application/poi/display?id=121&type=vulnerabilities"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows NT/2000/XP/2003 Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "DynamicSehRecord",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

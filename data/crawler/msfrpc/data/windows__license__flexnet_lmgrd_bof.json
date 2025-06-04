@@ -1,0 +1,92 @@
+{
+  "Name": "FlexNet License Server Manager lmgrd Buffer Overflow",
+  "Description": "This module exploits a vulnerability in the FlexNet License Server Manager. The vulnerability is due to the insecure usage of memcpy in the lmgrd service when handling network packets, which results in a stack buffer overflow. In order to improve reliability, this module will make lots of connections to lmgrd during each attempt to maximize its success.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/license/flexnet_lmgrd_bof.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Luigi Auriemma",
+    "Alexander Gavrun",
+    "juan vazquez <juan.vazquez@metasploit.com>",
+    "sinn3r <sinn3r@metasploit.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "81899"
+    ],
+    [
+      "BID",
+      "52718"
+    ],
+    [
+      "ZDI",
+      "12-052"
+    ],
+    [
+      "URL",
+      "http://aluigi.altervista.org/adv/lmgrd_1-adv.txt"
+    ],
+    [
+      "URL",
+      "http://www.flexerasoftware.com/pl/13057.htm"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Debug"
+    ],
+    [
+      1,
+      "Autodesk Licensing Server Tools 11.5 / lmgrd 11.5.0.0 / Windows XP SP3"
+    ],
+    [
+      2,
+      "Alias License Tools 10.8.0.7 / lmgrd 10.8.0.7 / Windows XP SP3"
+    ],
+    [
+      3,
+      "Alias License Tools 10.8 / lmgrd 10.8.0.2 / Windows XP SP3"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "DynamicSehRecord",
+    "Attempts",
+    "Wait",
+    "Jam"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

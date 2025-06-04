@@ -1,0 +1,57 @@
+{
+  "Name": "Corel PDF Fusion Stack Buffer Overflow",
+  "Description": "This module exploits a stack-based buffer overflow vulnerability in version 1.11 of Corel PDF Fusion. The vulnerability exists while handling a XPS file with long entry names. In order for the payload to be executed, an attacker must convince the target user to open a specially crafted XPS file with Corel PDF Fusion. By doing so, the attacker can execute arbitrary code as the target user.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/corelpdf_fusion_bof.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Kaveh Ghaemmaghami",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-3248"
+    ],
+    [
+      "OSVDB",
+      "94933"
+    ],
+    [
+      "BID",
+      "61010"
+    ],
+    [
+      "URL",
+      "http://web.archive.org/web/20130720043800/http://secunia.com:80/advisories/52707/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Corel PDF Fusion 1.11 / Windows XP SP3"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

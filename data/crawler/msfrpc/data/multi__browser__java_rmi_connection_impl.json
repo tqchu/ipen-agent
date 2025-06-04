@@ -1,0 +1,76 @@
+{
+  "Name": "Java RMIConnectionImpl Deserialization Privilege Escalation",
+  "Description": "This module exploits a vulnerability in the Java Runtime Environment that allows to deserialize a MarshalledObject containing a custom classloader under a privileged context. The vulnerability affects version 6 prior to update 19 and version 5 prior to update 23.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/browser/java_rmi_connection_impl.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Sami Koivu",
+    "Matthias Kaiser",
+    "egypt <egypt@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2010-0094"
+    ],
+    [
+      "OSVDB",
+      "63484"
+    ],
+    [
+      "URL",
+      "http://slightlyrandombrokenthoughts.blogspot.com/2010/04/java-rmiconnectionimpl-deserialization.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Java"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Generic (Java Payload)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,91 @@
+{
+  "Name": "Firefox nsSVGValue Out-of-Bounds Access Vulnerability",
+  "Description": "This module exploits an out-of-bounds access flaw in Firefox 7 and 8 (<= 8.0.1). The notification of nsSVGValue observers via nsSVGValue::NotifyObservers(x,y) uses a loop which can result in an out-of-bounds access to attacker-controlled memory. The mObserver ElementAt() function (which picks up pointers), does not validate if a given index is out of bound. If a custom observer of nsSVGValue is created, which removes elements from the original observer, and memory layout is manipulated properly, the ElementAt() function might pick up an attacker provided pointer, which can be leveraged to gain remote arbitrary code execution.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/mozilla_nssvgvalue.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "regenrecht",
+    "Lincoln <lincoln@corelan.be>",
+    "corelanc0d3r <peter.ve@corelan.be>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2011-3658"
+    ],
+    [
+      "OSVDB",
+      "77953"
+    ],
+    [
+      "ZDI",
+      "12-056"
+    ],
+    [
+      "URL",
+      "https://bugzilla.mozilla.org/show_bug.cgi?id=708186"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "Windows XP - Firefox 7"
+    ],
+    [
+      2,
+      "Windows XP - Firefox 8 (<= 8.0.1)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

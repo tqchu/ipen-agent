@@ -1,0 +1,54 @@
+{
+  "Name": "PEAR Archive_Tar 1.4.10 Arbitrary File Write",
+  "Description": "This module takes advantages of Archive_Tar <= 1.4.10's lack of validation of file stream wrappers contained within filenames to write an arbitrary file containing user controlled content to an arbitrary file on disk. Note that the file will be written to disk with the permissions of the user that PHP is running as, so it may not be possible to overwrite some files if the PHP user is not appropriately privileged.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/fileformat/archive_tar_arb_file_write.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "gwillcox-r7",
+    "xorathustra"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://github.com/pear/Archive_Tar/issues/33"
+    ],
+    [
+      "CVE",
+      "2020-28949"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::PHP"
+  ],
+  "Arch": [
+    "php"
+  ],
+  "Targets": [
+    [
+      0,
+      "Archive_Tar <= 1.4.10"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "FILEPATH"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread",
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

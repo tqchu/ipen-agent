@@ -1,0 +1,86 @@
+{
+  "Name": "ImageMagick Delegate Arbitrary Command Execution",
+  "Description": "This module exploits a shell command injection in the way \"delegates\" (commands for converting files) are processed in ImageMagick versions <= 7.0.1-0 and <= 6.9.3-9 (legacy). Since ImageMagick uses file magic to detect file format, you can create a .png (for example) which is actually a crafted SVG (for example) that triggers the command injection. The PostScript (PS) target leverages a Ghostscript -dSAFER bypass (discovered by taviso) to achieve RCE in the Ghostscript delegate. Ghostscript versions 9.18 and later are affected. This target is provided as is and will not be updated to track additional vulns. If USE_POPEN is set to true, a |-prefixed command will be used for the exploit. No delegates are involved in this exploitation.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/unix/fileformat/imagemagick_delegate.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "stewie",
+    "Nikolay Ermishkin",
+    "Tavis Ormandy",
+    "wvu <wvu@metasploit.com>",
+    "hdm <x@hdm.io>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2016-3714"
+    ],
+    [
+      "CVE",
+      "2016-7976"
+    ],
+    [
+      "URL",
+      "https://imagetragick.com/"
+    ],
+    [
+      "URL",
+      "https://seclists.org/oss-sec/2016/q2/205"
+    ],
+    [
+      "URL",
+      "https://seclists.org/oss-sec/2016/q3/682"
+    ],
+    [
+      "URL",
+      "https://github.com/ImageMagick/ImageMagick/commit/06c41ab"
+    ],
+    [
+      "URL",
+      "https://github.com/ImageMagick/ImageMagick/commit/a347456"
+    ],
+    [
+      "URL",
+      "http://permalink.gmane.org/gmane.comp.security.oss.general/19669"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "SVG file"
+    ],
+    [
+      1,
+      "MVG file"
+    ],
+    [
+      2,
+      "PS file"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "USE_POPEN"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

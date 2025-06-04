@@ -1,0 +1,118 @@
+{
+  "Name": "Java Applet Reflection Type Confusion Remote Code Execution",
+  "Description": "This module abuses Java Reflection to generate a Type Confusion, due to a weak access control when setting final fields on static classes, and run code outside of the Java Sandbox. The vulnerability affects Java version 7u17 and earlier. This exploit bypasses click-to-play throw a specially crafted JNLP file. This bypass is applied mainly to IE, when Java Web Start can be launched automatically throw the ActiveX control. Otherwise the applet is launched without click-to-play bypass.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/browser/java_jre17_reflection_types.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Jeroen Frijters",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-2423"
+    ],
+    [
+      "OSVDB",
+      "92348"
+    ],
+    [
+      "BID",
+      "59162"
+    ],
+    [
+      "URL",
+      "http://weblog.ikvm.net/PermaLink.aspx?guid=acd2dd6d-1028-4996-95df-efa42ac237f0"
+    ],
+    [
+      "URL",
+      "http://www.oracle.com/technetwork/topics/security/javacpuapr2013-1928497.html"
+    ],
+    [
+      "URL",
+      "http://hg.openjdk.java.net/jdk7u/jdk7u-dev/jdk/rev/b453d9be6b3f"
+    ],
+    [
+      "URL",
+      "http://immunityproducts.blogspot.com/2013/04/yet-another-java-security-warning-bypass.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Java",
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::OSX",
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Generic (Java Payload)"
+    ],
+    [
+      1,
+      "Windows x86 (Native Payload)"
+    ],
+    [
+      2,
+      "Mac OS X x86 (Native Payload)"
+    ],
+    [
+      3,
+      "Linux x86 (Native Payload)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,86 @@
+{
+  "Name": "Cesar FTP 0.99g MKD Command Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in the MKD verb in CesarFTP 0.99g. You must have valid credentials to trigger this vulnerability. Also, you only get one chance, so choose your target carefully.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/ftp/cesarftp_mkd.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "MC <mc@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2006-2961"
+    ],
+    [
+      "OSVDB",
+      "26364"
+    ],
+    [
+      "BID",
+      "18586"
+    ],
+    [
+      "URL",
+      "http://web.archive.org/web/20060619195555/http://secunia.com:80/advisories/20574/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows 2000 Pro SP4 English"
+    ],
+    [
+      1,
+      "Windows 2000 Pro SP4 French"
+    ],
+    [
+      2,
+      "Windows XP SP2/SP3 English"
+    ],
+    [
+      3,
+      "Windows 2003 SP1 English"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "FTPUSER",
+    "FTPPASS",
+    "FTPTimeout",
+    "FTPDEBUG",
+    "PassiveMode"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

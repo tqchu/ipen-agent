@@ -1,0 +1,49 @@
+{
+  "Name": "GTA SA-MP server.cfg Buffer Overflow",
+  "Description": "This module exploits a stack-based buffer overflow in GTA SA-MP Server. This buffer overflow occurs when the application attempts to open a malformed server.cfg file. To exploit this vulnerability, an attacker must send the victim a server.cfg file and have them run samp-server.exe.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/gta_samp.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Silent_Dream"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "83433"
+    ],
+    [
+      "EDB",
+      "17893"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "GTA SA-MP (samp-server) v0.3.1.1"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,80 @@
+{
+  "Name": "Qmail SMTP Bash Environment Variable Injection (Shellshock)",
+  "Description": "This module exploits a shellshock vulnerability on Qmail, a public domain MTA written in C that runs on Unix systems. Due to the lack of validation on the MAIL FROM field, it is possible to execute shell code on a system with a vulnerable BASH (Shellshock). This flaw works on the latest Qmail versions (qmail-1.03 and netqmail-1.06). However, in order to execute code, /bin/sh has to be linked to bash (usually default configuration) and a valid recipient must be set on the RCPT TO field (usually admin@exampledomain.com). The exploit does not work on the \"qmailrocks\" community version as it ensures the MAILFROM field is well-formed.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/unix/smtp/qmail_bash_env_exec.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Mario Ledo (Metasploit module)",
+    "Gabriel Follon (Metasploit module)",
+    "Kyle George (Vulnerability discovery)"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2014-6271"
+    ],
+    [
+      "CWE",
+      "94"
+    ],
+    [
+      "OSVDB",
+      "112004"
+    ],
+    [
+      "EDB",
+      "34765"
+    ],
+    [
+      "URL",
+      "https://seclists.org/oss-sec/2014/q3/649"
+    ],
+    [
+      "URL",
+      "https://lists.gt.net/qmail/users/138578"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "MAILTO"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

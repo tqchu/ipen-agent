@@ -1,0 +1,83 @@
+{
+  "Name": "Mac OS X Feedback Assistant Race Condition",
+  "Description": "This module exploits a race condition vulnerability in Mac's Feedback Assistant. A successful attempt would result in remote code execution under the context of root.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/osx/local/feedback_assistant_root.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "CodeColorist",
+    "timwr"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2019-8565"
+    ],
+    [
+      "URL",
+      "https://medium.com/0xcc/rootpipe-reborn-part-ii-e5a1ffff6afe"
+    ],
+    [
+      "URL",
+      "https://support.apple.com/en-in/HT209600"
+    ],
+    [
+      "URL",
+      "https://github.com/ChiChou/sploits"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::OSX",
+    "Msf::Module::Platform::Python",
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Mac OS X x64 (Native Payload)"
+    ],
+    [
+      1,
+      "Python payload"
+    ],
+    [
+      2,
+      "Command payload"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "WritableDir"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "osx/x64/meterpreter/reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

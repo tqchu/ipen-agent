@@ -1,0 +1,56 @@
+{
+  "Name": "IBM Forms Viewer Unicode Buffer Overflow",
+  "Description": "This module exploits a stack-based buffer overflow in IBM Forms Viewer. The vulnerability is due to a dangerous usage of a strcpy-like function, and occurs while parsing malformed XFDL files containing a long fontname value. This module has been tested successfully on IBM Forms Viewer 4.0 on Windows XP SP3 and Windows 7 SP1.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/ibm_forms_viewer_fontname.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "rgod <rgod@autistici.org>",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-5447"
+    ],
+    [
+      "OSVDB",
+      "100732"
+    ],
+    [
+      "ZDI",
+      "13-274"
+    ],
+    [
+      "URL",
+      "http://www-01.ibm.com/support/docview.wss?uid=swg21657500"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "IBM Forms Viewer 4.0 / Windows XP SP3 / Windows 7 SP1"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

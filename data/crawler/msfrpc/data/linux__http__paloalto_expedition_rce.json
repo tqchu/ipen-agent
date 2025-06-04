@@ -1,0 +1,129 @@
+{
+  "Name": "Palo Alto Expedition Remote Code Execution (CVE-2024-5910 and CVE-2024-9464)",
+  "Description": "Obtain remote code execution in Palo Alto Expedition version 1.2.91 and below. The first vulnerability, CVE-2024-5910, allows to reset the password of the admin user, and the second vulnerability, CVE-2024-9464, is an authenticated OS command injection. In a default installation, commands will get executed in the context of www-data. When credentials are provided, this module will only exploit the second vulnerability. If no credentials are provided, the module will first try to reset the admin password and then perform the OS command injection.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/http/paloalto_expedition_rce.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Michael Heinzl",
+    "Zach Hanley",
+    "Enrique Castillo",
+    "Brian Hysell"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://www.horizon3.ai/attack-research/palo-alto-expedition-from-n-day-to-full-compromise/"
+    ],
+    [
+      "URL",
+      "https://security.paloaltonetworks.com/PAN-SA-2024-0010"
+    ],
+    [
+      "URL",
+      "https://security.paloaltonetworks.com/CVE-2024-5910"
+    ],
+    [
+      "URL",
+      "https://attackerkb.com/topics/JwTzQJuBmn/cve-2024-5910"
+    ],
+    [
+      "URL",
+      "https://attackerkb.com/topics/ky1MIrne9r/cve-2024-9464"
+    ],
+    [
+      "CVE",
+      "2024-5910"
+    ],
+    [
+      "CVE",
+      "2024-24809"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Linux Command"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "USERNAME",
+    "PASSWORD",
+    "TARGETURI",
+    "RESET_ADMIN_PASSWD",
+    "WRITABLE_DIR",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "RPORT": 443,
+    "SSL": "True",
+    "FETCH_FILENAME": "p",
+    "FETCH_WRITABLE_DIR": "/tmp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

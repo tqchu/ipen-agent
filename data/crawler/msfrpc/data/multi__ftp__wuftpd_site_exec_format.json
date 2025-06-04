@@ -1,0 +1,83 @@
+{
+  "Name": "WU-FTPD SITE EXEC/INDEX Format String Vulnerability",
+  "Description": "This module exploits a format string vulnerability in versions of the Washington University FTP server older than 2.6.1. By executing specially crafted SITE EXEC or SITE INDEX commands containing format specifiers, an attacker can corrupt memory and execute arbitrary code.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/ftp/wuftpd_site_exec_format.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2000-0573"
+    ],
+    [
+      "OSVDB",
+      "11805"
+    ],
+    [
+      "BID",
+      "1387"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic Targeting"
+    ],
+    [
+      1,
+      "Slackware 2.1 (Version wu-2.4(1) Sun Jul 31 21:15:56 CDT 1994)"
+    ],
+    [
+      2,
+      "RedHat 6.2 (Version wu-2.6.0(1) Mon Feb 28 10:30:36 EST 2000)"
+    ],
+    [
+      3,
+      "Debug"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "FTPUSER",
+    "FTPPASS",
+    "FTPTimeout",
+    "FTPDEBUG",
+    "PassiveMode"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "PrependChrootBreak": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

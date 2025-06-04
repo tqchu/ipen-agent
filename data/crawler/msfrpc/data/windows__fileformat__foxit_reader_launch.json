@@ -1,0 +1,59 @@
+{
+  "Name": "Foxit Reader 3.0 Open Execute Action Stack Based Buffer Overflow",
+  "Description": "This module exploits a buffer overflow in Foxit Reader 3.0 builds 1301 and earlier. Due to the way Foxit Reader handles the input from an \"Launch\" action, it is possible to cause a stack-based buffer overflow, allowing an attacker to gain arbitrary code execution under the context of the user.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/foxit_reader_launch.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "Francisco Falcon",
+    "bannedit <bannedit@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2009-0837"
+    ],
+    [
+      "OSVDB",
+      "55614"
+    ],
+    [
+      "BID",
+      "34035"
+    ],
+    [
+      "URL",
+      "http://www.coresecurity.com/content/foxit-reader-vulnerabilities"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Foxit Reader 3.0 Windows XP SP2"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

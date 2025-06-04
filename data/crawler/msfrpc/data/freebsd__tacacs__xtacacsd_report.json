@@ -1,0 +1,58 @@
+{
+  "Name": "XTACACSD report() Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in XTACACSD <= 4.1.2. By sending a specially crafted XTACACS packet with an overly long username, an attacker may be able to execute arbitrary code.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/freebsd/tacacs/xtacacsd_report.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "MC <mc@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2008-7232"
+    ],
+    [
+      "OSVDB",
+      "58140"
+    ],
+    [
+      "URL",
+      "http://aluigi.altervista.org/adv/xtacacsdz-adv.txt"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::BSD"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "FreeBSD 6.2-Release Bruteforce"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "CPORT",
+    "CHOST",
+    "BruteWait",
+    "BruteStep"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,142 @@
+{
+  "Name": "ISS PAM.dll ICQ Parser Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in the ISS products that use the iss-pam1.dll ICQ parser (Blackice/RealSecure). Successful exploitation will result in arbitrary code execution as LocalSystem. This exploit only requires 1 UDP packet, which can be both spoofed and sent to a broadcast address. The ISS exception handler will recover the process after each overflow, giving us the ability to bruteforce the service and exploit it multiple times.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/firewall/blackice_pam_icq.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "spoonm <spoonm@no$email.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2004-0362"
+    ],
+    [
+      "OSVDB",
+      "4355"
+    ],
+    [
+      "URL",
+      "http://www.eeye.com/html/Research/Advisories/AD20040318.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Bruteforce"
+    ],
+    [
+      1,
+      "Bruteforce iis-pam1.dll"
+    ],
+    [
+      2,
+      "Bruteforce NT 4.0"
+    ],
+    [
+      3,
+      "iis-pam1.dll 3.6.06"
+    ],
+    [
+      4,
+      "iis-pam1.dll 3.6.11"
+    ],
+    [
+      5,
+      "WinNT SP3/SP4/SP5"
+    ],
+    [
+      6,
+      "WinNT SP4/SP5"
+    ],
+    [
+      7,
+      "WinNT SP5/SP6 - advapi32"
+    ],
+    [
+      8,
+      "WinNT SP3/SP5/SP6 - shell32"
+    ],
+    [
+      9,
+      "WinNT SP5/SP6 - mswsock"
+    ],
+    [
+      10,
+      "WinXP SP0/SP1 - shell32"
+    ],
+    [
+      11,
+      "WinXP SP0/SP1 - atl"
+    ],
+    [
+      12,
+      "WinXP SP0/SP1 - atl"
+    ],
+    [
+      13,
+      "WinXP SP0/SP1 - ws2_32"
+    ],
+    [
+      14,
+      "WinXP SP0/SP1 - mswsock"
+    ],
+    [
+      15,
+      "Windows 2000 Pro SP4 English"
+    ],
+    [
+      16,
+      "Win2000 SP0 - SP4"
+    ],
+    [
+      17,
+      "Win2000 SP2/SP3 - samlib"
+    ],
+    [
+      18,
+      "Win2000 SP0/SP1 - activeds"
+    ],
+    [
+      19,
+      "Windows XP Pro SP0 English"
+    ],
+    [
+      20,
+      "Windows XP Pro SP1 English"
+    ],
+    [
+      21,
+      "WinXP SP0 - SP1"
+    ],
+    [
+      22,
+      "Win2003 SP0"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "CPORT",
+    "CHOST"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

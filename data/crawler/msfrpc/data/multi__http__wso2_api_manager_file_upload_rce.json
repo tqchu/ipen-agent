@@ -1,0 +1,119 @@
+{
+  "Name": "WSO2 API Manager Documentation File Upload Remote Code Execution",
+  "Description": "A vulnerability in the 'Add API Documentation' feature allows malicious users with specific permissions (`/permission/admin/login` and `/permission/admin/manage/api/publish`) to upload arbitrary files to a user-controlled server location. This flaw could be exploited to execute remote code, enabling an attacker to gain control over the server.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/http/wso2_api_manager_file_upload_rce.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Siebene@ <@Siebene7>",
+    "Heyder Andrade <@HeyderAndrade>",
+    "Redway Security <redwaysecurity.com>"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://github.com/redwaysecurity/CVEs/tree/main/WSO2-2023-2988"
+    ],
+    [
+      "URL",
+      "https://blog.redwaysecurity.com/2024/11/wso2-4.2.0-remote-code-execution.html"
+    ],
+    [
+      "URL",
+      "https://security.docs.wso2.com/en/latest/security-announcements/security-advisories/2024/WSO2-2023-2988/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "java"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "WSO2 API Manager (3.1.0 - 4.0.0)"
+    ],
+    [
+      2,
+      "WSO2 API Manager (4.1.0)"
+    ],
+    [
+      3,
+      "WSO2 API Manager (4.2.0)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TARGETURI",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "Payload": "java/jsp_shell_reverse_tcp",
+    "SSL": true,
+    "RPORT": 9443
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

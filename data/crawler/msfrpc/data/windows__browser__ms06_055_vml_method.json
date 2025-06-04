@@ -1,0 +1,82 @@
+{
+  "Name": "MS06-055 Microsoft Internet Explorer VML Fill Method Code Execution",
+  "Description": "This module exploits a code execution vulnerability in Microsoft Internet Explorer using a buffer overflow in the VML processing code (VGX.dll). This module has been tested on Windows 2000 SP4, Windows XP SP0, and Windows XP SP2.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/ms06_055_vml_method.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "hdm <x@hdm.io>",
+    "Aviv Raff <avivra@gmail.com>",
+    "Trirat Puttaraksa (Kira) <trir00t@gmail.com>",
+    "Mr.Niega <Mr.Niega@gmail.com>",
+    "M. Shirk <shirkdog_list@hotmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2006-4868"
+    ],
+    [
+      "OSVDB",
+      "28946"
+    ],
+    [
+      "MSB",
+      "MS06-055"
+    ],
+    [
+      "BID",
+      "20096"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows NT 4.0 -> Windows 2003 SP1"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,63 @@
+{
+  "Name": "Avid Media Composer 5.5 - Avid Phonetic Indexer Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in process AvidPhoneticIndexer.exe (port 4659), which comes as part of the Avid Media Composer 5.5 Editing Suite. This daemon sometimes starts on a different port; if you start it standalone it will run on port 4660.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/avidphoneticindexer.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "vt [nick.freeman <vt [nick.freeman@security-assessment.com]>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2011-5003"
+    ],
+    [
+      "OSVDB",
+      "77376"
+    ],
+    [
+      "URL",
+      "http://www.security-assessment.com/files/documents/advisory/Avid_Media_Composer-Phonetic_Indexer-Remote_Stack_Buffer_Overflow.pdf"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows XP Professional SP3"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

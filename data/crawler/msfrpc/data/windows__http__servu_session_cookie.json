@@ -1,0 +1,72 @@
+{
+  "Name": "Rhinosoft Serv-U Session Cookie Buffer Overflow",
+  "Description": "This module exploits a buffer overflow in Rhinosoft Serv-U 9.0.0.5. Sending a specially crafted POST request with an overly long session cookie string, an attacker may be able to execute arbitrary code.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/http/servu_session_cookie.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "Nikolas Rangos <nikolaos@rangos.de>",
+    "M.Yanagishita <megumi1990@gmail.com>",
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2009-4006"
+    ],
+    [
+      "OSVDB",
+      "59772"
+    ],
+    [
+      "URL",
+      "http://rangos.de/ServU-ADV.txt"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows 2003 SP2 English (NX)"
+    ],
+    [
+      1,
+      "Windows 2000 SP4 and XP SP3 English (SEH)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

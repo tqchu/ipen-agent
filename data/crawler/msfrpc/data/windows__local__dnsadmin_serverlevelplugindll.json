@@ -1,0 +1,61 @@
+{
+  "Name": "DnsAdmin ServerLevelPluginDll Feature Abuse Privilege Escalation",
+  "Description": "This module exploits a feature in the DNS service of Windows Server. Users of the DnsAdmins group can set the `ServerLevelPluginDll` value using dnscmd.exe to create a registry key at `HKLM\\SYSTEM\\CurrentControlSet\\Services\\DNS\\Parameters\\` named `ServerLevelPluginDll` that can be made to point to an arbitrary DLL. After doing so, restarting the service will load the DLL and cause it to execute, providing us with SYSTEM privileges. Increasing WfsDelay is recommended when using a UNC path. Users should note that if the DLLPath variable of this module is set to a UNC share that does not exist, the DNS server on the target will not be able to restart. Similarly if a UNC share is not utilized, and users instead opt to drop a file onto the disk of the target computer, and this gets picked up by Anti-Virus after the timeout specified by `AVTIMEOUT` expires, its possible that the `ServerLevelPluginDll` value of the `HKLM\\SYSTEM\\CurrentControlSet\\Services\\DNS\\Parameters\\` key on the target computer may point to an nonexistant DLL, which will also prevent the DNS server from being able to restart. Users are advised to refer to the documentation for this module for advice on how to resolve this issue should it occur. This module has only been tested and confirmed to work on Windows Server 2019 Standard Edition, however it should work against any Windows Server version up to and including Windows Server 2019.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/dnsadmin_serverlevelplugindll.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Shay Ber",
+    "Imran E. Dawoodjee <imran@threathounds.com>"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://medium.com/@esnesenon/feature-not-bug-dnsadmin-to-dc-compromise-in-one-line-a0f779b8dc83"
+    ],
+    [
+      "URL",
+      "https://adsecurity.org/?p=4064"
+    ],
+    [
+      "URL",
+      "http://www.labofapenetrationtester.com/2017/05/abusing-dnsadmins-privilege-for-escalation-in-active-directory.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "DLLNAME",
+    "DLLPATH",
+    "MAKEDLL",
+    "AVTIMEOUT"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 20,
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,99 @@
+{
+  "Name": "Sun Java Web Start Plugin Command Line Argument Injection",
+  "Description": "This module exploits a flaw in the Web Start component of the Sun Java Runtime Environment. The arguments passed to Java Web Start are not properly validated, allowing injection of arbitrary arguments to the JVM. By utilizing the lesser known -J option, an attacker can take advantage of the -XXaltjvm option, as discussed previously by Ruben Santamarta. This method allows an attacker to execute arbitrary code in the context of an unsuspecting browser user. In order for this module to work, it must be run as root on a server that does not serve SMB. Additionally, the target host must have the WebClient service (WebDAV Mini-Redirector) enabled.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/java_ws_vmargs.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2012-0500"
+    ],
+    [
+      "OSVDB",
+      "79227"
+    ],
+    [
+      "BID",
+      "52015"
+    ],
+    [
+      "URL",
+      "https://seclists.org/fulldisclosure/2012/Feb/251"
+    ],
+    [
+      "URL",
+      "http://www.oracle.com/technetwork/topics/security/javacpufeb2012-366318.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "Java Runtime on Windows x86"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "UNCPATH"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

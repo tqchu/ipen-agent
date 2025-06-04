@@ -1,0 +1,115 @@
+{
+  "Name": "Traccar v5 Remote Code Execution (CVE-2024-31214 and CVE-2024-24809)",
+  "Description": "Remote Code Execution in Traccar v5.1 - v5.12. Remote code execution can be obtained by combining two vulnerabilities: A path traversal vulnerability (CVE-2024-24809) and an unrestricted file upload vulnerability (CVE-2024-31214). By default, the application allows self-registration, enabling any user to register an account and exploit the issues. Moreover, the application runs by default with root privileges, potentially resulting in a complete system compromise. This module, which should work on any Red Hat-based Linux system, exploits these issues by adding a new cronjob file that executes the specified payload.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/http/traccar_rce_upload.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Michael Heinzl",
+    "yiliufeng168",
+    "Naveen Sunkavally"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://github.com/traccar/traccar/security/advisories/GHSA-vhrw-72f6-gwp5"
+    ],
+    [
+      "URL",
+      "https://github.com/traccar/traccar/security/advisories/GHSA-3gxq-f2qj-c8v9"
+    ],
+    [
+      "URL",
+      "https://www.horizon3.ai/attack-research/disclosures/traccar-5-remote-code-execution-vulnerabilities/"
+    ],
+    [
+      "CVE",
+      "2024-31214"
+    ],
+    [
+      "CVE",
+      "2024-24809"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Linux Command"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "USERNAME",
+    "PASSWORD",
+    "EMAIL",
+    "TARGETURI",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 75
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

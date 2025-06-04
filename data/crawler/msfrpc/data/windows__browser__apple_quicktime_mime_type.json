@@ -1,0 +1,95 @@
+{
+  "Name": "Apple QuickTime 7.7.2 MIME Type Buffer Overflow",
+  "Description": "This module exploits a buffer overflow in Apple QuickTime 7.7.2. The stack based overflow occurs when processing a malformed Content-Type header. The module has been tested successfully on Safari 5.1.7 and 5.0.7 on Windows XP SP3.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/apple_quicktime_mime_type.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Pavel Polischouk",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2012-3753"
+    ],
+    [
+      "OSVDB",
+      "87088"
+    ],
+    [
+      "BID",
+      "56438"
+    ],
+    [
+      "URL",
+      "http://support.apple.com/kb/HT5581"
+    ],
+    [
+      "URL",
+      "http://asintsov.blogspot.com.es/2012/11/heapspray.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "Windows XP SP3 / Safari 5.1.7 / Apple QuickTime Player 7.7.2"
+    ],
+    [
+      2,
+      "Windows XP SP3 / Safari 5.0.5 / Apple QuickTime Player 7.7.2"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "OBFUSCATE"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

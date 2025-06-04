@@ -1,0 +1,67 @@
+{
+  "Name": "VMware Workspace ONE Access CVE-2022-31660",
+  "Description": "VMware Workspace ONE Access contains a vulnerability whereby the horizon user can escalate their privileges to those of the root user by modifying a file and then restarting the vmware-certproxy service which invokes it. The service control is permitted via the sudo configuration without a password.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/vmware_workspace_one_access_certproxy_lpe.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "Spencer McIntyre"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2022-31660"
+    ],
+    [
+      "URL",
+      "https://www.vmware.com/security/advisories/VMSA-2022-0021.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd",
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC"
+  ],
+  "DefaultOptions": {
+    "PrependFork": true,
+    "MeterpreterTryToFork": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

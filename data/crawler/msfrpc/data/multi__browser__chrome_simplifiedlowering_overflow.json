@@ -1,0 +1,87 @@
+{
+  "Name": "Google Chrome versions before 87.0.4280.88 integer overflow during SimplfiedLowering phase",
+  "Description": "This module exploits an issue in Google Chrome versions before 87.0.4280.88 (64 bit). The exploit makes use of an integer overflow in the SimplifiedLowering phase in turbofan. It is used along with a type hardening bypass using ArrayPrototypeShift to create a JSArray with a length of -1. This is abused to gain arbitrary read/write into the isolate region. Then an ArrayBuffer can be used to achieve absolute arbitrary read/write. The exploit then uses WebAssembly in order to allocate a region of RWX memory, which is then replaced with the payload shellcode. The payload is executed within the sandboxed renderer process, the browser must be run with the --no-sandbox option for the payload to work correctly.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/browser/chrome_simplifiedlowering_overflow.rb",
+  "Version": "",
+  "Rank": "manual",
+  "Authors": [
+    "Rajvardhan Agarwal (r4j)"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2020-16040"
+    ],
+    [
+      "URL",
+      "https://chromium-review.googlesource.com/c/v8/v8/+/2557498"
+    ],
+    [
+      "URL",
+      "https://github.com/r4j0x00/exploits/tree/master/CVE-2020-16040"
+    ],
+    [
+      "URL",
+      "https://faraz.faith/2021-01-07-cve-2020-16040-analysis/"
+    ],
+    [
+      "URL",
+      "https://bugs.chromium.org/p/chromium/issues/detail?id=1150649"
+    ]
+  ],
+  "Platform": [],
+  "Arch": [
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Linux - Google Chrome 87.0.4280.66 (64 bit)"
+    ],
+    [
+      1,
+      "Windows 10 - Google Chrome 87.0.4280.66 (64 bit)"
+    ],
+    [
+      2,
+      "macOS - Google Chrome 87.0.4280.66 (64 bit)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

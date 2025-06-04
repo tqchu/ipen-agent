@@ -1,0 +1,49 @@
+{
+  "Name": "Zahir Enterprise Plus 6 Stack Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in Zahir Enterprise Plus version 6 build 10b and below. The vulnerability is triggered when opening a CSV file containing CR/LF and overly long string characters via Import from other File. This results in overwriting a structured exception handler record.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/zahir_enterprise_plus_csv.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "f3ci",
+    "modpr0be"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2018-17408"
+    ],
+    [
+      "EDB",
+      "45505"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Zahir Enterprise Plus 6 <= build 10b"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,113 @@
+{
+  "Name": "SPIP connect Parameter PHP Injection",
+  "Description": "This module exploits a PHP code injection vulnerability in SPIP. The vulnerability exists in the connect parameter, allowing an unauthenticated user to execute arbitrary commands with web user privileges. Branches 2.0, 2.1, and 3 are affected. Vulnerable versions are < 2.0.21, < 2.1.16, and < 3.0.3. This module is compatible with both Unix/Linux and Windows platforms, and has been successfully tested on SPIP 2.0.11 and SPIP 2.0.20 on Apache running on Ubuntu, Fedora, and Windows Server.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/http/spip_connect_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Arnaud Pachot",
+    "Frederic Cikala",
+    "Davy Douhine",
+    "Valentin Lobstein"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "83543"
+    ],
+    [
+      "BID",
+      "54292"
+    ],
+    [
+      "URL",
+      "http://contrib.spip.net/SPIP-3-0-3-2-1-16-et-2-0-21-a-l-etape-303-epate-la"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::PHP",
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "php",
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "PHP In-Memory"
+    ],
+    [
+      1,
+      "Unix/Linux Command Shell"
+    ],
+    [
+      2,
+      "Windows Command Shell"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TARGETURI",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

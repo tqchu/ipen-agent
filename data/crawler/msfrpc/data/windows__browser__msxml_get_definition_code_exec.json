@@ -1,0 +1,121 @@
+{
+  "Name": "MS12-043 Microsoft XML Core Services MSXML Uninitialized Memory Corruption",
+  "Description": "This module exploits a memory corruption flaw in Microsoft XML Core Services when trying to access an uninitialized Node with the getDefinition API, which may corrupt memory allowing remote code execution.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/msxml_get_definition_code_exec.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "inking26",
+    "binjo",
+    "sinn3r <sinn3r@metasploit.com>",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2012-1889"
+    ],
+    [
+      "BID",
+      "53934"
+    ],
+    [
+      "OSVDB",
+      "82873"
+    ],
+    [
+      "MSB",
+      "MS12-043"
+    ],
+    [
+      "URL",
+      "http://technet.microsoft.com/en-us/security/advisory/2719615"
+    ],
+    [
+      "URL",
+      "http://www.zdnet.com/blog/security/state-sponsored-attackers-using-ie-zero-day-to-hijack-gmail-accounts/12462"
+    ],
+    [
+      "URL",
+      "https://www.rapid7.com/blog/post/2012/06/18/metasploit-exploits-critical-microsoft-vulnerabilities"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "IE 6 on Windows XP SP3"
+    ],
+    [
+      2,
+      "IE 7 on Windows XP SP3 / Vista SP2"
+    ],
+    [
+      3,
+      "IE 8 on Windows XP SP3"
+    ],
+    [
+      4,
+      "IE 8 with Java 6 on Windows XP SP3"
+    ],
+    [
+      5,
+      "IE 8 with Java 6 on Windows 7 SP1/Vista SP2"
+    ],
+    [
+      6,
+      "IE 9 with Java 6 on Windows 7 SP1"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "OBFUSCATE"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread",
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

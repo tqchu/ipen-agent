@@ -1,0 +1,45 @@
+{
+  "Name": "Autostart Desktop Item Persistence",
+  "Description": "This module will create an autostart entry to execute a payload. The payload will be executed when the users logs in.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/autostart_persistence.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Eliott Teissonniere"
+  ],
+  "References": [],
+  "Platform": [
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "NAME"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 0,
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

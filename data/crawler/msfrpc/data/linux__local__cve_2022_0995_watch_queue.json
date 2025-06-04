@@ -1,0 +1,83 @@
+{
+  "Name": "Watch Queue Out of Bounds Write",
+  "Description": "This module exploits a vulnerability in the Linux Kernel's watch_queue event notification system. It relies on a heap out-of-bounds write in kernel memory. The exploit may fail on the first attempt so multiple attempts may be needed. Note that the exploit can potentially cause a denial of service if multiple failed attemps occur, however this is unlikely.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/cve_2022_0995_watch_queue.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "Jann Horn",
+    "bonfee",
+    "bwatters-r7"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2022-0995"
+    ],
+    [
+      "URL",
+      "https://github.com/Bonfee/CVE-2022-0995"
+    ],
+    [
+      "URL",
+      "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=93ce93587d36493f2f86921fa79921b3cba63fbb"
+    ],
+    [
+      "URL",
+      "https://nvd.nist.gov/vuln/detail/CVE-2022-0995"
+    ],
+    [
+      "PACKETSTORM",
+      "166770"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Ubuntu Linux 5.13.0-37"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "COMPILE",
+    "COMPILER",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "DEBUG_SOURCE",
+    "WritableDir",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

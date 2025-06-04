@@ -1,0 +1,94 @@
+{
+  "Name": "Java storeImageArray() Invalid Array Indexing Vulnerability",
+  "Description": "This module abuses an Invalid Array Indexing Vulnerability on the static function storeImageArray() function in order to cause a memory corruption and escape the Java Sandbox. The vulnerability affects Java version 7u21 and earlier. The module, which doesn't bypass click2play, has been tested successfully on Java 7u21 on Windows and Linux systems.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/browser/java_storeimagearray.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "Unknown",
+    "sinn3r <sinn3r@metasploit.com>",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-2465"
+    ],
+    [
+      "OSVDB",
+      "96269"
+    ],
+    [
+      "EDB",
+      "27526"
+    ],
+    [
+      "PACKETSTORM",
+      "122777"
+    ],
+    [
+      "URL",
+      "http://hg.openjdk.java.net/jdk7u/jdk7u-dev/jdk/rev/2a9c79db0040"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Java",
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Generic (Java Payload)"
+    ],
+    [
+      1,
+      "Windows Universal"
+    ],
+    [
+      2,
+      "Linux x86"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

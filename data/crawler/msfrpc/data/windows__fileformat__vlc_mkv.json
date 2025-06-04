@@ -1,0 +1,53 @@
+{
+  "Name": "VLC Media Player MKV Use After Free",
+  "Description": "This module exploits a use after free vulnerability in VideoLAN VLC =< 2.2.8. The vulnerability exists in the parsing of MKV files and affects both 32 bits and 64 bits. In order to exploit this, this module will generate two files: The first .mkv file contains the main vulnerability and heap spray, the second .mkv file is required in order to take the vulnerable code path and should be placed under the same directory as the .mkv file. This module has been tested against VLC v2.2.8. Tested with payloads windows/exec, windows/x64/exec, windows/shell/reverse_tcp, windows/x64/shell/reverse_tcp. Meterpreter payloads if used can cause the application to crash instead.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/vlc_mkv.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "Eugene Ng - GovTech",
+    "Winston Ho - GovTech"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2018-11529"
+    ],
+    [
+      "EDB",
+      "44979"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "VLC 2.2.8 on Windows 10 x86"
+    ],
+    [
+      1,
+      "VLC 2.2.8 on Windows 10 x64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "MKV_ONE",
+    "MKV_TWO"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

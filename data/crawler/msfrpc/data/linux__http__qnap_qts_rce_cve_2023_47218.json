@@ -1,0 +1,106 @@
+{
+  "Name": "QNAP QTS and QuTS Hero Unauthenticated Remote Code Execution in quick.cgi",
+  "Description": "There exists an unauthenticated command injection vulnerability in the QNAP operating system known as QTS and QuTS hero. QTS is a core part of the firmware for numerous QNAP entry and mid-level Network Attached Storage (NAS) devices, and QuTS hero is a core part of the firmware for numerous QNAP high-end and enterprise NAS devices. The vulnerable endpoint is the quick.cgi component, exposed by the device\u2019s web based administration feature. The quick.cgi component is present in an uninitialized QNAP NAS device. This component is intended to be used during either manual or cloud based provisioning of a QNAP NAS device. Once a device has been successfully initialized, the quick.cgi component is disabled on the system. An attacker with network access to an uninitialized QNAP NAS device may perform unauthenticated command injection, allowing the attacker to execute arbitrary commands on the device.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/http/qnap_qts_rce_cve_2023_47218.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "sfewer-r7",
+    "Spencer McIntyre",
+    "jheysel-r7"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2023-47218"
+    ],
+    [
+      "URL",
+      "https://www.qnap.com/en/security-advisory/qsa-23-57"
+    ],
+    [
+      "URL",
+      "https://www.rapid7.com/blog/post/2024/02/13/cve-2023-47218-qnap-qts-and-quts-hero-unauthenticated-command-injection-fixed"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Default"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "RPORT": 80,
+    "SSL": false,
+    "FETCH_WRITABLE_DIR": "/mnt/update"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

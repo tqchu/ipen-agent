@@ -1,0 +1,105 @@
+{
+  "Name": "WordPress WP EasyCart Unrestricted File Upload",
+  "Description": "WordPress Shopping Cart (WP EasyCart) Plugin for WordPress contains a flaw that allows a remote attacker to execute arbitrary PHP code. This flaw exists because the /inc/amfphp/administration/banneruploaderscript.php script does not properly verify or sanitize user-uploaded files. By uploading a .php file, the remote system will place the file in a user-accessible path. Making a direct request to the uploaded file will allow the attacker to execute the script with the privileges of the web server. In versions <= 3.0.8 authentication can be done by using the WordPress credentials of a user with any role. In later versions, a valid EasyCart admin password will be required that is in use by any admin user. A default installation of EasyCart will setup a user called \"demouser\" with a preset password of \"demouser\".",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/unix/webapp/wp_easycart_unrestricted_file_upload.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Kacper Szurek",
+    "rastating"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2014-9308"
+    ],
+    [
+      "OSVDB",
+      "116806"
+    ],
+    [
+      "WPVDB",
+      "7745"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::PHP"
+  ],
+  "Arch": [
+    "php"
+  ],
+  "Targets": [
+    [
+      0,
+      "wp-easycart"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TARGETURI",
+    "WPCONTENTDIR",
+    "WPCHECK",
+    "USERNAME",
+    "PASSWORD",
+    "EC_PASSWORD",
+    "EC_PASSWORD_IS_HASH"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,64 @@
+{
+  "Name": "Yokogawa CS3000 BKESimmgr.exe Buffer Overflow",
+  "Description": "This module exploits an stack based buffer overflow on Yokogawa CS3000. The vulnerability exists in the BKESimmgr.exe service when handling specially crafted packets, due to an insecure usage of memcpy, using attacker controlled data as the size count. This module has been tested successfully in Yokogawa CS3000 R3.08.50 over Windows XP SP3 and Windows 2003 SP2.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/scada/yokogawa_bkesimmgr_bof.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "juan vazquez <juan.vazquez@metasploit.com>",
+    "Redsadic <julian.vilas@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2014-0782"
+    ],
+    [
+      "URL",
+      "https://www.rapid7.com/blog/post/2014/05/09/r7-2013-192-disclosure-yokogawa-centum-cs-3000-vulnerabilities"
+    ],
+    [
+      "URL",
+      "http://www.yokogawa.com/dcs/security/ysar/YSAR-14-0001E.pdf"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Yokogawa Centum CS3000 R3.08.50 / Windows [ XP SP3 / 2003 SP2 ]"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

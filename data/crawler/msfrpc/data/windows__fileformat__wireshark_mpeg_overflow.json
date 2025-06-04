@@ -1,0 +1,63 @@
+{
+  "Name": "Wireshark wiretap/mpeg.c Stack Buffer Overflow",
+  "Description": "This module triggers a stack buffer overflow in Wireshark <= 1.8.12/1.10.5 by generating a malicious file.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/wireshark_mpeg_overflow.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "Wesley Neelen",
+    "j0sm1"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2014-2299"
+    ],
+    [
+      "URL",
+      "https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=9843"
+    ],
+    [
+      "URL",
+      "http://www.wireshark.org/security/wnpa-sec-2014-04.html"
+    ],
+    [
+      "BID",
+      "66066"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "WinXP SP3 Spanish (bypass DEP)"
+    ],
+    [
+      1,
+      "WinXP SP2/SP3 English  (bypass DEP)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

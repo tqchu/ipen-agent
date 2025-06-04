@@ -1,0 +1,77 @@
+{
+  "Name": "Adobe PDF Escape EXE Social Engineering (No JavaScript)",
+  "Description": "This module embeds a Metasploit payload into an existing PDF file in a non-standard method. The resulting PDF can be sent to a target as part of a social engineering attack.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/adobe_pdf_embedded_exe_nojs.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Jeremy Conway <jeremy@sudosecure.net>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2010-1240"
+    ],
+    [
+      "OSVDB",
+      "63667"
+    ],
+    [
+      "URL",
+      "http://blog.didierstevens.com/2010/04/06/update-escape-from-pdf/"
+    ],
+    [
+      "URL",
+      "http://blog.didierstevens.com/2010/03/31/escape-from-foxit-reader/"
+    ],
+    [
+      "URL",
+      "http://blog.didierstevens.com/2010/03/29/escape-from-pdf/"
+    ],
+    [
+      "URL",
+      "http://www.adobe.com/support/security/bulletins/apsb10-15.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Adobe Reader <= v9.3.3 (Windows XP SP3 English)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "EXENAME",
+    "LAUNCH_MESSAGE"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

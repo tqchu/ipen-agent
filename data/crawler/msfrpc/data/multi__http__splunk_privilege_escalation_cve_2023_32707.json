@@ -1,0 +1,117 @@
+{
+  "Name": "Splunk \"edit_user\" Capability Privilege Escalation",
+  "Description": "A low-privileged user who holds a role that has the \"edit_user\" capability assigned to it can escalate their privileges to that of the admin user by providing a specially crafted web request. This is because the \"edit_user\" capability does not honor the \"grantableRoles\" setting in the authorize.conf configuration file, which prevents this scenario from happening. This exploit abuses this vulnerability to change the admin password and login with it to upload a malicious app achieving RCE.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/http/splunk_privilege_escalation_cve_2023_32707.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Mr Hack (try_to_hack) Santiago Lopez",
+    "Heyder Andrade",
+    "Redway Security <redwaysecurity.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2023-32707"
+    ],
+    [
+      "URL",
+      "https://advisory.splunk.com/advisories/SVD-2023-0602"
+    ],
+    [
+      "URL",
+      "https://blog.redwaysecurity.com/2023/09/exploit-cve-2023-32707.html"
+    ],
+    [
+      "URL",
+      "https://github.com/redwaysecurity/CVEs/tree/main/CVE-2023-32707"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::Windows",
+    "Msf::Module::Platform::OSX"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Splunk < 9.0.5, 8.2.11, and 8.1.14 / Linux"
+    ],
+    [
+      1,
+      "Splunk < 9.0.5, 8.2.11, and 8.1.14 / Windows"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TARGETURI",
+    "USERNAME",
+    "PASSWORD",
+    "TARGET_USER",
+    "TARGET_PASSWORD",
+    "APP_NAME",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "RPORT": 8000,
+    "SSL": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

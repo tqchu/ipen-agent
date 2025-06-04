@@ -1,0 +1,93 @@
+{
+  "Name": "Adobe Flash Player DeleteRangeTimelineOperation Type-Confusion",
+  "Description": "This module exploits a type confusion on Adobe Flash Player, which was originally found being successfully exploited in the wild. This module has been tested successfully on: macOS Sierra 10.12.3, Safari and Adobe Flash Player 21.0.0.182, Firefox and Adobe Flash Player 21.0.0.182.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/osx/browser/adobe_flash_delete_range_tl_op.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "Genwei Jiang",
+    "bcook-r7"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2016-4117"
+    ],
+    [
+      "BID",
+      "90505"
+    ],
+    [
+      "URL",
+      "https://www.fireeye.com/blog/threat-research/2016/05/cve-2016-4117-flash-zero-day.html"
+    ],
+    [
+      "URL",
+      "http://www.securitytracker.com/id/1035826"
+    ],
+    [
+      "URL",
+      "https://helpx.adobe.com/security/products/flash-player/apsa16-02.html"
+    ],
+    [
+      "URL",
+      "https://helpx.adobe.com/security/products/flash-player/apsb16-15.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::OSX"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Mac OS X"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "JsObfuscate",
+    "JsIdentifiers",
+    "Retries",
+    "CookieName",
+    "CookieExpiration",
+    "Custom404"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

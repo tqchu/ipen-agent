@@ -1,0 +1,58 @@
+{
+  "Name": "Anviz CrossChex Buffer Overflow",
+  "Description": "Waits for broadcasts from Ainz CrossChex looking for new devices, and returns a custom broadcast, triggering a stack buffer overflow.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/crosschex_device_bof.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Luis Catarino <lcatarino@protonmail.com>",
+    "Pedro Rodrigues <pedrosousarodrigues@protonmail.com>",
+    "agalway-r7",
+    "adfoster-r7"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2019-12518"
+    ],
+    [
+      "URL",
+      "https://www.0x90.zone/multiple/reverse/2019/11/28/Anviz-pwn.html"
+    ],
+    [
+      "EDB",
+      "47734"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "Crosschex Standard x86 <= V4.3.12"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "CPORT",
+    "CHOST",
+    "TIMEOUT"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

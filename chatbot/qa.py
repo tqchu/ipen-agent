@@ -150,11 +150,36 @@ if __name__ == "__main__":
     print(f"Response time: {time.time() - start:.2f} seconds")
     # Interactive mode
     print("\nEnter questions (or 'exit' to quit):")
-    while True:
-        question = input("\nYour question: ")
-        if question.lower() in ['exit', 'quit', 'q']:
-            break
+
+    pairs = [
+        {
+            "system": "You are a helpful assistant. You are a concise assistant. Always answer in ≤200 words unless asked otherwise. Cite credible sources if possible.",
+            "user": "What are the top three must-see attractions in Kyoto for first-time visitors?"
+        },
+        {
+            "system": "You are an expert in algorithms and data structures. You are a concise assistant. Always answer in ≤200 words unless asked otherwise. Cite credible sources if possible.",
+            "user": "Answer in short. Explain how Dijkstra’s algorithm works, step by step, on a small weighted graph."
+        },
+        {
+            "system": "You are a creative writing assistant. You are a concise assistant. Always answer in ≤200 words unless asked otherwise. Cite credible sources if possible.",
+            "user": "Answer in short. Write a 200-word opening scene for a sci-fi story set on Mars."
+        },
+        {
+            "system": "You are a financial analyst. You are a concise assistant. Always answer in ≤200 words unless asked otherwise. Cite credible sources if possible.",
+            "user": "Answer in short. Compare the historical performance of the S&P 500 and NASDAQ over the last decade."
+        },
+        {
+            "system": "You are a cooking tutor. You are a concise assistant. Always answer in ≤200 words unless asked otherwise. Cite credible sources if possible.",
+            "user": "Answer in short. How do I make a classic French omelette with a soft, custardy interior?"
+        }
+    ]
+
+
+    for pair in pairs:
+        sys_msg_input = pair["system"]
+        usr_msg_input = pair["user"]
+
         start = time.time()
-        answer = model_manager.get_answer(question)
+        answer = model_manager.get_answer(question=usr_msg_input, system_prompt=sys_msg_input, max_tokens=1024)
         print(f"Answer with confidence of {conf}: {answer}")
         print(f"Response time: {time.time() - start:.2f} seconds")

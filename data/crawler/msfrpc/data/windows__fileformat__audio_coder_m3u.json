@@ -1,0 +1,55 @@
+{
+  "Name": "AudioCoder .M3U Buffer Overflow",
+  "Description": "This module exploits a buffer overflow in AudioCoder 0.8.18. The vulnerability occurs when adding an .m3u, allowing arbitrary code execution with the privileges of the user running AudioCoder. This module has been tested successfully on AudioCoder 0.8.18.5353 over Windows XP SP3 and Windows 7 SP1.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/audio_coder_m3u.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "metacom",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2017-8870"
+    ],
+    [
+      "OSVDB",
+      "92939"
+    ],
+    [
+      "EDB",
+      "25141"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "AudioCoder 0.8.18.5353 / Windows XP SP3 / Windows 7 SP1"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

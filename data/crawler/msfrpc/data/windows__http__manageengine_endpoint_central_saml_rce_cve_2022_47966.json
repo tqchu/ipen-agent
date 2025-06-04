@@ -1,0 +1,156 @@
+{
+  "Name": "ManageEngine Endpoint Central Unauthenticated SAML RCE",
+  "Description": "This exploits an unauthenticated remote code execution vulnerability that affects Zoho ManageEngine Endpoint Central and MSP versions 10.1.2228.10 and below (CVE-2022-47966). Due to a dependency to an outdated library (Apache Santuario version 1.4.1), it is possible to execute arbitrary code by providing a crafted `samlResponse` XML to the Endpoint Central SAML endpoint. Note that the target is only vulnerable if it is configured with SAML-based SSO , and the service should be active.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/http/manageengine_endpoint_central_saml_rce_cve_2022_47966.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Khoa Dinh",
+    "horizon3ai",
+    "Christophe De La Fuente",
+    "h00die-gr3y <h00die.gr3y@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2022-47966"
+    ],
+    [
+      "URL",
+      "https://blog.viettelcybersecurity.com/saml-show-stopper/"
+    ],
+    [
+      "URL",
+      "https://www.horizon3.ai/manageengine-cve-2022-47966-technical-deep-dive/"
+    ],
+    [
+      "URL",
+      "https://github.com/horizon3ai/CVE-2022-47966"
+    ],
+    [
+      "URL",
+      "https://attackerkb.com/topics/gvs0Gv8BID/cve-2022-47966/rapid7-analysis"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows",
+    "Msf::Module::Platform::Java"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Java (in-memory)"
+    ],
+    [
+      1,
+      "Windows EXE Dropper"
+    ],
+    [
+      2,
+      "Windows Command"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "CMDSTAGER::FLAVOR",
+    "CMDSTAGER::DECODER",
+    "CMDSTAGER::TEMP",
+    "CMDSTAGER::URIPATH",
+    "CMDSTAGER::SSL",
+    "TARGETURI",
+    "DELAY",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "RPORT": 8020,
+    "SSL": false
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

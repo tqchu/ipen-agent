@@ -1,0 +1,53 @@
+{
+  "Name": "DJ Studio Pro 5.1 .pls Stack Buffer Overflow",
+  "Description": "This module exploits a stack-based buffer overflow in DJ Studio Pro 5.1.6.5.2. When handling a .pls file, DJ Studio will copy the user-supplied data on the stack without any proper bounds checking done beforehand, therefore allowing code execution under the context of the user.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/djstudio_pls_bof.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Sebastien Duquette",
+    "Death-Shadow-Dark <death.shadow.dark@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2009-4656"
+    ],
+    [
+      "OSVDB",
+      "58159"
+    ],
+    [
+      "EDB",
+      "10827"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "DJ Studio Pro 5.1.6.5.2"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

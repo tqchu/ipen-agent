@@ -1,0 +1,61 @@
+{
+  "Name": "Adobe CoolType SING Table \"uniqueName\" Stack Buffer Overflow",
+  "Description": "This module exploits a vulnerability in the Smart INdependent Glyplets (SING) table handling within versions 8.2.4 and 9.3.4 of Adobe Reader. Prior versions are assumed to be vulnerable as well.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/adobe_cooltype_sing.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "Unknown",
+    "sn0wfl0w",
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2010-2883"
+    ],
+    [
+      "OSVDB",
+      "67849"
+    ],
+    [
+      "URL",
+      "http://contagiodump.blogspot.com/2010/09/cve-david-leadbetters-one-point-lesson.html"
+    ],
+    [
+      "URL",
+      "http://www.adobe.com/support/security/advisories/apsa10-02.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate",
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

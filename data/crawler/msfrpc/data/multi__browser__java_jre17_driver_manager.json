@@ -1,0 +1,114 @@
+{
+  "Name": "Java Applet Driver Manager Privileged toString() Remote Code Execution",
+  "Description": "This module abuses the java.sql.DriverManager class where the toString() method is called over user supplied classes from a doPrivileged block. The vulnerability affects Java version 7u17 and earlier. This exploit bypasses click-to-play on Internet Explorer and throws a specially crafted JNLP file. This bypass is applicable mainly to IE, where Java Web Start can be launched automatically through the ActiveX control. Otherwise, the applet is launched without click-to-play bypass.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/browser/java_jre17_driver_manager.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "James Forshaw",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-1488"
+    ],
+    [
+      "OSVDB",
+      "91472"
+    ],
+    [
+      "BID",
+      "58504"
+    ],
+    [
+      "URL",
+      "http://www.contextis.com/research/blog/java-pwn2own/"
+    ],
+    [
+      "URL",
+      "http://immunityproducts.blogspot.com/2013/04/yet-another-java-security-warning-bypass.html"
+    ],
+    [
+      "ZDI",
+      "13-076"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Java",
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::OSX",
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Generic (Java Payload)"
+    ],
+    [
+      1,
+      "Windows x86 (Native Payload)"
+    ],
+    [
+      2,
+      "Mac OS X x86 (Native Payload)"
+    ],
+    [
+      3,
+      "Linux x86 (Native Payload)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

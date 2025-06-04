@@ -1,0 +1,41 @@
+{
+  "Name": "Firefox Exec Shellcode from Privileged Javascript Shell",
+  "Description": "This module allows execution of native payloads from a privileged Firefox Javascript shell. It places the specified payload into memory, adds the necessary protection flags, and calls it, which can be useful for upgrading a Firefox javascript shell to a Meterpreter session without touching the disk.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/firefox/local/exec_shellcode.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "joev <joev@metasploit.com>"
+  ],
+  "References": [],
+  "Platform": [
+    "Msf::Module::Platform::Firefox"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Native Payload"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "JsObfuscate",
+    "JsIdentifiers",
+    "TIMEOUT"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

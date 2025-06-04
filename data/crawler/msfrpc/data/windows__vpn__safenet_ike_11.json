@@ -1,0 +1,68 @@
+{
+  "Name": "SafeNet SoftRemote IKE Service Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in Safenet SoftRemote IKE IreIKE.exe service. When sending a specially crafted udp packet to port 62514 an attacker may be able to execute arbitrary code. This module has been tested with Juniper NetScreen-Remote 10.8.0 (Build 20) using windows/meterpreter/reverse_ord_tcp payloads.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/vpn/safenet_ike_11.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "MC <mc@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2009-1943"
+    ],
+    [
+      "OSVDB",
+      "54831"
+    ],
+    [
+      "BID",
+      "35154"
+    ],
+    [
+      "URL",
+      "http://reversemode.com/index.php?option=com_content&task=view&id=63&Itemid=1"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "SafeNet Irelke 10.8.0.20"
+    ],
+    [
+      1,
+      "SafeNet Irelke 10.8.0.10"
+    ],
+    [
+      2,
+      "SafeNet Irelke 10.8.3.6"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "CPORT",
+    "CHOST"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,108 @@
+{
+  "Name": "MS11-003 Microsoft Internet Explorer CSS Recursive Import Use After Free",
+  "Description": "This module exploits a memory corruption vulnerability within Microsoft\\'s HTML engine (mshtml). When parsing an HTML page containing a recursive CSS import, a C++ object is deleted and later reused. This leads to arbitrary code execution. This exploit utilizes a combination of heap spraying and the .NET 2.0 'mscorie.dll' module to bypass DEP and ASLR. This module does not opt-in to ASLR. As such, this module should be reliable on all Windows versions with .NET 2.0.50727 installed.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/ms11_003_ie_css_import.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "passerby",
+    "d0c_s4vage",
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2010-3971"
+    ],
+    [
+      "OSVDB",
+      "69796"
+    ],
+    [
+      "BID",
+      "45246"
+    ],
+    [
+      "URL",
+      "http://www.wooyun.org/bugs/wooyun-2010-0885"
+    ],
+    [
+      "URL",
+      "https://seclists.org/fulldisclosure/2010/Dec/110"
+    ],
+    [
+      "MSB",
+      "MS11-003"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "Internet Explorer 8"
+    ],
+    [
+      2,
+      "Internet Explorer 7"
+    ],
+    [
+      3,
+      "Internet Explorer 6"
+    ],
+    [
+      4,
+      "Debug Target (Crash)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "OBFUSCATE"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

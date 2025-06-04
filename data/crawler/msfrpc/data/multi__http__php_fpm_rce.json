@@ -1,0 +1,115 @@
+{
+  "Name": "PHP-FPM Underflow RCE",
+  "Description": "This module exploits an underflow vulnerability in versions 7.1.x below 7.1.33, 7.2.x below 7.2.24 and 7.3.x below 7.3.11 of PHP-FPM on Nginx. Only servers with certains Nginx + PHP-FPM configurations are exploitable. This is a port of the original neex's exploit code (see refs.). First, it detects the correct parameters (Query String Length and custom header length) needed to trigger code execution. This step determines if the target is actually vulnerable (Check method). Then, the exploit sets a series of PHP INI directives to create a file locally on the target, which enables code execution through a query string parameter. This is used to execute normal payload stagers. Finally, this module does some cleanup by killing local PHP-FPM workers (those are spawned automatically once killed) and removing the created local file.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/http/php_fpm_rce.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "neex",
+    "cdelafuente-r7"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2019-11043"
+    ],
+    [
+      "EDB",
+      "47553"
+    ],
+    [
+      "URL",
+      "https://github.com/neex/phuip-fpizdam"
+    ],
+    [
+      "URL",
+      "https://bugs.php.net/bug.php?id=78599"
+    ],
+    [
+      "URL",
+      "https://blog.orange.tw/2019/10/an-analysis-and-thought-about-recently.html"
+    ]
+  ],
+  "Platform": [],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "PHP"
+    ],
+    [
+      1,
+      "Shell Command"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TARGETURI",
+    "MinQSL",
+    "MaxQSL",
+    "QSLHint",
+    "QSLDetectStep",
+    "MaxQSLCandidates",
+    "MaxQSLDetectDelta",
+    "MaxCustomHeaderLength",
+    "CustomHeaderLengthHint",
+    "DetectMethod",
+    "OperationMaxRetries"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

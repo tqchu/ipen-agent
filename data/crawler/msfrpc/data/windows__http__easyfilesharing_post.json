@@ -1,0 +1,60 @@
+{
+  "Name": "Easy File Sharing HTTP Server 7.2 POST Buffer Overflow",
+  "Description": "This module exploits a POST buffer overflow in the Easy File Sharing FTP Server 7.2 software.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/http/easyfilesharing_post.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "bl4ck h4ck3r",
+    "Marco Rivoli <marco.rivoli.nvh@gmail.com>"
+  ],
+  "References": [
+    [
+      "EDB",
+      "42186"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Easy File Sharing 7.2 HTTP"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": {
+    "RPORT": 80,
+    "EXITFUNC": "thread",
+    "ENCODER": "x86/alpha_mixed"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

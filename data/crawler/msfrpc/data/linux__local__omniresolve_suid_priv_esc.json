@@ -1,0 +1,71 @@
+{
+  "Name": "Micro Focus (HPE) Data Protector SUID Privilege Escalation",
+  "Description": "This module exploits the trusted `$PATH` environment variable of the SUID binary `omniresolve` in Micro Focus (HPE) Data Protector A.10.40 and prior. The `omniresolve` executable calls the `oracleasm` binary using a relative path and the trusted environment `$PATH`, which allows an attacker to execute a custom binary with `root` privileges. This module has been successfully tested on: HPE Data Protector A.09.07: OMNIRESOLVE, internal build 110, built on Thu Aug 11 14:52:38 2016; Micro Focus Data Protector A.10.40: OMNIRESOLVE, internal build 118, built on Tue May 21 05:49:04 2019 on CentOS Linux release 7.6.1810 (Core) The vulnerability has been patched in: Micro Focus Data Protector A.10.40: OMNIRESOLVE, internal build 125, built on Mon Aug 19 19:22:20 2019",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/omniresolve_suid_priv_esc.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "s7u55"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2019-11660"
+    ],
+    [
+      "URL",
+      "https://softwaresupport.softwaregrp.com/doc/KM03525630"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Micro Focus (HPE) Data Protector <= 10.40 build 118"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "SUID_PATH",
+    "WritableDir",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "PrependSetgid": true,
+    "PrependSetuid": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

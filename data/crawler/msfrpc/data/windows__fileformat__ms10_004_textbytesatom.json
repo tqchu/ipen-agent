@@ -1,0 +1,74 @@
+{
+  "Name": "MS10-004 Microsoft PowerPoint Viewer TextBytesAtom Stack Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow vulnerability in the handling of the TextBytesAtom records by Microsoft PowerPoint Viewer. According to Microsoft, the PowerPoint Viewer distributed with Office 2003 SP3 and earlier, as well as Office 2004 for Mac, are vulnerable. NOTE: The vulnerable code path is not reachable on versions of Windows prior to Windows Vista.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/ms10_004_textbytesatom.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "SkD",
+    "Snake",
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2010-0033"
+    ],
+    [
+      "OSVDB",
+      "62241"
+    ],
+    [
+      "MSB",
+      "MS10-004"
+    ],
+    [
+      "ZDI",
+      "10-017"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Microsoft PowerPoint Viewer 2003"
+    ],
+    [
+      1,
+      "Microsoft PowerPoint Viewer 2003 (kb949041 or kb956500) or Office 2003 SP3"
+    ],
+    [
+      2,
+      "Microsoft PowerPoint Viewer 2003 (kb969615)"
+    ],
+    [
+      3,
+      "Crash Target for Debugging"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "DynamicSehRecord",
+    "OUTPUTPATH"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

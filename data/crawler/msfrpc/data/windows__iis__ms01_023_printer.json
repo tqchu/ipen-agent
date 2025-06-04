@@ -1,0 +1,169 @@
+{
+  "Name": "MS01-023 Microsoft IIS 5.0 Printer Host Header Overflow",
+  "Description": "This exploits a buffer overflow in the request processor of the Internet Printing Protocol ISAPI module in IIS. This module works against Windows 2000 Server and Professional SP0-SP1. If the service stops responding after a successful compromise, run the exploit a couple more times to completely kill the hung process.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/iis/ms01_023_printer.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "hdm <x@hdm.io>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2001-0241"
+    ],
+    [
+      "OSVDB",
+      "3323"
+    ],
+    [
+      "BID",
+      "2674"
+    ],
+    [
+      "MSB",
+      "MS01-023"
+    ],
+    [
+      "URL",
+      "https://seclists.org/lists/bugtraq/2001/May/0005.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows 2000 SP0-SP1 (Arabic)"
+    ],
+    [
+      1,
+      "Windows 2000 SP0-SP1 (Czech)"
+    ],
+    [
+      2,
+      "Windows 2000 SP0-SP1 (Chinese)"
+    ],
+    [
+      3,
+      "Windows 2000 SP0-SP1 (Dutch)"
+    ],
+    [
+      4,
+      "Windows 2000 SP0-SP1 (English)"
+    ],
+    [
+      5,
+      "Windows 2000 SP0-SP1 (French)"
+    ],
+    [
+      6,
+      "Windows 2000 SP0-SP1 (Finnish)"
+    ],
+    [
+      7,
+      "Windows 2000 SP0-SP1 (German)"
+    ],
+    [
+      8,
+      "Windows 2000 SP0-SP1 (Korean)"
+    ],
+    [
+      9,
+      "Windows 2000 SP0-SP1 (Hungarian)"
+    ],
+    [
+      10,
+      "Windows 2000 SP0-SP1 (Italian)"
+    ],
+    [
+      11,
+      "Windows 2000 SP0-SP1 (Portuguese)"
+    ],
+    [
+      12,
+      "Windows 2000 SP0-SP1 (Spanish)"
+    ],
+    [
+      13,
+      "Windows 2000 SP0-SP1 (Swedish)"
+    ],
+    [
+      14,
+      "Windows 2000 SP0-SP1 (Turkish)"
+    ],
+    [
+      15,
+      "Windows 2000 Pro SP0 (Greek)"
+    ],
+    [
+      16,
+      "Windows 2000 Pro SP1 (Greek)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "windows/shell/reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

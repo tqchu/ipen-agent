@@ -1,0 +1,48 @@
+{
+  "Name": "Boxoft WAV to MP3 Converter v1.1 Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in Boxoft WAV to MP3 Converter versions 1.0 and 1.1. By constructing a specially crafted WAV file and attempting to convert it to an MP3 file in the application, a buffer is overwritten, which allows for running shellcode.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/boxoft_wav_to_mp3.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Robbie Corley",
+    "Shelby Pace"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2015-7243"
+    ],
+    [
+      "EDB",
+      "38035"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Boxoft WAV to MP3 Converter v1.1"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

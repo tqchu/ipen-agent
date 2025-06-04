@@ -1,0 +1,80 @@
+{
+  "Name": "DHCP Client Command Injection (DynoRoot)",
+  "Description": "This module exploits the DynoRoot vulnerability, a flaw in how the NetworkManager integration script included in the DHCP client in Red Hat Enterprise Linux 6 and 7, Fedora 28, and earlier processes DHCP options. A malicious DHCP server, or an attacker on the local network able to spoof DHCP responses, could use this flaw to execute arbitrary commands with root privileges on systems using NetworkManager and configured to obtain network configuration using the DHCP protocol.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/unix/dhcp/rhel_dhcp_client_command_injection.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Felix Wilhelm",
+    "Kevin Kirsche <d3c3pt10n[AT]deceiveyour.team>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2018-1111"
+    ],
+    [
+      "EDB",
+      "44652"
+    ],
+    [
+      "URL",
+      "https://github.com/kkirsche/CVE-2018-1111"
+    ],
+    [
+      "URL",
+      "https://twitter.com/_fel1x/status/996388421273882626?lang=en"
+    ],
+    [
+      "URL",
+      "https://access.redhat.com/security/vulnerabilities/3442151"
+    ],
+    [
+      "URL",
+      "https://dynoroot.ninja/"
+    ],
+    [
+      "URL",
+      "https://nvd.nist.gov/vuln/detail/CVE-2018-1111"
+    ],
+    [
+      "URL",
+      "https://www.tenable.com/blog/advisory-red-hat-dhcp-client-command-injection-trouble"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic Target"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "NETMASK",
+    "DHCPIPSTART",
+    "DHCPIPEND",
+    "ROUTER",
+    "BROADCAST",
+    "DNSSERVER",
+    "HOSTSTART"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

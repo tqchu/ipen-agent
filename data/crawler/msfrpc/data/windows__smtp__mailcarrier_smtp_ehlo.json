@@ -1,0 +1,76 @@
+{
+  "Name": "TABS MailCarrier v2.51 SMTP EHLO Overflow",
+  "Description": "This module exploits the MailCarrier v2.51 suite SMTP service. The stack is overwritten when sending an overly long EHLO command.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/smtp/mailcarrier_smtp_ehlo.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "aushack <patrick@osisecurity.com.au>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2004-1638"
+    ],
+    [
+      "OSVDB",
+      "11174"
+    ],
+    [
+      "BID",
+      "11535"
+    ],
+    [
+      "EDB",
+      "598"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows 2000 SP0 - XP SP1 - EN/FR/GR"
+    ],
+    [
+      1,
+      "Windows XP SP2 - EN"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "LHOST"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,73 @@
+{
+  "Name": "Allwinner 3.4 Legacy Kernel Local Privilege Escalation",
+  "Description": "This module attempts to exploit a debug backdoor privilege escalation in Allwinner SoC based devices. Vulnerable Allwinner SoC chips: H3, A83T or H8 which rely on Kernel 3.4. Vulnerable OS: all OS images available for Orange Pis, any for FriendlyARM's NanoPi M1, SinoVoip's M2+ and M3, Cuebietech's Cubietruck + Linksprite's pcDuino8 Uno. Exploitation may be possible against Dragon (x10) and Allwinner Android tablets.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/local/allwinner_backdoor.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "h00die <mike@stcyrsecurity.com>",
+    "KotCzarny"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2016-10225"
+    ],
+    [
+      "URL",
+      "http://forum.armbian.com/index.php/topic/1108-security-alert-for-allwinner-sun8i-h3a83th8/"
+    ],
+    [
+      "URL",
+      "https://webcache.googleusercontent.com/search?q=cache:l2QYVUcDflkJ:https://github.com/allwinner-zh/linux-3.4-sunxi/blob/master/arch/arm/mach-sunxi/sunxi-debug.c+&cd=3&hl=en&ct=clnk&gl=us"
+    ],
+    [
+      "URL",
+      "http://irclog.whitequark.org/linux-sunxi/2016-04-29#16314390"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Android",
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "armle"
+  ],
+  "Targets": [
+    [
+      0,
+      "Auto"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC"
+  ],
+  "DefaultOptions": {
+    "payload": "linux/armle/meterpreter/reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

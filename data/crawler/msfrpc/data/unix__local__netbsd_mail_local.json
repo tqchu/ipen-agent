@@ -1,0 +1,66 @@
+{
+  "Name": "NetBSD mail.local Privilege Escalation",
+  "Description": "This module attempts to exploit a race condition in mail.local with SUID bit set on: NetBSD 7.0 - 7.0.1 (verified on 7.0.1) NetBSD 6.1 - 6.1.5 NetBSD 6.0 - 6.0.6 Successful exploitation relies on a crontab job with root privilege, which may take up to 10min to execute.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/unix/local/netbsd_mail_local.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "h00die <mike@shorebreaksecurity.com>",
+    "akat1"
+  ],
+  "References": [
+    [
+      "URL",
+      "http://akat1.pl/?id=2"
+    ],
+    [
+      "EDB",
+      "40141"
+    ],
+    [
+      "CVE",
+      "2016-6253"
+    ],
+    [
+      "URL",
+      "http://ftp.netbsd.org/pub/NetBSD/security/advisories/NetBSD-SA2016-006.txt.asc"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic Target"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "ATRUNPATH",
+    "MAILDIR",
+    "WritableDir",
+    "ListenerTimeout"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 603
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,77 @@
+{
+  "Name": "Dhclient Bash Environment Variable Injection (Shellshock)",
+  "Description": "This module exploits the Shellshock vulnerability, a flaw in how the Bash shell handles external environment variables. This module targets dhclient by responding to DHCP requests with a malicious hostname, domainname, and URL which are then passed to the configuration scripts as environment variables, resulting in code execution. Due to length restrictions and the unusual networking scenario at the time of exploitation, this module achieves code execution by writing the payload into /etc/crontab and then cleaning it up after a session is created.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/unix/dhcp/bash_environment.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Stephane Chazelas",
+    "egypt <egypt@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2014-6271"
+    ],
+    [
+      "CWE",
+      "94"
+    ],
+    [
+      "OSVDB",
+      "112004"
+    ],
+    [
+      "EDB",
+      "34765"
+    ],
+    [
+      "URL",
+      "https://securityblog.redhat.com/2014/09/24/bash-specially-crafted-environment-variables-code-injection-attack/"
+    ],
+    [
+      "URL",
+      "https://seclists.org/oss-sec/2014/q3/649"
+    ],
+    [
+      "URL",
+      "https://www.trustedsec.com/september-2014/shellshock-dhcp-rce-proof-concept/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic Target"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "NETMASK",
+    "DHCPIPSTART",
+    "DHCPIPEND",
+    "ROUTER",
+    "BROADCAST",
+    "DNSSERVER",
+    "HOSTSTART",
+    "FILENAME"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

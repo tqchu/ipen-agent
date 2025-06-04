@@ -1,0 +1,88 @@
+{
+  "Name": "Apple Safari Webkit libxslt Arbitrary File Creation",
+  "Description": "This module exploits a file creation vulnerability in the Webkit rendering engine. It is possible to redirect the output of a XSLT transformation to an arbitrary file. The content of the created file must be ASCII or UTF-8. The destination path can be relative or absolute. This module has been tested on Safari and Maxthon. Code execution can be achieved by first uploading the payload to the remote machine in VBS format, and then upload a MOF file, which enables Windows Management Instrumentation service to execute the VBS.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/safari_xslt_output.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Nicolas Gregoire"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2011-1774"
+    ],
+    [
+      "OSVDB",
+      "74017"
+    ],
+    [
+      "URL",
+      "http://lists.apple.com/archives/Security-announce/2011/Jul/msg00002.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC"
+  ],
+  "DefaultOptions": {
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

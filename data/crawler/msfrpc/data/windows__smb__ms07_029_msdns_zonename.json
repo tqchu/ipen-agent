@@ -1,0 +1,187 @@
+{
+  "Name": "MS07-029 Microsoft DNS RPC Service extractQuotedChar() Overflow (SMB)",
+  "Description": "This module exploits a stack buffer overflow in the RPC interface of the Microsoft DNS service. The vulnerability is triggered when a long zone name parameter is supplied that contains escaped octal strings. This module is capable of bypassing NX/DEP protection on Windows 2003 SP1/SP2. This module exploits the RPC service using the \\DNSSERVER pipe available via SMB. This pipe requires a valid user account to access, so the SMBUSER and SMBPASS options must be specified.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/smb/ms07_029_msdns_zonename.rb",
+  "Version": "",
+  "Rank": "manual",
+  "Authors": [
+    "hdm <x@hdm.io>",
+    "Unknown",
+    "bcoles <bcoles@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2007-1748"
+    ],
+    [
+      "OSVDB",
+      "34100"
+    ],
+    [
+      "MSB",
+      "MS07-029"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic (2000 SP0-SP4, 2003 SP0-SP2)"
+    ],
+    [
+      1,
+      "Windows 2000 Server SP0-SP4+ English"
+    ],
+    [
+      2,
+      "Windows 2000 Server SP0-SP4+ French"
+    ],
+    [
+      3,
+      "Windows 2000 Server SP0-SP4+ German"
+    ],
+    [
+      4,
+      "Windows 2000 Server SP0-SP4+ Italian"
+    ],
+    [
+      5,
+      "Windows 2000 Server SP0-SP4+ Polish"
+    ],
+    [
+      6,
+      "Windows 2000 Server SP0-SP4+ Portuguese"
+    ],
+    [
+      7,
+      "Windows 2000 Server SP0-SP4+ Korean"
+    ],
+    [
+      8,
+      "Windows 2000 Server SP0-SP4+ Russian"
+    ],
+    [
+      9,
+      "Windows 2000 Server SP0-SP4+ Simplified Chinese"
+    ],
+    [
+      10,
+      "Windows 2000 Server SP0-SP4+ Spanish"
+    ],
+    [
+      11,
+      "Windows 2000 Server SP0-SP4+ Swedish"
+    ],
+    [
+      12,
+      "Windows 2000 Server SP0-SP4+ Traditional Chinese"
+    ],
+    [
+      13,
+      "Windows 2000 Server SP0-SP4+ Turkish"
+    ],
+    [
+      14,
+      "Windows 2003 Server SP0 English"
+    ],
+    [
+      15,
+      "Windows 2003 Server SP0 French"
+    ],
+    [
+      16,
+      "Windows 2003 Server SP1-SP2 English"
+    ],
+    [
+      17,
+      "Windows 2003 Server SP1-SP2 French"
+    ],
+    [
+      18,
+      "Windows 2003 Server SP1-SP2 Spanish"
+    ],
+    [
+      19,
+      "Windows 2003 Server SP1-SP2 Italian"
+    ],
+    [
+      20,
+      "Windows 2003 Server SP1-SP2 German"
+    ],
+    [
+      21,
+      "Windows 2003 Server SP1-SP2 Russian"
+    ],
+    [
+      22,
+      "Windows 2003 Server SP1-SP2 Simplified Chinese"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "DCERPC::max_frag_size",
+    "DCERPC::fake_bind_multi",
+    "DCERPC::fake_bind_multi_prepend",
+    "DCERPC::fake_bind_multi_append",
+    "DCERPC::smb_pipeio",
+    "DCERPC::ReadTimeout",
+    "NTLM::UseNTLMv2",
+    "NTLM::UseNTLM2_session",
+    "NTLM::SendLM",
+    "NTLM::UseLMKey",
+    "NTLM::SendNTLM",
+    "NTLM::SendSPN",
+    "SMB::pipe_evasion",
+    "SMB::pipe_write_min_size",
+    "SMB::pipe_write_max_size",
+    "SMB::pipe_read_min_size",
+    "SMB::pipe_read_max_size",
+    "SMB::pad_data_level",
+    "SMB::pad_file_level",
+    "SMB::obscure_trans_pipe_level",
+    "SMBDirect",
+    "SMBUser",
+    "SMBPass",
+    "SMBDomain",
+    "SMBName",
+    "SMB::VerifySignature",
+    "SMB::ChunkSize",
+    "SMB::Native_OS",
+    "SMB::Native_LM",
+    "SMB::AlwaysEncrypt",
+    "Locale"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread",
+    "PAYLOAD": "windows/shell/reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

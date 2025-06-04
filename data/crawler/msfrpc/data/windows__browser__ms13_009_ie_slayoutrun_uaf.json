@@ -1,0 +1,85 @@
+{
+  "Name": "MS13-009 Microsoft Internet Explorer SLayoutRun Use-After-Free",
+  "Description": "This module exploits a use-after-free vulnerability in Microsoft Internet Explorer where a CParaElement node is released but a reference is still kept in CDoc. This memory is reused when a CDoc relayout is performed.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/ms13_009_ie_slayoutrun_uaf.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "Scott Bell <scott.bell@security-assessment.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-0025"
+    ],
+    [
+      "OSVDB",
+      "90122"
+    ],
+    [
+      "MSB",
+      "MS13-009"
+    ],
+    [
+      "URL",
+      "http://security-assessment.com/files/documents/advisory/ie_slayoutrun_uaf.pdf"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "IE 8 on Windows XP SP3"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "OBFUSCATE"
+  ],
+  "DefaultOptions": {
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

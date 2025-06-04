@@ -1,0 +1,110 @@
+{
+  "Name": "Adobe Flash Player MP4 'cprt' Overflow",
+  "Description": "This module exploits a vulnerability found in Adobe Flash Player. By supplying a corrupt .mp4 file loaded by Flash, it is possible to gain arbitrary remote code execution under the context of the user. This vulnerability has been exploited in the wild as part of the \"Iran's Oil and Nuclear Situation.doc\" e-mail attack. According to the advisory, 10.3.183.15 and 11.x before 11.1.102.62 are affected.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/adobe_flash_mp4_cprt.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Alexander Gavrun",
+    "sinn3r <sinn3r@metasploit.com>",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2012-0754"
+    ],
+    [
+      "OSVDB",
+      "79300"
+    ],
+    [
+      "BID",
+      "52034"
+    ],
+    [
+      "URL",
+      "http://contagiodump.blogspot.com/2012/03/mar-2-cve-2012-0754-irans-oil-and.html"
+    ],
+    [
+      "URL",
+      "http://www.adobe.com/support/security/bulletins/apsb12-03.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "IE 6 on Windows XP SP3"
+    ],
+    [
+      2,
+      "IE 7 on Windows XP SP3"
+    ],
+    [
+      3,
+      "IE 8 on Windows XP SP3 with msvcrt ROP"
+    ],
+    [
+      4,
+      "IE 8 on Windows XP SP3 with JRE ROP"
+    ],
+    [
+      5,
+      "IE 7 on Windows Vista"
+    ],
+    [
+      6,
+      "IE 8 on Windows 7 SP1"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": {
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,69 @@
+{
+  "Name": "Squid NTLM Authenticate Overflow",
+  "Description": "This is an exploit for Squid\\'s NTLM authenticate overflow (libntlmssp.c). Due to improper bounds checking in ntlm_check_auth, it is possible to overflow the 'pass' variable on the stack with user controlled data of a user defined length. Props to iDEFENSE for the advisory.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/proxy/squid_ntlm_authenticate.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "skape <mmiller@hick.org>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2004-0541"
+    ],
+    [
+      "OSVDB",
+      "6791"
+    ],
+    [
+      "URL",
+      "http://www.idefense.com/application/poi/display?id=107"
+    ],
+    [
+      "BID",
+      "10500"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Linux Bruteforce"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "BruteWait",
+    "BruteStep",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

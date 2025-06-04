@@ -1,0 +1,54 @@
+{
+  "Name": "Digital Music Pad Version 8.2.3.3.4 Stack Buffer Overflow",
+  "Description": "This module exploits a buffer overflow in Digital Music Pad Version 8.2.3.3.4 When opening a malicious pls file with the Digital Music Pad, a remote attacker could overflow a buffer and execute arbitrary code.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/digital_music_pad_pls.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Abhishek Lyall <abhilyall@gmail.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "68178"
+    ],
+    [
+      "URL",
+      "http://web.archive.org/web/20100923154433/http://secunia.com:80/advisories/41519"
+    ],
+    [
+      "EDB",
+      "15134"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows XP SP2"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

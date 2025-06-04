@@ -1,0 +1,106 @@
+{
+  "Name": "Webmin Upload Authenticated RCE",
+  "Description": "This module exploits an arbitrary command execution vulnerability in Webmin 1.900 and lower versions. Any user authorized to the \"Upload and Download\" module can execute arbitrary commands with root privileges. In addition, if the 'Running Processes' (proc) privilege is set the user can accurately determine which directory to upload to. Webmin application files can be written/overwritten, which allows remote code execution. The module has been tested successfully with Webmin 1.900 on Ubuntu v18.04. Using GUESSUPLOAD attempts to use a default installation path in order to trigger the exploit.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/unix/webapp/webmin_upload_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "AkkuS <\u00d6zkan Mustafa Akku\u015f>",
+    "Ziconius <Kris.Anderson@immersivelabs.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2019-9624"
+    ],
+    [
+      "EDB",
+      "46201"
+    ],
+    [
+      "URL",
+      "https://pentest.com.tr/exploits/Webmin-1900-Remote-Command-Execution.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Webmin <= 1.900"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "GUESSUPLOAD",
+    "USERNAME",
+    "PASSWORD",
+    "FILENAME",
+    "TARGETURI"
+  ],
+  "DefaultOptions": {
+    "RPORT": 10000,
+    "SSL": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

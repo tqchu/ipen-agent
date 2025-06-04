@@ -1,0 +1,107 @@
+{
+  "Name": "EasyFTP Server MKD Command Stack Buffer Overflow",
+  "Description": "This module exploits a stack-based buffer overflow in EasyFTP Server 1.7.0.11 and earlier. EasyFTP fails to check input size when parsing 'MKD' commands, which leads to a stack based buffer overflow. NOTE: EasyFTP allows anonymous access by default. However, in order to access the 'MKD' command, you must have access to an account that can create directories. After version 1.7.0.12, this package was renamed \"UplusFtp\". This exploit utilizes a small piece of code that I\\'ve referred to as 'fixRet'. This code allows us to inject of payload of ~500 bytes into a 264 byte buffer by 'fixing' the return address post-exploitation. See references for more information.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/ftp/easyftp_mkd_fixret.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "x90c <geinblues@gmail.com>",
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "62134"
+    ],
+    [
+      "EDB",
+      "12044"
+    ],
+    [
+      "EDB",
+      "14399"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows Universal - v1.7.0.2"
+    ],
+    [
+      1,
+      "Windows Universal - v1.7.0.3"
+    ],
+    [
+      2,
+      "Windows Universal - v1.7.0.4"
+    ],
+    [
+      3,
+      "Windows Universal - v1.7.0.5"
+    ],
+    [
+      4,
+      "Windows Universal - v1.7.0.6"
+    ],
+    [
+      5,
+      "Windows Universal - v1.7.0.7"
+    ],
+    [
+      6,
+      "Windows Universal - v1.7.0.8"
+    ],
+    [
+      7,
+      "Windows Universal - v1.7.0.9"
+    ],
+    [
+      8,
+      "Windows Universal - v1.7.0.10"
+    ],
+    [
+      9,
+      "Windows Universal - v1.7.0.11"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "FTPUSER",
+    "FTPPASS",
+    "FTPTimeout",
+    "FTPDEBUG",
+    "PassiveMode"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

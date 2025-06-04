@@ -1,0 +1,129 @@
+{
+  "Name": "Apache Struts ParametersInterceptor Remote Code Execution",
+  "Description": "This module exploits a remote command execution vulnerability in Apache Struts versions < 2.3.1.2. This issue is caused because the ParametersInterceptor allows for the use of parentheses which in turn allows it to interpret parameter values as OGNL expressions during certain exception handling for mismatched data types of properties which allows remote attackers to execute arbitrary Java code via a crafted parameter.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/http/struts_code_exec_parameters.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Meder Kydyraliev",
+    "Richard Hicks <scriptmonkey.blog@gmail.com>",
+    "mihi",
+    "Christian Mehlmauer <FireFart@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2011-3923"
+    ],
+    [
+      "OSVDB",
+      "78501"
+    ],
+    [
+      "URL",
+      "http://blog.o0o.nu/2012/01/cve-2011-3923-yet-another-struts2.html"
+    ],
+    [
+      "URL",
+      "https://cwiki.apache.org/confluence/display/WW/S2-009"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Java",
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows Universal"
+    ],
+    [
+      1,
+      "Linux Universal"
+    ],
+    [
+      2,
+      "Java Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "PARAMETER",
+    "TARGETURI",
+    "CHECK_SLEEPTIME",
+    "GET_PARAMETERS",
+    "TMP_PATH"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

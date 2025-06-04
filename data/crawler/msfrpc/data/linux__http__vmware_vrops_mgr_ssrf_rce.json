@@ -1,0 +1,132 @@
+{
+  "Name": "VMware vRealize Operations (vROps) Manager SSRF RCE",
+  "Description": "This module exploits a pre-auth SSRF (CVE-2021-21975) and post-auth file write (CVE-2021-21983) in VMware vRealize Operations Manager to leak admin creds and write/execute a JSP payload. CVE-2021-21975 affects the /casa/nodes/thumbprints endpoint, and CVE-2021-21983 affects the /casa/private/config/slice/ha/certificate endpoint. Code execution occurs as the \"admin\" Unix user. The following vRealize Operations Manager versions are vulnerable: * 7.0.0 * 7.5.0 * 8.0.0, 8.0.1 * 8.1.0, 8.1.1 * 8.2.0 * 8.3.0 Version 8.3.0 is not exploitable for creds and is therefore not supported by this module. Tested successfully against 8.0.1, 8.1.0, 8.1.1, and 8.2.0.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/http/vmware_vrops_mgr_ssrf_rce.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Egor Dimitrenko",
+    "wvu <wvu@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2021-21975"
+    ],
+    [
+      "CVE",
+      "2021-21983"
+    ],
+    [
+      "URL",
+      "https://www.vmware.com/security/advisories/VMSA-2021-0004.html"
+    ],
+    [
+      "URL",
+      "https://twitter.com/ptswarm/status/1376961747232382976"
+    ],
+    [
+      "URL",
+      "https://attackerkb.com/topics/51Vx3lNI7B/cve-2021-21975#rapid7-analysis"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "java"
+  ],
+  "Targets": [
+    [
+      0,
+      "vRealize Operations Manager < 8.3.0"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "TARGETURI",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "SRVPORT": 8443,
+    "SSL": true,
+    "PAYLOAD": "java/jsp_shell_reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

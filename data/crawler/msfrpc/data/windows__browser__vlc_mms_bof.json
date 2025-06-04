@@ -1,0 +1,92 @@
+{
+  "Name": "VLC MMS Stream Handling Buffer Overflow",
+  "Description": "This module exploits a buffer overflow in VLC media player VLC media player prior to 2.0.0. The vulnerability is due to a dangerous use of sprintf which can result in a stack buffer overflow when handling a malicious MMS URI. This module uses the browser as attack vector. A specially crafted MMS URI is used to trigger the overflow and get flow control through SEH overwrite. Control is transferred to code located in the heap through a standard heap spray. The module only targets IE6 and IE7 because no DEP/ASLR bypass has been provided.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/vlc_mms_bof.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Florent Hochwelker",
+    "sinn3r <sinn3r@metasploit.com>",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2012-1775"
+    ],
+    [
+      "OSVDB",
+      "80188"
+    ],
+    [
+      "URL",
+      "http://www.videolan.org/security/sa1201.html"
+    ],
+    [
+      "URL",
+      "http://git.videolan.org/?p=vlc/vlc-2.0.git;a=commit;h=11a95cce96fffdbaba1be6034d7b42721667821c"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "Internet Explorer 6 on XP SP3"
+    ],
+    [
+      2,
+      "Internet Explorer 7 on XP SP3"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "OBFUSCATE"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

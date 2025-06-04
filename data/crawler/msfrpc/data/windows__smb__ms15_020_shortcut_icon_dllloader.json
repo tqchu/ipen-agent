@@ -1,0 +1,79 @@
+{
+  "Name": "Microsoft Windows Shell LNK Code Execution",
+  "Description": "This module exploits a vulnerability in the MS10-046 patch to abuse (again) the handling of Windows Shortcut files (.LNK) that contain an icon resource pointing to a malicious DLL. This creates an SMB resource to provide the payload and the trigger, and generates a LNK file which must be sent to the target. This module has been tested successfully on Windows 2003 SP2 with MS10-046 installed and Windows 2008 SP2 (32 bits) with MS14-027 installed.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/smb/ms15_020_shortcut_icon_dllloader.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Michael Heerklotz",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2015-0096"
+    ],
+    [
+      "MSB",
+      "MS15-020"
+    ],
+    [
+      "URL",
+      "http://h30499.www3.hp.com/t5/HP-Security-Research-Blog/Full-details-on-CVE-2015-0096-and-the-failed-MS10-046-Stuxnet/ba-p/6718459#.VQBOymTF9so"
+    ],
+    [
+      "URL",
+      "https://github.com/rapid7/metasploit-framework/pull/4911"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "FILENAME",
+    "CAINPWFILE",
+    "JOHNPWFILE",
+    "SHARE",
+    "FOLDER_NAME",
+    "SMBDomain"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,60 @@
+{
+  "Name": "FTP JCL Execution",
+  "Description": "(Submit JCL to z/OS via FTP and SITE FILE=JES. This exploit requires valid credentials on the target system)",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/mainframe/ftp/ftp_jcl_creds.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Bigendian Smalls",
+    "mainframed a.k.a. soldier of fortran",
+    "S&Oxballs a.k.a. chiefascot"
+  ],
+  "References": [],
+  "Platform": [
+    "Msf::Module::Platform::Mainframe"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "FTPUSER",
+    "FTPPASS",
+    "FTPTimeout",
+    "FTPDEBUG",
+    "PassiveMode",
+    "SLEEP"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

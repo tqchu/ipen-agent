@@ -1,0 +1,76 @@
+{
+  "Name": "Morris Worm sendmail Debug Mode Shell Escape",
+  "Description": "This module exploits sendmail's well-known historical debug mode to escape to a shell and execute commands in the SMTP RCPT TO command. This vulnerability was exploited by the Morris worm in 1988-11-02. Cliff Stoll reports on the worm in the epilogue of The Cuckoo's Egg. Currently, only cmd/unix/reverse and cmd/unix/generic are supported.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/unix/smtp/morris_sendmail_debug.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "Robert Tappan Morris",
+    "Cliff Stoll",
+    "wvu <wvu@metasploit.com>"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://en.wikipedia.org/wiki/Morris_worm"
+    ],
+    [
+      "URL",
+      "https://spaf.cerias.purdue.edu/tech-reps/823.pdf"
+    ],
+    [
+      "URL",
+      "https://github.com/arialdomartini/morris-worm"
+    ],
+    [
+      "URL",
+      "http://gunkies.org/wiki/Installing_4.3_BSD_on_SIMH"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "@(#)version.c       5.51 (Berkeley) 5/2/86"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "ExpectTimeout",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "cmd/unix/reverse"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

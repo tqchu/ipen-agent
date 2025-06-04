@@ -1,0 +1,72 @@
+{
+  "Name": "Mac OS X IOKit Keyboard Driver Root Privilege Escalation",
+  "Description": "A heap overflow in IOHIKeyboardMapper::parseKeyMapping allows kernel memory corruption in Mac OS X before 10.10. By abusing a bug in the IORegistry, kernel pointers can also be leaked, allowing a full kASLR bypass. Tested on Mavericks 10.9.5, and should work on previous versions. The issue was patched silently in Yosemite.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/osx/local/iokit_keyboard_root.rb",
+  "Version": "",
+  "Rank": "manual",
+  "Authors": [
+    "Ian Beer",
+    "joev <joev@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2014-4404"
+    ],
+    [
+      "URL",
+      "http://googleprojectzero.blogspot.com/2014/11/pwn4fun-spring-2014-safari-part-ii.html"
+    ],
+    [
+      "URL",
+      "https://code.google.com/p/google-security-research/issues/detail?id=40"
+    ],
+    [
+      "URL",
+      "https://code.google.com/p/google-security-research/issues/detail?id=126"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::OSX"
+  ],
+  "Arch": [
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Mac OS X 10.9.5 Mavericks x64 (Native Payload)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

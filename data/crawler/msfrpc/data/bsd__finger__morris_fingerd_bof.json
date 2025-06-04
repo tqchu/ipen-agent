@@ -1,0 +1,79 @@
+{
+  "Name": "Morris Worm fingerd Stack Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in fingerd on 4.3BSD. This vulnerability was exploited by the Morris worm in 1988-11-02. Cliff Stoll reports on the worm in the epilogue of The Cuckoo's Egg. Currently, only bsd/vax/shell_reverse_tcp is supported.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/bsd/finger/morris_fingerd_bof.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Robert Tappan Morris",
+    "Cliff Stoll",
+    "wvu <wvu@metasploit.com>"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://en.wikipedia.org/wiki/Morris_worm"
+    ],
+    [
+      "URL",
+      "https://spaf.cerias.purdue.edu/tech-reps/823.pdf"
+    ],
+    [
+      "URL",
+      "http://computerarcheology.com/Virus/MorrisWorm/"
+    ],
+    [
+      "URL",
+      "https://github.com/arialdomartini/morris-worm"
+    ],
+    [
+      "URL",
+      "http://gunkies.org/wiki/Installing_4.3_BSD_on_SIMH"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::BSD"
+  ],
+  "Arch": [
+    "vax"
+  ],
+  "Targets": [
+    [
+      0,
+      "@(#)fingerd.c   5.1 (Berkeley) 6/6/85"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "bsd/vax/shell_reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

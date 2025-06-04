@@ -1,0 +1,73 @@
+{
+  "Name": "OpenSMTPD MAIL FROM Remote Code Execution",
+  "Description": "This module exploits a command injection in the MAIL FROM field during SMTP interaction with OpenSMTPD to execute a command as the root user.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/unix/smtp/opensmtpd_mail_from_rce.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Qualys",
+    "wvu <wvu@metasploit.com>",
+    "RageLtMan <rageltman@sempervictus>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2020-7247"
+    ],
+    [
+      "EDB",
+      "48051"
+    ],
+    [
+      "URL",
+      "https://seclists.org/oss-sec/2020/q1/40"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "OpenSMTPD 6.4.0 - 6.6.1"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "RCPT_TO",
+    "ExpectTimeout",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "cmd/unix/reverse_netcat"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

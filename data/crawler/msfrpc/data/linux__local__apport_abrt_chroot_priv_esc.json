@@ -1,0 +1,106 @@
+{
+  "Name": "Apport / ABRT chroot Privilege Escalation",
+  "Description": "This module attempts to gain root privileges on Linux systems by invoking the default coredump handler inside a namespace (\"container\"). Apport versions 2.13 through 2.17.x before 2.17.1 on Ubuntu are vulnerable, due to a feature which allows forwarding reports to a container's Apport by changing the root directory before loading the crash report, causing `usr/share/apport/apport` within the crashed task's directory to be executed. Similarly, Fedora is vulnerable when the kernel crash handler is configured to change root directory before executing ABRT, causing `usr/libexec/abrt-hook-ccpp` within the crashed task's directory to be executed. In both instances, the crash handler does not drop privileges, resulting in code execution as root. This module has been tested successfully on Apport 2.14.1 on Ubuntu 14.04.1 LTS x86 and x86_64 and ABRT on Fedora 19 and 20 x86_64.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/apport_abrt_chroot_priv_esc.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "St\u00e9phane Graber",
+    "Tavis Ormandy",
+    "Ricardo F. Teixeira",
+    "bcoles <bcoles@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2015-1318"
+    ],
+    [
+      "URL",
+      "http://www.openwall.com/lists/oss-security/2015/04/14/4"
+    ],
+    [
+      "EDB",
+      "36782"
+    ],
+    [
+      "EDB",
+      "36746"
+    ],
+    [
+      "URL",
+      "https://gist.github.com/taviso/0f02c255c13c5c113406"
+    ],
+    [
+      "URL",
+      "https://bugzilla.redhat.com/show_bug.cgi?id=1211223"
+    ],
+    [
+      "URL",
+      "https://bugzilla.redhat.com/show_bug.cgi?id=1211835"
+    ],
+    [
+      "URL",
+      "https://usn.ubuntu.com/usn/USN-2569-1/"
+    ],
+    [
+      "URL",
+      "https://code.launchpad.net/~stgraber/apport/pidns-support/+merge/200893"
+    ],
+    [
+      "URL",
+      "https://bugs.launchpad.net/ubuntu/+source/apport/+bug/1438758"
+    ],
+    [
+      "URL",
+      "http://bazaar.launchpad.net/~apport-hackers/apport/trunk/revision/2943"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Auto"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "WritableDir",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

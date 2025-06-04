@@ -1,0 +1,67 @@
+{
+  "Name": "Authenticated WMI Exec via Powershell",
+  "Description": "This module uses WMI execution to launch a payload instance on a remote machine. In order to avoid AV detection, all execution is performed in memory via psh-net encoded payload. Persistence option can be set to keep the payload looping while a handler is present to receive it. By default the module runs as the current process owner. The module can be configured with credentials for the remote host with which to launch the process.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/ps_wmi_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "RageLtMan <rageltman@sempervictus>"
+  ],
+  "References": [],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "Powershell::persist",
+    "Powershell::prepend_sleep",
+    "Powershell::prepend_protections_bypass",
+    "Powershell::strip_comments",
+    "Powershell::strip_whitespace",
+    "Powershell::sub_vars",
+    "Powershell::sub_funcs",
+    "Powershell::exec_in_place",
+    "Powershell::exec_rc4",
+    "Powershell::remove_comspec",
+    "Powershell::noninteractive",
+    "Powershell::encode_final_payload",
+    "Powershell::encode_inner_payload",
+    "Powershell::wrap_double_quotes",
+    "Powershell::no_equals",
+    "Powershell::method",
+    "Powershell::Post::timeout",
+    "Powershell::Post::log_output",
+    "Powershell::Post::dry_run",
+    "Powershell::Post::force_wow64",
+    "CERT_PATH",
+    "RHOSTS",
+    "USERNAME",
+    "PASSWORD",
+    "DOMAIN",
+    "PowerShellPersist",
+    "RunRemoteWow64"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

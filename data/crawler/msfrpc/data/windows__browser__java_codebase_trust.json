@@ -1,0 +1,84 @@
+{
+  "Name": "Sun Java Applet2ClassLoader Remote Code Execution",
+  "Description": "This module exploits a vulnerability in the Java Runtime Environment that allows an attacker to run an applet outside of the Java Sandbox. When an applet is invoked with: 1. A \"codebase\" parameter that points at a trusted directory 2. A \"code\" parameter that is a URL that does not contain any dots the applet will run outside of the sandbox. This vulnerability affects JRE prior to version 6 update 24.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/java_codebase_trust.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Frederic Hoguin",
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2010-4452"
+    ],
+    [
+      "OSVDB",
+      "71193"
+    ],
+    [
+      "ZDI",
+      "11-084"
+    ],
+    [
+      "URL",
+      "http://fhoguin.com/2011/03/oracle-java-unsigned-applet-applet2classloader-remote-code-execution-vulnerability-zdi-11-084-explained/"
+    ],
+    [
+      "URL",
+      "http://www.oracle.com/technetwork/topics/security/javacpufeb2011-304611.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Java"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Generic (Java Payload)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "LIBPATH"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

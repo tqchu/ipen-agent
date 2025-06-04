@@ -1,0 +1,59 @@
+{
+  "Name": "Dell DBUtil_2_3.sys IOCTL memmove",
+  "Description": "The DBUtil_2_3.sys driver distributed by Dell exposes an unprotected IOCTL interface that can be abused by an attacker read and write kernel-mode memory.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/cve_2021_21551_dbutil_memmove.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "Kasif Dekel",
+    "SentinelLabs",
+    "Spencer McIntyre"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2021-21551"
+    ],
+    [
+      "URL",
+      "https://labs.sentinelone.com/cve-2021-21551-hundreds-of-millions-of-dell-computers-at-risk-due-to-multiple-bios-driver-privilege-escalation-flaws/"
+    ],
+    [
+      "URL",
+      "https://www.dell.com/support/kbdoc/ro-ro/000186019/dsa-2021-088-dell-client-platform-security-update-for-dell-driver-insufficient-access-control-vulnerability"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows x64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

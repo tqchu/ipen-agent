@@ -1,0 +1,71 @@
+{
+  "Name": "Windows ClientCopyImage Win32k Exploit",
+  "Description": "This module exploits improper object handling in the win32k.sys kernel mode driver. This module has been tested on vulnerable builds of Windows 7 x64 and x86, and Windows 2008 R2 SP1 x64.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/ms15_051_client_copy_image.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Unknown",
+    "hfirefox",
+    "OJ Reeves",
+    "Spencer McIntyre"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2015-1701"
+    ],
+    [
+      "MSB",
+      "MS15-051"
+    ],
+    [
+      "URL",
+      "https://www.fireeye.com/blog/threat-research/2015/04/probable_apt28_useo.html"
+    ],
+    [
+      "URL",
+      "https://github.com/hfiref0x/CVE-2015-1701"
+    ],
+    [
+      "URL",
+      "https://technet.microsoft.com/library/security/MS15-051"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows x86"
+    ],
+    [
+      1,
+      "Windows x64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

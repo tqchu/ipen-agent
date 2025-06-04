@@ -1,0 +1,64 @@
+{
+  "Name": "ZPanel zsudo Local Privilege Escalation Exploit",
+  "Description": "This module abuses the zsudo binary, installed with zpanel, to escalate privileges. In order to work, a session with access to zsudo on the sudoers configuration is needed. This module is useful for post exploitation of ZPanel vulnerabilities, where typically web server privileges are acquired, and this user is allowed to execute zsudo on the sudoers file.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/zpanel_zsudo.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "sinn3r <sinn3r@metasploit.com>",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [],
+  "Platform": [
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd",
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "Command payload"
+    ],
+    [
+      1,
+      "Linux x86"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "zsudo",
+    "WritableDir"
+  ],
+  "DefaultOptions": {
+    "PrependSetresuid": true,
+    "WfsDelay": 2
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

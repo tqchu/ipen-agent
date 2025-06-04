@@ -1,0 +1,63 @@
+{
+  "Name": "Windows Access Mode Mismatch LPE in ks.sys",
+  "Description": "The ks.sys driver on Windows is one of the core components of Kernel Streaming and is installed by default. There exists a LPE in this driver which can be exploited on many recent versions of Windows 10, Windows 11, Windows Server 2022.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/cve_2024_35250_ks_driver.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "AngelBoy",
+    "varwara",
+    "jheysel-r7"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://github.com/varwara/CVE-2024-35250"
+    ],
+    [
+      "URL",
+      "https://devco.re/blog/2024/08/23/streaming-vulnerabilities-from-windows-kernel-proxying-to-kernel-part1-en/"
+    ],
+    [
+      "URL",
+      "https://googleprojectzero.blogspot.com/2019/03/windows-kernel-logic-bug-class-access.html"
+    ],
+    [
+      "CVE",
+      "2024-35250"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows x64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "windows/x64/meterpreter/reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

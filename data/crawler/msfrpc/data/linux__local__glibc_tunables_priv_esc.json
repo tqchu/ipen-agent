@@ -1,0 +1,74 @@
+{
+  "Name": "Glibc Tunables Privilege Escalation CVE-2023-4911 (aka Looney Tunables)",
+  "Description": "A buffer overflow exists in the GNU C Library's dynamic loader ld.so while processing the GLIBC_TUNABLES environment variable. This issue allows an local attacker to use maliciously crafted GLIBC_TUNABLES when launching binaries with SUID permission to execute code in the context of the root user. This module targets glibc packaged on Ubuntu and Debian. The specific glibc versions this module targets are: Ubuntu: 2.35-0ubuntu3.4 > 2.35 2.37-0ubuntu2.1 > 2.37 2.38-1ubuntu6 > 2.38 Debian: 2.31-13-deb11u7 > 2.31 2.36-9-deb12u3 > 2.36 Fedora 37 and 38 and other distributions of linux also come packaged with versions of glibc vulnerable to CVE-2023-4911 however this module does not target them.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/glibc_tunables_priv_esc.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Qualys Threat Research Unit",
+    "blasty <peter@haxx.in>",
+    "jheysel-r7"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2023-4911"
+    ],
+    [
+      "URL",
+      "https://haxx.in/files/gnu-acme.py"
+    ],
+    [
+      "URL",
+      "https://www.qualys.com/2023/10/03/cve-2023-4911/looney-tunables-local-privilege-escalation-glibc-ld-so.txt"
+    ],
+    [
+      "URL",
+      "https://security-tracker.debian.org/tracker/CVE-2023-4911"
+    ],
+    [
+      "URL",
+      "https://ubuntu.com/security/CVE-2023-4911"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Auto"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "WritableDir",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "PrependSetresgid": true,
+    "PrependSetresuid": true,
+    "WfsDelay": 600
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,97 @@
+{
+  "Name": "blueman set_dhcp_handler D-Bus Privilege Escalation",
+  "Description": "This module attempts to gain root privileges by exploiting a Python code injection vulnerability in blueman versions prior to 2.0.3. The `org.blueman.Mechanism.EnableNetwork` D-Bus interface exposes the `set_dhcp_handler` function which uses user input in a call to `eval`, without sanitization, resulting in arbitrary code execution as root. This module has been tested successfully with blueman version 1.23 on Debian 8 Jessie (x64).",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/blueman_set_dhcp_handler_dbus_priv_esc.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Sebastian Krahmer",
+    "bcoles <bcoles@gmail.com>"
+  ],
+  "References": [
+    [
+      "BID",
+      "79688"
+    ],
+    [
+      "CVE",
+      "2015-8612"
+    ],
+    [
+      "URL",
+      "https://twitter.com/thegrugq/status/677809527882813440"
+    ],
+    [
+      "URL",
+      "https://github.com/blueman-project/blueman/issues/416"
+    ],
+    [
+      "URL",
+      "https://www.openwall.com/lists/oss-security/2015/12/18/6"
+    ],
+    [
+      "URL",
+      "https://www.debian.org/security/2015/dsa-3427"
+    ],
+    [
+      "URL",
+      "https://bugs.mageia.org/show_bug.cgi?id=17361"
+    ],
+    [
+      "URL",
+      "http://www.slackware.com/security/viewer.php?l=slackware-security&y=2015&m=slackware-security.421085"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x86",
+    "x64",
+    "armle",
+    "aarch64",
+    "ppc",
+    "mipsle",
+    "mipsbe"
+  ],
+  "Targets": [
+    [
+      0,
+      "Auto"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "WritableDir",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

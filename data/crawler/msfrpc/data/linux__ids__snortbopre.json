@@ -1,0 +1,54 @@
+{
+  "Name": "Snort Back Orifice Pre-Preprocessor Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in the Back Orifice pre-processor module included with Snort versions 2.4.0, 2.4.1, 2.4.2, and 2.4.3. This vulnerability could be used to completely compromise a Snort sensor, and would typically gain an attacker full root or administrative privileges.",
+  "License": "BSD License",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/ids/snortbopre.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "KaiJern Lau <xwings@mysec.org>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2005-3252"
+    ],
+    [
+      "OSVDB",
+      "20034"
+    ],
+    [
+      "BID",
+      "15131"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Debian 3.1 Sarge"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "CPORT",
+    "CHOST"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,64 @@
+{
+  "Name": "MS14-070 Windows tcpip!SetAddrOptions NULL Pointer Dereference",
+  "Description": "A vulnerability within the Microsoft TCP/IP protocol driver tcpip.sys can allow a local attacker to trigger a NULL pointer dereference by using a specially crafted IOCTL. This flaw can be abused to elevate privileges to SYSTEM.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/ms14_070_tcpip_ioctl.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "Matt Bergin <level@korelogic.com>",
+    "Jay Smith <jsmith@korelogic.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2014-4076"
+    ],
+    [
+      "MSB",
+      "MS14-070"
+    ],
+    [
+      "OSVDB",
+      "114532"
+    ],
+    [
+      "URL",
+      "https://blog.korelogic.com/blog/2015/01/28/2k3_tcpip_setaddroptions_exploit_dev"
+    ],
+    [
+      "URL",
+      "https://www.korelogic.com/Resources/Advisories/KL-001-2015-001.txt"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows Server 2003 SP2"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,58 @@
+{
+  "Name": "ERS Viewer 2011 ERS File Handling Buffer Overflow",
+  "Description": "This module exploits a buffer overflow vulnerability found in ERS Viewer 2011 (version 11.04). The vulnerability exists in the module ermapper_u.dll where the function ERM_convert_to_correct_webpath handles user provided data in an insecure way. It results in arbitrary code execution under the context of the user viewing a specially crafted .ers file. This module has been tested successfully with ERS Viewer 2011 (version 11.04) on Windows XP SP3 and Windows 7 SP1.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/erdas_er_viewer_bof.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Parvez Anwar",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-0726"
+    ],
+    [
+      "OSVDB",
+      "92694"
+    ],
+    [
+      "BID",
+      "59379"
+    ],
+    [
+      "URL",
+      "http://web.archive.org/web/20130515231047/http://secunia.com/advisories/51725/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "ERS Viewer 2011 (v11.04)  / Windows XP SP3 / Windows 7 SP1"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

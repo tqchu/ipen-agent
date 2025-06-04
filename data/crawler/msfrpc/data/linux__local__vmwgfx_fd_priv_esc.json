@@ -1,0 +1,77 @@
+{
+  "Name": "vmwgfx Driver File Descriptor Handling Priv Esc",
+  "Description": "If the vmwgfx driver fails to copy the 'fence_rep' object to userland, it tries to recover by deallocating the (already populated) file descriptor. This is wrong, as the fd gets released via put_unused_fd() which shouldn't be used, as the fd table slot was already populated via the previous call to fd_install(). This leaves userland with a valid fd table entry pointing to a free'd 'file' object. We use this bug to overwrite a SUID binary with our payload and gain root. Linux kernel 4.14-rc1 - 5.17-rc1 are vulnerable. Successfully tested against Ubuntu 22.04.01 with kernel 5.13.12-051312-generic.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/vmwgfx_fd_priv_esc.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "h00die",
+    "Mathias Krause"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://grsecurity.net/exploiting_and_defending_against_same_type_object_reuse"
+    ],
+    [
+      "URL",
+      "https://github.com/opensrcsec/same_type_object_reuse_exploits"
+    ],
+    [
+      "CVE",
+      "2022-22942"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Auto"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "COMPILE",
+    "COMPILER",
+    "WritableDir",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "linux/x64/meterpreter/reverse_tcp",
+    "PrependFork": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

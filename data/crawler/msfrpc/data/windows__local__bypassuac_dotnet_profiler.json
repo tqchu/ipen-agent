@@ -1,0 +1,80 @@
+{
+  "Name": "Windows Escalate UAC Protection Bypass (Via dot net profiler)",
+  "Description": "Microsoft Windows allows for the automatic loading of a profiling COM object during the launch of a CLR process based on certain environment variables ostensibly to monitor execution. In this case, we abuse the profiler by pointing to a payload DLL that will be launched as the profiling thread. This thread will run at the permission level of the calling process, so an auto-elevating process will launch the DLL with elevated permissions. In this case, we use gpedit.msc as the auto-elevated CLR process, but others would work, too.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/bypassuac_dotnet_profiler.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Casey Smith",
+    "\"Stefan Kanthak\" <stefan.kanthak () nexgo de>",
+    "bwatters-r7"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://seclists.org/fulldisclosure/2017/Jul/11"
+    ],
+    [
+      "URL",
+      "https://offsec.provadys.com/UAC-bypass-dotnet.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows x64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "Powershell::persist",
+    "Powershell::prepend_sleep",
+    "Powershell::prepend_protections_bypass",
+    "Powershell::strip_comments",
+    "Powershell::strip_whitespace",
+    "Powershell::sub_vars",
+    "Powershell::sub_funcs",
+    "Powershell::exec_in_place",
+    "Powershell::exec_rc4",
+    "Powershell::remove_comspec",
+    "Powershell::noninteractive",
+    "Powershell::encode_final_payload",
+    "Powershell::encode_inner_payload",
+    "Powershell::wrap_double_quotes",
+    "Powershell::no_equals",
+    "Powershell::method",
+    "PAYLOAD_NAME"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

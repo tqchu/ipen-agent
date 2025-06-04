@@ -1,0 +1,79 @@
+{
+  "Name": "BigAnt Server 2.50 SP1 Buffer Overflow",
+  "Description": "This exploits a stack buffer overflow in the BigAnt Messaging Service, part of the BigAnt Server product suite. This module was tested successfully against version 2.50 SP1.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/bigant_server_250.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "Dr_IDE <Dr_IDE@hushmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2008-1914"
+    ],
+    [
+      "OSVDB",
+      "44454"
+    ],
+    [
+      "EDB",
+      "9673"
+    ],
+    [
+      "EDB",
+      "9690"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "BigAnt 2.5 Universal"
+    ],
+    [
+      1,
+      "Windows 2000 Pro All English"
+    ],
+    [
+      2,
+      "Windows XP Pro SP0/SP1 English"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "seh",
+    "AllowWin32SEH": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

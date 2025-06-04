@@ -1,0 +1,50 @@
+{
+  "Name": "Windows Capcom.sys Kernel Execution Exploit (x64 only)",
+  "Description": "This module abuses the Capcom.sys kernel driver's function that allows for an arbitrary function to be executed in the kernel from user land. This function purposely disables SMEP prior to invoking a function given by the caller. This has been tested on Windows 7, 8.1, 10 (x64) and Windows 11 (x64) upto build 22000.194. Note that builds after 22000.194 contain deny lists that prevent this driver from loading.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/capcom_sys_exec.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "TheWack0lian",
+    "OJ Reeves"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://twitter.com/TheWack0lian/status/779397840762245124"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows x64"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,112 @@
+{
+  "Name": "Unified Remote Auth Bypass to RCE",
+  "Description": "This module utilizes the Unified Remote remote control protocol to type out and deploy a payload. The remote control protocol can be configured to have no passwords, a group password, or individual user accounts. If the web page is accessible, the access control is set to no password for exploitation, then reverted. If the web page is not accessible, exploitation will be tried blindly. This module has been successfully tested against version 3.11.0.2483 (50) on Windows 10.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/unified_remote_rce.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "h00die",
+    "H4RK3NZ0"
+  ],
+  "References": [
+    [
+      "EDB",
+      "49587"
+    ],
+    [
+      "URL",
+      "https://www.unifiedremote.com/"
+    ],
+    [
+      "URL",
+      "https://github.com/H4rk3nz0/PenTesting/blob/main/Exploits/unified%20remote/unified-remote-rce.py"
+    ],
+    [
+      "CVE",
+      "2022-3229"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x64",
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "default"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSLCert",
+    "SSLCompression",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "WEBSERVER",
+    "SLEEP",
+    "PATH",
+    "CLIENTNAME",
+    "VISIBLE"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "windows/shell/reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

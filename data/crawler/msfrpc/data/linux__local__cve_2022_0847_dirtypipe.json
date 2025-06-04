@@ -1,0 +1,85 @@
+{
+  "Name": "Dirty Pipe Local Privilege Escalation via CVE-2022-0847",
+  "Description": "This exploit targets a vulnerability in the Linux kernel since 5.8, that allows writing of read only or immutable memory. The vulnerability was fixed in Linux 5.16.11, 5.15.25 and 5.10.102. The module exploits this vulnerability by overwriting a suid binary with the payload, executing it, and then writing the original data back. There are two major limitations of this exploit: the offset cannot be on a page boundary (it needs to write one byte before the offset to add a reference to this page to the pipe), and the write cannot cross a page boundary. This means the payload must be less than the page size (4096 bytes).",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/local/cve_2022_0847_dirtypipe.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Max Kellermann",
+    "timwr"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2022-0847"
+    ],
+    [
+      "URL",
+      "https://dirtypipe.cm4all.com"
+    ],
+    [
+      "URL",
+      "https://haxx.in/files/dirtypipez.c"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x64",
+    "x86",
+    "armle",
+    "aarch64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "COMPILE",
+    "COMPILER",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "WRITABLE_DIR",
+    "SUID_BINARY_PATH",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "AppendExit": true,
+    "PrependSetresuid": true,
+    "PrependSetresgid": true,
+    "PrependSetreuid": true,
+    "PrependSetuid": true,
+    "PrependFork": true,
+    "PAYLOAD": "linux/x64/meterpreter/reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

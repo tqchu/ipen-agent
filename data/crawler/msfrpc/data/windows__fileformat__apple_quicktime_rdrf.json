@@ -1,0 +1,62 @@
+{
+  "Name": "Apple Quicktime 7 Invalid Atom Length Buffer Overflow",
+  "Description": "This module exploits a vulnerability found in Apple QuickTime. The flaw is triggered when QuickTime fails to properly handle the data length for certain atoms such as 'rdrf' or 'dref' in the Alis record, which may result a buffer overflow by loading a specially crafted .mov file, and allows arbitrary code execution under the context of the current user. Please note: Since an egghunter is used to search for the payload, this may require additional time for the exploit to complete.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/apple_quicktime_rdrf.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Jason Kratzer",
+    "Tom Gallagher",
+    "Paul Bates",
+    "sinn3r <sinn3r@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-1017"
+    ],
+    [
+      "OSVDB",
+      "93625"
+    ],
+    [
+      "BID",
+      "60097"
+    ],
+    [
+      "URL",
+      "http://support.apple.com/kb/HT5770"
+    ],
+    [
+      "ZDI",
+      "13-110"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Quicktime 7.7.0 - 7.7.3 on Windows XP SP3"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

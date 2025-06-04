@@ -1,0 +1,61 @@
+{
+  "Name": "Adobe Doc.media.newPlayer Use After Free Vulnerability",
+  "Description": "This module exploits a use after free vulnerability in Adobe Reader and Adobe Acrobat Professional versions up to and including 9.2.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/adobe_media_newplayer.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "unknown",
+    "hdm <x@hdm.io>",
+    "pusscat <pusscat@metasploit.com>",
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2009-4324"
+    ],
+    [
+      "BID",
+      "37331"
+    ],
+    [
+      "OSVDB",
+      "60980"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Adobe Reader Windows English (JS Heap Spray)"
+    ],
+    [
+      1,
+      "Adobe Reader Windows German (JS Heap Spray)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

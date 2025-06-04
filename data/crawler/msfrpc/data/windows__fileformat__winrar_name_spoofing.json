@@ -1,0 +1,69 @@
+{
+  "Name": "WinRAR Filename Spoofing",
+  "Description": "This module abuses a filename spoofing vulnerability in WinRAR. The vulnerability exists when opening ZIP files. The file names showed in WinRAR when opening a ZIP file come from the central directory, but the file names used to extract and open contents come from the Local File Header. This inconsistency allows to spoof file names when opening ZIP files with WinRAR, which can be abused to execute arbitrary code, as exploited in the wild in March 2014",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/winrar_name_spoofing.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "chr1x",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "62610"
+    ],
+    [
+      "BID",
+      "66383"
+    ],
+    [
+      "URL",
+      "http://securityaffairs.co/wordpress/23623/hacking/winrar-zero-day.html"
+    ],
+    [
+      "URL",
+      "http://an7isec.blogspot.co.il/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "SPOOF"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

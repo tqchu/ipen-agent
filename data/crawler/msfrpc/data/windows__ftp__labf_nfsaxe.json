@@ -1,0 +1,61 @@
+{
+  "Name": "LabF nfsAxe 3.7 FTP Client Stack Buffer Overflow",
+  "Description": "This module exploits a buffer overflow in the LabF nfsAxe 3.7 FTP Client allowing remote code execution.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/ftp/labf_nfsaxe.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Tulpa",
+    "Daniel Teixeira"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2017-18047"
+    ],
+    [
+      "EDB",
+      "42011"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "SRVHOST": "0.0.0.0"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

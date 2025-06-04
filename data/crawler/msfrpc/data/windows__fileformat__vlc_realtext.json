@@ -1,0 +1,61 @@
+{
+  "Name": "VLC Media Player RealText Subtitle Overflow",
+  "Description": "This module exploits a stack buffer overflow vulnerability in VideoLAN VLC < 0.9.6. The vulnerability exists in the parsing of RealText subtitle files. In order to exploit this, this module will generate two files: The .mp4 file is used to trick your victim into running. The .rt file is the actual malicious file that triggers the vulnerability, which should be placed under the same directory as the .mp4 file.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/vlc_realtext.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "Tobias Klein",
+    "SkD",
+    "juan vazquez <juan.vazquez@metasploit.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "49809"
+    ],
+    [
+      "CVE",
+      "2008-5036"
+    ],
+    [
+      "BID",
+      "32125"
+    ],
+    [
+      "URL",
+      "http://www.trapkit.de/advisories/TKADV2008-011.txt"
+    ],
+    [
+      "URL",
+      "http://www.videolan.org/security/sa0810.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "VLC 0.9.4 on Windows XP SP3 / Windows 7 SP1"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

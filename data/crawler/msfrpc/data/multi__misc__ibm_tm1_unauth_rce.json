@@ -1,0 +1,117 @@
+{
+  "Name": "IBM TM1 / Planning Analytics Unauthenticated Remote Code Execution",
+  "Description": "This module exploits a vulnerability in IBM TM1 / Planning Analytics that allows an unauthenticated attacker to perform a configuration overwrite. It starts by querying the Admin server for the available applications, picks one, and then exploits it. You can also provide an application name to bypass this step, and exploit the application directly. The configuration overwrite is used to change an application server authentication method to \"CAM\", a proprietary IBM auth method, which is simulated by the exploit. The exploit then performs a fake authentication as admin, and finally abuses TM1 scripting to perform a command injection as root or SYSTEM. Testing was done on IBM PA 2.0.6 and IBM TM1 10.2.2 on Windows and Linux. Versions up to and including PA 2.0.8 are vulnerable. It is likely that versions earlier than TM1 10.2.2 are also vulnerable (10.2.2 was released in 2014).",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/misc/ibm_tm1_unauth_rce.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Pedro Ribeiro <pedrib@gmail.com>",
+    "Gareth Batchelor <gbatchelor@cloudtrace.com.au>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2019-4716"
+    ],
+    [
+      "URL",
+      "https://www.ibm.com/support/pages/node/1127781"
+    ],
+    [
+      "URL",
+      "https://github.com/pedrib/PoC/blob/master/advisories/IBM/ibm_tm1_rce.md"
+    ],
+    [
+      "URL",
+      "https://seclists.org/fulldisclosure/2020/Mar/44"
+    ]
+  ],
+  "Platform": [],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows"
+    ],
+    [
+      1,
+      "Windows (Command)"
+    ],
+    [
+      2,
+      "Linux"
+    ],
+    [
+      3,
+      "Linux (Command)"
+    ],
+    [
+      4,
+      "AIX (Command)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSLCert",
+    "SSLCompression",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "APP_NAME",
+    "AUTH_ATTEMPTS"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 30
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

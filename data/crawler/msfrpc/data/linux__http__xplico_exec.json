@@ -1,0 +1,97 @@
+{
+  "Name": "Xplico Remote Code Execution",
+  "Description": "This module exploits command injection vulnerability. Unauthenticated users can register a new account and then execute a terminal command under the context of the root user. The specific flaw exists within the Xplico, which listens on TCP port 9876 by default. The goal of Xplico is extract from an internet traffic capture the applications data contained. There is a hidden end-point at inside of the Xplico that allow anyone to create a new user. Once the user created through /users/register endpoint, it must be activated via activation e-mail. After the registration Xplico try to send e-mail that contains activation code. Unfortunetly, this e-mail probably not gonna reach to the given e-mail address on most of installation. But it's possible to calculate exactly same token value because of insecure cryptographic random string generator function usage. One of the feature of Xplico is related to the parsing PCAP files. Once PCAP file uploaded, Xplico execute an operating system command in order to calculate checksum of the file. Name of the for this operation is direclty taken from user input and then used at inside of the command without proper input validation.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/http/xplico_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Mehmet Ince <mehmet@mehmetince.net>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2017-16666"
+    ],
+    [
+      "URL",
+      "https://pentest.blog/advisory-xplico-unauthenticated-remote-code-execution-cve-2017-16666/"
+    ],
+    [
+      "URL",
+      "https://www.xplico.org/archives/1538"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding"
+  ],
+  "DefaultOptions": {
+    "RPORT": 9876
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

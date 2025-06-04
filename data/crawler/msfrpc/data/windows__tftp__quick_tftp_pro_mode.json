@@ -1,0 +1,65 @@
+{
+  "Name": "Quick FTP Pro 2.1 Transfer-Mode Overflow",
+  "Description": "This module exploits a stack buffer overflow in the Quick TFTP Pro server product. MS Update KB926436 screws up the opcode address being used in oledlg.dll resulting in a DoS. This is a port of a sploit by Mati \"muts\" Aharoni.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/tftp/quick_tftp_pro_mode.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "Saint Patrick"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2008-1610"
+    ],
+    [
+      "OSVDB",
+      "43784"
+    ],
+    [
+      "BID",
+      "28459"
+    ],
+    [
+      "URL",
+      "http://web.archive.org/web/20080330000001/http://secunia.com:80/advisories/29494/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows Server 2000"
+    ],
+    [
+      1,
+      "Windows XP SP2"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "CPORT",
+    "CHOST",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

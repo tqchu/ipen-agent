@@ -1,0 +1,73 @@
+{
+  "Name": "MacOS X QuickTime RTSP Content-Type Overflow",
+  "Description": "This module exploits a stack-based buffer overflow in Apple QuickTime before version 7.3.1. By sending an overly long RTSP response to a client, an attacker may be able to execute arbitrary code.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/osx/rtsp/quicktime_rtsp_content_type.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "unknown"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2007-6166"
+    ],
+    [
+      "OSVDB",
+      "40876"
+    ],
+    [
+      "BID",
+      "26549"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::OSX"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Mac OS X 10.4.0 PowerPC, QuickTime 7.0.0"
+    ],
+    [
+      1,
+      "Mac OS X 10.5.0 PowerPC, QuickTime 7.2.1"
+    ],
+    [
+      2,
+      "Mac OS X 10.4.8 x86, QuickTime 7.1.3"
+    ],
+    [
+      3,
+      "Mac OS X 10.5.0 x86, QuickTime 7.2.1"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

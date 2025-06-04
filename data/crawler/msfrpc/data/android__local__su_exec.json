@@ -1,0 +1,105 @@
+{
+  "Name": "Android 'su' Privilege Escalation",
+  "Description": "This module uses the su binary present on rooted devices to run a payload as root. A rooted Android device will contain a su binary (often linked with an application) that allows the user to run commands as root. This module will use the su binary to execute a command stager as root. The command stager will write a payload binary to a temporary directory, make it executable, execute it in the background, and finally delete the executable. On most devices the su binary will pop-up a prompt on the device asking the user for permission.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/android/local/su_exec.rb",
+  "Version": "",
+  "Rank": "manual",
+  "Authors": [
+    "timwr"
+  ],
+  "References": [],
+  "Platform": [
+    "Msf::Module::Platform::Android",
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "aarch64",
+    "armle",
+    "x86",
+    "x64",
+    "mipsle"
+  ],
+  "Targets": [
+    [
+      0,
+      "aarch64"
+    ],
+    [
+      1,
+      "armle"
+    ],
+    [
+      2,
+      "x86"
+    ],
+    [
+      3,
+      "x64"
+    ],
+    [
+      4,
+      "mipsle"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "CMDSTAGER::FLAVOR",
+    "CMDSTAGER::DECODER",
+    "CMDSTAGER::TEMP",
+    "CMDSTAGER::URIPATH",
+    "CMDSTAGER::SSL",
+    "SU_BINARY",
+    "WritableDir"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "linux/aarch64/meterpreter/reverse_tcp",
+    "WfsDelay": 5
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

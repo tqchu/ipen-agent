@@ -1,0 +1,113 @@
+{
+  "Name": "HID discoveryd command_blink_on Unauthenticated RCE",
+  "Description": "This module exploits an unauthenticated remote command execution vulnerability in the discoveryd service exposed by HID VertX and Edge door controllers. This module was tested successfully on a HID Edge model EH400 with firmware version 2.3.1.603 (Build 04/23/2012).",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/misc/hid_discoveryd_command_blink_on_unauth_rce.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Ricky \"HeadlessZeke\" Lawshae",
+    "coldfusion39",
+    "bcoles <bcoles@gmail.com>"
+  ],
+  "References": [
+    [
+      "ZDI",
+      "16-223"
+    ],
+    [
+      "URL",
+      "https://blog.trendmicro.com/let-get-door-remote-root-vulnerability-hid-door-controllers/"
+    ],
+    [
+      "URL",
+      "http://nosedookie.blogspot.com/2011/07/identifying-and-querying-hid-vertx.html"
+    ],
+    [
+      "URL",
+      "https://exfil.co/2016/05/09/exploring-the-hid-eh400/"
+    ],
+    [
+      "URL",
+      "https://github.com/lixmk/Concierge"
+    ],
+    [
+      "URL",
+      "https://github.com/coldfusion39/VertXploit"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "armle"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "CPORT",
+    "CHOST",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "CMDSTAGER::FLAVOR",
+    "CMDSTAGER::DECODER",
+    "CMDSTAGER::TEMP",
+    "CMDSTAGER::URIPATH",
+    "CMDSTAGER::SSL"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 30,
+    "PAYLOAD": "linux/armle/meterpreter/reverse_tcp",
+    "CMDSTAGER::FLAVOR": "echo"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

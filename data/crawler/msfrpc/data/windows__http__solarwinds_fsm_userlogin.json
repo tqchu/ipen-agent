@@ -1,0 +1,116 @@
+{
+  "Name": "Solarwinds Firewall Security Manager 6.6.5 Client Session Handling Vulnerability",
+  "Description": "This module exploits multiple vulnerabilities found in Solarwinds Firewall Security Manager 6.6.5. The first vulnerability is an authentication bypass via the Change Advisor interface due to a user-controlled session.putValue API in userlogin.jsp, allowing the attacker to set the 'username' attribute before authentication. The second problem is that the settings-new.jsp file will only check the 'username' attribute before authorizing the 'uploadFile' action, which can be exploited and allows the attacker to upload a fake xls host list file to the server, and results in arbitrary code execution under the context of SYSTEM. Depending on the installation, by default the Change Advisor web server is listening on port 48080 for an express install. Otherwise, this service may appear on port 8080. Solarwinds has released a fix for this vulnerability as FSM-v6.6.5-HotFix1.zip, noted in the references for this module.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/http/solarwinds_fsm_userlogin.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "rgod",
+    "mr_me <steventhomasseeley@gmail.com>",
+    "sinn3r <sinn3r@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2015-2284"
+    ],
+    [
+      "OSVDB",
+      "81634"
+    ],
+    [
+      "ZDI",
+      "15-107"
+    ],
+    [
+      "URL",
+      "http://downloads.solarwinds.com/solarwinds/Release/HotFix/FSM-v6.6.5-HotFix1.zip"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Solarwinds Firewall Security Manager 6.6.5"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "TARGETURI"
+  ],
+  "DefaultOptions": {
+    "RPORT": 48080
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

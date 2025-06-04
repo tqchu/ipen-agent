@@ -1,0 +1,69 @@
+{
+  "Name": "WinRAR CVE-2023-38831 Exploit",
+  "Description": "This module exploits a vulnerability in WinRAR (CVE-2023-38831). When a user opens a crafted RAR file and its embedded document, the decoy document is executed, leading to code execution.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/winrar_cve_2023_38831.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Alexander \"xaitax\" Hagenah"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2023-38831"
+    ],
+    [
+      "URL",
+      "https://www.group-ib.com/blog/cve-2023-38831-winrar-zero-day/"
+    ],
+    [
+      "URL",
+      "https://b1tg.github.io/post/cve-2023-38831-winrar-analysis/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x64",
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "OUTPUT_FILE",
+    "INPUT_FILE",
+    "PAYLOAD_NAME"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

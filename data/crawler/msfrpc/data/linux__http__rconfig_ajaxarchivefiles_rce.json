@@ -1,0 +1,114 @@
+{
+  "Name": "Rconfig 3.x Chained Remote Code Execution",
+  "Description": "This module exploits multiple vulnerabilities in rConfig version 3.9 in order to execute arbitrary commands. This module takes advantage of a command injection vulnerability in the `path` parameter of the ajax archive file functionality within the rConfig web interface in order to execute the payload. Valid credentials for a user with administrative privileges are required. However, this module can bypass authentication via SQLI. This module has been successfully tested on Rconfig 3.9.3 and 3.9.4. The steps are: 1. SQLi on /commands.inc.php allows us to add an administrative user. 2. An authenticated session is established with the newly added user 3. Command Injection on /lib/ajaxHandlers/ajaxArchiveFiles.php allows us to execute the payload. 4. Remove the added admin user. Tips : once you get a shell, look at the CVE-2019-19585. You will probably get root because rConfig install script add Apache user to sudoers with nopasswd ;-)",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/http/rconfig_ajaxarchivefiles_rce.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "Jean-Pascal Thomas",
+    "Orange Cyberdefense"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2019-19509"
+    ],
+    [
+      "CVE",
+      "2020-10220"
+    ],
+    [
+      "EDB",
+      "47982"
+    ],
+    [
+      "EDB",
+      "48208"
+    ],
+    [
+      "URL",
+      "https://github.com/v1k1ngfr/exploits-rconfig/blob/master/rconfig_CVE-2019-19509.py"
+    ],
+    [
+      "URL",
+      "https://github.com/v1k1ngfr/exploits-rconfig/blob/master/rconfig_CVE-2020-10220.py"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Unix",
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Auto"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "TARGETURI"
+  ],
+  "DefaultOptions": {
+    "RPORT": 443,
+    "SSL": true,
+    "PAYLOAD": "generic/shell_reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

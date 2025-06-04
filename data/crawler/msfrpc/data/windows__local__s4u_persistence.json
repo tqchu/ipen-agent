@@ -1,0 +1,69 @@
+{
+  "Name": "Windows Manage User Level Persistent Payload Installer",
+  "Description": "Creates a scheduled task that will run using service-for-user (S4U). This allows the scheduled task to run even as an unprivileged user that is not logged into the device. This will result in lower security context, allowing access to local resources only. The module requires 'Logon as a batch job' permissions (SeBatchLogonRight).",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/s4u_persistence.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Thomas McCarthy \"smilingraccoon\" <smilingraccoon@gmail.com>",
+    "Brandon McCann \"zeknox\" <bmccann@accuvant.com>"
+  ],
+  "References": [
+    [
+      "URL",
+      "http://www.pentestgeek.com/2013/02/11/scheduled-tasks-with-s4u-and-on-demand-persistence/"
+    ],
+    [
+      "URL",
+      "http://www.scriptjunkie.us/2013/01/running-code-from-a-non-elevated-account-at-any-time/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FREQUENCY",
+    "EXPIRE_TIME",
+    "TRIGGER",
+    "REXENAME",
+    "RTASKNAME",
+    "PATH",
+    "EVENT_LOG",
+    "EVENT_ID",
+    "XPATH"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

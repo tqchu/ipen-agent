@@ -1,0 +1,90 @@
+{
+  "Name": "Windows SetImeInfoEx Win32k NULL Pointer Dereference",
+  "Description": "This module exploits elevation of privilege vulnerability that exists in Windows 7 and 2008 R2 when the Win32k component fails to properly handle objects in memory. An attacker who successfully exploited this vulnerability could run arbitrary code in kernel mode. An attacker could then install programs; view, change, or delete data; or create new accounts with full user rights. This module is tested against windows 7 x86, windows 7 x64 and windows server 2008 R2 standard x64.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/ms18_8120_win32k_privesc.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "unamer",
+    "bigric3",
+    "Anton Cherepanov",
+    "Dhiraj Mishra <dhiraj@notsosecure.com>"
+  ],
+  "References": [
+    [
+      "BID",
+      "104034"
+    ],
+    [
+      "CVE",
+      "2018-8120"
+    ],
+    [
+      "URL",
+      "https://github.com/unamer/CVE-2018-8120"
+    ],
+    [
+      "URL",
+      "https://github.com/bigric3/cve-2018-8120"
+    ],
+    [
+      "URL",
+      "http://bigric3.blogspot.com/2018/05/cve-2018-8120-analysis-and-exploit.html"
+    ],
+    [
+      "URL",
+      "https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8120"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "Windows 7 x64"
+    ],
+    [
+      2,
+      "Windows 7 x86"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

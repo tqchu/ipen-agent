@@ -1,0 +1,105 @@
+{
+  "Name": "MS13-080 Microsoft Internet Explorer SetMouseCapture Use-After-Free",
+  "Description": "This module exploits a use-after-free vulnerability that currents targets Internet Explorer 9 on Windows 7, but the flaw should exist in versions 6/7/8/9/10/11. It was initially found in the wild in Japan, but other regions such as English, Chinese, Korean, etc, were targeted as well. The vulnerability is due to how the mshtml!CDoc::SetMouseCapture function handles a reference during an event. An attacker first can setup two elements, where the second is the child of the first, and then setup a onlosecapture event handler for the parent element. The onlosecapture event seems to require two setCapture() calls to trigger, one for the parent element, one for the child. When the setCapture() call for the child element is called, it finally triggers the event, which allows the attacker to cause an arbitrary memory release using document.write(), which in particular frees up a 0x54-byte memory. The exact size of this memory may differ based on the version of IE. After the free, an invalid reference will still be kept and pass on to more functions, eventuall this arrives in function MSHTML!CTreeNode::GetInterface, and causes a crash (or arbitrary code execution) when this function attempts to use this reference to call what appears to be a PrivateQueryInterface due to the offset (0x00). To mimic the same exploit found in the wild, this module will try to use the same DLL from Microsoft Office 2007 or 2010 to leverage the attack.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/ie_setmousecapture_uaf.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Unknown",
+    "sinn3r <sinn3r@metasploit.com>",
+    "Rich Lundeen"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2013-3893"
+    ],
+    [
+      "OSVDB",
+      "97380"
+    ],
+    [
+      "MSB",
+      "MS13-080"
+    ],
+    [
+      "URL",
+      "http://technet.microsoft.com/en-us/security/advisory/2887505"
+    ],
+    [
+      "URL",
+      "http://blogs.technet.com/b/srd/archive/2013/09/17/cve-2013-3893-fix-it-workaround-available.aspx"
+    ],
+    [
+      "URL",
+      "https://www.rapid7.com/blog/post/2013/09/30/metasploit-releases-cve-2013-3893-ie-setmousecapture-use-after-free"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "Windows 7 with Office 2007|2010"
+    ],
+    [
+      2,
+      "Windows XP with IE 8"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape",
+    "JsObfuscate",
+    "JsIdentifiers",
+    "Retries",
+    "CookieName",
+    "CookieExpiration",
+    "Custom404"
+  ],
+  "DefaultOptions": {
+    "PrependMigrate": true,
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,72 @@
+{
+  "Name": "PointDev IDEAL Migration Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in versions v9.7 through v10.5 of IDEAL Administration and versions 4.5 and 4.51 of IDEAL Migration. All versions are suspected to be vulnerable. By creating a specially crafted ipj file, an attacker may be able to execute arbitrary code. NOTE: IDEAL Administration 10.5 is compiled with /SafeSEH",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/ideal_migration_ipj.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "Dr_IDE",
+    "dookie",
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2009-4265"
+    ],
+    [
+      "OSVDB",
+      "60681"
+    ],
+    [
+      "EDB",
+      "10319"
+    ],
+    [
+      "EDB",
+      "12403"
+    ],
+    [
+      "EDB",
+      "12404"
+    ],
+    [
+      "EDB",
+      "12540"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "IDEAL Migration <= 4.5.1 on Windows XP"
+    ],
+    [
+      1,
+      "IDEAL Administration <= 10.5 on Windows XP"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "seh",
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

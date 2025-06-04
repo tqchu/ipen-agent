@@ -1,0 +1,70 @@
+{
+  "Name": "Microsoft Spooler Local Privilege Elevation Vulnerability",
+  "Description": "This exploit leverages a file write vulnerability in the print spooler service which will restart if stopped. Because the service cannot be stopped long enough to remove the dll, there is no way to remove the dll once it is loaded by the service. Essentially, on default settings, this module adds a permanent elevated backdoor.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/cve_2020_1048_printerdemon.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Yarden Shafir",
+    "Alex Ionescu",
+    "shubham0d",
+    "bwatters-r7"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2020-1048"
+    ],
+    [
+      "URL",
+      "https://windows-internals.com/printdemon-cve-2020-1048/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "EXPLOIT_NAME",
+    "PAYLOAD_NAME",
+    "WRITABLE_DIR",
+    "OVERWRITE_DLL",
+    "RESTART_TARGET",
+    "EXECUTE_DELAY"
+  ],
+  "DefaultOptions": {
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

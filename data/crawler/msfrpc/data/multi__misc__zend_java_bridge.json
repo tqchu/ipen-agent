@@ -1,0 +1,85 @@
+{
+  "Name": "Zend Server Java Bridge Arbitrary Java Code Execution",
+  "Description": "This module takes advantage of a trust relationship issue within the Zend Server Java Bridge. The Java Bridge is responsible for handling interactions between PHP and Java code within Zend Server. When Java code is encountered Zend Server communicates with the Java Bridge. The Java Bridge then handles the java code and creates the objects within the Java Virtual Machine. This interaction however, does not require any sort of authentication. This leaves the JVM wide open to remote attackers. Sending specially crafted data to the Java Bridge results in the execution of arbitrary java code.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/misc/zend_java_bridge.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "bannedit <bannedit@metasploit.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "71420"
+    ],
+    [
+      "ZDI",
+      "11-113"
+    ],
+    [
+      "EDB",
+      "17078"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Java"
+  ],
+  "Arch": [
+    "java"
+  ],
+  "Targets": [
+    [
+      0,
+      "Linux"
+    ],
+    [
+      1,
+      "Windows"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "RHOSTS",
+    "RPORT",
+    "SSLServerNameIndication",
+    "SSLVerifyMode",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

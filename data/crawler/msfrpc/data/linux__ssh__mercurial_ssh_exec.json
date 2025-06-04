@@ -1,0 +1,57 @@
+{
+  "Name": "Mercurial Custom hg-ssh Wrapper Remote Code Exec",
+  "Description": "This module takes advantage of custom hg-ssh wrapper implementations that don't adequately validate parameters passed to the hg binary, allowing users to trigger a Python Debugger session, which allows arbitrary Python code execution.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/ssh/mercurial_ssh_exec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "claudijd"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2017-9462"
+    ],
+    [
+      "URL",
+      "https://www.mercurial-scm.org/wiki/WhatsNew#Mercurial_4.1.3_.282017-4-18.29"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Python"
+  ],
+  "Arch": [
+    "python"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSH_IDENT",
+    "SSH_TIMEOUT",
+    "SSH_DEBUG",
+    "USERNAME",
+    "SSH_PRIV_KEY_FILE"
+  ],
+  "DefaultOptions": {
+    "Payload": "python/meterpreter/reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

@@ -1,0 +1,72 @@
+{
+  "Name": "Free Download Manager Torrent Parsing Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in Free Download Manager 3.0 Build 844. Arbitrary code execution could occur when parsing a specially crafted torrent file.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/fdm_torrent.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "SkD <skdrat@hotmail.com>",
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2009-0184"
+    ],
+    [
+      "OSVDB",
+      "54033"
+    ],
+    [
+      "BID",
+      "33555"
+    ],
+    [
+      "URL",
+      "http://freedownload.svn.sourceforge.net/viewvc/freedownload/FDM/vmsBtDownloadManager.cpp?r1=11&r2=18"
+    ],
+    [
+      "URL",
+      "http://freedownload.svn.sourceforge.net/viewvc/freedownload/FDM/Bittorrent/fdmbtsupp/vmsBtFileImpl.cpp?r1=9&r2=18"
+    ],
+    [
+      "URL",
+      "http://web.archive.org/web/20090205145829/http://secunia.com:80/secunia_research/2009-5"
+    ],
+    [
+      "URL",
+      "http://downloads.securityfocus.com/vulnerabilities/exploits/33555-SkD.pl"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Free Download Manager 3.0 (Build 844)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "seh",
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

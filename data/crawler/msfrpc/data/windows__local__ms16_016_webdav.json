@@ -1,0 +1,53 @@
+{
+  "Name": "MS16-016 mrxdav.sys WebDav Local Privilege Escalation",
+  "Description": "This module exploits the vulnerability in mrxdav.sys described by MS16-016. The module will spawn a process on the target system and elevate its privileges to NT AUTHORITY\\SYSTEM before executing the specified payload within the context of the elevated process.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/local/ms16_016_webdav.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Tamas Koczka",
+    "William Webb <william_webb@rapid7.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2016-0051"
+    ],
+    [
+      "MSB",
+      "MS16-016"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "Windows 7 SP1"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread",
+    "DisablePayloadHandler": false
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

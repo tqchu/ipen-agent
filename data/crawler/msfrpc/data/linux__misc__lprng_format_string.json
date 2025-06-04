@@ -1,0 +1,101 @@
+{
+  "Name": "LPRng use_syslog Remote Format String Vulnerability",
+  "Description": "This module exploits a format string vulnerability in the LPRng print server. This vulnerability was discovered by Chris Evans. There was a publicly circulating worm targeting this vulnerability, which prompted RedHat to pull their 7.0 release. They consequently re-released it as \"7.0-respin\".",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/misc/lprng_format_string.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2000-0917"
+    ],
+    [
+      "OSVDB",
+      "421"
+    ],
+    [
+      "BID",
+      "1712"
+    ],
+    [
+      "US-CERT-VU",
+      "382365"
+    ],
+    [
+      "URL",
+      "http://www.cert.org/advisories/CA-2000-22.html"
+    ],
+    [
+      "URL",
+      "https://bugzilla.redhat.com/show_bug.cgi?id=17756"
+    ],
+    [
+      "EDB",
+      "226"
+    ],
+    [
+      "EDB",
+      "227"
+    ],
+    [
+      "EDB",
+      "230"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "Caldera OpenLinux 2.3 Bruteforce"
+    ],
+    [
+      2,
+      "Debug"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "BruteWait",
+    "BruteStep"
+  ],
+  "DefaultOptions": {
+    "PrependSetresuid": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

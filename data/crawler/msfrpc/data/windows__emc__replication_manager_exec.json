@@ -1,0 +1,110 @@
+{
+  "Name": "EMC Replication Manager Command Execution",
+  "Description": "This module exploits a remote command-injection vulnerability in EMC Replication Manager client (irccd.exe). By sending a specially crafted message invoking RunProgram function an attacker may be able to execute arbitrary commands with SYSTEM privileges. Affected products are EMC Replication Manager < 5.3. This module has been successfully tested against EMC Replication Manager 5.2.1 on XP/W2003. EMC Networker Module for Microsoft Applications 2.1 and 2.2 may be vulnerable too although this module have not been tested against these products.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/emc/replication_manager_exec.rb",
+  "Version": "",
+  "Rank": "great",
+  "Authors": [
+    "Unknown",
+    "Davy Douhine"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2011-0647"
+    ],
+    [
+      "OSVDB",
+      "70853"
+    ],
+    [
+      "BID",
+      "46235"
+    ],
+    [
+      "URL",
+      "http://www.securityfocus.com/archive/1/516260"
+    ],
+    [
+      "ZDI",
+      "11-061"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "EMC Replication Manager 5.2.1 / Windows Native Payload"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSLCert",
+    "SSLCompression",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "CMDSTAGER::FLAVOR",
+    "CMDSTAGER::DECODER",
+    "CMDSTAGER::TEMP",
+    "CMDSTAGER::URIPATH",
+    "CMDSTAGER::SSL"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 5
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

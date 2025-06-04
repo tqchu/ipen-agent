@@ -1,0 +1,112 @@
+{
+  "Name": "Plex Unpickle Dict Windows RCE",
+  "Description": "This module exploits an authenticated Python unsafe pickle.load of a Dict file. An authenticated attacker can create a photo library and add arbitrary files to it. After setting the Windows only Plex variable LocalAppDataPath to the newly created photo library, a file named Dict will be unpickled, which causes an RCE as the user who started Plex. Plex_Token is required, to get it you need to log-in through a web browser, then check the requests to grab the X-Plex-Token header. See info -d for additional details. If an exploit fails, or is cancelled, Dict is left on disk, a new ALBUM_NAME will be required as subsuquent writes will make Dict-1, and not execute.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/http/plex_unpickle_dict_rce.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "h00die",
+    "Chris Lyne"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://github.com/tenable/poc/blob/master/plex/plex_media_server/auth_dict_unpickle_rce_exploit_tra_2020_32.py"
+    ],
+    [
+      "URL",
+      "https://www.tenable.com/security/research/tra-2020-32"
+    ],
+    [
+      "URL",
+      "http://support.plex.tv/articles/201105343-advanced-hidden-server-settings/"
+    ],
+    [
+      "URL",
+      "https://forums.plex.tv/t/security-regarding-cve-2020-5741/586819"
+    ],
+    [
+      "CVE",
+      "2020-5741"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Python"
+  ],
+  "Arch": [
+    "python"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic Target"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "SSL",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "SSLVersion",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "PLEX_TOKEN",
+    "LIBRARY_PATH",
+    "ALBUM_NAME",
+    "REBOOT_SLEEP"
+  ],
+  "DefaultOptions": {
+    "PAYLOAD": "python/meterpreter/reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

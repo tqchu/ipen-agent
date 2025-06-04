@@ -1,0 +1,66 @@
+{
+  "Name": "Bomberclone 0.11.6 Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in Bomberclone 0.11.6 for Windows. The return address is overwritten with lstrcpyA memory address, the second and third value are the destination buffer, the fourth value is the source address of our buffer in the stack. This exploit is like a return in libc. ATTENTION The shellcode is exec ONLY when someone try to close bomberclone.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/bomberclone_overflow.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "Jacopo Cervini <acaro@jervus.it>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2006-0460"
+    ],
+    [
+      "OSVDB",
+      "23263"
+    ],
+    [
+      "BID",
+      "16697"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "Windows XP SP2 Italian"
+    ],
+    [
+      2,
+      "Windows 2000 SP1 English"
+    ],
+    [
+      3,
+      "Windows 2000 SP1 English"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "CPORT",
+    "CHOST"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

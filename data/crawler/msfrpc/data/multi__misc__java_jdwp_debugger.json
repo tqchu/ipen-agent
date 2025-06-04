@@ -1,0 +1,113 @@
+{
+  "Name": "Java Debug Wire Protocol Remote Code Execution",
+  "Description": "This module abuses exposed Java Debug Wire Protocol services in order to execute arbitrary Java code remotely. It just abuses the protocol features, since no authentication is required if the service is enabled.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/misc/java_jdwp_debugger.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "Michael Schierl",
+    "Christophe Alladoum",
+    "Redsadic <julian.vilas@gmail.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "96066"
+    ],
+    [
+      "EDB",
+      "27179"
+    ],
+    [
+      "URL",
+      "http://docs.oracle.com/javase/1.5.0/docs/guide/jpda/jdwp-spec.html"
+    ],
+    [
+      "URL",
+      "https://seclists.org/nmap-dev/2010/q1/867"
+    ],
+    [
+      "URL",
+      "https://github.com/schierlm/JavaPayload/blob/master/JavaPayload/src/javapayload/builder/JDWPInjector.java"
+    ],
+    [
+      "URL",
+      "https://svn.nmap.org/nmap/scripts/jdwp-exec.nse"
+    ],
+    [
+      "URL",
+      "http://blog.ioactive.com/2014/04/hacking-java-debug-wire-protocol-or-how.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::OSX",
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "armle",
+    "aarch64",
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Linux (Native Payload)"
+    ],
+    [
+      1,
+      "OSX (Native Payload)"
+    ],
+    [
+      2,
+      "Windows (Native Payload)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "FileDropperDelay",
+    "AllowNoCleanup",
+    "RESPONSE_TIMEOUT",
+    "TMP_PATH",
+    "NUM_RETRIES"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

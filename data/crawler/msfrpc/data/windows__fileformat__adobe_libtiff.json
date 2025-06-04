@@ -1,0 +1,69 @@
+{
+  "Name": "Adobe Acrobat Bundled LibTIFF Integer Overflow",
+  "Description": "This module exploits an integer overflow vulnerability in Adobe Reader and Adobe Acrobat Professional versions 8.0 through 8.2 and 9.0 through 9.3.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/adobe_libtiff.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "Microsoft",
+    "villy <villys777@gmail.com>",
+    "jduck <jduck@metasploit.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2010-0188"
+    ],
+    [
+      "BID",
+      "38195"
+    ],
+    [
+      "OSVDB",
+      "62526"
+    ],
+    [
+      "URL",
+      "http://www.adobe.com/support/security/bulletins/apsb10-07.html"
+    ],
+    [
+      "URL",
+      "http://web.archive.org/web/20100223002318/http://secunia.com:80/blog/76"
+    ],
+    [
+      "URL",
+      "http://bugix-security.blogspot.com/2010/03/adobe-pdf-libtiff-working-exploitcve.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Adobe Reader 9.3.0 on Windows XP SP3 English (w/DEP bypass)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "InitialAutoRunScript": "post/windows/manage/priv_migrate",
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

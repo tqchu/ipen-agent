@@ -1,0 +1,180 @@
+{
+  "Name": "MS17-010 EternalRomance/EternalSynergy/EternalChampion SMB Remote Windows Code Execution",
+  "Description": "This module will exploit SMB with vulnerabilities in MS17-010 to achieve a write-what-where primitive. This will then be used to overwrite the connection session information with as an Administrator session. From there, the normal psexec payload code execution is done. Exploits a type confusion between Transaction and WriteAndX requests and a race condition in Transaction requests, as seen in the EternalRomance, EternalChampion, and EternalSynergy exploits. This exploit chain is more reliable than the EternalBlue exploit, but requires a named pipe.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/smb/ms17_010_psexec.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "sleepya",
+    "zerosum0x0",
+    "Shadow Brokers",
+    "Equation Group"
+  ],
+  "References": [
+    [
+      "MSB",
+      "MS17-010"
+    ],
+    [
+      "CVE",
+      "2017-0143"
+    ],
+    [
+      "CVE",
+      "2017-0146"
+    ],
+    [
+      "CVE",
+      "2017-0147"
+    ],
+    [
+      "URL",
+      "https://github.com/worawit/MS17-010"
+    ],
+    [
+      "URL",
+      "https://hitcon.org/2017/CMT/slide-files/d2_s2_r0.pdf"
+    ],
+    [
+      "URL",
+      "https://blogs.technet.microsoft.com/srd/2017/06/29/eternal-champion-exploit-analysis/"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86",
+    "x64"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "PowerShell"
+    ],
+    [
+      2,
+      "Native upload"
+    ],
+    [
+      3,
+      "MOF upload"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "DCERPC::max_frag_size",
+    "DCERPC::fake_bind_multi",
+    "DCERPC::fake_bind_multi_prepend",
+    "DCERPC::fake_bind_multi_append",
+    "DCERPC::smb_pipeio",
+    "DCERPC::ReadTimeout",
+    "NTLM::UseNTLMv2",
+    "NTLM::UseNTLM2_session",
+    "NTLM::SendLM",
+    "NTLM::UseLMKey",
+    "NTLM::SendNTLM",
+    "NTLM::SendSPN",
+    "SMB::pipe_evasion",
+    "SMB::pipe_write_min_size",
+    "SMB::pipe_write_max_size",
+    "SMB::pipe_read_min_size",
+    "SMB::pipe_read_max_size",
+    "SMB::pad_data_level",
+    "SMB::pad_file_level",
+    "SMB::obscure_trans_pipe_level",
+    "SMBDirect",
+    "SMBUser",
+    "SMBPass",
+    "SMBDomain",
+    "SMBName",
+    "SMB::VerifySignature",
+    "SMB::ChunkSize",
+    "SMB::Native_OS",
+    "SMB::Native_LM",
+    "SMB::AlwaysEncrypt",
+    "KrbCacheMode",
+    "SMB::Auth",
+    "SMB::Rhostname",
+    "DomainControllerRhost",
+    "SMB::Krb5Ccname",
+    "SMB::KrbOfferedEncryptionTypes",
+    "SERVICE_NAME",
+    "SERVICE_DISPLAY_NAME",
+    "SERVICE_DESCRIPTION",
+    "SERVICE_PERSIST",
+    "CMD::DELAY",
+    "NAMED_PIPES",
+    "NAMEDPIPE",
+    "LEAKATTEMPTS",
+    "DBGTRACE",
+    "CheckModule",
+    "Powershell::persist",
+    "Powershell::prepend_sleep",
+    "Powershell::prepend_protections_bypass",
+    "Powershell::strip_comments",
+    "Powershell::strip_whitespace",
+    "Powershell::sub_vars",
+    "Powershell::sub_funcs",
+    "Powershell::exec_in_place",
+    "Powershell::exec_rc4",
+    "Powershell::remove_comspec",
+    "Powershell::noninteractive",
+    "Powershell::encode_final_payload",
+    "Powershell::encode_inner_payload",
+    "Powershell::wrap_double_quotes",
+    "Powershell::no_equals",
+    "Powershell::method",
+    "EXE::EICAR",
+    "EXE::Custom",
+    "EXE::Path",
+    "EXE::Template",
+    "EXE::Inject",
+    "EXE::OldMethod",
+    "EXE::FallBack",
+    "MSI::EICAR",
+    "MSI::Custom",
+    "MSI::Path",
+    "MSI::Template",
+    "MSI::UAC",
+    "SHARE",
+    "ALLOW_GUEST",
+    "SERVICE_FILENAME",
+    "PSH_PATH",
+    "SERVICE_STUB_ENCODER"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread",
+    "CheckModule": "auxiliary/scanner/smb/smb_ms17_010",
+    "WfsDelay": 10
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

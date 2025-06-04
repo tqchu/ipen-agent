@@ -1,0 +1,133 @@
+{
+  "Name": "CosmicSting: Magento Arbitrary File Read (CVE-2024-34102) + PHP Buffer Overflow in the iconv() function of glibc (CVE-2024-2961)",
+  "Description": "This combination of an Arbitrary File Read (CVE-2024-34102) and a Buffer Overflow in glibc (CVE-2024-2961) allows for unauthenticated Remote Code Execution on the following versions of Magento and Adobe Commerce and earlier if the PHP and glibc versions are also vulnerable: - 2.4.7 and earlier - 2.4.6-p5 and earlier - 2.4.5-p7 and earlier - 2.4.4-p8 and earlier Vulnerable PHP versions: - From PHP 7.0.0 (2015) to 8.3.7 (2024) Vulnerable iconv() function in the GNU C Library: - 2.39 and earlier The exploit chain is quite interesting and for more detailed information check out the references. The tl;dr being: CVE-2024-34102 is an XML External Entity vulnerability leveraging PHP filters to read arbitrary files from the target system. The exploit chain uses this to read /proc/self/maps, providing the address of PHP's heap and the libc's filename. The libc is then downloaded, and the offsets of libc_malloc, libc_system and libc_realloc are extracted, and made use of later in the chain. With this information and expert knowledge of PHP's heap (chunks, free lists, buckets, bucket brigades), CVE-2024-2961 can be exploited. A long chain of PHP filters is constructed and sent in the same way the XXE is exploited, building a payload in memory and using the buffer overflow to execute it, resulting in an unauthenticated RCE.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/linux/http/magento_xxe_to_glibc_buf_overflow.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Sergey Temnikov",
+    "Charles Fol",
+    "Heyder",
+    "jheysel-r7"
+  ],
+  "References": [
+    [
+      "URL",
+      "https://github.com/spacewasp/public_docs/blob/main/CVE-2024-34102.md"
+    ],
+    [
+      "URL",
+      "https://sansec.io/research/cosmicsting"
+    ],
+    [
+      "URL",
+      "https://www.ambionics.io/blog/iconv-cve-2024-2961-p1"
+    ],
+    [
+      "URL",
+      "https://github.com/ambionics/cnext-exploits/blob/main/cosmicsting-cnext-exploit.py"
+    ],
+    [
+      "CVE",
+      "2024-2961"
+    ],
+    [
+      "CVE",
+      "2024-34102"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux",
+    "Msf::Module::Platform::Unix"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Unix Command"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "RHOSTS",
+    "RPORT",
+    "VHOST",
+    "Proxies",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "SSLServerNameIndication",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "TARGETURI",
+    "DOWNLOAD_FILE_TIMEOUT",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

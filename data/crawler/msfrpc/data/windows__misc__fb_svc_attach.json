@@ -1,0 +1,78 @@
+{
+  "Name": "Firebird Relational Database SVC_attach() Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in Borland InterBase by sending a specially crafted service attach request.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/fb_svc_attach.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "Ramon de C Valle <rcvalle@metasploit.com>",
+    "Adriano Lima <adriano@risesecurity.org>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2007-5243"
+    ],
+    [
+      "OSVDB",
+      "38605"
+    ],
+    [
+      "BID",
+      "25917"
+    ],
+    [
+      "URL",
+      "http://www.risesecurity.org/advisories/RISE-2007002.txt"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "x86"
+  ],
+  "Targets": [
+    [
+      0,
+      "Brute Force"
+    ],
+    [
+      1,
+      "Firebird WI-V1.5.3.4870 WI-V1.5.4.4910"
+    ],
+    [
+      2,
+      "Debug"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

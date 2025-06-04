@@ -1,0 +1,88 @@
+{
+  "Name": "Adobe Doc.media.newPlayer Use After Free Vulnerability",
+  "Description": "This module exploits a use after free vulnerability in Adobe Reader and Adobe Acrobat Professional versions up to and including 9.2.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/adobe_media_newplayer.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "unknown",
+    "hdm <x@hdm.io>",
+    "pusscat <pusscat@metasploit.com>",
+    "jduck <jduck@metasploit.com>",
+    "jabra"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2009-4324"
+    ],
+    [
+      "BID",
+      "37331"
+    ],
+    [
+      "OSVDB",
+      "60980"
+    ],
+    [
+      "URL",
+      "http://www.adobe.com/support/security/bulletins/apsb10-02.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Adobe Reader Windows English (JS Heap Spray)"
+    ],
+    [
+      1,
+      "Adobe Reader Windows German (JS Heap Spray)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

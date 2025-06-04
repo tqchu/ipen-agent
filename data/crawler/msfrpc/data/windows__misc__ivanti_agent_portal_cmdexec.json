@@ -1,0 +1,68 @@
+{
+  "Name": "Ivanti EPM Agent Portal Command Execution",
+  "Description": "This module leverages an unauthenticated RCE in Ivanti's EPM Agent Portal where a RPC client can invoke a method which will run an attacker-specified string on the remote target as NT AUTHORITY\\SYSTEM. This vulnerability is present in versions prior to EPM 2021.1 Su4 and EPM 2022 Su2.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/misc/ivanti_agent_portal_cmdexec.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "James Horseman",
+    "Zach Hanley",
+    "Spencer McIntyre"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2023-28324"
+    ],
+    [
+      "URL",
+      "https://forums.ivanti.com/s/article/SA-2023-06-06-CVE-2023-28324?language=en_US"
+    ],
+    [
+      "URL",
+      "https://github.com/horizon3ai/CVE-2023-28324"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [
+    "cmd"
+  ],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

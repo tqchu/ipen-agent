@@ -1,0 +1,77 @@
+{
+  "Name": "AOL Radio AmpX ActiveX Control ConvertFile() Buffer Overflow",
+  "Description": "This module exploits a stack-based buffer overflow in AOL IWinAmpActiveX class (AmpX.dll) version 2.4.0.6 installed via AOL Radio website. By setting an overly long value to 'ConvertFile()', an attacker can overrun a buffer and execute arbitrary code.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/browser/aol_ampx_convertfile.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "rgod <rgod@autistici.org>",
+    "Trancer <mtrancer@gmail.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "54706"
+    ],
+    [
+      "BID",
+      "35028"
+    ],
+    [
+      "EDB",
+      "8733"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows XP SP0-SP3 / Windows Vista SP0-SP1 / IE 6.0 SP0-2 & IE 7.0"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SRVHOST",
+    "SRVPORT",
+    "ListenerBindAddress",
+    "ListenerBindPort",
+    "ListenerComm",
+    "SSL",
+    "SSLCert",
+    "SSLCompression",
+    "SSLCipher",
+    "SSLVersion",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "URIPATH",
+    "HTTP::no_cache",
+    "HTTP::chunked",
+    "HTTP::header_folding",
+    "HTTP::junk_headers",
+    "HTTP::compression",
+    "HTTP::server_name",
+    "URIHOST",
+    "URIPORT",
+    "SendRobots",
+    "HTML::unicode",
+    "HTML::base64",
+    "HTML::javascript::escape"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

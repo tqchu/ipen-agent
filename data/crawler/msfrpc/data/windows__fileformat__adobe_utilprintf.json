@@ -1,0 +1,51 @@
+{
+  "Name": "Adobe util.printf() Buffer Overflow",
+  "Description": "This module exploits a buffer overflow in Adobe Reader and Adobe Acrobat Professional < 8.1.3. By creating a specially crafted pdf that a contains malformed util.printf() entry, an attacker may be able to execute arbitrary code.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/adobe_utilprintf.rb",
+  "Version": "",
+  "Rank": "good",
+  "Authors": [
+    "MC <mc@metasploit.com>",
+    "Didier Stevens <didier.stevens@gmail.com>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2008-2992"
+    ],
+    [
+      "OSVDB",
+      "49520"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Adobe Reader v8.1.2 (Windows XP SP3 English)"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

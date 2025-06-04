@@ -1,0 +1,55 @@
+{
+  "Name": "BlazeVideo HDTV Player Pro v6.6 Filename Handling Vulnerability",
+  "Description": "This module exploits a vulnerability found in BlazeVideo HDTV Player's filename handling routine. When supplying a string of input data embedded in a .plf file, the MediaPlayerCtrl.dll component will try to extract a filename by using PathFindFileNameA(), and then copies whatever the return value is on the stack by using an inline strcpy. As a result, if this input data is long enough, it can cause a stack-based buffer overflow, which may lead to arbitrary code execution under the context of the user.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/blazedvd_hdtv_bof.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "b33f",
+    "sinn3r <sinn3r@metasploit.com>"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "80896"
+    ],
+    [
+      "EDB",
+      "18693"
+    ],
+    [
+      "EDB",
+      "22931"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "BlazeVideo HDTV Player Pro v6.6.0.3"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME",
+    "DynamicSehRecord"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "thread"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

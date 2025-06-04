@@ -1,0 +1,75 @@
+{
+  "Name": "Android 'Towelroot' Futex Requeue Kernel Exploit",
+  "Description": "This module exploits a bug in futex_requeue in the Linux kernel, using similar techniques employed by the towelroot exploit. Any Android device with a kernel built before June 2014 is likely to be vulnerable.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/android/local/futex_requeue.rb",
+  "Version": "",
+  "Rank": "excellent",
+  "Authors": [
+    "Pinkie Pie",
+    "geohot",
+    "timwr"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2014-3153"
+    ],
+    [
+      "URL",
+      "http://tinyhack.com/2014/07/07/exploiting-the-futex-bug-and-uncovering-towelroot/"
+    ],
+    [
+      "URL",
+      "http://blog.nativeflow.com/the-futex-vulnerability"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Android",
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic Targeting"
+    ],
+    [
+      1,
+      "Default"
+    ],
+    [
+      2,
+      "New Samsung"
+    ],
+    [
+      3,
+      "Old Samsung"
+    ],
+    [
+      4,
+      "Samsung Grand"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "SESSION",
+    "AutoCheck",
+    "ForceExploit"
+  ],
+  "DefaultOptions": {
+    "WfsDelay": 300,
+    "PAYLOAD": "linux/armle/meterpreter/reverse_tcp"
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

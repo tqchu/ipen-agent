@@ -1,0 +1,51 @@
+{
+  "Name": "gAlan 0.2.1 Buffer Overflow",
+  "Description": "This module exploits a stack buffer overflow in gAlan 0.2.1 by creating a specially crafted galan file.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/windows/fileformat/galan_fileformat_bof.rb",
+  "Version": "",
+  "Rank": "normal",
+  "Authors": [
+    "Jeremy Brown <0xjbrown41@gmail.com>",
+    "loneferret"
+  ],
+  "References": [
+    [
+      "OSVDB",
+      "60897"
+    ],
+    [
+      "EDB",
+      "10339"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Windows"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Windows XP Universal"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "FILENAME"
+  ],
+  "DefaultOptions": {
+    "EXITFUNC": "process",
+    "DisablePayloadHandler": true
+  },
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": false,
+  "ExploitMethod": "",
+  "PostMixins": []
+}

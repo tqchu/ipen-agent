@@ -1,0 +1,142 @@
+{
+  "Name": "PHP 4 unserialize() ZVAL Reference Counter Overflow (Cookie)",
+  "Description": "This module exploits an integer overflow vulnerability in the unserialize() function of the PHP web server extension. This vulnerability was patched by Stefan in version 4.5.0 and applies all previous versions supporting this function. This particular module targets numerous web applications and is based on the proof of concept provided by Stefan Esser. This vulnerability requires approximately 900k of data to trigger due the multiple Cookie headers requirement. Since we are already assuming a fast network connection, we use a 2Mb block of shellcode for the brute force, allowing quick exploitation for those with fast networks. One of the neat things about this vulnerability is that on x86 systems, the EDI register points into the beginning of the hashtable string. This can be used with an egghunter to quickly exploit systems where the location of a valid \"jmp EDI\" or \"call EDI\" instruction is known. The EDI method is faster, but the bandwidth-intensive brute force used by this module is more reliable across a wider range of systems.",
+  "License": "Metasploit Framework License (BSD)",
+  "Filepath": "/opt/metasploit-framework/embedded/framework/modules/exploits/multi/php/php_unserialize_zval_cookie.rb",
+  "Version": "",
+  "Rank": "average",
+  "Authors": [
+    "hdm <x@hdm.io>",
+    "GML <grandmasterlogic@gmail.com>",
+    "Stefan Esser <sesser@hardened-php.net>"
+  ],
+  "References": [
+    [
+      "CVE",
+      "2007-1286"
+    ],
+    [
+      "OSVDB",
+      "32771"
+    ],
+    [
+      "URL",
+      "http://www.php-security.org/MOPB/MOPB-04-2007.html"
+    ]
+  ],
+  "Platform": [
+    "Msf::Module::Platform::Linux"
+  ],
+  "Arch": [],
+  "Targets": [
+    [
+      0,
+      "Automatic"
+    ],
+    [
+      1,
+      "Linux x86 Generic"
+    ],
+    [
+      2,
+      "Linux x86 phpBB2"
+    ],
+    [
+      3,
+      "Linux x86 punBB"
+    ],
+    [
+      4,
+      "Linux x86 WWWThreads"
+    ],
+    [
+      5,
+      "Linux x86 Deadman Redirect"
+    ],
+    [
+      6,
+      "Linux x86 PhpWebGallery"
+    ],
+    [
+      7,
+      "Linux x86 Ariadne-CMS"
+    ],
+    [
+      8,
+      "Linux x86 ProMA"
+    ],
+    [
+      9,
+      "Linux x86 eGroupware"
+    ]
+  ],
+  "Options": [
+    "WORKSPACE",
+    "VERBOSE",
+    "WfsDelay",
+    "EnableContextEncoding",
+    "ContextInformationFile",
+    "DisablePayloadHandler",
+    "RHOSTS",
+    "RPORT",
+    "SSL",
+    "SSLServerNameIndication",
+    "SSLVersion",
+    "SSLVerifyMode",
+    "SSLCipher",
+    "Proxies",
+    "CPORT",
+    "CHOST",
+    "ConnectTimeout",
+    "TCP::max_send_size",
+    "TCP::send_delay",
+    "VHOST",
+    "UserAgent",
+    "HttpUsername",
+    "HttpPassword",
+    "HttpRawHeaders",
+    "DigestAuthIIS",
+    "FingerprintCheck",
+    "DOMAIN",
+    "HttpClientTimeout",
+    "HttpTrace",
+    "HttpTraceHeadersOnly",
+    "HttpTraceColors",
+    "HTTP::uri_encode_mode",
+    "HTTP::uri_full_url",
+    "HTTP::pad_method_uri_count",
+    "HTTP::pad_uri_version_count",
+    "HTTP::pad_method_uri_type",
+    "HTTP::pad_uri_version_type",
+    "HTTP::method_random_valid",
+    "HTTP::method_random_invalid",
+    "HTTP::method_random_case",
+    "HTTP::version_random_valid",
+    "HTTP::version_random_invalid",
+    "HTTP::uri_dir_self_reference",
+    "HTTP::uri_dir_fake_relative",
+    "HTTP::uri_use_backslashes",
+    "HTTP::pad_fake_headers",
+    "HTTP::pad_fake_headers_count",
+    "HTTP::pad_get_params",
+    "HTTP::pad_get_params_count",
+    "HTTP::pad_post_params",
+    "HTTP::pad_post_params_count",
+    "HTTP::shuffle_get_params",
+    "HTTP::shuffle_post_params",
+    "HTTP::uri_fake_end",
+    "HTTP::uri_fake_params_start",
+    "HTTP::header_folding",
+    "BruteWait",
+    "BruteStep",
+    "URI",
+    "COOKIENAME"
+  ],
+  "DefaultOptions": null,
+  "PayloadPlatforms": [],
+  "PayloadArchs": [],
+  "SessionTypes": [],
+  "CheckMethod": true,
+  "ExploitMethod": "",
+  "PostMixins": []
+}
