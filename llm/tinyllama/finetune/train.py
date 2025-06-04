@@ -1,32 +1,41 @@
 import os
-
 import torch
 from torch import nn
 from torch.optim import AdamW
 from torch.utils.data import DataLoader
+from torch.cuda.amp import autocast, GradScaler
 from tqdm.auto import tqdm
 
 from llm.tinyllama import loader
 from llm.tinyllama.finetune.dataset import QADataset
 from llm.tinyllama.finetune.loader import collate_fn
 
+# If you want to experiment with allocator settings, you can set this env var:
+os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
+
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
+# 1) Load and move model to GPU, then turn on gradient checkpointing
 tokenizer, model = loader.initialize_model()
-# Assume `model` is the LoRA‐wrapped TinyLlama from Section 3, and it's already .to(device)
-optimizer = AdamW(model.parameters(), lr=1e-4)
+model.to(device)
+model.gradient_checkpointing_enable()
 
+# 2) Create optimizer and AMP scaler
+optimizer = AdamW(model.parameters(), lr=1e-4)
+scaler = GradScaler()
+
+# 3) Hyperparameters: smaller microbatch + accumulation
 num_epochs = 3
-gradient_accumulation_steps = 1  # or >1 if you want effective larger batch size
-save_every = 1000  # steps
+per_device_batch_size = 2           # drop from 16 → 2
+gradient_accumulation_steps = 4     # 2×4 = effective batch 8
+save_every = 1000  # save/validate every N steps
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
-
 train_dataset = QADataset(os.path.join(current_dir, "train_data.jsonl"), tokenizer, max_length=512)
-val_dataset = QADataset(os.path.join(current_dir, "val_data.jsonl"), tokenizer, max_length=512)
+val_dataset   = QADataset(os.path.join(current_dir, "val_data.jsonl"),   tokenizer, max_length=512)
 
-train_loader = DataLoader(train_dataset, batch_size=16, shuffle=True, )
-val_loader = DataLoader(val_dataset, batch_size=16, shuffle=False, )
+train_loader = DataLoader(train_dataset, batch_size=per_device_batch_size, shuffle=True,  collate_fn=collate_fn)
+val_loader   = DataLoader(val_dataset,   batch_size=per_device_batch_size, shuffle=False, collate_fn=collate_fn)
 
 vocab_size = model.cfg.vocab_size
 loss_fn = nn.CrossEntropyLoss(ignore_index=-100)
@@ -40,60 +49,62 @@ for epoch in range(num_epochs):
     pbar = tqdm(train_loader, desc=f"Epoch {epoch}", leave=False)
 
     for batch in pbar:
-        input_ids = batch["input_ids"].to(device)  # shape (B, T)
-        # attention_mask = batch["attention_mask"].to(device)  # not used by TinyLlama
-        labels = batch["labels"].to(device)  # shape (B, T)
+        input_ids = batch["input_ids"].to(device)  # (B, T)
+        labels    = batch["labels"].to(device)     # (B, T)
 
-        # 1) Forward pass: get logits from TinyLlama
-        #    TinyLlama.forward returns (logits, new_caches), but we only need logits here
-        logits, _ = model(input_ids, kv_caches=None)  # logits: (B, T, V)
+        # ----- Forward + loss under autocast (FP16) -----
+        with autocast():
+            logits, _ = model(input_ids, kv_caches=None)    # (B, T, V)
+            shift_logits = logits[:, :-1, :].contiguous()   # (B, T-1, V)
+            shift_labels = labels[:, 1:].contiguous()       # (B, T-1)
 
-        # 2) Shift logits and labels for causal LM loss
-        #    - shift_logits[t] predicts token at position t+1
-        #    - shift_labels[t]   is the true token at position t+1
-        shift_logits = logits[:, :-1, :].contiguous()  # (B, T-1, V)
-        shift_labels = labels[:, 1:].contiguous()  # (B, T-1)
+            loss = loss_fn(
+                shift_logits.view(-1, vocab_size),   # (B*(T-1), V)
+                shift_labels.view(-1)                # (B*(T-1),)
+            )
+            loss = loss / gradient_accumulation_steps
 
-        # 3) Compute cross-entropy loss, ignoring positions where shift_labels == -100
-        loss = loss_fn(
-            shift_logits.view(-1, vocab_size),  # (B*(T-1), V)
-            shift_labels.view(-1)  # (B*(T-1),)
-        )
-        loss = loss / gradient_accumulation_steps
-        loss.backward()
-
+        # ----- Backward with GradScaler -----
+        scaler.scale(loss).backward()
         step_loss_accum += loss.item()
         global_step += 1
 
-        # 4) Gradient accumulation / optimizer step
+        # ----- Gradient accumulation & step -----
         if global_step % gradient_accumulation_steps == 0:
-            optimizer.step()
+            scaler.unscale_(optimizer)
+            # (optional) clip gradients here, e.g.:
+            # torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
+            scaler.step(optimizer)
+            scaler.update()
             optimizer.zero_grad()
+
             epoch_loss += step_loss_accum
             step_loss_accum = 0.0
 
-        # 5) Update progress bar
+        # ----- Update progress bar -----
         avg_loss = epoch_loss / (global_step // gradient_accumulation_steps or 1)
         pbar.set_postfix(loss=f"{avg_loss:.4f}")
 
-        # 6) Periodic validation & checkpointing
+        # ----- Periodic validation & checkpoint saving -----
         if global_step % save_every == 0:
             model.eval()
             val_loss = 0.0
             val_steps = 0
+
             with torch.no_grad():
                 for vbatch in val_loader:
-                    vid = vbatch["input_ids"].to(device)  # (B, T)
-                    lbl = vbatch["labels"].to(device)  # (B, T)
+                    vid = vbatch["input_ids"].to(device)
+                    lbl = vbatch["labels"].to(device)
 
-                    v_logits, _ = model(vid, kv_caches=None)  # (B, T, V)
-                    v_shift_logits = v_logits[:, :-1, :].contiguous()  # (B, T-1, V)
-                    v_shift_labels = lbl[:, 1:].contiguous()  # (B, T-1)
+                    with autocast():  # validation can also use FP16
+                        v_logits, _ = model(vid, kv_caches=None)     # (B, T, V)
+                        v_shift_logits = v_logits[:, :-1, :].contiguous()
+                        v_shift_labels = lbl[:, 1:].contiguous()
 
-                    v_loss = loss_fn(
-                        v_shift_logits.view(-1, vocab_size),
-                        v_shift_labels.view(-1)
-                    )
+                        v_loss = loss_fn(
+                            v_shift_logits.view(-1, vocab_size),
+                            v_shift_labels.view(-1)
+                        )
                     val_loss += v_loss.item()
                     val_steps += 1
 
@@ -101,7 +112,8 @@ for epoch in range(num_epochs):
             print(f"\n→ Step {global_step}: validation loss = {avg_val_loss:.4f}\n")
             model.train()
 
-            # Save adapter (LoRA) weights only
+            # Save only the LoRA‐adapter (you can still call `model.state_dict()`
+            # because LoRA layers are the only trainable weights, or use a PEFT helper)
             ckpt_path = f"tinyllama_lora_step{global_step}.pt"
             torch.save(model.state_dict(), ckpt_path)
 
