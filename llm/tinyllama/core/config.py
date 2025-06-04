@@ -17,6 +17,7 @@ class Config:
     d_ff: int
     rope_theta: float
     rms_eps: float
+    j : dict
 
     # ------------------------------------------------------------------
     @classmethod
@@ -35,4 +36,9 @@ class Config:
             d_ff=j["intermediate_size"],
             rope_theta=j.get("rope_theta", 10000.0),
             rms_eps=j.get("rms_norm_eps", 1e-5),
+            j = j,
         )
+
+    def get(self, key: str):
+        """Get a value from the original JSON dict."""
+        return self.j.get(key)
