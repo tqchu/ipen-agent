@@ -18,7 +18,7 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 # 1) Load and move model to GPU, then turn on gradient checkpointing
 tokenizer, model = loader.initialize_model()
 model.to(device)
-model.gradient_checkpointing_enable()
+# model.gradient_checkpointing_enable()
 
 # 2) Create optimizer and AMP scaler
 optimizer = AdamW(model.parameters(), lr=1e-4)
@@ -34,8 +34,8 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 train_dataset = QADataset(os.path.join(current_dir, "train_data.jsonl"), tokenizer, max_length=512)
 val_dataset   = QADataset(os.path.join(current_dir, "val_data.jsonl"),   tokenizer, max_length=512)
 
-train_loader = DataLoader(train_dataset, batch_size=per_device_batch_size, shuffle=True,  collate_fn=collate_fn)
-val_loader   = DataLoader(val_dataset,   batch_size=per_device_batch_size, shuffle=False, collate_fn=collate_fn)
+train_loader = DataLoader(train_dataset, batch_size=per_device_batch_size, shuffle=True)
+val_loader   = DataLoader(val_dataset,   batch_size=per_device_batch_size, shuffle=False)
 
 vocab_size = model.cfg.vocab_size
 loss_fn = nn.CrossEntropyLoss(ignore_index=-100)
