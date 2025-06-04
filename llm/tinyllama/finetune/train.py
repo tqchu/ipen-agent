@@ -1,5 +1,6 @@
 import os
 import torch
+from peft import LoraConfig, TaskType, get_peft_model
 from torch import nn
 from torch.optim import AdamW
 from torch.utils.data import DataLoader
@@ -17,6 +18,22 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 
 # 1) Load and move model to GPU, then turn on gradient checkpointing
 tokenizer, model = loader.initialize_model()
+
+lora_config = LoraConfig(
+    task_type=TaskType.CAUSAL_LM,   # because TinyLlama is a causal language model
+    inference_mode=False,           # we intend to train (not just inference)
+    r=8,                             # LoRA rank (4–16 is a common range; start with 8)
+    lora_alpha=32,                   # LoRA α (scaling)
+    lora_dropout=0.05,               # dropout on the LoRA layers
+    target_modules=[
+        "q_proj", "k_proj", "v_proj", "o_proj"
+    ],
+)
+
+# 3) Wrap TinyLlama
+model = get_peft_model(model, lora_config)
+
+device = "cuda" if torch.cuda.is_available() else "cpu"
 model.to(device)
 # model.gradient_checkpointing_enable()
 
