@@ -1,8 +1,12 @@
+from typing import Optional
+
 import torch
 import torch.nn as nn
 from .config import Config
 from .transformer import Block
 from .rmsnorm import RMSNorm
+
+
 # from config import Config
 # from transformer import Block
 # from rmsnorm import RMSNorm
@@ -35,9 +39,11 @@ class TinyLlama(nn.Module):
         return cls(Config.from_json(path))
 
     def forward(
-        self,
-        input_ids: torch.Tensor,                  # (B, T) or (B, 1)
-        kv_caches: [list[dict] , None] = None  # either None or list of length n_layers
+            self,
+            input_ids: torch.Tensor,  # (B, T) or (B, 1)
+            kv_caches: [list[dict], None] = None,
+            attention_mask: Optional[torch.Tensor] = None,
+            **kwargs
     ) -> tuple[torch.Tensor, list[dict]]:
         B, T = input_ids.shape
 
@@ -54,8 +60,8 @@ class TinyLlama(nn.Module):
             new_caches.append(new_cache_i)
 
         # 3) Final RMSNorm + lm_head
-        x = self.norm(x)            # (B, T, D) or (B, 1, D)
-        logits = self.lm_head(x)     # (B, T, V) or (B, 1, V)
+        x = self.norm(x)  # (B, T, D) or (B, 1, D)
+        logits = self.lm_head(x)  # (B, T, V) or (B, 1, V)
 
         return logits, new_caches
 
@@ -82,6 +88,7 @@ class TinyLlama(nn.Module):
             "kv_caches": past_key_values
             # (you could pass attention_mask here if you had one)
         }
+
 
 def test_tinyllama_kv_cache_full_sequence():
     """
@@ -129,7 +136,7 @@ def test_tinyllama_kv_cache_full_sequence():
         incremental_logits = []
 
         for t in range(L):
-            token_id = idx[:, t : t + 1]  # (B, 1)
+            token_id = idx[:, t: t + 1]  # (B, 1)
             with torch.no_grad():
                 logits_inc_t, kv_caches = model(token_id, kv_caches)
                 # logits_inc_t has shape (B, 1, V)
