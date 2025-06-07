@@ -54,8 +54,8 @@ gradient_accumulation_steps = 4  # 2×4 = effective batch 8
 save_every = 1000  # save/validate every N steps
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
-train_dataset = QADataset(os.path.join(current_dir, "train_data.jsonl"), tokenizer, max_length=1024)
-val_dataset = QADataset(os.path.join(current_dir, "val_data.jsonl"), tokenizer, max_length=1024)
+train_dataset = QADataset(os.path.join(current_dir, "train_data.jsonl"), tokenizer, max_length=512)
+val_dataset = QADataset(os.path.join(current_dir, "val_data.jsonl"), tokenizer, max_length=512)
 
 train_loader = DataLoader(train_dataset, batch_size=per_device_batch_size, shuffle=True)
 val_loader = DataLoader(val_dataset, batch_size=per_device_batch_size, shuffle=False)

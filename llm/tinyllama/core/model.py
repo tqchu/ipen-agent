@@ -5,7 +5,7 @@ import torch.nn as nn
 from .config import Config
 from .transformer import Block
 from .rmsnorm import RMSNorm
-from torch.utils.checkpoint import checkpoint
+
 
 # from config import Config
 # from transformer import Block
@@ -33,7 +33,6 @@ class TinyLlama(nn.Module):
         self.blocks = nn.ModuleList([Block(cfg) for _ in range(cfg.n_layers)])
         self.norm = RMSNorm(cfg.d_model, cfg.rms_eps)
         self.lm_head = nn.Linear(cfg.d_model, cfg.vocab_size, bias=False)
-        self.use_checkpointing = True
 
     @classmethod
     def from_config(cls, path):
@@ -56,11 +55,7 @@ class TinyLlama(nn.Module):
         # 2) Pass through each block, carrying kv_cache per block if provided
         for i, blk in enumerate(self.blocks):
             cache_i = None if kv_caches is None else kv_caches[i]
-            if self.use_checkpointing:
-                # re-compute each block’s activations on the backward pass
-                x, new_cache_i = checkpoint(blk, x, cache_i)
-            else:
-                x, new_cache_i = blk(x, kv_cache=cache_i)
+            x, new_cache_i = blk(x, kv_cache=cache_i)
             # x: (B, T, D) in batch mode; or (B, 1, D) in incremental mode
             new_caches.append(new_cache_i)
 
