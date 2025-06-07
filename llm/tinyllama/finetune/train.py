@@ -1,3 +1,4 @@
+import argparse
 import json
 import math
 import os
@@ -54,6 +55,18 @@ gradient_accumulation_steps = 4  # 2×4 = effective batch 8
 save_every = 1000  # save/validate every N steps
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
+
+train_data_file = "train_data.jsonl"
+val_data_file = "val_data.jsonl"
+
+parser = argparse.ArgumentParser(description="Train a TinyLlama model with LoRA")
+parser.add_argument('--minimal', action='store_true', help='Use minimal dataset for training')
+args = parser.parse_args()
+
+if args.minimal:
+    train_data_file = "train_minimal_data.jsonl"
+    val_data_file = "val_minimal_data.jsonl"
+
 train_dataset = QADataset(os.path.join(current_dir, "train_data.jsonl"), tokenizer, max_length=512)
 val_dataset = QADataset(os.path.join(current_dir, "val_data.jsonl"), tokenizer, max_length=512)
 

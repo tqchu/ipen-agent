@@ -235,4 +235,4 @@ if __name__ == "__main__":
     input_path = os.path.join(current_dir, "../data/all_modules.jsonl")
     output_path = os.path.join(current_dir, "preprocessed.json")
 
-    main(input_path, output_path, distractor_count=4)
+    main(input_path, output_path, distractor_count=1)
