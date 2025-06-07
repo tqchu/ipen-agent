@@ -117,7 +117,7 @@
   "DefaultOptions": {
     "RPORT": 443,
     "SSL": "True",
-    "FETCH_FILENAME": "p",
+    "FETCH_FILENAME": "sU",
     "FETCH_WRITABLE_DIR": "/tmp"
   },
   "PayloadPlatforms": [],

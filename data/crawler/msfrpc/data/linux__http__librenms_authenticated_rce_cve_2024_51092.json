@@ -90,7 +90,7 @@
   ],
   "DefaultOptions": {
     "FETCH_FILENAME": "x",
-    "FETCH_URIPATH": "e"
+    "FETCH_URIPATH": "c"
   },
   "PayloadPlatforms": [],
   "PayloadArchs": [],

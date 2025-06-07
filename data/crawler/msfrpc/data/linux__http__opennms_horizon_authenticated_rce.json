@@ -92,7 +92,7 @@
     "RPORT": 8980,
     "SRVPORT": 8080,
     "FETCH_COMMAND": "CURL",
-    "FETCH_FILENAME": "waLb",
+    "FETCH_FILENAME": "pEWf",
     "FETCH_WRITABLE_DIR": "/tmp",
     "FETCH_SRVPORT": 8081,
     "WfsDelay": 15

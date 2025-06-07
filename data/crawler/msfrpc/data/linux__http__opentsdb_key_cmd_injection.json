@@ -131,7 +131,7 @@
     "RPORT": 4242,
     "SRVPORT": 8080,
     "FETCH_COMMAND": "CURL",
-    "FETCH_FILENAME": "Jgc",
+    "FETCH_FILENAME": "UjK",
     "FETCH_WRITABLE_DIR": "/tmp",
     "FETCH_SRVPORT": 8081
   },

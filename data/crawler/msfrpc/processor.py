@@ -6,6 +6,21 @@ from typing import Any, Dict, List
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO)
 
+def normalize_platform(platforms):
+    """
+    The raw 'platform' field might look like:
+      ["Msf::Module::Platform::Unix", "Msf::Module::Platform::AIX"]
+    We strip off the Ruby namespace and just return ["Unix", "AIX"].
+    If that list is empty, return [].
+    """
+    out = []
+    for p in platforms:
+        # Split on '::' and take last segment
+        parts = p.split("::")
+        if len(parts) > 0:
+            out.append(parts[-1])
+    return out
+
 def normalize_references(raw_refs: List[List[str]]) -> List[Dict[str, str]]:
     """
     raw_refs is a list of two‐element lists: e.g. [ ["CVE","2021-1234"], ["OSVDB","8765"] ]
@@ -19,29 +34,28 @@ def normalize_references(raw_refs: List[List[str]]) -> List[Dict[str, str]]:
         normalized.append({"type": ref_type, "id": ref_id})
     return normalized
 
-def normalize_targets(raw_targets: List[List[Any]]) -> List[Dict[str, Any]]:
+def get_targets(platforms, raw_targets: List[List[Any]]) -> List[Dict[str, Any]]:
     """
     raw_targets comes from MSFRPC as a list of [name, { ... }] entries.
     Each entry has an implicit index (0, 1, ...).
     We’ll flatten into dicts:
       { "index": idx, "name": name, **kwargs }
     """
+
+    normalized_platforms = normalize_platform(platforms)
+
     out = []
-    for idx, entry in enumerate(raw_targets):
-        if not isinstance(entry, list) or len(entry) != 2:
+
+    for target in raw_targets:
+        if len(target) < 2:
             continue
-        name, opts = entry
-        target_dict = {
-            "index": idx,
-            "name": name
-        }
-        # opts is something like {"Platform": "windows", "Arch": "x86", "DefaultTarget":0}
-        if isinstance(opts, dict):
-            # copy each key (e.g. Platform, Arch, DefaultTarget) into snake_case
-            for k, v in opts.items():
-                # convert keys if needed, or keep them as-is
-                target_dict[k.lower()] = v
-        out.append(target_dict)
+        name = target[1]
+
+        if any(platform in str(name).lower() for platform in map(str.lower, normalized_platforms)):
+            out.append(name)
+    # for target in raw_targets:
+    #     if target contains any nor
+    #
     return out
 
 def process_single_module(module_path: str, raw: Dict[str, Any]) -> Dict[str, Any]:
@@ -59,7 +73,7 @@ def process_single_module(module_path: str, raw: Dict[str, Any]) -> Dict[str, An
         "platform": raw.get("Platform", ""),
         "arch": raw.get("Arch", []),
         "rank": raw.get("Rank", ""),
-        "targets": normalize_targets(raw.get("Targets", [])),
+        "targets": get_targets(raw.get("Platform", ""), raw.get("Targets", [])),
         "default_options": raw.get("DefaultOptions", {}),
         # Payload section can be nested; capture subfields if present
         "payload": {

@@ -9,11 +9,12 @@ def format_question(state: dict, available_actions: list) -> str:
     """
     Build a concise prompt string given the 'state' dict and 'available_actions' list.
     """
-    vuln = state.get("vulnerability", "unknown_vulnerability")
+    vuln = state.get("vulnerabilities", "unknown_vulnerability")
     platform = state.get("platform", "unknown_platform")
+    targets = state.get("targets", "unknown_targets")
 
-    lines = [f"Current state: a {platform} host has been identified with vulnerability {vuln}."]
-    lines.append("Available actions:")
+    lines = [f'Current state: a {platform} host ({", ".join(targets)}) has been identified with vulnerabilities {", ".join(vuln)}.',
+             "Available actions:"]
     for idx, action in enumerate(available_actions, start=1):
         lines.append(f"{idx}. {action}")
     lines.append("\nWhich action should be executed next?")
@@ -34,24 +35,17 @@ def extract_module_name(msf_action: str) -> str:
     return module_and_rest
 
 
-def format_answer(available_actions: list, next_action: str) -> dict:
+def format_answer(next_action: dict, reason: str) -> dict:
     """
     Build the 'answer' JSON object with keys:
       - "reason": (empty string placeholder)
       - "best_action": { "index": X, "module_name": "..." }
     """
-    try:
-        idx0 = available_actions.index(next_action)
-        one_based = idx0 + 1
-    except ValueError:
-        one_based = -1
-
-    module_name = extract_module_name(next_action)
     return {
-        "reason": "",
+        "reason": reason,
         "best_action": {
-            "index": one_based,
-            "module_name": module_name
+            "index": next_action.get("index"),
+            "module_name": next_action.get("module_path")
         }
     }
 
@@ -77,7 +71,7 @@ def transform_jsonl_to_list(in_path: str, out_path: str):
             next_action = record.get("next_action", "")
 
             question = format_question(state, available_actions)
-            answer = format_answer(available_actions, next_action)
+            answer = format_answer(next_action, record.get("reason", ""))
 
             qa_list.append({
                 "question": question,
@@ -90,7 +84,7 @@ def transform_jsonl_to_list(in_path: str, out_path: str):
 
 if __name__ == "__main__":
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    input_jsonl = os.path.join(current_dir, "json_prompt.jsonl")
+    input_jsonl = os.path.join(current_dir, "preprocessed.json")
     output_jsonl = os.path.join(current_dir, "qa_transformed.json")
     transform_jsonl_to_list(input_jsonl, output_jsonl)
 

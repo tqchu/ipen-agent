@@ -29,7 +29,7 @@ class QADataset(Dataset):
             for line in f:
                 obj = json.loads(line)
                 instr = obj["instruction"].strip()   # e.g. "You are a pentest agent. ... Which action next?"
-                resp = obj["response"].strip()       # e.g. "1:exploit/aix/local/ibstat_path"
+                resp = json.dumps(obj["response"]) if isinstance(obj["response"], dict) else obj["response"]
 
                 # 1. Encode the instruction with BOS and EOS
                 #    add_bos=True adds the BOS token at the front

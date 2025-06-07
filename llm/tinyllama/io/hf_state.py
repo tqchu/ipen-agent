@@ -20,9 +20,9 @@ _REPLACERS = [
     (r"^model\.lm_head\.bias$", "final_logits_bias"),
 ]
 
-
 def _rename(key: str) -> str:
     key = key.replace("model.layers.", "blocks.")
+
     for pat, repl in _REPLACERS:
         key = re.sub(pat, repl, key)
     return key
@@ -41,3 +41,23 @@ def load_state(path: str):
             for k, v in shard.items():
                 state[_rename(k)] = v
     return state
+
+
+def load_state_pt(pt_path: str) -> dict:
+    """
+    Load a PyTorch state_dict from a single .pt (or .bin) file, then rename keys.
+
+    Args:
+        pt_path: Path to the .pt file containing a raw state_dict.
+
+    Returns:
+        An OrderedDict with all keys renamed via `_rename(...)`.
+    """
+    if not os.path.isfile(pt_path):
+        raise FileNotFoundError(f"Checkpoint file not found: {pt_path}")
+
+    raw_state = torch.load(pt_path, map_location="cpu")
+    renamed_state = OrderedDict()
+    for k, v in raw_state.items():
+        renamed_state[_rename(k)] = v
+    return renamed_state
