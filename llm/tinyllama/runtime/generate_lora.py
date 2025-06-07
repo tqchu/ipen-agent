@@ -44,7 +44,7 @@ lora_config = LoraConfig(
 # 3) Wrap TinyLlama
 model = get_peft_model(model, lora_config)
 
-pt_path = os.path.join(model_dir, "tinyllama_lora_step2000.pt")
+pt_path = os.path.join(model_dir, "tinyllama_lora_step7000.pt")
 # Load state dict
 with torch.no_grad():
     missing, unexpected = model.load_state_dict(load_state_pt(pt_path))
@@ -58,17 +58,14 @@ model.eval() # Ensure model is in evaluation mode
 
 pairs = [
     {
-        "system": "You are a pentest agent",
-        "user": '''Given the following state and numbered actions, choose the correct next action.
-
-Current state: a Windows host has been identified with vulnerability 2013-3893.
+        "system": "You are a pentest agent. Given the following state and numbered actions, choose the correct next action.",
+        "user": '''You should response with the json format, contains the 'reason' and 'best_action' fields. The best_action contains 'index' and 'module_name' fields.
+Current state: a Windows host () has been identified with vulnerabilities CVE-2024-29824.
 Available actions:
-1. use exploit/multi/misc/arkeia_agent_exec; set RHOSTS {target_ip}; exploit
-2. use exploit/windows/browser/ie_setmousecapture_uaf; set RHOSTS {target_ip}; exploit
-3. use exploit/windows/email/ms10_045_outlook_ref_resolve; set RHOSTS {target_ip}; exploit
-
+1. {'module_path': 'multi/http/trendmicro_threat_discovery_admin_sys_time_cmdi', 'platforms_supported': ['Linux'], 'type': 'remote_http_exploit', 'prerequisites': [], 'associated_vuln': ['CVE-2016-7552', 'CVE-2016-7547']}
+2. {'module_path': 'windows/http/ivanti_epm_recordgoodapp_sqli_rce', 'platforms_supported': ['Windows'], 'type': 'remote_http_exploit', 'prerequisites': [], 'associated_vuln': ['CVE-2024-29824']}
+3. {'module_path': 'windows/smtp/mailcarrier_smtp_ehlo', 'platforms_supported': 'Windows, Windows 2000 SP0 - XP SP1 - EN/FR/GR, Windows XP SP2 - EN', 'type': 'generic_exploit', 'prerequisites': [], 'associated_vuln': ['CVE-2004-1638', 'OSVDB-11174', 'BID-11535', 'EDB-598']}
 Which action should be executed next?
-Just give the number of the action, nothing else.
 '''
     },
     # {
