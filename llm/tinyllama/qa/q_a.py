@@ -33,11 +33,12 @@ def get_answer(system_prompt: str, question: str, model:TinyLlama, tokenizer, ma
         # 3. Generate tokens one by one
         for _ in range(max_tokens):
             # 3a. Top‐k sampling from the current logits
-            probs = next_logits.softmax(dim=-1)  # (vocab_size,)
-            topk_probs, topk_idxs = torch.topk(probs, k=50)
-            topk_probs = topk_probs / topk_probs.sum()  # renormalize
-            pick = torch.multinomial(topk_probs, num_samples=1).item()
-            token_id = topk_idxs[pick].item()
+            # probs = next_logits.softmax(dim=-1)  # (vocab_size,)
+            # topk_probs, topk_idxs = torch.topk(probs, k=50)
+            # topk_probs = topk_probs / topk_probs.sum()  # renormalize
+            # pick = torch.multinomial(topk_probs, num_samples=1).item()
+            # token_id = topk_idxs[pick].item()
+            token_id = next_logits.argmax(dim=-1).item()
 
             # If EOS, stop generation
             if token_id == tokenizer.eos_id:
