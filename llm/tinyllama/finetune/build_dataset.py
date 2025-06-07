@@ -9,8 +9,8 @@ tokenizer, _ = initialize_model()
 # Path to your input JSON file and output directory
 input_path = "/Users/chutruong/Academic/GraduationThesis/Projects/ipen-agent/data/crawler/msfrpc/data_transform/qa_transformed.json"
 current_dir = os.getcwd()
-train_output_path = os.path.join(current_dir, "train_minimal_data.jsonl")
-val_output_path = os.path.join(current_dir, "val_minimal_data.jsonl")
+train_output_path = os.path.join(current_dir, "train_data.jsonl")
+val_output_path = os.path.join(current_dir, "val_data.jsonl")
 
 # Function from previous step to convert a raw record to (prompt, target)
 def convert_record_to_string(record):

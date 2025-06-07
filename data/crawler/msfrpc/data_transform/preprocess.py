@@ -92,7 +92,6 @@ def canonical_action(obj):
         "type": exploit_type,
         "prerequisites": prereqs,
         "associated_vuln": cves,
-        "command_template": cmd_template
     }
 
 def correct_action_string(idx, module_path):
@@ -176,7 +175,7 @@ def build_training_example(raw_obj, all_actions, distractor_count=2):
         "state": state,
         "available_actions": available,
         "next_action": correct_action_st,
-        "reason": "Because " + reason,
+        "reason": "",
         "source": module_path
     }
     return example
@@ -235,4 +234,4 @@ if __name__ == "__main__":
     input_path = os.path.join(current_dir, "../data/all_modules.jsonl")
     output_path = os.path.join(current_dir, "preprocessed.json")
 
-    main(input_path, output_path, distractor_count=0)
+    main(input_path, output_path, distractor_count=2)
