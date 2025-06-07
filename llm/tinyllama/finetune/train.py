@@ -63,6 +63,8 @@ parser = argparse.ArgumentParser(description="Train a TinyLlama model with LoRA"
 parser.add_argument('--minimal', action='store_true', help='Use minimal dataset for training')
 args = parser.parse_args()
 
+print("Use minimal dataset:", args.minimal)
+
 if args.minimal:
     train_data_file = "train_minimal_data.jsonl"
     val_data_file = "val_minimal_data.jsonl"
