@@ -48,8 +48,8 @@ optimizer = AdamW(model.parameters(), lr=1e-4)
 scaler = GradScaler()
 
 # 3) Hyperparameters: smaller microbatch + accumulation
-num_epochs = 3
-per_device_batch_size = 2  # drop from 16 → 2
+num_epochs = 4
+per_device_batch_size = 4  # drop from 16 → 2
 gradient_accumulation_steps = 4  # 2×4 = effective batch 8
 save_every = 1000  # save/validate every N steps
 
