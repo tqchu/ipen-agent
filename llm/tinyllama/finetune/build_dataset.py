@@ -43,22 +43,27 @@ with open(train_output_path, "w") as train_f:
     for rec in train_records:
         prompt, target = convert_record_to_string(rec)
         out_entry = {"instruction": prompt, "response": target}
-        train_f.write(json.dumps(out_entry) + "\n")
 
         # Compute token length for the concatenated prompt+response
         token_count = len(tokenizer.encode(prompt + json.dumps(target, ensure_ascii=False)))
-        token_lens.append(token_count)
+        if token_count <= 1024:
+            token_lens.append(token_count)
+            train_f.write(json.dumps(out_entry) + "\n")
+
+
 
 # Write the validation set
 with open(val_output_path, "w") as val_f:
     for rec in val_records:
         prompt, target = convert_record_to_string(rec)
         out_entry = {"instruction": prompt, "response": target}
-        val_f.write(json.dumps(out_entry) + "\n")
 
         # Compute token length for the concatenated prompt+response
         token_count = len(tokenizer.encode(prompt + json.dumps(target, ensure_ascii=False)))
-        token_lens.append(token_count)
+
+        if token_count <= 1024:
+            token_lens.append(token_count)
+            val_f.write(json.dumps(out_entry) + "\n")
 
 # After writing all records, print the maximum token length seen
 # plot the distribution of token lengths
