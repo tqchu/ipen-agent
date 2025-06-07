@@ -50,7 +50,7 @@ scaler = GradScaler()
 
 # 3) Hyperparameters: smaller microbatch + accumulation
 num_epochs = 4
-per_device_batch_size = 2  # drop from 16 → 2
+per_device_batch_size = 1  # drop from 16 → 2
 gradient_accumulation_steps = 4  # 2×4 = effective batch 8
 save_every = 1000  # save/validate every N steps
 
@@ -69,8 +69,8 @@ if args.minimal:
     train_data_file = "train_minimal_data.jsonl"
     val_data_file = "val_minimal_data.jsonl"
 
-train_dataset = QADataset(os.path.join(current_dir, "train_data.jsonl"), tokenizer, max_length=512)
-val_dataset = QADataset(os.path.join(current_dir, "val_data.jsonl"), tokenizer, max_length=512)
+train_dataset = QADataset(os.path.join(current_dir, "train_data.jsonl"), tokenizer, max_length=1024)
+val_dataset = QADataset(os.path.join(current_dir, "val_data.jsonl"), tokenizer, max_length=1024)
 
 train_loader = DataLoader(train_dataset, batch_size=per_device_batch_size, shuffle=True)
 val_loader = DataLoader(val_dataset, batch_size=per_device_batch_size, shuffle=False)
