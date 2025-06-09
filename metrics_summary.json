@@ -1,0 +1,15 @@
+{
+  "final_train_loss": 1.1047677172015287,
+  "final_train_ppl": 3.0185232363430137,
+  "final_train_acc": 1.0,
+  "final_val_loss": 4.425004249595734,
+  "final_val_ppl": 83.51316211846458,
+  "final_val_acc": 0.9999065757337141,
+  "best_val_loss": 4.4249715752390975,
+  "best_val_ppl": 83.5104334242011,
+  "best_val_acc": 0.9999132488955917,
+  "steps_to_best": 6000,
+  "hardware": "Tesla P100-SXM2-16GB",
+  "total_training_time_s": 8049.421248435974,
+  "gpu_hours": 2.2359503467877704
+}

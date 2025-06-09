@@ -3,6 +3,8 @@ from typing import Optional
 from env.v1.action import Result
 from model.enum import ShellType, Privilege
 from model.host import Host, Port
+from pentest_server.event import EventType
+from utils.logger import QueueLogger
 
 
 class PenTestState:
@@ -26,46 +28,92 @@ class PenTestState:
         for i in range(self.max_hosts):
             self.hosts[i] = Host()
 
-    def update(self, result: Result):
+    def update(self, result: Result, q_logger:QueueLogger):
         """Update the state with new scan results."""
         for _, host_ip in enumerate(result.discovered_hosts):
             self.add_host(host_ip)
 
+            q_logger.log(
+                EventType.HOST_DISCOVERED,
+                f"Discovered host: {host_ip}"
+            )
+
         for host_ip in result.open_ports:
             for port, service_desc in result.open_ports[host_ip]:
                 self.add_open_port(host_ip, port)
+                q_logger.log(
+                    EventType.PORT_OPEN,
+                    f"Port open on {host_ip}: {port}/{service_desc}"
+                )
 
         for host_ip in result.vulners:
             for port, vulns in result.vulners[host_ip]:
                 for vuln in vulns:
                     self.add_vulnerability(host_ip, port, vuln)
 
+                    q_logger.log(
+                        EventType.VULN_FOUND,
+                        (f"Vulnerability on {host_ip}:{port} – "
+                         f"{vuln.id} ({vuln.severity}, CVSS {vuln.cvss_score}): "
+                         f"{vuln.description}")
+                    )
+
         if result.hosts_shell:
             for host_ip, shell_type in result.hosts_shell.items():
                 self.mark_exploited(host_ip, shell_type)
 
+                q_logger.log(
+                    EventType.SHELL_FOUND,
+                    f"Shell opened on {host_ip}"
+                )
+
         if result.hosts_meterpreter:
             for host_ip, shell_type in result.hosts_meterpreter.items():
                 self.mark_exploited(host_ip, shell_type)
+
+                q_logger.log(
+                    EventType.METERPRETER_FOUND,
+                    f"Meterpreter session on {host_ip}"
+                )
 
         if result.usernames:
             for host_ip, usernames in result.usernames.items():
                 for username in usernames:
                     self.add_username(host_ip, username)
 
+                    q_logger.log(
+                        EventType.USERNAME_FOUND,
+                        f"Discovered username on {host_ip}: {username}"
+                    )
+
         if result.credentials:
             for host_ip, credentials in result.credentials.items():
                 for username, password in credentials:
                     self.add_credential(host_ip, username, password)
+
+                    q_logger.log(
+                        EventType.CREDENTIAL_FOUND,
+                        f"Credential for {host_ip}: {username}/{password}"
+                    )
 
         if result.tokens:
             for host_ip, tokens in result.tokens.items():
                 for token in tokens:
                     self.add_token(host_ip, token)
 
+                    q_logger.log(
+                        EventType.TOKEN_FOUND,
+                        f"Token captured on {host_ip}: {token}"
+                    )
+
         if result.privileges:
             for host_ip, level in result.privileges.items():
                 self.set_privilege(host_ip, level)
+
+                q_logger.log(
+                    EventType.PRIVILEGE_SET,
+                    f"Privilege level set on {host_ip}: {level}"
+                )
 
     def add_host(self, host_ip, privilege_level=0, shell_level=0) -> Optional[int]:
         """Add a discovered host if not already known, return its index."""

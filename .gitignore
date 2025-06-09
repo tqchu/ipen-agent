@@ -7,3 +7,5 @@ backup_exploits/
 vulnerabilities*
 *.patch
 *.safetensors
+pentest-ui/node_modules/
+*.pt
