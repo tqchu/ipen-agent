@@ -28,35 +28,43 @@ class PenTestState:
         for i in range(self.max_hosts):
             self.hosts[i] = Host()
 
-    def update(self, result: Result, q_logger:QueueLogger):
+    def update(self, result: Result, q_logger: QueueLogger):
         """Update the state with new scan results."""
         for _, host_ip in enumerate(result.discovered_hosts):
             self.add_host(host_ip)
 
             q_logger.log(
                 EventType.HOST_DISCOVERED,
-                f"Discovered host: {host_ip}"
+                f"Discovered host: {host_ip}",
+                hosts=result.discovered_hosts,
             )
 
-        for host_ip in result.open_ports:
+        for host_ip, ports in result.open_ports.items():
             for port, service_desc in result.open_ports[host_ip]:
                 self.add_open_port(host_ip, port)
+
+            port_strs = [f"{port}/{svc}" for port, svc in ports]
+            if port_strs:
                 q_logger.log(
                     EventType.PORT_OPEN,
-                    f"Port open on {host_ip}: {port}/{service_desc}"
+                    f"Open ports on {host_ip}: {', '.join(port_strs)}",
+                    ports=result.open_ports,
                 )
 
         for host_ip in result.vulners:
+            vuln_strs = []
             for port, vulns in result.vulners[host_ip]:
                 for vuln in vulns:
                     self.add_vulnerability(host_ip, port, vuln)
 
-                    q_logger.log(
-                        EventType.VULN_FOUND,
-                        (f"Vulnerability on {host_ip}:{port} – "
-                         f"{vuln.id} ({vuln.severity}, CVSS {vuln.cvss_score}): "
-                         f"{vuln.description}")
-                    )
+                    vuln_strs.append(f"{port}: {vuln}")
+
+            if vuln_strs:
+                q_logger.log(
+                    EventType.VULN_FOUND,
+                    f"Vulnerabilities on {host_ip}: {', '.join(vuln_strs)}",
+                    vulnerabilities=result.vulners,
+                )
 
         if result.hosts_shell:
             for host_ip, shell_type in result.hosts_shell.items():
@@ -239,7 +247,7 @@ class PenTestState:
 
     def is_done(self):
         for i in range(self.max_hosts):
-            if self.hosts[i].shell_level >0:
+            if self.hosts[i].shell_level > 0:
                 return True
 
         return False
